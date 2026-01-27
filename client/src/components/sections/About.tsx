@@ -24,7 +24,7 @@ export function About() {
               <div className="border-l border-white/20 pl-6">
                 <h3 className="text-2xl font-display font-bold mb-2">Xaloc</h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-4">
-                  Diseño visual y experiencia de usuario. Se asegura de que cada píxel tenga un propósito y cada interacción sea memorable.
+                  Experto en marketing aplicado y crecimiento digital. Obsesionado con que cada idea se convierta en resultados reales.
                 </p>
               </div>
             </FadeIn>

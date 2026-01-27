@@ -5,8 +5,19 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 overflow-hidden pt-20">
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[20%] right-[10%] w-[300px] h-[300px] bg-white/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] bg-blue-900/10 rounded-full blur-[120px]" />
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/src/assets/hero-impact.png" 
+            alt="Abstract Background" 
+            className="w-full h-full object-cover opacity-60 mix-blend-screen scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent" />
+        </div>
+        
+        {/* Keeping subtle blurs for extra depth */}
+        <div className="absolute top-[20%] right-[10%] w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] mix-blend-screen" />
       </div>
 
       <div className="relative z-10 max-w-4xl">
@@ -33,8 +44,8 @@ export function Hero() {
            <div className="mt-12 flex flex-col sm:flex-row gap-6 items-start">
              <div className="h-[1px] w-12 bg-white/30 mt-3 hidden sm:block"></div>
              <p className="text-sm text-white/40 max-w-xs leading-relaxed uppercase tracking-wide">
-               No es solo una web.<br/>
-               Es una declaración de intenciones.
+               Cada detalle cuenta.<br/>
+               Nada está al azar.
              </p>
            </div>
         </FadeIn>

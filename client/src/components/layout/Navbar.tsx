@@ -39,9 +39,9 @@ export function Navbar() {
         )}
       >
         <Link href="/">
-          <a className="text-xl font-display font-bold tracking-tighter text-white z-50 relative group cursor-pointer" onClick={() => setMobileMenuOpen(false)}>
-            IZAN & XALOC
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          <a className="text-xl font-display font-bold tracking-tighter text-white z-50 relative group cursor-pointer flex items-center gap-1" onClick={() => setMobileMenuOpen(false)}>
+            <span className="text-2xl">IX</span>
+            <span className="w-1.5 h-1.5 bg-white rounded-full mt-1"></span>
           </a>
         </Link>
 
