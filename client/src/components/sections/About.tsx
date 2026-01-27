@@ -31,13 +31,19 @@ export function About() {
           </div>
         </div>
 
-        <div className="flex-1 w-full relative h-[400px] hidden md:block">
-           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-lg border border-white/5 backdrop-blur-sm p-8 flex items-center justify-center">
-             <span className="font-display text-4xl font-bold opacity-20">I & X</span>
+        <div className="flex-1 w-full relative h-[400px] hidden md:block overflow-hidden rounded-lg">
+           {/* New fusion background */}
+           <img 
+             src="/src/assets/about-fusion.png" 
+             alt="Fusion of tech and art" 
+             className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-lighten hover:scale-105 transition-transform duration-700"
+           />
+           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+           
+           <div className="absolute bottom-8 left-8">
+             <span className="font-display text-4xl font-bold text-white">IX.</span>
+             <p className="text-xs text-white/60 mt-2 font-mono uppercase">Izan & Xaloc</p>
            </div>
-           {/* Abstract decorative elements */}
-           <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
-           <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
         </div>
 
       </div>

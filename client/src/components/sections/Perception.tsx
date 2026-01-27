@@ -2,8 +2,11 @@ import { FadeIn } from "../layout/FadeIn";
 
 export function Perception() {
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-24 border-t border-white/5">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="py-24 px-6 md:px-12 lg:px-24 border-t border-white/5 relative overflow-hidden">
+      {/* Subtle light leak background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-3xl mx-auto text-center relative z-10">
         <FadeIn>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 leading-tight">
             Tu negocio es bueno. <br/>

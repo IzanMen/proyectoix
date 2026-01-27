@@ -20,12 +20,17 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="process" className="py-24 px-6 md:px-12 lg:px-24">
-      <FadeIn className="mb-16">
+    <section id="process" className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+         <img src="/src/assets/process-lines.png" alt="" className="w-full h-full object-cover mix-blend-screen" />
+         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+      </div>
+
+      <FadeIn className="mb-16 relative z-10">
         <h2 className="text-sm font-mono uppercase tracking-widest text-white/40">El Proceso</h2>
       </FadeIn>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-white/10 pt-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-white/10 pt-12 relative z-10">
         {steps.map((step, i) => (
           <FadeIn key={i} delay={i * 0.2} direction="up">
             <div className="group">
