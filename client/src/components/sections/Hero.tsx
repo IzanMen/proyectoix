@@ -25,7 +25,7 @@ export function Hero() {
 
         <FadeIn direction="up" delay={0.4}>
           <p className="text-xl md:text-2xl text-white/70 max-w-lg font-light leading-relaxed">
-            Para pequeños negocios en Menorca que quieren jugar en otra liga.
+            Para pequeños negocios en Menorca.
           </p>
         </FadeIn>
         

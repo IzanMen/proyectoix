@@ -1,46 +1,130 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 50);
   });
 
-  return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-300",
-        scrolled ? "bg-black/60 backdrop-blur-md border-b border-white/5 py-3" : "bg-transparent py-6"
-      )}
-    >
-      <Link href="/">
-        <a className="text-xl font-display font-bold tracking-tighter text-white z-50 relative group cursor-pointer">
-          IZAN & XALOC
-          <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-        </a>
-      </Link>
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [mobileMenuOpen]);
 
-      <div className="hidden md:flex items-center gap-8">
-        <a href="#process" className="text-sm font-medium text-white/70 hover:text-white transition-colors">Proceso</a>
-        <a href="#about" className="text-sm font-medium text-white/70 hover:text-white transition-colors">Nosotros</a>
-        <a href="#contact" className="px-4 py-2 text-sm font-medium bg-white text-black rounded-sm hover:bg-white/90 transition-colors">
-          Contactar
-        </a>
-      </div>
-      
-      {/* Mobile Menu Icon Placeholder - keeping it simple for now */}
-      <div className="md:hidden w-6 h-6 flex flex-col justify-center items-end gap-1.5 cursor-pointer">
-        <div className="w-6 h-[1px] bg-white"></div>
-        <div className="w-4 h-[1px] bg-white"></div>
-      </div>
-    </motion.nav>
+  const navLinks = [
+    { name: "Proceso", href: "#process" },
+    { name: "Nosotros", href: "#about" },
+    { name: "Contactar", href: "#contact", primary: true },
+  ];
+
+  return (
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-300",
+          scrolled ? "bg-black/60 backdrop-blur-md border-b border-white/5 py-3" : "bg-transparent py-6"
+        )}
+      >
+        <Link href="/">
+          <a className="text-xl font-display font-bold tracking-tighter text-white z-50 relative group cursor-pointer" onClick={() => setMobileMenuOpen(false)}>
+            IZAN & XALOC
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className={cn(
+                "text-sm font-medium transition-colors",
+                link.primary 
+                  ? "px-4 py-2 bg-white text-black rounded-sm hover:bg-white/90" 
+                  : "text-white/70 hover:text-white"
+              )}
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+        
+        {/* Mobile Menu Toggle */}
+        <button 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden z-50 w-10 h-10 flex items-center justify-center relative focus:outline-none"
+        >
+          <div className="flex flex-col items-end gap-1.5 w-6">
+             <motion.span 
+               animate={mobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+               className="w-6 h-[1px] bg-white block origin-center transition-all"
+             />
+             <motion.span 
+               animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+               className="w-4 h-[1px] bg-white block transition-all"
+             />
+             <motion.span 
+               animate={mobileMenuOpen ? { rotate: -45, y: -5, width: 24 } : { rotate: 0, y: 0, width: 16 }}
+               className="w-4 h-[1px] bg-white block origin-center transition-all"
+             />
+          </div>
+        </button>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
+            animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
+            exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)", transition: { duration: 0.5, ease: "easeInOut" } }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col justify-center items-center md:hidden"
+          >
+            <div className="flex flex-col gap-8 text-center">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.1 }}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "text-3xl font-display font-bold tracking-tight",
+                    link.primary ? "text-white" : "text-white/60 hover:text-white transition-colors"
+                  )}
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+            </div>
+            
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              transition={{ delay: 0.5 }}
+              className="absolute bottom-12 text-white/20 text-xs font-mono uppercase tracking-widest"
+            >
+              Menorca
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
