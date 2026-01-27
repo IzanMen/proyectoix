@@ -1,27 +1,14 @@
 import { FadeIn } from "../layout/FadeIn";
 import { ArrowRight, Mail } from "lucide-react";
-import { motion } from "framer-motion";
 
 export function Contact() {
   return (
     <section id="contact" className="min-h-[80vh] flex flex-col items-center justify-center text-center relative overflow-hidden py-32">
       
-      {/* Dynamic Background */}
+      {/* Dynamic Background Gradient only - removed specific portal image */}
       <div className="absolute inset-0 z-0">
-         <motion.div 
-           initial={{ scale: 1, opacity: 0.4 }}
-           animate={{ scale: 1.1, opacity: 0.6 }}
-           transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-           className="absolute inset-0"
-         >
-           <img 
-             src="/src/assets/contact-portal.png" 
-             alt="Future Horizon" 
-             className="w-full h-full object-cover mix-blend-screen"
-           />
-         </motion.div>
          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
-         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
+         <div className="absolute bottom-0 left-0 right-0 h-[300px] bg-blue-900/10 blur-[100px]" />
       </div>
 
       <div className="relative z-10 max-w-4xl px-6">

@@ -4,7 +4,8 @@ import menorcaImg from "../../assets/menorca-abstract.png";
 export function Context() {
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 relative overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-40">
+      {/* Reduced opacity to blend better with global background */}
+      <div className="absolute inset-0 z-0 opacity-20">
         <img 
           src={menorcaImg} 
           alt="Menorca Abstract" 

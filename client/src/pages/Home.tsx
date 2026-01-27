@@ -6,6 +6,7 @@ import { Context } from "@/components/sections/Context";
 import { Process } from "@/components/sections/Process";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
+import { InteractiveBackground } from "@/components/layout/InteractiveBackground";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function Home() {
@@ -17,7 +18,10 @@ export default function Home() {
   });
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-transparent text-foreground selection:bg-white selection:text-black">
+      {/* Global Interactive Background */}
+      <InteractiveBackground />
+      
       {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-[2px] bg-white origin-left z-[100]"
@@ -26,7 +30,7 @@ export default function Home() {
       
       <Navbar />
       
-      <main>
+      <main className="relative z-10">
         <Hero />
         <Perception />
         <Services />

@@ -2,7 +2,7 @@ import { FadeIn } from "../layout/FadeIn";
 
 export function About() {
   return (
-    <section id="about" className="py-24 px-6 md:px-12 lg:px-24 bg-white/[0.02]">
+    <section id="about" className="py-24 px-6 md:px-12 lg:px-24 bg-white/[0.02] backdrop-blur-sm border-y border-white/5">
       <div className="flex flex-col md:flex-row gap-16 max-w-6xl mx-auto items-center">
         
         <div className="flex-1">
@@ -31,19 +31,14 @@ export function About() {
           </div>
         </div>
 
-        <div className="flex-1 w-full relative h-[400px] hidden md:block overflow-hidden rounded-lg">
-           {/* New fusion background */}
-           <img 
-             src="/src/assets/about-fusion.png" 
-             alt="Fusion of tech and art" 
-             className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-lighten hover:scale-105 transition-transform duration-700"
-           />
-           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-           
-           <div className="absolute bottom-8 left-8">
-             <span className="font-display text-4xl font-bold text-white">IX.</span>
-             <p className="text-xs text-white/60 mt-2 font-mono uppercase">Izan & Xaloc</p>
-           </div>
+        {/* Simplified visual element that respects the global background */}
+        <div className="flex-1 w-full relative h-[400px] hidden md:flex items-center justify-center">
+           <FadeIn delay={0.3} className="relative w-full h-full flex items-center justify-center">
+             <div className="absolute inset-0 bg-white/5 rounded-full blur-[100px] opacity-20"></div>
+             <div className="relative z-10 border border-white/10 p-12 rounded-lg bg-black/40 backdrop-blur-md">
+                <span className="font-display text-8xl font-bold text-white/10 tracking-tighter">IX.</span>
+             </div>
+           </FadeIn>
         </div>
 
       </div>

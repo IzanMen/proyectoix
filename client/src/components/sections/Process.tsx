@@ -20,12 +20,9 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="process" className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-         <img src="/src/assets/process-lines.png" alt="" className="w-full h-full object-cover mix-blend-screen" />
-         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
-      </div>
-
+    <section id="process" className="py-24 px-6 md:px-12 lg:px-24 relative">
+      {/* Removed static background image to maintain consistency */}
+      
       <FadeIn className="mb-16 relative z-10">
         <h2 className="text-sm font-mono uppercase tracking-widest text-white/40">El Proceso</h2>
       </FadeIn>
