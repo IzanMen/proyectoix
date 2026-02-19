@@ -81,9 +81,17 @@ export function InteractiveBackground() {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        // Randomly tint some particles purple
-        ctx.fillStyle = Math.random() > 0.8 ? "rgba(180, 80, 255, 0.6)" : "rgba(255, 255, 255, 0.2)"; 
+        // All particles white, bright and crisp
+        ctx.fillStyle = "rgba(255, 255, 255, 0.9)"; 
         ctx.fill();
+        
+        // Add a subtle glow to some particles
+        if (Math.random() > 0.9) {
+           ctx.shadowBlur = 10;
+           ctx.shadowColor = "white";
+           ctx.fill();
+           ctx.shadowBlur = 0;
+        }
       }
     }
 
@@ -96,16 +104,16 @@ export function InteractiveBackground() {
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
       
-      // Draw Nebula/Glow (Static or slowly moving)
+      // Stronger Nebula/Glow
       const gradient = ctx.createRadialGradient(width * 0.8, height * 0.2, 0, width * 0.8, height * 0.2, width * 0.6);
-      gradient.addColorStop(0, "rgba(138, 43, 226, 0.08)"); // Center purple
-      gradient.addColorStop(0.5, "rgba(75, 0, 130, 0.03)"); // Outer dark purple
+      gradient.addColorStop(0, "rgba(140, 20, 255, 0.15)"); // Stronger Center purple
+      gradient.addColorStop(0.5, "rgba(80, 0, 160, 0.08)"); // Outer dark purple
       gradient.addColorStop(1, "transparent");
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
 
       const gradient2 = ctx.createRadialGradient(width * 0.2, height * 0.8, 0, width * 0.2, height * 0.8, width * 0.5);
-      gradient2.addColorStop(0, "rgba(60, 20, 180, 0.06)"); // Blue-ish purple
+      gradient2.addColorStop(0, "rgba(120, 40, 255, 0.12)"); // Stronger Blue-ish purple
       gradient2.addColorStop(1, "transparent");
       ctx.fillStyle = gradient2;
       ctx.fillRect(0, 0, width, height);
@@ -127,7 +135,9 @@ export function InteractiveBackground() {
           
           if (distance < 150) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(180, 80, 255, ${0.05 * (1 - distance / 150)})`; // Purple tinted lines
+            // Crisp white connections with slight purple tint only when very close
+            const opacity = 1 - distance / 150;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * opacity})`; 
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();

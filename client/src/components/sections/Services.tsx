@@ -25,10 +25,10 @@ export function Services() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
         {services.map((item, i) => (
           <FadeIn key={i} delay={i * 0.2} className="group">
-            <div className="mb-6 p-4 rounded-full bg-white/5 w-fit border border-white/10 text-white group-hover:bg-[hsl(270,90%,65%)] group-hover:border-[hsl(270,90%,65%)] group-hover:shadow-[0_0_30px_-5px_hsl(270,90%,65%)] transition-all duration-300">
+            <div className="mb-6 p-4 rounded-full bg-white/5 w-fit border border-white/10 text-white group-hover:bg-[hsl(270,100%,60%)] group-hover:border-[hsl(270,100%,60%)] group-hover:shadow-[0_0_40px_-5px_hsl(270,100%,60%)] transition-all duration-300">
               {item.icon}
             </div>
-            <h3 className="text-xl font-display font-bold mb-4">{item.title}</h3>
+            <h3 className="text-xl font-display font-bold mb-4 group-hover:text-[hsl(270,100%,80%)] transition-colors">{item.title}</h3>
             <p className="text-white/60 leading-relaxed text-sm">
               {item.desc}
             </p>

@@ -34,10 +34,11 @@
 
   --color-border: hsl(0 0% 15%);
   --color-input: hsl(0 0% 15%);
-  --color-ring: hsl(270 90% 60%); /* Purple ring */
+  --color-ring: hsl(270 100% 60%); /* Purple ring */
 
-  --color-purple-tech: hsl(270 90% 65%);
-  --color-purple-tech-dim: hsl(270 90% 65% / 0.2);
+  --color-purple-tech: hsl(270 100% 60%);
+  --color-purple-tech-dim: hsl(270 100% 60% / 0.3);
+  --color-purple-glow: hsl(270 100% 60% / 0.6);
 
   --radius-sm: 0.2rem;
   --radius-md: 0.4rem;

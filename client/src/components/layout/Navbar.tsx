@@ -41,7 +41,7 @@ export function Navbar() {
         <Link href="/">
           <a className="text-xl font-display font-bold tracking-tighter text-white z-50 relative group cursor-pointer flex items-center gap-1" onClick={() => setMobileMenuOpen(false)}>
             <span className="text-2xl">IX</span>
-            <span className="w-1.5 h-1.5 bg-[hsl(270,90%,65%)] rounded-full mt-1 shadow-[0_0_10px_hsl(270,90%,65%)]"></span>
+            <span className="w-2 h-2 bg-[hsl(270,100%,60%)] rounded-full mt-1 shadow-[0_0_15px_hsl(270,100%,60%)] animate-pulse"></span>
           </a>
         </Link>
 
