@@ -17,6 +17,7 @@ export async function registerRoutes(
       }
 
       const { client, fromEmail } = await getUncachableSendGridClient();
+      console.log("SendGrid from email:", fromEmail);
 
       const htmlContent = `
         <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #fff; padding: 40px; border-radius: 12px;">
