@@ -60,25 +60,30 @@ export function ContactForm() {
     }
   };
 
+  const [errorMsg, setErrorMsg] = useState("");
+
   const handleSubmit = async () => {
     setIsSubmitting(true);
+    setErrorMsg("");
     
-    // Simulate network request
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    // Construct mailto link
-    const subject = `Nuevo Proyecto: ${formData.businessName}`;
-    const body = `
-Nombre del Negocio: ${formData.businessName}
-Tiene Web: ${formData.hasWebsite}
-Objetivo: ${formData.goal}
-Valores: ${formData.values}
-    `;
-    
-    window.location.href = `mailto:prcyecto.ix@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message || "Error al enviar");
+      }
+
+      setIsSuccess(true);
+    } catch (err: any) {
+      setErrorMsg(err.message || "Error al enviar. Inténtalo de nuevo.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -100,7 +105,7 @@ Valores: ${formData.values}
         </div>
         <h3 className="text-3xl font-display font-bold mb-4">¡Recibido!</h3>
         <p className="text-white/60 mb-8">
-          Hemos preparado el correo con tus respuestas. Dale a enviar en tu gestor de correo y nos pondremos en contacto pronto.
+          Hemos recibido tu información. Nos pondremos en contacto contigo pronto.
         </p>
         <button 
           onClick={() => {
@@ -200,6 +205,10 @@ Valores: ${formData.values}
               </div>
             )}
           </div>
+
+          {errorMsg && (
+            <p className="text-red-400 text-sm mt-4">{errorMsg}</p>
+          )}
 
           <div className="mt-8 flex justify-end">
             <button
