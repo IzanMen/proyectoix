@@ -104,16 +104,21 @@ export function InteractiveBackground() {
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
       
-      // Stronger Nebula/Glow
+      const time = Date.now() * 0.001;
+      
+      // Dynamic Nebula/Glow with pulsing
+      // We use the underlying image for structure, and these gradients for living movement
+      const pulse1 = Math.sin(time * 0.5) * 0.2 + 0.8; // Pulse between 0.6 and 1.0
       const gradient = ctx.createRadialGradient(width * 0.8, height * 0.2, 0, width * 0.8, height * 0.2, width * 0.6);
-      gradient.addColorStop(0, "rgba(140, 20, 255, 0.15)"); // Stronger Center purple
-      gradient.addColorStop(0.5, "rgba(80, 0, 160, 0.08)"); // Outer dark purple
+      gradient.addColorStop(0, `rgba(140, 20, 255, ${0.15 * pulse1})`); // Stronger Center purple
+      gradient.addColorStop(0.5, `rgba(80, 0, 160, ${0.08 * pulse1})`); // Outer dark purple
       gradient.addColorStop(1, "transparent");
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
 
+      const pulse2 = Math.cos(time * 0.3) * 0.2 + 0.8;
       const gradient2 = ctx.createRadialGradient(width * 0.2, height * 0.8, 0, width * 0.2, height * 0.8, width * 0.5);
-      gradient2.addColorStop(0, "rgba(120, 40, 255, 0.12)"); // Stronger Blue-ish purple
+      gradient2.addColorStop(0, `rgba(120, 40, 255, ${0.12 * pulse2})`); // Stronger Blue-ish purple
       gradient2.addColorStop(1, "transparent");
       ctx.fillStyle = gradient2;
       ctx.fillRect(0, 0, width, height);
@@ -157,9 +162,17 @@ export function InteractiveBackground() {
   }, []);
 
   return (
-    <canvas 
-      ref={canvasRef} 
-      className="fixed inset-0 z-0 pointer-events-none bg-[#050505]" // Dark background
-    />
+    <div className="fixed inset-0 z-0 pointer-events-none bg-[#050505]">
+      {/* Static Nebula Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 mix-blend-screen scale-110"
+        style={{ backgroundImage: `url(/src/assets/nebula-impact.png)` }}
+      />
+      {/* Dynamic Canvas Overlay */}
+      <canvas 
+        ref={canvasRef} 
+        className="absolute inset-0 w-full h-full" 
+      />
+    </div>
   );
 }
