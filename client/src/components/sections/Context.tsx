@@ -28,7 +28,7 @@ export function Context() {
             Entendemos la identidad local porque somos de aquí. 
             Pero aplicamos los estándares de diseño que se ven en Londres o Nueva York.
             <br/><br/>
-            Queremos que los negocios de la isla tengan una presencia digital de la que sentirse orgullosos.
+            Queremos que los negocios tengan una presencia digital de la que sentirse orgullosos.
           </p>
         </FadeIn>
       </div>

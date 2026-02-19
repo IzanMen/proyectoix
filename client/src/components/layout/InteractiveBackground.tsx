@@ -81,7 +81,8 @@ export function InteractiveBackground() {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255, 255, 255, 0.2)"; // Subtle dot
+        // Randomly tint some particles purple
+        ctx.fillStyle = Math.random() > 0.8 ? "rgba(180, 80, 255, 0.6)" : "rgba(255, 255, 255, 0.2)"; 
         ctx.fill();
       }
     }
@@ -95,6 +96,20 @@ export function InteractiveBackground() {
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
       
+      // Draw Nebula/Glow (Static or slowly moving)
+      const gradient = ctx.createRadialGradient(width * 0.8, height * 0.2, 0, width * 0.8, height * 0.2, width * 0.6);
+      gradient.addColorStop(0, "rgba(138, 43, 226, 0.08)"); // Center purple
+      gradient.addColorStop(0.5, "rgba(75, 0, 130, 0.03)"); // Outer dark purple
+      gradient.addColorStop(1, "transparent");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+
+      const gradient2 = ctx.createRadialGradient(width * 0.2, height * 0.8, 0, width * 0.2, height * 0.8, width * 0.5);
+      gradient2.addColorStop(0, "rgba(60, 20, 180, 0.06)"); // Blue-ish purple
+      gradient2.addColorStop(1, "transparent");
+      ctx.fillStyle = gradient2;
+      ctx.fillRect(0, 0, width, height);
+
       // Update and draw particles
       particles.forEach(particle => {
         particle.update();
@@ -102,7 +117,6 @@ export function InteractiveBackground() {
       });
       
       // Draw connections
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.03)"; // Very subtle lines
       ctx.lineWidth = 1;
       
       for (let i = 0; i < particles.length; i++) {
@@ -113,6 +127,7 @@ export function InteractiveBackground() {
           
           if (distance < 150) {
             ctx.beginPath();
+            ctx.strokeStyle = `rgba(180, 80, 255, ${0.05 * (1 - distance / 150)})`; // Purple tinted lines
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();

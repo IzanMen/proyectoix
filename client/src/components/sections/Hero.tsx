@@ -12,21 +12,21 @@ export function Hero() {
 
       <div className="relative z-10 max-w-4xl">
         <FadeIn direction="up" delay={0.2}>
-          <span className="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-widest uppercase border border-white/20 rounded-full bg-white/5 text-white/80">
-            Diseño Web Premium
+          <span className="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-widest uppercase border border-white/10 rounded-full bg-white/5 text-white/80 backdrop-blur-sm">
+            <span className="text-[hsl(270,90%,65%)] mr-2">•</span> Diseño Web Premium
           </span>
         </FadeIn>
 
         <FadeIn direction="up" delay={0.3}>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] tracking-tight mb-8 text-white">
             Mejora de <br />
-            <span className="text-white/50">imagen online.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white/50 to-[hsl(270,90%,65%)]">imagen online.</span>
           </h1>
         </FadeIn>
 
         <FadeIn direction="up" delay={0.4}>
           <p className="text-xl md:text-2xl text-white/70 max-w-lg font-light leading-relaxed">
-            Para pequeños negocios en Menorca.
+            Para pequeños y medianos negocios.
           </p>
         </FadeIn>
         
@@ -47,7 +47,7 @@ export function Hero() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
-        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
+        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-[hsl(270,90%,65%)] to-transparent opacity-50"></div>
       </motion.div>
     </section>
   );

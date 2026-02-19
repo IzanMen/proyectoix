@@ -16,7 +16,7 @@ export function Perception() {
         
         <FadeIn delay={0.2}>
           <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl mx-auto">
-            Muchos negocios en Menorca ofrecen un servicio excelente, pero su presencia digital se ha quedado atrás. 
+            Muchos negocios ofrecen un servicio excelente, pero su presencia digital se ha quedado atrás. 
             Nosotros cerramos esa brecha con diseño de alto impacto.
           </p>
         </FadeIn>

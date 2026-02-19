@@ -14,7 +14,7 @@ export function Contact() {
       <div className="relative z-10 max-w-4xl px-6">
         <FadeIn>
           <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full bg-white/5 border border-white/10 text-white/60 text-xs tracking-widest uppercase">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-[hsl(270,90%,65%)] animate-pulse shadow-[0_0_10px_hsl(270,90%,65%)]"></span>
             Disponible para nuevos proyectos
           </div>
         </FadeIn>
@@ -35,11 +35,11 @@ export function Contact() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a 
               href="mailto:hola@izanyxaloc.com" 
-              className="group relative inline-flex items-center gap-4 px-8 py-5 bg-white text-black text-lg font-bold tracking-tight rounded-sm hover:scale-105 transition-all duration-300 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
+              className="group relative inline-flex items-center gap-4 px-8 py-5 bg-white text-black text-lg font-bold tracking-tight rounded-sm hover:scale-105 transition-all duration-300 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] hover:shadow-[0_0_50px_-10px_hsl(270,90%,65%,0.5)]"
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-5 h-5 group-hover:text-[hsl(270,90%,60%)] transition-colors" />
               Mejorar mi imagen
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform group-hover:text-[hsl(270,90%,60%)]" />
             </a>
           </div>
         </FadeIn>
