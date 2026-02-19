@@ -61,6 +61,9 @@ export async function registerRoutes(
       return res.json({ success: true });
     } catch (error: any) {
       console.error("Error sending email:", error);
+      if (error.response?.body?.errors) {
+        console.error("SendGrid errors:", JSON.stringify(error.response.body.errors));
+      }
       return res.status(500).json({ message: "Error al enviar el mensaje. Inténtalo de nuevo." });
     }
   });
