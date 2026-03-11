@@ -10,9 +10,9 @@ export async function registerRoutes(
 
   app.post("/api/contact", async (req, res) => {
     try {
-      const { businessName, hasWebsite, goal, values } = req.body;
+      const { businessName, contact, hasWebsite, goal, values } = req.body;
 
-      if (!businessName || !hasWebsite || !goal || !values) {
+      if (!businessName || !contact || !hasWebsite || !goal || !values) {
         return res.status(400).json({ message: "Todos los campos son obligatorios." });
       }
 
@@ -29,6 +29,11 @@ export async function registerRoutes(
           <div style="margin-bottom: 24px;">
             <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Negocio</p>
             <p style="font-size: 18px; margin: 0;">${businessName}</p>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Contacto</p>
+            <p style="font-size: 18px; margin: 0;">${contact}</p>
           </div>
 
           <div style="margin-bottom: 24px;">

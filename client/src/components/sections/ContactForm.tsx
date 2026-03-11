@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 
 interface FormData {
   businessName: string;
+  contact: string;
   hasWebsite: string;
   goal: string;
   values: string;
@@ -15,6 +16,13 @@ const questions = [
     id: "businessName",
     label: "¿Cómo se llama tu negocio?",
     placeholder: "Ej: Restaurante Sa Caleta...",
+    type: "text"
+  },
+  {
+    id: "contact",
+    label: "¿Dónde te contactamos?",
+    description: "Déjanos tu teléfono o email para que podamos responderte.",
+    placeholder: "Ej: 612 345 678 o tu@email.com",
     type: "text"
   },
   {
@@ -42,6 +50,7 @@ export function ContactForm() {
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState<FormData>({
     businessName: "",
+    contact: "",
     hasWebsite: "",
     goal: "",
     values: ""
@@ -111,7 +120,7 @@ export function ContactForm() {
           onClick={() => {
             setIsSuccess(false);
             setStep(0);
-            setFormData({ businessName: "", hasWebsite: "", goal: "", values: "" });
+            setFormData({ businessName: "", contact: "", hasWebsite: "", goal: "", values: "" });
           }}
           className="text-sm text-[hsl(270,100%,60%)] hover:text-white transition-colors"
         >
