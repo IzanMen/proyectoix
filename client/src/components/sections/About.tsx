@@ -1,5 +1,4 @@
 import { FadeIn } from "../layout/FadeIn";
-import teamPhoto from "@assets/hf_20260311_184427_61c15d63-f1c1-4250-b192-db7b6cc03f1f_(1)_1773254834149.png";
 
 export function About() {
   return (
@@ -34,32 +33,31 @@ export function About() {
 
         <div className="flex-1 w-full relative hidden md:flex items-center justify-center">
            <FadeIn delay={0.3} className="relative w-full flex items-center justify-center">
-             <div className="absolute -inset-8 bg-[hsl(270,100%,60%)]/5 rounded-full blur-[80px]"></div>
-             <div className="relative z-10 rounded-2xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-[#0a0a0a]/20 z-10"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/50 via-transparent to-[#0a0a0a]/50 z-10"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/30 to-transparent z-10"></div>
-                <div className="absolute inset-0 border border-white/5 rounded-2xl z-20"></div>
+             <div className="absolute -inset-12 bg-[hsl(270,100%,60%)]/8 rounded-full blur-[100px]"></div>
+             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[2px] bg-gradient-to-r from-transparent via-[hsl(270,100%,60%)]/30 to-transparent"></div>
+             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-[40px] bg-[hsl(270,100%,60%)]/5 blur-[20px] rounded-full"></div>
+             <div className="relative z-10">
+                <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
                 <img 
-                  src={teamPhoto} 
+                  src="/team-photo.png" 
                   alt="Izan y Xaloc" 
-                  className="w-full h-auto max-h-[450px] object-cover grayscale-[40%] contrast-[1.15] brightness-[0.55] saturate-[0.8]"
+                  className="w-full h-auto max-h-[450px] object-contain drop-shadow-[0_0_30px_rgba(124,58,237,0.15)]"
                   data-testid="img-team-photo"
                 />
              </div>
            </FadeIn>
         </div>
 
-        <div className="md:hidden w-full">
+        <div className="md:hidden w-full flex justify-center">
           <FadeIn delay={0.3}>
-            <div className="relative rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-[#0a0a0a]/20 z-10"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/50 via-transparent to-[#0a0a0a]/50 z-10"></div>
-              <div className="absolute inset-0 border border-white/5 rounded-2xl z-20"></div>
+            <div className="relative">
+              <div className="absolute -inset-8 bg-[hsl(270,100%,60%)]/5 rounded-full blur-[60px]"></div>
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[2px] bg-gradient-to-r from-transparent via-[hsl(270,100%,60%)]/30 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
               <img 
-                src={teamPhoto} 
+                src="/team-photo.png" 
                 alt="Izan y Xaloc" 
-                className="w-full h-auto object-cover grayscale-[40%] contrast-[1.15] brightness-[0.55] saturate-[0.8]"
+                className="w-full h-auto max-h-[400px] object-contain drop-shadow-[0_0_20px_rgba(124,58,237,0.15)]"
                 data-testid="img-team-photo-mobile"
               />
             </div>
