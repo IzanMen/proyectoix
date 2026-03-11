@@ -1,4 +1,5 @@
 import { FadeIn } from "../layout/FadeIn";
+import teamPhoto from "@assets/hf_20260311_184427_61c15d63-f1c1-4250-b192-db7b6cc03f1f_(1)_1773254834149.png";
 
 export function About() {
   return (
@@ -31,14 +32,38 @@ export function About() {
           </div>
         </div>
 
-        {/* Simplified visual element that respects the global background */}
-        <div className="flex-1 w-full relative h-[400px] hidden md:flex items-center justify-center">
-           <FadeIn delay={0.3} className="relative w-full h-full flex items-center justify-center">
-             <div className="absolute inset-0 bg-white/5 rounded-full blur-[100px] opacity-20"></div>
-             <div className="relative z-10 border border-white/10 p-12 rounded-lg bg-black/40 backdrop-blur-md">
-                <span className="font-display text-8xl font-bold text-white/10 tracking-tighter">IX.</span>
+        <div className="flex-1 w-full relative hidden md:flex items-center justify-center">
+           <FadeIn delay={0.3} className="relative w-full flex items-center justify-center">
+             <div className="absolute -inset-8 bg-[hsl(270,100%,60%)]/5 rounded-full blur-[80px]"></div>
+             <div className="relative z-10 rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-[#0a0a0a]/20 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/50 via-transparent to-[#0a0a0a]/50 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/30 to-transparent z-10"></div>
+                <div className="absolute inset-0 border border-white/5 rounded-2xl z-20"></div>
+                <img 
+                  src={teamPhoto} 
+                  alt="Izan y Xaloc" 
+                  className="w-full h-auto max-h-[450px] object-cover grayscale-[40%] contrast-[1.15] brightness-[0.55] saturate-[0.8]"
+                  data-testid="img-team-photo"
+                />
              </div>
            </FadeIn>
+        </div>
+
+        <div className="md:hidden w-full">
+          <FadeIn delay={0.3}>
+            <div className="relative rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-[#0a0a0a]/20 z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/50 via-transparent to-[#0a0a0a]/50 z-10"></div>
+              <div className="absolute inset-0 border border-white/5 rounded-2xl z-20"></div>
+              <img 
+                src={teamPhoto} 
+                alt="Izan y Xaloc" 
+                className="w-full h-auto object-cover grayscale-[40%] contrast-[1.15] brightness-[0.55] saturate-[0.8]"
+                data-testid="img-team-photo-mobile"
+              />
+            </div>
+          </FadeIn>
         </div>
 
       </div>
