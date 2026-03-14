@@ -34,10 +34,7 @@ export function About() {
         <div className="flex-1 w-full relative hidden md:flex items-center justify-center">
            <FadeIn delay={0.3} className="relative w-full flex items-center justify-center">
              <div className="absolute -inset-12 bg-[hsl(270,100%,60%)]/8 rounded-full blur-[100px]"></div>
-             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[2px] bg-gradient-to-r from-transparent via-[hsl(270,100%,60%)]/30 to-transparent"></div>
-             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-[40px] bg-[hsl(270,100%,60%)]/5 blur-[20px] rounded-full"></div>
-             <div className="relative z-10">
-                <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
+             <div className="relative z-10" style={{ maskImage: 'linear-gradient(to bottom, white 50%, transparent 100%), linear-gradient(to right, transparent 0%, white 15%, white 85%, transparent 100%)', maskComposite: 'intersect', WebkitMaskImage: 'linear-gradient(to bottom, white 50%, transparent 100%), linear-gradient(to right, transparent 0%, white 15%, white 85%, transparent 100%)', WebkitMaskComposite: 'destination-in' }}>
                 <img 
                   src="/team-photo.png" 
                   alt="Izan y Xaloc" 
@@ -52,14 +49,14 @@ export function About() {
           <FadeIn delay={0.3}>
             <div className="relative">
               <div className="absolute -inset-8 bg-[hsl(270,100%,60%)]/5 rounded-full blur-[60px]"></div>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[2px] bg-gradient-to-r from-transparent via-[hsl(270,100%,60%)]/30 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
-              <img 
-                src="/team-photo.png" 
-                alt="Izan y Xaloc" 
-                className="w-full h-auto max-h-[400px] object-contain drop-shadow-[0_0_20px_rgba(124,58,237,0.15)]"
-                data-testid="img-team-photo-mobile"
-              />
+              <div className="relative" style={{ maskImage: 'linear-gradient(to bottom, white 50%, transparent 100%), linear-gradient(to right, transparent 0%, white 15%, white 85%, transparent 100%)', maskComposite: 'intersect', WebkitMaskImage: 'linear-gradient(to bottom, white 50%, transparent 100%), linear-gradient(to right, transparent 0%, white 15%, white 85%, transparent 100%)', WebkitMaskComposite: 'destination-in' }}>
+                <img 
+                  src="/team-photo.png" 
+                  alt="Izan y Xaloc" 
+                  className="w-full h-auto max-h-[400px] object-contain drop-shadow-[0_0_20px_rgba(124,58,237,0.15)]"
+                  data-testid="img-team-photo-mobile"
+                />
+              </div>
             </div>
           </FadeIn>
         </div>
