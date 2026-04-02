@@ -146,6 +146,7 @@ export async function registerRoutes(
             email: normalized,
             reactivate_existing: true,
             send_welcome_email: true,
+            double_opt_override: "on",
           }),
         }
       );
