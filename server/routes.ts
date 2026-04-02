@@ -124,7 +124,10 @@ export async function registerRoutes(
       }
 
       const apiKey = process.env.BEEHIIV_API_KEY;
-      const pubId = process.env.BEEHIIV_PUBLICATION_ID;
+      let pubId = process.env.BEEHIIV_PUBLICATION_ID;
+      if (pubId && !pubId.startsWith("pub_")) {
+        pubId = `pub_${pubId}`;
+      }
 
       if (!apiKey || !pubId) {
         console.error("Missing BEEHIIV_API_KEY or BEEHIIV_PUBLICATION_ID");
