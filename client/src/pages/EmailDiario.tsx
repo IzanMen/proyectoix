@@ -91,21 +91,40 @@ export default function EmailDiario() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col items-center gap-8"
             >
-              <div className="space-y-4">
-                <h1
-                  className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-[1.1] tracking-tight"
-                  data-testid="text-headline"
-                >
-                  Lo que no contamos
-                  <br />
-                  <span className="text-white/40">en redes.</span>
-                </h1>
-                <p
-                  className="text-white/50 text-base sm:text-lg max-w-md mx-auto leading-relaxed"
-                  data-testid="text-description"
-                >
-                  Cada día escribo un email con lo que estamos construyendo, cómo van nuestros clientes, y tips reales para mejorar tu web. Sin filtros.
-                </p>
+              <div className="space-y-6">
+                <div className="space-y-4 max-w-2xl mx-auto">
+                  <p className="text-white/70 text-base sm:text-lg leading-relaxed">
+                    Estamos construyendo Proyecto IX en público. Pero no todo cabe en redes.
+                  </p>
+                  <h1
+                    className="text-4xl sm:text-5xl font-display font-bold text-white leading-[1.1] tracking-tight"
+                    data-testid="text-headline"
+                  >
+                    Por eso enviamos un email diario.
+                  </h1>
+                </div>
+
+                <div className="space-y-6 max-w-md mx-auto text-left">
+                  <div>
+                    <p className="text-white/60 text-sm uppercase tracking-widest mb-3">Ahí contamos TODO:</p>
+                    <ul className="space-y-2 text-white/70 text-sm sm:text-base leading-relaxed">
+                      <li>– Cada decisión que tomamos (y por qué)</li>
+                      <li>– Problemas que nos encontramos</li>
+                      <li>– Qué funciona… y qué no</li>
+                    </ul>
+                    <p className="text-white/50 text-sm mt-4">Sin buscar más visualizaciones o más seguidores</p>
+                  </div>
+
+                  <div>
+                    <p className="text-white/60 text-sm uppercase tracking-widest mb-3">Y por estar dentro, te llevas algo más:</p>
+                    <ul className="space-y-2 text-white/70 text-sm sm:text-base leading-relaxed">
+                      <li>– Tips reales para mejorar tu web (sin necesidad de contratarnos)</li>
+                      <li>– Cambios que puedes aplicar tú mismo y conseguir más clientes</li>
+                      <li>– Ideas que usamos con clientes, gratis</li>
+                    </ul>
+                    <p className="text-white/50 text-sm mt-4">Aunque nunca trabajes con nosotros.</p>
+                  </div>
+                </div>
               </div>
 
               <form
