@@ -1,7 +1,15 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import type { Server } from "http";
 import { createTransporter } from "./mailer";
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 export async function registerRoutes(
   httpServer: Server,
@@ -18,7 +26,13 @@ export async function registerRoutes(
 
       const transporter = createTransporter();
 
-      const subject = `Nuevo Proyecto: ${businessName}`;
+      const safeBusiness = escapeHtml(String(businessName));
+      const safeContact = escapeHtml(String(contact));
+      const safeWebsite = escapeHtml(String(hasWebsite));
+      const safeGoal = escapeHtml(String(goal));
+      const safeValues = escapeHtml(String(values));
+
+      const subject = `Nuevo Proyecto: ${safeBusiness}`;
       const to = "prcyecto.ix@gmail.com";
 
       const htmlContent = `
@@ -30,27 +44,27 @@ export async function registerRoutes(
 
           <div style="margin-bottom: 24px;">
             <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Negocio</p>
-            <p style="font-size: 18px; margin: 0;">${businessName}</p>
+            <p style="font-size: 18px; margin: 0;">${safeBusiness}</p>
           </div>
 
           <div style="margin-bottom: 24px;">
             <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Contacto</p>
-            <p style="font-size: 18px; margin: 0;">${contact}</p>
+            <p style="font-size: 18px; margin: 0;">${safeContact}</p>
           </div>
 
           <div style="margin-bottom: 24px;">
             <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">¿Tiene web?</p>
-            <p style="font-size: 18px; margin: 0;">${hasWebsite}</p>
+            <p style="font-size: 18px; margin: 0;">${safeWebsite}</p>
           </div>
 
           <div style="margin-bottom: 24px;">
             <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Objetivo</p>
-            <p style="font-size: 16px; margin: 0; line-height: 1.6;">${goal}</p>
+            <p style="font-size: 16px; margin: 0; line-height: 1.6;">${safeGoal}</p>
           </div>
 
           <div style="margin-bottom: 24px;">
             <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Valores / Qué transmite</p>
-            <p style="font-size: 16px; margin: 0; line-height: 1.6;">${values}</p>
+            <p style="font-size: 16px; margin: 0; line-height: 1.6;">${safeValues}</p>
           </div>
 
           <div style="border-top: 1px solid #222; padding-top: 20px; margin-top: 30px;">
