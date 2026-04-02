@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { getUncachableGmailClient } from "./gmail";
+import { createTransporter } from "./mailer";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -16,7 +16,7 @@ export async function registerRoutes(
         return res.status(400).json({ message: "Todos los campos son obligatorios." });
       }
 
-      const gmail = await getUncachableGmailClient();
+      const transporter = createTransporter();
 
       const subject = `Nuevo Proyecto: ${businessName}`;
       const to = "prcyecto.ix@gmail.com";
@@ -59,26 +59,11 @@ export async function registerRoutes(
         </div>
       `;
 
-      const rawMessage = [
-        `To: ${to}`,
-        `Subject: =?UTF-8?B?${Buffer.from(subject).toString('base64')}?=`,
-        `MIME-Version: 1.0`,
-        `Content-Type: text/html; charset="UTF-8"`,
-        ``,
-        htmlContent
-      ].join('\r\n');
-
-      const encodedMessage = Buffer.from(rawMessage)
-        .toString('base64')
-        .replace(/\+/g, '-')
-        .replace(/\//g, '_')
-        .replace(/=+$/, '');
-
-      await gmail.users.messages.send({
-        userId: 'me',
-        requestBody: {
-          raw: encodedMessage
-        }
+      await transporter.sendMail({
+        from: '"IX. Studio" <sanchezginesizan@gmail.com>',
+        to,
+        subject,
+        html: htmlContent,
       });
 
       return res.json({ success: true });
