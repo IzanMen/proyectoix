@@ -1,7 +1,7 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { type Server } from "http";
 import { getUncachableSendGridClient } from "./sendgrid";
+import { contactSchema } from "@shared/schema";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -10,11 +10,12 @@ export async function registerRoutes(
 
   app.post("/api/contact", async (req, res) => {
     try {
-      const { businessName, contact, hasWebsite, goal, values } = req.body;
-
-      if (!businessName || !contact || !hasWebsite || !goal || !values) {
+      const parsed = contactSchema.safeParse(req.body);
+      if (!parsed.success) {
         return res.status(400).json({ message: "Todos los campos son obligatorios." });
       }
+
+      const { businessName, contact, hasWebsite, goal, values } = parsed.data;
 
       const { client } = await getUncachableSendGridClient();
       const fromEmail = "sanchezginesizan@gmail.com";
