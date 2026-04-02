@@ -1,3 +1,4 @@
+// SendGrid Integration via Replit Connector
 import sgMail from '@sendgrid/mail';
 
 let connectionSettings: any;
@@ -11,7 +12,7 @@ async function getCredentials() {
     : null;
 
   if (!xReplitToken) {
-    throw new Error('X-Replit-Token not found for repl/depl');
+    throw new Error('X_REPLIT_TOKEN not found for repl/depl');
   }
 
   connectionSettings = await fetch(
@@ -19,7 +20,7 @@ async function getCredentials() {
     {
       headers: {
         'Accept': 'application/json',
-        'X-Replit-Token': xReplitToken
+        'X_REPLIT_TOKEN': xReplitToken
       }
     }
   ).then(res => res.json()).then(data => data.items?.[0]);

@@ -11,6 +11,11 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 max-w-4xl">
+        <FadeIn direction="up" delay={0.2}>
+          <span className="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-widest uppercase border border-[hsl(270,100%,60%)]/30 rounded-full bg-[hsl(270,100%,60%)]/10 text-white backdrop-blur-sm shadow-[0_0_15px_-5px_hsl(270,100%,60%)]">
+            <span className="text-[hsl(270,100%,60%)] mr-2 font-bold">•</span> Diseño Web Premium
+          </span>
+        </FadeIn>
 
         <FadeIn direction="up" delay={0.3}>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] tracking-tight mb-8 text-white">
