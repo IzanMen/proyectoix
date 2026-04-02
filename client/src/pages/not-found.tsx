@@ -15,10 +15,8 @@ export default function NotFound() {
             Página no encontrada.
           </p>
           
-          <Link href="/">
-            <a className="inline-block px-6 py-3 bg-white text-black font-medium text-sm rounded-sm hover:bg-white/90 transition-colors">
+          <Link href="/" className="inline-block px-6 py-3 bg-white text-black font-medium text-sm rounded-sm hover:bg-white/90 transition-colors">
               Volver al inicio
-            </a>
           </Link>
         </FadeIn>
       </div>

@@ -30,12 +30,22 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 - `vite-plugin-meta-images.ts` — OpenGraph image URL injection
 - `script/build.ts` — Production build script (Vite + esbuild)
 
+## Pages
+- `/` — Main landing page (Hero, Perception, Services, Context, Process, About, Contact)
+- `/email-diario` — Email subscription capture page (Beehiiv integration)
+
 ## Design
 - Dark aesthetic with purple accent: `hsl(270, 100%, 60%)`
 - Interactive particle background (canvas-based)
 - Team photo with removed background: `client/public/team-photo.png`
 - 5-step contact form: businessName → contact → hasWebsite → goal → values
 - Email sends FROM `sanchezginesizan@gmail.com` TO `prcyecto.ix@gmail.com`
+
+## Email Diario (Beehiiv)
+- Page at `/email-diario` captures email subscriptions
+- Backend `/api/subscribe` forwards to Beehiiv API
+- Requires secrets: `BEEHIIV_API_KEY` and `BEEHIIV_PUBLICATION_ID`
+- Beehiiv handles confirmation emails and subscriber management
 
 ## Dependencies (minimal)
 - Runtime: express, nodemailer, react, react-dom, framer-motion, lucide-react, wouter, clsx, tailwind-merge, tw-animate-css

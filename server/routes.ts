@@ -87,5 +87,83 @@ export async function registerRoutes(
     }
   });
 
+  const subscribeRateLimit = new Map<string, { count: number; reset: number }>();
+
+  app.post("/api/subscribe", async (req, res) => {
+    try {
+      const ip = req.ip || "unknown";
+      const now = Date.now();
+      const window = 60_000;
+      const maxAttempts = 5;
+
+      const entry = subscribeRateLimit.get(ip);
+      if (entry && now < entry.reset) {
+        if (entry.count >= maxAttempts) {
+          return res.status(429).json({ message: "Demasiados intentos. Espera un momento." });
+        }
+        entry.count++;
+      } else {
+        subscribeRateLimit.set(ip, { count: 1, reset: now + window });
+      }
+
+      const { email } = req.body;
+
+      if (!email || typeof email !== "string") {
+        return res.status(400).json({ message: "Email obligatorio." });
+      }
+
+      const normalized = email.trim().toLowerCase();
+
+      if (normalized.length > 254) {
+        return res.status(400).json({ message: "Email no válido." });
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(normalized)) {
+        return res.status(400).json({ message: "Email no válido." });
+      }
+
+      const apiKey = process.env.BEEHIIV_API_KEY;
+      const pubId = process.env.BEEHIIV_PUBLICATION_ID;
+
+      if (!apiKey || !pubId) {
+        console.error("Missing BEEHIIV_API_KEY or BEEHIIV_PUBLICATION_ID");
+        return res.status(500).json({ message: "Servicio no configurado. Inténtalo más tarde." });
+      }
+
+      const response = await fetch(
+        `https://api.beehiiv.com/v2/publications/${pubId}/subscriptions`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify({
+            email: normalized,
+            reactivate_existing: true,
+            send_welcome_email: true,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const errData = await response.json().catch(() => ({}));
+        console.error("Beehiiv API error:", response.status, errData);
+
+        if (response.status === 409 || response.status === 422) {
+          return res.json({ success: true });
+        }
+
+        return res.status(500).json({ message: "No se ha podido registrar. Inténtalo de nuevo." });
+      }
+
+      return res.json({ success: true });
+    } catch (error: any) {
+      console.error("Subscribe error:", error);
+      return res.status(500).json({ message: "Error interno. Inténtalo de nuevo." });
+    }
+  });
+
   return httpServer;
 }
