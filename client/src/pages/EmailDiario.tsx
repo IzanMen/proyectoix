@@ -69,15 +69,8 @@ export default function EmailDiario() {
                 Todavía no estás suscrito
               </h2>
               <p className="text-white/60 text-base sm:text-lg max-w-md leading-relaxed" data-testid="text-success-message">
-                Lo único que debes hacer es clicar en el enlace del mail que te acabo de mandar al correo que me has dejado.
+                Lo único que debes hacer es clicar en el enlace del mail que te acabamos de mandar al correo que nos has dejado.
               </p>
-              <Link
-                href="/"
-                className="text-sm text-white/40 hover:text-white/70 transition-colors mt-4"
-                data-testid="link-back-home"
-              >
-                Volver a ix.studio
-              </Link>
             </motion.div>
           ) : (
             <motion.div

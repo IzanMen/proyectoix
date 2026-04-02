@@ -44,7 +44,7 @@ export default function Confirmado() {
             className="text-sm text-white/40 hover:text-white/70 transition-colors mt-4"
             data-testid="link-back-home"
           >
-            Volver a ix.studio
+            Página principal
           </Link>
         </motion.div>
       </div>
