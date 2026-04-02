@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { getUncachableSendGridClient } from "./sendgrid";
+import { getUncachableGmailClient } from "./gmail";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -16,8 +16,10 @@ export async function registerRoutes(
         return res.status(400).json({ message: "Todos los campos son obligatorios." });
       }
 
-      const { client } = await getUncachableSendGridClient();
-      const fromEmail = "sanchezginesizan@gmail.com";
+      const gmail = await getUncachableGmailClient();
+
+      const subject = `Nuevo Proyecto: ${businessName}`;
+      const to = "prcyecto.ix@gmail.com";
 
       const htmlContent = `
         <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #fff; padding: 40px; border-radius: 12px;">
@@ -57,19 +59,31 @@ export async function registerRoutes(
         </div>
       `;
 
-      await client.send({
-        to: "prcyecto.ix@gmail.com",
-        from: fromEmail,
-        subject: `Nuevo Proyecto: ${businessName}`,
-        html: htmlContent,
+      const rawMessage = [
+        `To: ${to}`,
+        `Subject: =?UTF-8?B?${Buffer.from(subject).toString('base64')}?=`,
+        `MIME-Version: 1.0`,
+        `Content-Type: text/html; charset="UTF-8"`,
+        ``,
+        htmlContent
+      ].join('\r\n');
+
+      const encodedMessage = Buffer.from(rawMessage)
+        .toString('base64')
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=+$/, '');
+
+      await gmail.users.messages.send({
+        userId: 'me',
+        requestBody: {
+          raw: encodedMessage
+        }
       });
 
       return res.json({ success: true });
     } catch (error: any) {
       console.error("Error sending email:", error);
-      if (error.response?.body?.errors) {
-        console.error("SendGrid errors:", JSON.stringify(error.response.body.errors));
-      }
       return res.status(500).json({ message: "Error al enviar el mensaje. Inténtalo de nuevo." });
     }
   });

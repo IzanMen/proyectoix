@@ -71,17 +71,28 @@ export function ContactForm() {
 
   const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = () => {
-    const subject = encodeURIComponent(`Nuevo Proyecto: ${formData.businessName}`);
-    const body = encodeURIComponent(
-      `Negocio: ${formData.businessName}\n` +
-      `Contacto: ${formData.contact}\n` +
-      `¿Tiene web?: ${formData.hasWebsite}\n` +
-      `Objetivo: ${formData.goal}\n` +
-      `Valores: ${formData.values}`
-    );
-    window.open(`mailto:prcyecto.ix@gmail.com?subject=${subject}&body=${body}`, '_self');
-    setIsSuccess(true);
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    setErrorMsg("");
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message || "Error al enviar");
+      }
+
+      setIsSuccess(true);
+    } catch (err: any) {
+      setErrorMsg(err.message || "Error al enviar. Inténtalo de nuevo.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

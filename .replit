@@ -46,4 +46,4 @@ waitForPort = 5000
 
 [agent]
 mockupState = "FULLSTACK"
-integrations = ["sendgrid:1.0.0"]
+integrations = ["sendgrid:1.0.0", "google-mail:1.0.0"]
