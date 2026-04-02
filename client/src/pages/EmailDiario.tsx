@@ -62,17 +62,14 @@ export default function EmailDiario() {
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col items-center gap-6"
             >
-              <div className="w-16 h-16 rounded-full bg-[hsl(270,100%,60%)]/20 border border-[hsl(270,100%,60%)]/40 flex items-center justify-center">
-                <Check className="w-8 h-8 text-[hsl(270,100%,60%)]" />
-              </div>
               <h2
-                className="text-3xl sm:text-4xl font-display font-bold text-white"
+                className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-wide"
                 data-testid="text-success-title"
               >
-                Estás dentro.
+                Todavía no estás suscrito
               </h2>
-              <p className="text-white/50 text-base max-w-sm leading-relaxed" data-testid="text-success-message">
-                Revisa tu bandeja de entrada para confirmar tu suscripción. A partir de mañana, recibirás tu primer email.
+              <p className="text-white/60 text-base sm:text-lg max-w-md leading-relaxed" data-testid="text-success-message">
+                Lo único que debes hacer es clicar en el enlace del mail que te acabo de mandar al correo que me has dejado.
               </p>
               <Link
                 href="/"
