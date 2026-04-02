@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { type Server } from "http";
 import { getUncachableSendGridClient } from "./sendgrid";
-import { contactSchema } from "@shared/schema";
+import { contactSchema, subscriberSchema } from "@shared/schema";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -72,6 +72,45 @@ export async function registerRoutes(
         console.error("SendGrid errors:", JSON.stringify(error.response.body.errors));
       }
       return res.status(500).json({ message: "Error al enviar el mensaje. Inténtalo de nuevo." });
+    }
+  });
+
+  app.post("/api/subscribe", async (req, res) => {
+    try {
+      const parsed = subscriberSchema.safeParse(req.body);
+      if (!parsed.success) {
+        return res.status(400).json({ message: "Introduce un email válido." });
+      }
+
+      const { email } = parsed.data;
+      const { client } = await getUncachableSendGridClient();
+      const fromEmail = "sanchezginesizan@gmail.com";
+
+      await client.send({
+        to: "prcyecto.ix@gmail.com",
+        from: fromEmail,
+        subject: `Nuevo suscriptor email diario: ${email}`,
+        html: `
+          <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #fff; padding: 40px; border-radius: 12px;">
+            <div style="border-bottom: 2px solid #7c3aed; padding-bottom: 20px; margin-bottom: 30px;">
+              <h1 style="font-size: 28px; margin: 0; color: #fff;">Nuevo Suscriptor</h1>
+              <p style="color: #888; margin-top: 5px; font-size: 14px;">Email Diario — IX.</p>
+            </div>
+            <div style="margin-bottom: 24px;">
+              <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Email</p>
+              <p style="font-size: 20px; margin: 0;">${email}</p>
+            </div>
+            <div style="border-top: 1px solid #222; padding-top: 20px; margin-top: 30px;">
+              <p style="color: #555; font-size: 12px;">Alguien se ha suscrito al email diario desde proyectoix.com</p>
+            </div>
+          </div>
+        `,
+      });
+
+      return res.json({ success: true });
+    } catch (error: any) {
+      console.error("Error subscribing:", error);
+      return res.status(500).json({ message: "Error al suscribirse. Inténtalo de nuevo." });
     }
   });
 

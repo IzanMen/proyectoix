@@ -9,3 +9,9 @@ export const contactSchema = z.object({
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
+
+export const subscriberSchema = z.object({
+  email: z.string().email(),
+});
+
+export type SubscriberData = z.infer<typeof subscriberSchema>;
