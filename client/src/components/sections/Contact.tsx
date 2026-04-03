@@ -3,6 +3,7 @@ import { ArrowRight, Mail } from "lucide-react";
 import { ContactForm } from "./ContactForm";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "wouter";
 
 export function Contact() {
   const [showForm, setShowForm] = useState(false);
@@ -78,10 +79,19 @@ export function Contact() {
         </AnimatePresence>
         
         <FadeIn delay={0.5} className="mt-24">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/10 pt-8 text-white/30 text-xs font-mono uppercase tracking-widest w-full max-w-3xl mx-auto">
-             <span>Izan & Xaloc © {new Date().getFullYear()}</span>
-             <span className="hidden md:block">•</span>
-             <span>Menorca, Islas Baleares</span>
+          <div className="w-full max-w-3xl mx-auto border-t border-white/10 pt-8 space-y-4">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white/30 text-xs font-mono uppercase tracking-widest">
+              <span>Izan & Xaloc © {new Date().getFullYear()}</span>
+              <span className="hidden md:block">•</span>
+              <span>Menorca, Islas Baleares</span>
+            </div>
+            <div className="flex items-center justify-center gap-4 text-white/20 text-[10px] sm:text-xs">
+              <Link href="/politica-privacidad" className="hover:text-white/40 transition-colors">Política de Privacidad</Link>
+              <span>·</span>
+              <Link href="/aviso-legal" className="hover:text-white/40 transition-colors">Aviso Legal</Link>
+              <span>·</span>
+              <Link href="/politica-cookies" className="hover:text-white/40 transition-colors">Cookies</Link>
+            </div>
           </div>
         </FadeIn>
       </div>

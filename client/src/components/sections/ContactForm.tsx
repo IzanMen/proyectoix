@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Check, ChevronRight, Loader2, Send } from "lucide-react";
+import { Check, ChevronRight, Loader2, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FormData {
   businessName: string;
   contact: string;
   hasWebsite: string;
-  goal: string;
-  values: string;
 }
 
 const questions = [
@@ -30,19 +28,6 @@ const questions = [
     label: "¿Tienes ya una web?",
     type: "options",
     options: ["Sí, pero quiero cambiarla", "No, empiezo de cero", "Tengo redes sociales"]
-  },
-  {
-    id: "goal",
-    label: "¿Qué quieres conseguir con la nueva web?",
-    placeholder: "Ej: Más reservas, mejor imagen, vender online...",
-    type: "textarea"
-  },
-  {
-    id: "values",
-    label: "¿Qué transmite tu negocio?",
-    description: "O qué te gustaría que la web transmitiera.",
-    placeholder: "Ej: Elegancia, cercanía, tradición, innovación...",
-    type: "textarea"
   }
 ];
 
@@ -51,12 +36,11 @@ export function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
     businessName: "",
     contact: "",
-    hasWebsite: "",
-    goal: "",
-    values: ""
+    hasWebsite: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const currentQuestion = questions[step];
   const isLastStep = step === questions.length - 1;
@@ -68,8 +52,6 @@ export function ContactForm() {
       setStep((prev) => prev + 1);
     }
   };
-
-  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
@@ -120,7 +102,7 @@ export function ContactForm() {
           onClick={() => {
             setIsSuccess(false);
             setStep(0);
-            setFormData({ businessName: "", contact: "", hasWebsite: "", goal: "", values: "" });
+            setFormData({ businessName: "", contact: "", hasWebsite: "" });
           }}
           className="text-sm text-[hsl(270,100%,60%)] hover:text-white transition-colors"
         >
@@ -181,25 +163,37 @@ export function ContactForm() {
               />
             )}
 
-            {currentQuestion.type === "textarea" && (
-              <textarea
-                autoFocus
-                value={formData[currentQuestion.id as keyof FormData]}
-                onChange={(e) => setFormData({ ...formData, [currentQuestion.id]: e.target.value })}
-                onKeyDown={handleKeyDown}
-                placeholder={currentQuestion.placeholder}
-                className="w-full bg-transparent border-b-2 border-white/10 focus:border-[hsl(270,100%,60%)] py-4 text-xl md:text-2xl outline-none transition-colors placeholder:text-white/20 min-h-[100px] resize-none"
-              />
-            )}
-
             {currentQuestion.type === "options" && (
               <div className="flex flex-col gap-3">
                 {currentQuestion.options?.map((option) => (
                   <button
                     key={option}
+                    disabled={isSubmitting}
                     onClick={() => {
-                      setFormData({ ...formData, [currentQuestion.id]: option });
-                      setTimeout(handleNext, 300);
+                      const nextData = { ...formData, [currentQuestion.id]: option };
+                      setFormData(nextData);
+                      if (isLastStep) {
+                        setIsSubmitting(true);
+                        setErrorMsg("");
+                        fetch("/api/contact", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify(nextData),
+                        })
+                          .then(async (response) => {
+                            if (!response.ok) {
+                              const data = await response.json();
+                              throw new Error(data.message || "Error al enviar");
+                            }
+                            setIsSuccess(true);
+                          })
+                          .catch((err: any) => {
+                            setErrorMsg(err.message || "Error al enviar. Inténtalo de nuevo.");
+                          })
+                          .finally(() => setIsSubmitting(false));
+                      } else {
+                        setStep((prev) => prev + 1);
+                      }
                     }}
                     className={cn(
                       "text-left p-4 rounded-lg border transition-all duration-300 hover:scale-[1.02]",
@@ -219,30 +213,32 @@ export function ContactForm() {
             <p className="text-red-400 text-sm mt-4">{errorMsg}</p>
           )}
 
-          <div className="mt-8 flex justify-end">
-            <button
-              onClick={handleNext}
-              disabled={!formData[currentQuestion.id as keyof FormData] || isSubmitting}
-              className={cn(
-                "group flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300",
-                !formData[currentQuestion.id as keyof FormData]
-                  ? "opacity-50 cursor-not-allowed bg-white/10 text-white/30"
-                  : "bg-[hsl(270,100%,60%)] text-white shadow-[0_0_20px_hsl(270,100%,60%)] hover:shadow-[0_0_30px_hsl(270,100%,60%)] hover:scale-105"
-              )}
-            >
-              {isSubmitting ? (
-                <Loader2 className="w-5 h-5 animate-spin" />
-              ) : isLastStep ? (
-                <>
-                  Enviar <Send className="w-4 h-4" />
-                </>
-              ) : (
-                <>
-                  Siguiente <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </>
-              )}
-            </button>
-          </div>
+          {currentQuestion.type !== "options" && (
+            <div className="mt-8 flex justify-end">
+              <button
+                onClick={handleNext}
+                disabled={!formData[currentQuestion.id as keyof FormData] || isSubmitting}
+                className={cn(
+                  "group flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300",
+                  !formData[currentQuestion.id as keyof FormData]
+                    ? "opacity-50 cursor-not-allowed bg-white/10 text-white/30"
+                    : "bg-[hsl(270,100%,60%)] text-white shadow-[0_0_20px_hsl(270,100%,60%)] hover:shadow-[0_0_30px_hsl(270,100%,60%)] hover:scale-105"
+                )}
+              >
+                {isSubmitting ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : isLastStep ? (
+                  <>
+                    Enviar <Send className="w-4 h-4" />
+                  </>
+                ) : (
+                  <>
+                    Siguiente <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
+              </button>
+            </div>
+          )}
         </motion.div>
       </AnimatePresence>
     </div>

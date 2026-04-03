@@ -2,17 +2,18 @@ import { useState, useRef } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { InteractiveBackground } from "@/components/layout/InteractiveBackground";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function EmailDiario() {
   const [email, setEmail] = useState("");
+  const [accepted, setAccepted] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || status === "loading") return;
+    if (!email || !accepted || status === "loading") return;
 
     setStatus("loading");
     setErrorMsg("");
@@ -40,19 +41,19 @@ export default function EmailDiario() {
   };
 
   return (
-    <div className="min-h-[100dvh] relative flex flex-col items-center justify-center px-6">
+    <div className="min-h-[100dvh] relative flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
       <InteractiveBackground />
 
       <Link
         href="/"
-        className="absolute top-6 left-6 z-20 flex items-center gap-1 group"
+        className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 flex items-center gap-1 group"
         data-testid="link-home"
       >
         <span className="text-2xl font-display font-bold tracking-tighter text-white">IX</span>
         <span className="w-2 h-2 bg-[hsl(270,100%,60%)] rounded-full mt-1 shadow-[0_0_15px_hsl(270,100%,60%)] animate-pulse"></span>
       </Link>
 
-      <div className="relative z-10 w-full max-w-lg text-center">
+      <div className="relative z-10 w-full max-w-xl">
         <AnimatePresence mode="wait">
           {status === "success" ? (
             <motion.div
@@ -60,7 +61,7 @@ export default function EmailDiario() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center gap-6"
+              className="flex flex-col items-center gap-6 text-center"
             >
               <h2
                 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-wide"
@@ -79,47 +80,36 @@ export default function EmailDiario() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center gap-8"
+              className="flex flex-col gap-6 sm:gap-8"
             >
-              <div className="space-y-6">
-                <div className="space-y-4 max-w-2xl mx-auto">
-                  <p className="text-white/70 text-base sm:text-lg leading-relaxed">
-                    Estamos construyendo Proyecto IX en público. Pero no todo cabe en redes.
-                  </p>
-                  <h1
-                    className="text-4xl sm:text-5xl font-display font-bold text-white leading-[1.1] tracking-tight"
-                    data-testid="text-headline"
-                  >
-                    Por eso enviamos un email diario.
-                  </h1>
-                </div>
+              <div className="text-center space-y-3 sm:space-y-4">
+                <p className="text-white/60 text-sm sm:text-base leading-relaxed">
+                  Estamos construyendo Proyecto IX en público.
+                </p>
+                <h1
+                  className="text-3xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-[1.1] tracking-tight"
+                  data-testid="text-headline"
+                >
+                  No cabe todo en redes.
+                </h1>
+                <p className="text-white/50 text-sm sm:text-base">
+                  Por eso enviamos un <span className="text-[hsl(270,100%,70%)] font-semibold">email diario</span>.
+                </p>
+              </div>
 
-                <div className="space-y-6 max-w-md mx-auto text-left">
-                  <div>
-                    <p className="text-white/60 text-sm uppercase tracking-widest mb-3">Ahí contamos TODO:</p>
-                    <ul className="space-y-2 text-white/70 text-sm sm:text-base leading-relaxed">
-                      <li>– Cada decisión que tomamos (y por qué)</li>
-                      <li>– Problemas que nos encontramos</li>
-                      <li>– Qué funciona… y qué no</li>
-                    </ul>
-                    <p className="text-white/50 text-sm mt-4">Sin buscar más visualizaciones o más seguidores</p>
-                  </div>
-
-                  <div>
-                    <p className="text-white/60 text-sm uppercase tracking-widest mb-3">Y por estar dentro, te llevas algo más:</p>
-                    <ul className="space-y-2 text-white/70 text-sm sm:text-base leading-relaxed">
-                      <li>– Tips reales para mejorar tu web (sin necesidad de contratarnos)</li>
-                      <li>– Cambios que puedes aplicar tú mismo y conseguir más clientes</li>
-                      <li>– Ideas que usamos con clientes, gratis</li>
-                    </ul>
-                    <p className="text-white/50 text-sm mt-4">Aunque nunca trabajes con nosotros.</p>
-                  </div>
-                </div>
+              <div className="space-y-2 text-left">
+                <p className="text-white/50 text-xs sm:text-sm uppercase tracking-widest mb-2">Ahí contamos TODO:</p>
+                <ul className="space-y-1.5 text-white/60 text-sm sm:text-base leading-relaxed">
+                  <li>– Cada <span className="text-[hsl(270,100%,70%)]">decisión que tomamos</span> (y por qué)</li>
+                  <li>– <span className="text-[hsl(270,100%,70%)]">Problemas</span> que nos encontramos</li>
+                  <li>– Qué <span className="text-[hsl(270,100%,70%)]">funciona</span>… y qué no</li>
+                </ul>
+                <p className="text-white/30 text-xs sm:text-sm mt-3">Sin buscar más visualizaciones o más seguidores.</p>
               </div>
 
               <form
                 onSubmit={handleSubmit}
-                className="w-full max-w-md"
+                className="w-full space-y-3"
                 data-testid="form-subscribe"
               >
                 <div className="relative flex items-center">
@@ -134,13 +124,13 @@ export default function EmailDiario() {
                     placeholder="tu@email.com"
                     required
                     autoFocus
-                    className="w-full h-14 pl-5 pr-14 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-white/25 text-base focus:outline-none focus:border-[hsl(270,100%,60%)]/50 focus:ring-1 focus:ring-[hsl(270,100%,60%)]/30 transition-all"
+                    className="w-full h-12 sm:h-14 pl-4 sm:pl-5 pr-12 sm:pr-14 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-white/25 text-sm sm:text-base focus:outline-none focus:border-[hsl(270,100%,60%)]/50 focus:ring-1 focus:ring-[hsl(270,100%,60%)]/30 transition-all"
                     data-testid="input-email"
                   />
                   <button
                     type="submit"
-                    disabled={status === "loading" || !email}
-                    className="absolute right-2 w-10 h-10 flex items-center justify-center rounded-md bg-white text-black hover:bg-white/90 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                    disabled={status === "loading" || !email || !accepted}
+                    className="absolute right-1.5 sm:right-2 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-md bg-white text-black hover:bg-white/90 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                     data-testid="button-subscribe"
                   >
                     {status === "loading" ? (
@@ -151,13 +141,33 @@ export default function EmailDiario() {
                   </button>
                 </div>
 
+                <label className="flex items-start gap-2.5 cursor-pointer group" data-testid="label-privacy">
+                  <input
+                    type="checkbox"
+                    checked={accepted}
+                    onChange={(e) => setAccepted(e.target.checked)}
+                    className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/5 accent-[hsl(270,100%,60%)] cursor-pointer"
+                    data-testid="checkbox-privacy"
+                  />
+                  <span className="text-white/40 text-xs leading-relaxed">
+                    Acepto la{" "}
+                    <Link
+                      href="/politica-privacidad"
+                      className="underline text-white/60 hover:text-white transition-colors"
+                      data-testid="link-privacy"
+                    >
+                      política de privacidad
+                    </Link>
+                  </span>
+                </label>
+
                 <AnimatePresence>
                   {status === "error" && errorMsg && (
                     <motion.p
                       initial={{ opacity: 0, y: -5 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
-                      className="text-red-400/80 text-sm mt-3 text-center"
+                      className="text-red-400/80 text-sm text-center"
                       data-testid="text-error"
                     >
                       {errorMsg}
@@ -166,9 +176,27 @@ export default function EmailDiario() {
                 </AnimatePresence>
               </form>
 
-              <p className="text-white/20 text-xs tracking-wide" data-testid="text-author">
+              <div className="space-y-2 text-left">
+                <p className="text-white/50 text-xs sm:text-sm uppercase tracking-widest mb-2">Y por estar dentro, te llevas algo más:</p>
+                <ul className="space-y-1.5 text-white/60 text-sm sm:text-base leading-relaxed">
+                  <li>– <span className="text-[hsl(270,100%,70%)]">Tips reales</span> para mejorar tu web (sin necesidad de contratarnos)</li>
+                  <li>– Cambios que puedes aplicar tú mismo y <span className="text-[hsl(270,100%,70%)]">conseguir más clientes</span></li>
+                  <li>– <span className="text-[hsl(270,100%,70%)]">Ideas que usamos con clientes</span>, gratis</li>
+                </ul>
+                <p className="text-white/30 text-xs sm:text-sm mt-3">Aunque nunca trabajes con nosotros.</p>
+              </div>
+
+              <p className="text-white/20 text-xs tracking-wide text-center" data-testid="text-author">
                 Escrito por Izan — cada día, desde Menorca.
               </p>
+
+              <div className="flex items-center justify-center gap-4 text-white/20 text-[10px] sm:text-xs pt-4 border-t border-white/5">
+                <Link href="/politica-privacidad" className="hover:text-white/40 transition-colors">Política de Privacidad</Link>
+                <span>·</span>
+                <Link href="/aviso-legal" className="hover:text-white/40 transition-colors">Aviso Legal</Link>
+                <span>·</span>
+                <Link href="/politica-cookies" className="hover:text-white/40 transition-colors">Cookies</Link>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

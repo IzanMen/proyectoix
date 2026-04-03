@@ -18,9 +18,9 @@ export async function registerRoutes(
 
   app.post("/api/contact", async (req, res) => {
     try {
-      const { businessName, contact, hasWebsite, goal, values } = req.body;
+      const { businessName, contact, hasWebsite } = req.body;
 
-      if (!businessName || !contact || !hasWebsite || !goal || !values) {
+      if (!businessName || !contact || !hasWebsite) {
         return res.status(400).json({ message: "Todos los campos son obligatorios." });
       }
 
@@ -29,8 +29,6 @@ export async function registerRoutes(
       const safeBusiness = escapeHtml(String(businessName));
       const safeContact = escapeHtml(String(contact));
       const safeWebsite = escapeHtml(String(hasWebsite));
-      const safeGoal = escapeHtml(String(goal));
-      const safeValues = escapeHtml(String(values));
 
       const subject = `Nuevo Proyecto: ${safeBusiness}`;
       const to = "prcyecto.ix@gmail.com";
@@ -55,16 +53,6 @@ export async function registerRoutes(
           <div style="margin-bottom: 24px;">
             <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">¿Tiene web?</p>
             <p style="font-size: 18px; margin: 0;">${safeWebsite}</p>
-          </div>
-
-          <div style="margin-bottom: 24px;">
-            <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Objetivo</p>
-            <p style="font-size: 16px; margin: 0; line-height: 1.6;">${safeGoal}</p>
-          </div>
-
-          <div style="margin-bottom: 24px;">
-            <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Valores / Qué transmite</p>
-            <p style="font-size: 16px; margin: 0; line-height: 1.6;">${safeValues}</p>
           </div>
 
           <div style="border-top: 1px solid #222; padding-top: 20px; margin-top: 30px;">
