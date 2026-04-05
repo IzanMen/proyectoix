@@ -72,9 +72,14 @@ export default function EmailDiario() {
               <p className="text-white/60 text-base sm:text-lg max-w-md leading-relaxed" data-testid="text-success-message">
                 Lo único que debes hacer es clicar en el enlace del mail que te acabamos de mandar al correo que nos has dejado.
               </p>
-              <p className="text-[hsl(270,100%,70%)] text-xs sm:text-sm max-w-md leading-relaxed">
-                A veces tarda 3 o 4 minutos en llegar. Espera un poco si no lo ves enseguida.
-              </p>
+              <div className="w-full max-w-md rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-[hsl(270,100%,60%)]/10 px-5 py-4 shadow-[0_0_40px_-18px_hsl(270,100%,60%)]">
+                <p className="text-white text-sm sm:text-base font-semibold uppercase tracking-[0.2em]">
+                  OJO: puede tardar 3 o 4 minutos
+                </p>
+                <p className="mt-2 text-[hsl(270,100%,70%)] text-sm sm:text-base leading-relaxed">
+                  Si no aparece al momento, espera un poco antes de volver a intentarlo.
+                </p>
+              </div>
             </motion.div>
           ) : (
             <motion.div
@@ -85,6 +90,18 @@ export default function EmailDiario() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col gap-6 sm:gap-8"
             >
+              <div className="w-full rounded-2xl border border-[hsl(270,100%,60%)]/25 bg-black/25 p-4 sm:p-5 text-center shadow-[0_0_50px_-25px_hsl(270,100%,60%)]">
+                <p className="text-[hsl(270,100%,70%)] text-[10px] sm:text-xs uppercase tracking-[0.28em] font-semibold">
+                  IMPORTANTE
+                </p>
+                <p className="mt-2 text-white text-lg sm:text-2xl md:text-3xl font-display font-bold leading-tight">
+                  Puede tardar 3 o 4 minutos en llegar.
+                </p>
+                <p className="mt-2 text-white/65 text-sm sm:text-base leading-relaxed">
+                  Cuando te llegue, tienes que clicar el enlace de confirmación del mail.
+                </p>
+              </div>
+
               <div className="text-center space-y-3 sm:space-y-4">
                 <p className="text-white/60 text-sm sm:text-base leading-relaxed">
                   Estamos construyendo Proyecto IX en público.
