@@ -72,6 +72,9 @@ export default function EmailDiario() {
               <p className="text-white/60 text-base sm:text-lg max-w-md leading-relaxed" data-testid="text-success-message">
                 Lo único que debes hacer es clicar en el enlace del mail que te acabamos de mandar al correo que nos has dejado.
               </p>
+              <p className="text-[hsl(270,100%,70%)] text-xs sm:text-sm max-w-md leading-relaxed">
+                A veces tarda 3 o 4 minutos en llegar. Espera un poco si no lo ves enseguida.
+              </p>
             </motion.div>
           ) : (
             <motion.div
