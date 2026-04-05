@@ -90,7 +90,7 @@ export default function EmailDiario() {
                   className="text-3xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-[1.1] tracking-tight"
                   data-testid="text-headline"
                 >
-                  No cabe todo en redes.
+                  Pero no cabe todo en redes.
                 </h1>
                 <p className="text-white/50 text-sm sm:text-base">
                   Por eso enviamos un <span className="text-[hsl(270,100%,70%)] font-semibold">email diario</span>.
