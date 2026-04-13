@@ -77,7 +77,7 @@ export default function EmailDiario() {
                   OJO: puede tardar 3 o 4 minutos
                 </p>
                 <p className="mt-2 text-[hsl(270,100%,70%)] text-sm sm:text-base leading-relaxed">
-                  Si no aparece al momento, espera un poco antes de volver a intentarlo.
+                  Si no aparece al momento, espera unos minutos.
                 </p>
               </div>
             </motion.div>
@@ -90,17 +90,6 @@ export default function EmailDiario() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col gap-6 sm:gap-8"
             >
-              <div className="w-full rounded-2xl border border-[hsl(270,100%,60%)]/25 bg-black/25 p-4 sm:p-5 text-center shadow-[0_0_50px_-25px_hsl(270,100%,60%)]">
-                <p className="text-[hsl(270,100%,70%)] text-[10px] sm:text-xs uppercase tracking-[0.28em] font-semibold">
-                  IMPORTANTE
-                </p>
-                <p className="mt-2 text-white text-lg sm:text-2xl md:text-3xl font-display font-bold leading-tight">
-                  Puede tardar 3 o 4 minutos en llegar.
-                </p>
-                <p className="mt-2 text-white/65 text-sm sm:text-base leading-relaxed">
-                  Cuando te llegue, tienes que clicar el enlace de confirmación del mail.
-                </p>
-              </div>
 
               <div className="text-center space-y-3 sm:space-y-4">
                 <p className="text-white/60 text-sm sm:text-base leading-relaxed">
