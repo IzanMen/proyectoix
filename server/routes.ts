@@ -111,42 +111,25 @@ export async function registerRoutes(
         return res.status(400).json({ message: "Email no válido." });
       }
 
-      const apiKey = process.env.BEEHIIV_API_KEY;
-      let pubId = process.env.BEEHIIV_PUBLICATION_ID;
-      if (pubId && !pubId.startsWith("pub_")) {
-        pubId = `pub_${pubId}`;
-      }
+      const MAILEON_SIGNUP_URL = "https://emt-hja6ndzsh.topmailer.net/hp/NpSmjC-4bTM9BKn5O0-_GA/signup";
 
-      if (!apiKey || !pubId) {
-        console.error("Missing BEEHIIV_API_KEY or BEEHIIV_PUBLICATION_ID");
-        return res.status(500).json({ message: "Servicio no configurado. Inténtalo más tarde." });
-      }
-
-      const response = await fetch(
-        `https://api.beehiiv.com/v2/publications/${pubId}/subscriptions`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${apiKey}`,
+      const response = await fetch(MAILEON_SIGNUP_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          standard: {
+            EMAIL: normalized,
+            FIRSTNAME: "",
+            LASTNAME: "",
           },
-          body: JSON.stringify({
-            email: normalized,
-            reactivate_existing: true,
-            send_welcome_email: true,
-            double_opt_override: "on",
-          }),
-        }
-      );
+        }),
+      });
 
       if (!response.ok) {
-        const errData = await response.json().catch(() => ({}));
-        console.error("Beehiiv API error:", response.status, errData);
-
-        if (response.status === 409 || response.status === 422) {
-          return res.json({ success: true });
-        }
-
+        const errText = await response.text().catch(() => "");
+        console.error("Maileon API error:", response.status, errText);
         return res.status(500).json({ message: "No se ha podido registrar. Inténtalo de nuevo." });
       }
 
