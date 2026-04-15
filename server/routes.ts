@@ -111,25 +111,30 @@ export async function registerRoutes(
         return res.status(400).json({ message: "Email no válido." });
       }
 
-      const MAILEON_SIGNUP_URL = "https://emt-hja6ndzsh.topmailer.net/hp/NpSmjC-4bTM9BKn5O0-_GA/signup";
+      const apiToken = process.env.HOSTINGER_API_TOKEN;
 
-      const response = await fetch(MAILEON_SIGNUP_URL, {
+      if (!apiToken) {
+        console.error("Missing HOSTINGER_API_TOKEN");
+        return res.status(500).json({ message: "Servicio no configurado. Inténtalo más tarde." });
+      }
+
+      const response = await fetch("https://developers.hostinger.com/api/reach/v1/contacts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${apiToken}`,
         },
-        body: JSON.stringify({
-          standard: {
-            EMAIL: normalized,
-            FIRSTNAME: "",
-            LASTNAME: "",
-          },
-        }),
+        body: JSON.stringify({ email: normalized }),
       });
 
       if (!response.ok) {
         const errText = await response.text().catch(() => "");
-        console.error("Maileon API error:", response.status, errText);
+        console.error("Hostinger API error:", response.status, errText);
+
+        if (response.status === 409 || response.status === 422) {
+          return res.json({ success: true });
+        }
+
         return res.status(500).json({ message: "No se ha podido registrar. Inténtalo de nuevo." });
       }
 

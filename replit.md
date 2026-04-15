@@ -51,13 +51,13 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 - Email sends FROM `sanchezginesizan@gmail.com` TO `prcyecto.ix@gmail.com`
 - NEVER use the word "newsletter" — always "email diario"
 
-## Email Diario (Maileon / IONOS)
+## Email Diario (Hostinger Reach)
 - Page at `/email-diario` captures email subscriptions
-- Backend `/api/subscribe` forwards to Maileon hosted form endpoint
-- Maileon URL: `https://emt-hja6ndzsh.topmailer.net/hp/NpSmjC-4bTM9BKn5O0-_GA/signup`
-- No API key needed — uses Maileon's public hosted form endpoint
-- Maileon handles double opt-in confirmation emails and subscriber management
-- `/confirmado` page is the redirect target after email confirmation (configure in Maileon)
+- Backend `/api/subscribe` forwards to Hostinger Reach API
+- Endpoint: `POST https://developers.hostinger.com/api/reach/v1/contacts`
+- Requires secret: `HOSTINGER_API_TOKEN` (Bearer token auth)
+- Hostinger handles double opt-in confirmation emails and subscriber management
+- `/confirmado` page is the redirect target after email confirmation (configure in Hostinger)
 - Privacy checkbox required before subscribing
 
 ## Contact Form
