@@ -124,7 +124,11 @@ export async function registerRoutes(
           "Content-Type": "application/json",
           Authorization: `Bearer ${apiToken}`,
         },
-        body: JSON.stringify({ email: normalized }),
+        body: JSON.stringify({
+          email: normalized,
+          name: "IX Subscriber",
+          note: "Web signup",
+        }),
       });
 
       if (!response.ok) {
