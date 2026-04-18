@@ -34,10 +34,11 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled ? "bg-black/60 backdrop-blur-md border-b border-white/5 py-3" : "bg-transparent py-6"
         )}
       >
+        <div className="w-full max-w-6xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="text-xl font-display font-bold tracking-tighter text-white z-50 relative group cursor-pointer flex items-center gap-1" onClick={() => setMobileMenuOpen(false)}>
             <span className="text-2xl">IX</span>
             <span className="w-2 h-2 bg-[hsl(270,100%,60%)] rounded-full mt-1 shadow-[0_0_15px_hsl(270,100%,60%)] animate-pulse"></span>
@@ -81,6 +82,7 @@ export function Navbar() {
              />
           </div>
         </button>
+        </div>
       </motion.nav>
 
       {/* Mobile Menu Overlay */}

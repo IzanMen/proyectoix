@@ -10,14 +10,13 @@ export function Contact() {
 
   return (
     <section id="contact" className="min-h-[80vh] flex flex-col items-center justify-center text-center relative overflow-hidden py-32">
-      
-      {/* Dynamic Background Gradient only - removed specific portal image */}
+
       <div className="absolute inset-0 z-0">
          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
          <div className="absolute bottom-0 left-0 right-0 h-[300px] bg-blue-900/10 blur-[100px]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-4xl px-6">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12">
         <AnimatePresence mode="wait">
           {!showForm ? (
             <motion.div
