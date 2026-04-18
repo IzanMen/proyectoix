@@ -1,7 +1,6 @@
 import { Switch, Route } from "wouter";
 import Home from "@/pages/Home";
 import EmailDiario from "@/pages/EmailDiario";
-import Confirmado from "@/pages/Confirmado";
 import PoliticaPrivacidad from "@/pages/PoliticaPrivacidad";
 import AvisoLegal from "@/pages/AvisoLegal";
 import PoliticaCookies from "@/pages/PoliticaCookies";
@@ -12,7 +11,6 @@ function App() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/email-diario" component={EmailDiario} />
-      <Route path="/confirmado" component={Confirmado} />
       <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
       <Route path="/aviso-legal" component={AvisoLegal} />
       <Route path="/politica-cookies" component={PoliticaCookies} />
