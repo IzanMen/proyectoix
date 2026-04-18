@@ -19,14 +19,14 @@ export function Hero() {
 
         <FadeIn direction="up" delay={0.3}>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] tracking-tight mb-8 text-white">
-            Mejora de <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[hsl(270,100%,75%)] to-[hsl(270,100%,60%)] drop-shadow-[0_0_15px_rgba(160,60,255,0.4)]">imagen online.</span>
+            Diseño web<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[hsl(270,100%,75%)] to-[hsl(270,100%,60%)] drop-shadow-[0_0_15px_rgba(160,60,255,0.4)]">que trabaja por tu negocio.</span>
           </h1>
         </FadeIn>
 
         <FadeIn direction="up" delay={0.4}>
           <p className="text-xl md:text-2xl text-white/70 max-w-lg font-light leading-relaxed">
-            Para pequeños y medianos negocios.
+            Para los que quieren crecer de verdad.
           </p>
         </FadeIn>
         
@@ -34,8 +34,8 @@ export function Hero() {
            <div className="mt-12 flex flex-col sm:flex-row gap-6 items-start">
              <div className="h-[1px] w-12 bg-white/30 mt-3 hidden sm:block"></div>
              <p className="text-sm text-white/40 max-w-xs leading-relaxed uppercase tracking-wide">
-               Cada detalle cuenta.<br/>
-               Nada está al azar.
+               Todo tiene un porqué.<br/>
+               Nada es relleno.
              </p>
            </div>
         </FadeIn>
