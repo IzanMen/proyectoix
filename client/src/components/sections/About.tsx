@@ -45,7 +45,7 @@ export function About() {
             <FadeIn delay={0.2}>
               <article className="border-l-2 border-[hsl(270,100%,60%)]/40 pl-6">
                 <h3 className="text-2xl font-display font-bold mb-2 text-white">
-                  Xaloc <span className="text-white/40 text-base font-normal">— Estrategia y crecimiento digital</span>
+                  Xaloc <span className="text-white/40 text-base font-normal">— Venta y estrategia</span>
                 </h3>
                 <p className="text-white/60 text-sm md:text-base leading-relaxed">
                   Piensa en el cliente final de tu negocio antes de tomar cualquier
