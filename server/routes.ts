@@ -31,7 +31,7 @@ export async function registerRoutes(
       const safeWebsite = escapeHtml(String(hasWebsite));
 
       const subject = `Nuevo Proyecto: ${safeBusiness}`;
-      const to = "prcyecto.ix@gmail.com";
+      const to = "hola@proyectoix.com";
 
       const htmlContent = `
         <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #fff; padding: 40px; border-radius: 12px;">

@@ -24,7 +24,7 @@ export default function PoliticaPrivacidad() {
           <section className="space-y-3">
             <h2 className="text-lg font-display font-semibold text-white/90">1. Responsable del tratamiento</h2>
             <p>Izan & Xaloc (en adelante, "IX."), con domicilio en Menorca, Islas Baleares, es el responsable del tratamiento de los datos personales recogidos a través de este sitio web.</p>
-            <p>Email de contacto: prcyecto.ix@gmail.com</p>
+            <p>Email de contacto: hola@proyectoix.com</p>
           </section>
 
           <section className="space-y-3">
@@ -67,7 +67,7 @@ export default function PoliticaPrivacidad() {
 
           <section className="space-y-3">
             <h2 className="text-lg font-display font-semibold text-white/90">7. Derechos del usuario</h2>
-            <p>El usuario puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad de los datos enviando un email a prcyecto.ix@gmail.com.</p>
+            <p>El usuario puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad de los datos enviando un email a hola@proyectoix.com.</p>
             <p>También puede darse de baja del email diario en cualquier momento a través del enlace incluido en cada email.</p>
           </section>
 

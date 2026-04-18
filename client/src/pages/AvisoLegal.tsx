@@ -27,7 +27,7 @@ export default function AvisoLegal() {
             <ul className="list-disc pl-5 space-y-1">
               <li>Denominación: Izan & Xaloc (IX.)</li>
               <li>Domicilio: Menorca, Islas Baleares, España</li>
-              <li>Email: prcyecto.ix@gmail.com</li>
+              <li>Email: hola@proyectoix.com</li>
               <li>Actividad: Diseño y desarrollo web</li>
             </ul>
           </section>

@@ -11,8 +11,7 @@ export function Footer() {
           Somos un estudio de <strong className="text-white/55 font-normal">diseño web en Menorca</strong>{" "}
           especializado en pequeños y medianos negocios. Ofrecemos{" "}
           <strong className="text-white/55 font-normal">desarrollo web en Menorca</strong> con tecnología
-          actual, inteligencia artificial integrada y orientación a resultados. Trabajamos con negocios
-          de toda la isla: Maó, Ciutadella, Alaior, Es Mercadal, Ferreries y Sant Lluís.
+          actual, inteligencia artificial integrada y orientación a resultados. 
         </p>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pt-6 border-t border-white/10">

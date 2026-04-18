@@ -48,7 +48,7 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 - Interactive particle background (canvas-based)
 - Team photo with removed background: `client/public/team-photo.png`
 - 3-step contact form: businessName → contact → hasWebsite
-- Email sends FROM `sanchezginesizan@gmail.com` TO `prcyecto.ix@gmail.com`
+- Email sends FROM `sanchezginesizan@gmail.com` TO `hola@proyectoix.com`
 - NEVER use the word "newsletter" — always "email diario"
 
 ## Email Diario (Hostinger Reach)
@@ -62,7 +62,7 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 
 ## Contact Form
 - 3-step form: business name → contact info → has website?
-- Sends email via Nodemailer/Gmail SMTP to prcyecto.ix@gmail.com
+- Sends email via Nodemailer/Gmail SMTP to hola@proyectoix.com
 
 ## Dependencies (minimal)
 - Runtime: express, nodemailer, react, react-dom, framer-motion, lucide-react, wouter, clsx, tailwind-merge, tw-animate-css

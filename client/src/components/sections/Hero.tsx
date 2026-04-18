@@ -26,10 +26,7 @@ export function Hero() {
               id="hero-title"
               className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] tracking-tight mb-8 text-white"
             >
-              Diseño web en Menorca <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[hsl(270,100%,75%)] to-[hsl(270,100%,60%)] drop-shadow-[0_0_15px_rgba(160,60,255,0.4)]">
-                que realmente funciona.
-              </span>
+              Diseño web en Menorca
             </h1>
           </FadeIn>
 

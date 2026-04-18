@@ -53,7 +53,7 @@ export default function PoliticaCookies() {
 
           <section className="space-y-3">
             <h2 className="text-lg font-display font-semibold text-white/90">5. Contacto</h2>
-            <p>Si tienes alguna pregunta sobre nuestra política de cookies, puedes contactarnos en prcyecto.ix@gmail.com.</p>
+            <p>Si tienes alguna pregunta sobre nuestra política de cookies, puedes contactarnos en hola@proyectoix.com.</p>
           </section>
         </div>
 
