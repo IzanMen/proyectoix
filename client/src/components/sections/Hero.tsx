@@ -13,7 +13,7 @@ export function Hero() {
       <div className="relative z-10 max-w-4xl">
         <FadeIn direction="up" delay={0.2}>
           <span className="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-widest uppercase border border-[hsl(270,100%,60%)]/30 rounded-full bg-[hsl(270,100%,60%)]/10 text-white backdrop-blur-sm shadow-[0_0_15px_-5px_hsl(270,100%,60%)]">
-            <span className="text-[hsl(270,100%,60%)] mr-2 font-bold">•</span> Diseño Web Premium
+            <span className="text-[hsl(270,100%,60%)] mr-2 font-bold">•</span> Disponibles para nuevos proyectos
           </span>
         </FadeIn>
 
