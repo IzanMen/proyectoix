@@ -27,6 +27,13 @@ export function Navbar() {
     { name: "Contactar", href: "#contact", primary: true },
   ];
 
+  const availability = (
+    <span className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-white/50">
+      <span className="w-1.5 h-1.5 rounded-full bg-[hsl(270,100%,60%)] animate-pulse shadow-[0_0_8px_hsl(270,100%,60%)]" />
+      Aceptando proyectos
+    </span>
+  );
+
   return (
     <>
       <motion.nav
@@ -46,14 +53,15 @@ export function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
+          <span className="hidden lg:inline-flex">{availability}</span>
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               className={cn(
                 "text-sm font-medium transition-colors",
-                link.primary 
-                  ? "px-4 py-2 bg-white text-black rounded-sm hover:bg-white/90" 
+                link.primary
+                  ? "px-4 py-2 bg-white text-black rounded-sm hover:bg-white/90"
                   : "text-white/70 hover:text-white"
               )}
             >
