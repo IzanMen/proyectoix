@@ -48,7 +48,7 @@ export function Process() {
             <FadeIn key={step.num} delay={i * 0.15} direction="up">
               <li className="group list-none">
                 <span
-                  className="block text-6xl md:text-7xl font-display font-bold text-white/5 group-hover:text-[hsl(270,100%,60%)]/30 transition-colors duration-500 mb-4"
+                  className="block text-6xl md:text-7xl font-display font-bold text-white/14 group-hover:text-[hsl(270,100%,60%)]/45 transition-colors duration-500 mb-4"
                   aria-hidden="true"
                 >
                   {step.num}
