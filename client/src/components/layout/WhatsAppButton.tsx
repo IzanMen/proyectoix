@@ -3,6 +3,7 @@ import {
   DEFAULT_WHATSAPP_MESSAGE,
   WHATSAPP_NUMBER_DISPLAY,
 } from "@/lib/whatsapp";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 interface WhatsAppButtonProps {
   variant?: "solid" | "outline" | "ghost";
@@ -11,21 +12,8 @@ interface WhatsAppButtonProps {
   showNumber?: boolean;
   className?: string;
   testId?: string;
+  fullWidthOnMobile?: boolean;
 }
-
-const WhatsAppIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 32 32"
-    width="18"
-    height="18"
-    fill="currentColor"
-    aria-hidden="true"
-    className="flex-shrink-0"
-  >
-    <path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.93 2.715.93.317 0 2.146-.43 2.146-1.62 0-.488.072-.616-.144-1.103-.158-.331-.658-.6-1.014-.776-.503-.215-.715-.272-.965-.554zm-2.911-9.72c-5.063.244-9.043 4.466-8.795 9.527.077 1.572.555 3.05 1.36 4.336L7 25.45l4.245-1.32c1.218.66 2.628 1.067 4.123 1.067 5.063-.244 9.043-4.466 8.795-9.526-.244-5.06-4.467-9.04-9.527-8.797zm-.082 16.45c-1.27.062-2.494-.244-3.594-.83l-2.522.808.86-2.39c-.85-1.022-1.367-2.292-1.428-3.687-.21-4.295 3.097-7.825 7.39-8.034 4.296-.21 7.825 3.098 8.034 7.392.21 4.296-3.097 7.825-7.392 8.034z" />
-  </svg>
-);
 
 export function WhatsAppButton({
   variant = "solid",
@@ -34,6 +22,7 @@ export function WhatsAppButton({
   showNumber = false,
   className = "",
   testId = "link-whatsapp",
+  fullWidthOnMobile = true,
 }: WhatsAppButtonProps) {
   const styles =
     variant === "solid"
@@ -42,6 +31,8 @@ export function WhatsAppButton({
         ? "border border-[#25D366]/40 text-[#25D366] hover:border-[#25D366] hover:bg-[#25D366]/10"
         : "text-white/70 hover:text-[#25D366]";
 
+  const widthClass = fullWidthOnMobile ? "w-full sm:w-auto" : "";
+
   return (
     <a
       href={whatsappLink(message)}
@@ -49,12 +40,12 @@ export function WhatsAppButton({
       rel="noopener noreferrer"
       data-testid={testId}
       aria-label={`Escribir por WhatsApp al ${WHATSAPP_NUMBER_DISPLAY}`}
-      className={`group inline-flex items-center gap-2 px-5 py-3 rounded-sm text-sm font-semibold tracking-tight transition-all duration-300 hover:scale-[1.02] ${styles} ${className}`}
+      className={`group inline-flex items-center justify-center gap-2 px-5 py-3 rounded-sm text-sm font-semibold tracking-tight transition-all duration-300 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-background ${widthClass} ${styles} ${className}`}
     >
-      <WhatsAppIcon />
-      <span>{label}</span>
+      <WhatsAppIcon size={18} />
+      <span className="whitespace-nowrap">{label}</span>
       {showNumber && (
-        <span className="hidden sm:inline text-xs opacity-80 font-mono">
+        <span className="hidden md:inline text-xs opacity-80 font-mono whitespace-nowrap">
           · {WHATSAPP_NUMBER_DISPLAY}
         </span>
       )}

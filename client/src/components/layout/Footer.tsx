@@ -151,9 +151,9 @@ export function Footer() {
                 <Link
                   href="/email-diario"
                   className="hover:text-white transition-colors"
-                  data-testid="link-footer-email-diario"
+                  data-testid="link-footer-newsletter"
                 >
-                  Email diario
+                  Newsletter
                 </Link>
               </li>
             </ul>

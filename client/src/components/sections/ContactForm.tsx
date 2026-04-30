@@ -7,6 +7,7 @@ interface FormData {
   businessName: string;
   contact: string;
   hasWebsite: string;
+  message: string;
 }
 
 const questions = [
@@ -14,21 +15,29 @@ const questions = [
     id: "businessName",
     label: "¿Cómo se llama tu negocio?",
     placeholder: "Ej: Restaurante Sa Caleta...",
-    type: "text"
+    type: "text" as const,
   },
   {
     id: "contact",
     label: "¿Dónde te contactamos?",
     description: "Déjanos tu teléfono o email para que podamos responderte.",
     placeholder: "Ej: 612 345 678 o tu@email.com",
-    type: "text"
+    type: "text" as const,
   },
   {
     id: "hasWebsite",
     label: "¿Tienes ya una web?",
-    type: "options",
-    options: ["Sí, pero quiero cambiarla", "No, empiezo de cero", "Tengo redes sociales"]
-  }
+    type: "options" as const,
+    options: ["Sí, pero quiero cambiarla", "No, empiezo de cero", "Tengo redes sociales"],
+  },
+  {
+    id: "message",
+    label: "Cuéntanos un poco qué quieres",
+    description: "Una idea rápida está perfecto (opcional). Lo concretamos juntos después.",
+    placeholder: "Quiero una web para mi restaurante con reservas, carta y SEO local...",
+    type: "textarea" as const,
+    optional: true,
+  },
 ];
 
 export function ContactForm() {
@@ -36,7 +45,8 @@ export function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
     businessName: "",
     contact: "",
-    hasWebsite: ""
+    hasWebsite: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -45,28 +55,19 @@ export function ContactForm() {
   const currentQuestion = questions[step];
   const isLastStep = step === questions.length - 1;
 
-  const handleNext = () => {
-    if (isLastStep) {
-      handleSubmit();
-    } else {
-      setStep((prev) => prev + 1);
-    }
-  };
-
-  const handleSubmit = async () => {
+  const submitForm = async (data: FormData) => {
     setIsSubmitting(true);
     setErrorMsg("");
-    
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       });
 
       if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.message || "Error al enviar");
+        const payload = await response.json();
+        throw new Error(payload.message || "Error al enviar");
       }
 
       setIsSuccess(true);
@@ -77,8 +78,16 @@ export function ContactForm() {
     }
   };
 
+  const handleNext = () => {
+    if (isLastStep) {
+      submitForm(formData);
+    } else {
+      setStep((prev) => prev + 1);
+    }
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey && currentQuestion.type === "text") {
       e.preventDefault();
       handleNext();
     }
@@ -86,7 +95,7 @@ export function ContactForm() {
 
   if (isSuccess) {
     return (
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="w-full max-w-lg mx-auto bg-black/40 backdrop-blur-md border border-[hsl(270,100%,60%)]/30 p-12 rounded-2xl text-center"
@@ -98,11 +107,11 @@ export function ContactForm() {
         <p className="text-white/60 mb-8">
           Hemos recibido tu información. Nos pondremos en contacto contigo pronto.
         </p>
-        <button 
+        <button
           onClick={() => {
             setIsSuccess(false);
             setStep(0);
-            setFormData({ businessName: "", contact: "", hasWebsite: "" });
+            setFormData({ businessName: "", contact: "", hasWebsite: "", message: "" });
           }}
           className="text-sm text-[hsl(270,100%,60%)] hover:text-white transition-colors"
         >
@@ -112,6 +121,8 @@ export function ContactForm() {
     );
   }
 
+  const currentValue = formData[currentQuestion.id as keyof FormData];
+
   return (
     <div className="w-full max-w-xl mx-auto">
       <div className="mb-8 flex items-center justify-between px-2">
@@ -120,11 +131,11 @@ export function ContactForm() {
         </span>
         <div className="flex gap-1">
           {questions.map((_, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className={cn(
                 "h-1 w-8 rounded-full transition-all duration-500",
-                i <= step ? "bg-[hsl(270,100%,60%)]" : "bg-white/10"
+                i <= step ? "bg-[hsl(270,100%,60%)]" : "bg-white/10",
               )}
             />
           ))}
@@ -140,14 +151,15 @@ export function ContactForm() {
           transition={{ duration: 0.3 }}
           className="min-h-[300px] flex flex-col"
         >
-          <h3 className="text-2xl md:text-3xl font-display font-bold mb-2 text-white">
+          <h3
+            id={`question-label-${currentQuestion.id}`}
+            className="text-2xl md:text-3xl font-display font-bold mb-2 text-white"
+          >
             {currentQuestion.label}
           </h3>
-          
+
           {currentQuestion.description && (
-            <p className="text-white/50 mb-6 text-sm">
-              {currentQuestion.description}
-            </p>
+            <p className="text-white/50 mb-6 text-sm">{currentQuestion.description}</p>
           )}
 
           <div className="mt-4 flex-1">
@@ -155,11 +167,30 @@ export function ContactForm() {
               <input
                 autoFocus
                 type="text"
-                value={formData[currentQuestion.id as keyof FormData]}
-                onChange={(e) => setFormData({ ...formData, [currentQuestion.id]: e.target.value })}
+                value={currentValue}
+                onChange={(e) =>
+                  setFormData({ ...formData, [currentQuestion.id]: e.target.value })
+                }
                 onKeyDown={handleKeyDown}
                 placeholder={currentQuestion.placeholder}
+                aria-labelledby={`question-label-${currentQuestion.id}`}
+                data-testid={`input-${currentQuestion.id}`}
                 className="w-full bg-transparent border-b-2 border-white/10 focus:border-[hsl(270,100%,60%)] py-4 text-xl md:text-2xl outline-none transition-colors placeholder:text-white/20"
+              />
+            )}
+
+            {currentQuestion.type === "textarea" && (
+              <textarea
+                autoFocus
+                rows={4}
+                value={currentValue}
+                onChange={(e) =>
+                  setFormData({ ...formData, [currentQuestion.id]: e.target.value })
+                }
+                placeholder={currentQuestion.placeholder}
+                aria-labelledby={`question-label-${currentQuestion.id}`}
+                data-testid={`input-${currentQuestion.id}`}
+                className="w-full bg-white/5 border border-white/10 focus:border-[hsl(270,100%,60%)] focus:bg-white/[0.07] rounded-lg px-4 py-3 text-base md:text-lg outline-none transition-colors placeholder:text-white/20 resize-none"
               />
             )}
 
@@ -169,37 +200,21 @@ export function ContactForm() {
                   <button
                     key={option}
                     disabled={isSubmitting}
+                    data-testid={`option-${currentQuestion.id}-${option.slice(0, 10)}`}
                     onClick={() => {
                       const nextData = { ...formData, [currentQuestion.id]: option };
                       setFormData(nextData);
                       if (isLastStep) {
-                        setIsSubmitting(true);
-                        setErrorMsg("");
-                        fetch("/api/contact", {
-                          method: "POST",
-                          headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify(nextData),
-                        })
-                          .then(async (response) => {
-                            if (!response.ok) {
-                              const data = await response.json();
-                              throw new Error(data.message || "Error al enviar");
-                            }
-                            setIsSuccess(true);
-                          })
-                          .catch((err: any) => {
-                            setErrorMsg(err.message || "Error al enviar. Inténtalo de nuevo.");
-                          })
-                          .finally(() => setIsSubmitting(false));
+                        submitForm(nextData);
                       } else {
                         setStep((prev) => prev + 1);
                       }
                     }}
                     className={cn(
                       "text-left p-4 rounded-lg border transition-all duration-300 hover:scale-[1.02]",
-                      formData[currentQuestion.id as keyof FormData] === option
+                      currentValue === option
                         ? "bg-[hsl(270,100%,60%)]/20 border-[hsl(270,100%,60%)] text-white"
-                        : "bg-white/5 border-white/10 hover:border-[hsl(270,100%,60%)] hover:bg-white/10 text-white/70"
+                        : "bg-white/5 border-white/10 hover:border-[hsl(270,100%,60%)] hover:bg-white/10 text-white/70",
                     )}
                   >
                     {option}
@@ -209,20 +224,19 @@ export function ContactForm() {
             )}
           </div>
 
-          {errorMsg && (
-            <p className="text-red-400 text-sm mt-4">{errorMsg}</p>
-          )}
+          {errorMsg && <p className="text-red-400 text-sm mt-4">{errorMsg}</p>}
 
           {currentQuestion.type !== "options" && (
             <div className="mt-8 flex justify-end">
               <button
                 onClick={handleNext}
-                disabled={!formData[currentQuestion.id as keyof FormData] || isSubmitting}
+                disabled={(!currentValue && !("optional" in currentQuestion && currentQuestion.optional)) || isSubmitting}
+                data-testid="button-form-next"
                 className={cn(
                   "group flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300",
-                  !formData[currentQuestion.id as keyof FormData]
+                  !currentValue && !("optional" in currentQuestion && currentQuestion.optional)
                     ? "opacity-50 cursor-not-allowed bg-white/10 text-white/30"
-                    : "bg-[hsl(270,100%,60%)] text-white shadow-[0_0_20px_hsl(270,100%,60%)] hover:shadow-[0_0_30px_hsl(270,100%,60%)] hover:scale-105"
+                    : "bg-[hsl(270,100%,60%)] text-white shadow-[0_0_20px_hsl(270,100%,60%)] hover:shadow-[0_0_30px_hsl(270,100%,60%)] hover:scale-105",
                 )}
               >
                 {isSubmitting ? (
