@@ -1,13 +1,11 @@
 # Regla global — aplica a cualquier user-agent no listado abajo
 User-agent: *
 Disallow: /api/
-Disallow: /confirmado
 Allow: /
 
 # Crawlers principales
 User-agent: Googlebot
 Disallow: /api/
-Disallow: /confirmado
 Allow: /
 
 User-agent: Googlebot-Image
@@ -15,12 +13,10 @@ Allow: /
 
 User-agent: Bingbot
 Disallow: /api/
-Disallow: /confirmado
 Allow: /
 
 User-agent: DuckDuckBot
 Disallow: /api/
-Disallow: /confirmado
 Allow: /
 
 # Bots de IA permitidos (cambia a Disallow si no quieres ser entrenado)

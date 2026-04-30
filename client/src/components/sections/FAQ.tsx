@@ -63,31 +63,24 @@ export function FAQ() {
           </h2>
         </FadeIn>
 
-        <div className="border-t border-white/10">
-          {faqs.map((item, i) => (
-            <FadeIn key={item.question} delay={i * 0.05}>
-              <details
-                className="group py-6 border-b border-white/10"
+        <FadeIn>
+          <dl className="border-t border-white/10">
+            {faqs.map((item, i) => (
+              <div
+                key={item.question}
+                className="py-7 border-b border-white/10"
                 data-testid={`faq-item-${i}`}
               >
-                <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
-                  <h3 className="text-lg md:text-xl font-display font-semibold text-white leading-snug">
-                    {item.question}
-                  </h3>
-                  <span
-                    className="mt-1 flex-shrink-0 w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-white/60 group-hover:border-[hsl(270,100%,60%)] group-hover:text-[hsl(270,100%,75%)] group-open:rotate-45 transition-all duration-300"
-                    aria-hidden="true"
-                  >
-                    +
-                  </span>
-                </summary>
-                <p className="mt-4 text-white/65 text-sm md:text-base leading-relaxed pr-10">
+                <dt className="text-lg md:text-xl font-display font-semibold text-white leading-snug mb-3 pr-6">
+                  {item.question}
+                </dt>
+                <dd className="text-white/65 text-sm md:text-base leading-relaxed">
                   {item.answer}
-                </p>
-              </details>
-            </FadeIn>
-          ))}
-        </div>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </FadeIn>
       </div>
     </section>
   );

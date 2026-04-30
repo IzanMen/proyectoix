@@ -1,9 +1,37 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function InteractiveBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [ready, setReady] = useState(false);
+
+  // Retrasamos el montaje del canvas hasta que el navegador esté ocioso
+  // para no penalizar el LCP de la primera carga.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const w = window as Window &
+      typeof globalThis & {
+        requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      };
+    let cancelled = false;
+    const onReady = () => {
+      if (!cancelled) setReady(true);
+    };
+    if (typeof w.requestIdleCallback === "function") {
+      w.requestIdleCallback(onReady, { timeout: 1500 });
+    } else {
+      const t = window.setTimeout(onReady, 800);
+      return () => {
+        cancelled = true;
+        window.clearTimeout(t);
+      };
+    }
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
+    if (!ready) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -154,12 +182,13 @@ export function InteractiveBackground() {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [ready]);
 
   return (
-    <canvas 
-      ref={canvasRef} 
-      className="fixed inset-0 z-0 pointer-events-none bg-[#050505]" // Dark background
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 z-0 pointer-events-none bg-[#050505]"
+      aria-hidden="true"
     />
   );
 }

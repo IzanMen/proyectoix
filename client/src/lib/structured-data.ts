@@ -52,6 +52,15 @@ export const localBusinessLd = {
   image: `${SITE_URL}/opengraph.jpg`,
   url: SITE_URL,
   email: "hola@proyectoix.com",
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: "hola@proyectoix.com",
+      availableLanguage: ["Spanish", "Catalan", "English"],
+      areaServed: "ES",
+    },
+  ],
   priceRange: "€€",
   description:
     "Agencia de diseño y desarrollo web en Menorca. SEO local, marketing digital y webs a medida para negocios pequeños y medianos.",
@@ -145,6 +154,14 @@ export const websiteLd = {
   url: SITE_URL,
   inLanguage: "es-ES",
   publisher: { "@id": `${SITE_URL}/#organization` },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export function webPageLd(opts: {

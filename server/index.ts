@@ -16,6 +16,23 @@ declare module "http" {
 // Security & SEO headers
 app.disable("x-powered-by");
 const isProduction = process.env.NODE_ENV === "production";
+
+// Content-Security-Policy: solo en producción para no romper Vite HMR
+const PROD_CSP = [
+  "default-src 'self'",
+  // 'unsafe-inline' es necesario para los <script type="application/ld+json"> y los estilos en línea de Tailwind/framer-motion
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com data:",
+  "img-src 'self' data: blob: https:",
+  "connect-src 'self' https://www.instagram.com",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 app.use((_req, res, next) => {
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("X-Frame-Options", "SAMEORIGIN");
@@ -24,12 +41,12 @@ app.use((_req, res, next) => {
     "Permissions-Policy",
     "geolocation=(), microphone=(), camera=(), payment=(), usb=()",
   );
-  // Solo enviamos HSTS en producción para no forzar HTTPS en dev local
   if (isProduction) {
     res.setHeader(
       "Strict-Transport-Security",
       "max-age=63072000; includeSubDomains; preload",
     );
+    res.setHeader("Content-Security-Policy", PROD_CSP);
   }
   next();
 });

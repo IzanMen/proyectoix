@@ -14,7 +14,6 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 - `client/src/App.tsx` — Router (wouter)
 - `client/src/pages/Home.tsx` — Main page, composes all sections
 - `client/src/pages/EmailDiario.tsx` — Email subscription capture page
-- `client/src/pages/Confirmado.tsx` — Post-confirmation landing page
 - `client/src/pages/PoliticaPrivacidad.tsx` — Privacy policy
 - `client/src/pages/AvisoLegal.tsx` — Legal notice
 - `client/src/pages/PoliticaCookies.tsx` — Cookie policy
@@ -36,9 +35,8 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 - `script/build.ts` — Production build script (Vite + esbuild)
 
 ## Pages
-- `/` — Main landing page (Hero, Perception, Services, Context, Process, About, Contact)
-- `/email-diario` — Email subscription capture page (Maileon integration)
-- `/confirmado` — Post-confirmation page (redirect target after email confirmation)
+- `/` — Main landing page (Hero, Perception, Services, Context, Process, About, FAQ, Contact)
+- `/email-diario` — Email subscription capture page (Hostinger Reach integration). Hostinger gestiona la confirmación double opt-in con su propia URL (no necesitamos /confirmado)
 - `/politica-privacidad` — Privacy policy
 - `/aviso-legal` — Legal notice
 - `/politica-cookies` — Cookie policy
@@ -56,8 +54,7 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 - Backend `/api/subscribe` forwards to Hostinger Reach API
 - Endpoint: `POST https://developers.hostinger.com/api/reach/v1/contacts`
 - Requires secret: `HOSTINGER_API_TOKEN` (Bearer token auth)
-- Hostinger handles double opt-in confirmation emails and subscriber management
-- `/confirmado` page is the redirect target after email confirmation (configure in Hostinger)
+- Hostinger handles double opt-in confirmation emails y gestiona toda la pantalla de confirmación (no hay /confirmado en este sitio)
 - Privacy checkbox required before subscribing
 
 ## Contact Form

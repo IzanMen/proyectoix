@@ -90,6 +90,15 @@
           "image": "https://proyectoix.com/opengraph.jpg",
           "url": "https://proyectoix.com",
           "email": "hola@proyectoix.com",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "email": "hola@proyectoix.com",
+              "availableLanguage": ["Spanish", "Catalan", "English"],
+              "areaServed": "ES"
+            }
+          ],
           "priceRange": "€€",
           "description": "Agencia de diseño, desarrollo web y marketing digital en Menorca. SEO local, IA integrada y orientación a resultados.",
           "address": {
@@ -135,7 +144,15 @@
           "name": "Proyecto IX",
           "url": "https://proyectoix.com",
           "inLanguage": "es-ES",
-          "publisher": { "@id": "https://proyectoix.com/#organization" }
+          "publisher": { "@id": "https://proyectoix.com/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://proyectoix.com/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
         }
       ]
     }

@@ -24,7 +24,7 @@ export function Hero() {
           <FadeIn direction="up" delay={0.3}>
             <h1
               id="hero-title"
-              className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] tracking-tight mb-8 text-white"
+              className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[0.95] tracking-tight mb-8 text-white"
             >
               Diseño y desarrollo web en Menorca
             </h1>
