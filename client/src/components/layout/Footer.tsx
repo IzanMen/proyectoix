@@ -1,4 +1,9 @@
 import { Link } from "wouter";
+import {
+  WHATSAPP_NUMBER_DISPLAY,
+  whatsappLink,
+  DEFAULT_WHATSAPP_MESSAGE,
+} from "@/lib/whatsapp";
 
 const localidades = [
   "Maó",
@@ -110,6 +115,18 @@ export function Footer() {
               Conecta
             </h2>
             <ul className="space-y-2 text-sm text-white/60">
+              <li>
+                <a
+                  href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#25D366] transition-colors inline-flex items-center gap-2"
+                  data-testid="link-footer-whatsapp"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#25D366] shadow-[0_0_8px_#25D366]" aria-hidden="true" />
+                  WhatsApp {WHATSAPP_NUMBER_DISPLAY}
+                </a>
+              </li>
               <li>
                 <a
                   href="mailto:hola@proyectoix.com"

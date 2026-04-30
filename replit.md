@@ -17,10 +17,12 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 - `client/src/pages/PoliticaPrivacidad.tsx` — Privacy policy
 - `client/src/pages/AvisoLegal.tsx` — Legal notice
 - `client/src/pages/PoliticaCookies.tsx` — Cookie policy
-- `client/src/components/sections/` — Hero, Perception, Services, Context, Process, About, Contact, ContactForm
-- `client/src/components/layout/` — Navbar, InteractiveBackground, FadeIn
+- `client/src/components/sections/` — Hero, CredibilityBar, Problem, AI, Services, Process (Beneficios), About, FAQ (acordeón), Contact, ContactForm
+- `client/src/components/layout/` — Navbar, Footer, InteractiveBackground, FadeIn, WhatsAppFloat (FAB), WhatsAppButton (inline)
 - `client/src/lib/utils.ts` — `cn()` utility (clsx + tailwind-merge)
-- `client/src/index.css` — Tailwind theme config, custom fonts (Syne, Space Grotesk, Inter)
+- `client/src/lib/whatsapp.ts` — Constantes WhatsApp `+34 640 662 892` (`wa.me/34640662892`) y helper `whatsappLink(message)`
+- `client/src/lib/useSeo.ts` — Hook SEO (title/description/canonical/JSON-LD/OG)
+- `client/src/index.css` — Tailwind theme config; fuentes self-host vía `@fontsource-variable/inter`, `@fontsource/space-grotesk`, `@fontsource/syne` importadas en `main.tsx`
 
 ### Backend
 - `server/index.ts` — Express app setup
@@ -43,11 +45,17 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 
 ## Design
 - Dark aesthetic with purple accent: `hsl(270, 100%, 60%)`
-- Interactive particle background (canvas-based)
-- Team photo with removed background: `client/public/team-photo.png`
+- Interactive particle background (canvas-based, deferred via requestIdleCallback)
+- Team photo: `client/public/team-photo.webp` (220KB, served via `<picture>` with `.png` fallback) y `client/public/opengraph.jpg` (1200x630, OG con team photo compuesta)
 - 3-step contact form: businessName → contact → hasWebsite
 - Email sends FROM `sanchezginesizan@gmail.com` TO `hola@proyectoix.com`
 - NEVER use the word "newsletter" — always "email diario"
+- WhatsApp CTAs distribuidas por toda la página (Hero, Problem, Process/Beneficios, About, Contact, Footer + FAB flotante en `WhatsAppFloat`); número visible y botón copiar en Contact
+
+## Performance
+- Fuentes self-host (sin Google Fonts) → elimina render-blocking 390ms
+- `team-photo.png` (980KB) reemplazada por `.webp` (220KB) servida con `<picture><source>`
+- React.lazy para todas las rutas no-Home; particle background diferido
 
 ## Email Diario (Hostinger Reach)
 - Page at `/email-diario` captures email subscriptions

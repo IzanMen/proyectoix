@@ -1,52 +1,56 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { FadeIn } from "../layout/FadeIn";
 
 export const faqs = [
   {
     question: "¿Trabajáis solo con negocios de Menorca?",
     answer:
-      "Trabajamos sobre todo con negocios de Menorca (Maó, Ciutadella, Alaior, Es Mercadal, Ferreries, Sant Lluís) porque conocer la isla nos permite entender mejor a tu cliente final. Aún así, también aceptamos proyectos del resto de Baleares y de España de forma puntual cuando encajan.",
+      "Trabajamos sobre todo con negocios de Menorca (Maó, Ciutadella, Alaior, Es Mercadal, Ferreries, Sant Lluís) porque conocer la isla nos permite entender mejor a tu cliente final. También aceptamos proyectos de Baleares y de España de forma puntual.",
   },
   {
     question: "¿Cuánto cuesta una web en Proyecto IX?",
     answer:
-      "Cada web es a medida, así que el precio depende del alcance y los objetivos de tu negocio. Trabajamos con presupuestos cerrados y transparentes desde la primera reunión.",
+      "Cada web es a medida: el precio depende del alcance y los objetivos. Trabajamos con presupuestos cerrados y transparentes desde la primera reunión.",
   },
   {
     question: "¿Cuánto tarda en estar lista la web?",
     answer:
-      "Tardamos entre 2 y 3 semanas, dependiendo del contenido, las funcionalidades y la rapidez con la que recibimos tu material. Como integramos IA en el proceso de desarrollo, somos más rápidos que un estudio tradicional sin perder calidad ni control técnico.",
+      "Entre 2 y 3 semanas, según contenido y funcionalidades. Integramos IA en el desarrollo para ir más rápido que un estudio tradicional sin perder calidad.",
   },
   {
     question: "¿Hacéis SEO local para posicionar mi negocio en Google Menorca?",
     answer:
-      "Sí. Cada web sale optimizada para SEO desde el primer día: estructura semántica, datos estructurados, rendimiento, contenido enfocado a las búsquedas reales de tus clientes y trabajo de SEO local para Menorca.",
+      "Sí. Cada web sale optimizada desde el primer día: estructura semántica, datos estructurados, rendimiento, contenido enfocado a búsquedas reales y SEO local en Menorca.",
   },
   {
     question: "¿Qué incluye exactamente vuestro servicio?",
     answer:
-      "Diseño a medida, desarrollo técnico con código limpio, optimización de rendimiento (Core Web Vitals), SEO técnico y on-page, integración con herramientas (formularios, email, analítica, redes sociales) y formación para que puedas gestionar la web tras el lanzamiento. Acompañamos durante y después.",
+      "Diseño a medida, desarrollo con código limpio, optimización de Core Web Vitals, SEO técnico y on-page, integración con tus herramientas (formularios, email, analítica) y formación post-lanzamiento.",
   },
   {
     question: "¿Mantenéis la web una vez lanzada?",
     answer:
-      "Ofrecemos mantenimiento opcional: actualizaciones técnicas, mejoras de rendimiento, ajustes de diseño y soporte cuando lo necesites. Una web no es estática y nosotros tampoco desaparecemos al entregar el proyecto.",
+      "Ofrecemos mantenimiento opcional: actualizaciones, mejoras de rendimiento, ajustes de diseño y soporte cuando lo necesites. No desaparecemos al entregar.",
   },
   {
     question: "¿Por qué trabajáis con inteligencia artificial?",
     answer:
-      "Porque nos permite construir más rápido y con mayor precisión técnica que un estudio tradicional. Somos expertos en desarrollo web, con años de experiencia en el sector. Por lo tanto, la IA no sustituye nuestro criterio: lo amplifica. Cada decisión de diseño, cada línea de código y cada entrega pasa por nuestra revisión.",
+      "Porque construye más rápido y con más precisión técnica. La IA no sustituye nuestro criterio: lo amplifica. Cada decisión pasa por nuestra revisión.",
   },
 ];
 
 export function FAQ() {
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
+
   return (
     <section
       id="faq"
       aria-labelledby="faq-title"
-      className="py-32 relative border-y border-white/5 bg-white/[0.02]"
+      className="py-24 md:py-32 relative border-y border-white/5 bg-white/[0.02]"
     >
       <div className="w-full max-w-4xl mx-auto px-6 md:px-12 relative z-10">
-        <FadeIn className="mb-16">
+        <FadeIn className="mb-12">
           <span className="block text-xs font-mono uppercase tracking-widest text-white/40 mb-4">
             Preguntas frecuentes
           </span>
@@ -54,26 +58,68 @@ export function FAQ() {
             id="faq-title"
             className="text-3xl md:text-5xl font-display font-bold text-white leading-tight"
           >
-            Lo que nos preguntáis.
+            Lo que <strong>nos preguntáis</strong>.
           </h2>
         </FadeIn>
 
         <FadeIn>
           <dl className="border-t border-white/10">
-            {faqs.map((item, i) => (
-              <div
-                key={item.question}
-                className="py-7 border-b border-white/10"
-                data-testid={`faq-item-${i}`}
-              >
-                <dt className="text-lg md:text-xl font-display font-semibold text-white leading-snug mb-3 pr-6">
-                  {item.question}
-                </dt>
-                <dd className="text-white/65 text-sm md:text-base leading-relaxed">
-                  {item.answer}
-                </dd>
-              </div>
-            ))}
+            {faqs.map((item, i) => {
+              const open = openIdx === i;
+              const panelId = `faq-panel-${i}`;
+              const buttonId = `faq-button-${i}`;
+              return (
+                <div
+                  key={item.question}
+                  className="border-b border-white/10"
+                  data-testid={`faq-item-${i}`}
+                >
+                  <dt>
+                    <button
+                      type="button"
+                      id={buttonId}
+                      aria-expanded={open}
+                      aria-controls={panelId}
+                      onClick={() => setOpenIdx(open ? null : i)}
+                      data-testid={`button-faq-toggle-${i}`}
+                      className="w-full flex items-start justify-between gap-6 py-5 md:py-6 text-left group rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(270,100%,60%)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    >
+                      <span className="text-base md:text-lg font-display font-semibold text-white leading-snug">
+                        {item.question}
+                      </span>
+                      <span
+                        className={`mt-1 flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center text-base transition-all duration-300 ${
+                          open
+                            ? "border-[hsl(270,100%,60%)] text-[hsl(270,100%,75%)] rotate-45 bg-[hsl(270,100%,60%)]/10"
+                            : "border-white/20 text-white/60 group-hover:border-white/50 group-hover:text-white"
+                        }`}
+                        aria-hidden="true"
+                      >
+                        +
+                      </span>
+                    </button>
+                  </dt>
+                  <motion.dd
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    hidden={!open}
+                    initial={false}
+                    animate={
+                      open
+                        ? { height: "auto", opacity: 1 }
+                        : { height: 0, opacity: 0 }
+                    }
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-white/65 text-sm md:text-base leading-relaxed pb-6 pr-10">
+                      {item.answer}
+                    </p>
+                  </motion.dd>
+                </div>
+              );
+            })}
           </dl>
         </FadeIn>
       </div>

@@ -14,7 +14,8 @@ const SITE = {
   name: "Proyecto IX",
   url: "https://proyectoix.com",
   defaultImage: "https://proyectoix.com/opengraph.jpg",
-  twitter: "@proyecto.ix",
+  defaultImageAlt:
+    "Izan y Xaloc, fundadores de Proyecto IX en Menorca",
   locale: "es_ES",
 };
 

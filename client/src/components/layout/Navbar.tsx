@@ -71,9 +71,13 @@ export function Navbar() {
         </div>
         
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
+          type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden z-50 w-10 h-10 flex items-center justify-center relative focus:outline-none"
+          aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
+          className="md:hidden z-50 w-10 h-10 flex items-center justify-center relative rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(270,100%,60%)] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           <div className="flex flex-col items-end gap-1.5 w-6">
              <motion.span 
@@ -101,6 +105,7 @@ export function Navbar() {
             animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
             exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)", transition: { duration: 0.5, ease: "easeInOut" } }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            id="mobile-menu"
             className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col justify-center items-center md:hidden"
           >
             <div className="flex flex-col gap-8 text-center">
