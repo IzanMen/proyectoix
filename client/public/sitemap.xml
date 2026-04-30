@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://proyectoix.com/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://proyectoix.com/opengraph.jpg</image:loc>
+      <image:title>Proyecto IX — Diseño y desarrollo web en Menorca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://proyectoix.com/team-photo.png</image:loc>
+      <image:title>Izan y Xaloc, fundadores de Proyecto IX</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://proyectoix.com/email-diario</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://proyectoix.com/politica-privacidad</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://proyectoix.com/aviso-legal</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://proyectoix.com/politica-cookies</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

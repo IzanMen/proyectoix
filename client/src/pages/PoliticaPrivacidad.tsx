@@ -1,7 +1,31 @@
 import { Link } from "wouter";
 import { InteractiveBackground } from "@/components/layout/InteractiveBackground";
+import { useSeo } from "@/lib/useSeo";
+import { webPageLd, breadcrumbLd } from "@/lib/structured-data";
 
 export default function PoliticaPrivacidad() {
+  useSeo({
+    title: "Política de Privacidad · Proyecto IX",
+    description:
+      "Política de privacidad de Proyecto IX, agencia de diseño y desarrollo web en Menorca. Cómo tratamos tus datos personales conforme al RGPD y la LOPDGDD.",
+    canonical: "https://proyectoix.com/politica-privacidad",
+    jsonLd: [
+      webPageLd({
+        url: "https://proyectoix.com/politica-privacidad",
+        name: "Política de Privacidad · Proyecto IX",
+        description:
+          "Cómo tratamos tus datos personales conforme al RGPD y la LOPDGDD.",
+      }),
+      breadcrumbLd([
+        { name: "Inicio", url: "https://proyectoix.com/" },
+        {
+          name: "Política de Privacidad",
+          url: "https://proyectoix.com/politica-privacidad",
+        },
+      ]),
+    ],
+  });
+
   return (
     <div className="min-h-[100dvh] relative px-4 sm:px-6 py-16 sm:py-20">
       <InteractiveBackground />
@@ -23,7 +47,7 @@ export default function PoliticaPrivacidad() {
 
           <section className="space-y-3">
             <h2 className="text-lg font-display font-semibold text-white/90">1. Responsable del tratamiento</h2>
-            <p>Izan & Xaloc (en adelante, "IX."), con domicilio en Menorca, Islas Baleares, es el responsable del tratamiento de los datos personales recogidos a través de este sitio web.</p>
+            <p>Izan & Xaloc (en adelante, "Proyecto IX"), con domicilio en Menorca, Islas Baleares, es el responsable del tratamiento de los datos personales recogidos a través de este sitio web.</p>
             <p>Email de contacto: hola@proyectoix.com</p>
           </section>
 
@@ -60,7 +84,7 @@ export default function PoliticaPrivacidad() {
             <h2 className="text-lg font-display font-semibold text-white/90">6. Destinatarios</h2>
             <p>Los datos podrán ser comunicados a:</p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Beehiiv Inc. — plataforma de gestión de email utilizada para el envío del email diario</li>
+              <li>Hostinger International Ltd. — plataforma de gestión de email utilizada para el envío del email diario</li>
               <li>Google LLC — servicio de correo electrónico utilizado para las comunicaciones del formulario de contacto</li>
             </ul>
           </section>

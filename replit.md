@@ -65,5 +65,19 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 - Sends email via Nodemailer/Gmail SMTP to hola@proyectoix.com
 
 ## Dependencies (minimal)
-- Runtime: express, nodemailer, react, react-dom, framer-motion, lucide-react, wouter, clsx, tailwind-merge, tw-animate-css
-- Dev: vite, tailwindcss, @tailwindcss/vite, typescript, tsx, esbuild, postcss
+- Runtime: express, compression, nodemailer, react, react-dom, framer-motion, lucide-react, wouter, clsx, tailwind-merge, tw-animate-css
+- Dev: vite, tailwindcss, @tailwindcss/vite, typescript, tsx, esbuild, postcss, @types/compression
+
+## SEO (Tarea #1 — completada)
+- `client/public/robots.txt` — permite Googlebot, Bing y bots de IA (GPTBot, Google-Extended, PerplexityBot, ClaudeBot); enlaza el sitemap
+- `client/public/sitemap.xml` — 5 rutas con `image:image` para home y team photo
+- `client/index.html` — sin `meta keywords`, geo tags, hreflang, preload de fuentes con `display=swap`, `<noscript>` con texto SEO, JSON-LD `@graph` (Organization + LocalBusiness + WebSite) inline
+- `client/src/lib/useSeo.ts` — hook React 19 nativo (sin react-helmet-async) que actualiza `<title>`, meta, canonical, OG/Twitter y JSON-LD por página
+- `client/src/lib/structured-data.ts` — generadores tipados (`organizationLd`, `localBusinessLd`, `websiteLd`, `webPageLd`, `breadcrumbLd`, `faqPageLd`)
+- `client/src/components/sections/FAQ.tsx` — sección FAQ con 8 preguntas + array `faqs` exportado para FAQPage JSON-LD
+- Cada página (`Home`, `EmailDiario`, `PoliticaPrivacidad`, `AvisoLegal`, `PoliticaCookies`) llama `useSeo` con su propio título, descripción, canonical, breadcrumb y WebPage
+- `Footer` ampliado con interlinking a `/#services`, `/#process`, `/#about`, `/#faq`, `/#contact`, listado de servicios y cobertura por localidades
+- Copy reforzado en `Hero`, `About` y `Problem` con keywords ("agencia", "Maó/Ciutadella", "SEO local")
+- `server/index.ts` — compresión brotli/gzip + cabeceras de seguridad (HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy)
+- `server/static.ts` — Cache-Control 1y immutable para assets, no-cache para HTML/robots/sitemap; content-type explícito para `sitemap.xml` y `robots.txt`
+- DECISIÓN: se descartó pre-render con Puppeteer por complejidad/coste vs. beneficio marginal — Googlebot ejecuta JS y el `useSeo` hook + JSON-LD inline + `<noscript>` cubren los crawlers que no la ejecutan

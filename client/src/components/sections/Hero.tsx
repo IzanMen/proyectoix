@@ -26,13 +26,14 @@ export function Hero() {
               id="hero-title"
               className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] tracking-tight mb-8 text-white"
             >
-              Diseño web en Menorca
+              Diseño y desarrollo web en Menorca
             </h1>
           </FadeIn>
 
           <FadeIn direction="up" delay={0.4}>
             <p className="text-xl md:text-2xl text-white/70 max-w-xl font-light leading-relaxed mb-10">
-              Para negocios que quieren crecer, no solo estar online.
+              Agencia con IA integrada para negocios que quieren crecer,
+              no solo estar online.
             </p>
           </FadeIn>
 

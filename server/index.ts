@@ -1,4 +1,5 @@
 import express, { type Request, Response, NextFunction } from "express";
+import compression from "compression";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
@@ -11,6 +12,38 @@ declare module "http" {
     rawBody: unknown;
   }
 }
+
+// Security & SEO headers
+app.disable("x-powered-by");
+const isProduction = process.env.NODE_ENV === "production";
+app.use((_req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader(
+    "Permissions-Policy",
+    "geolocation=(), microphone=(), camera=(), payment=(), usb=()",
+  );
+  // Solo enviamos HSTS en producción para no forzar HTTPS en dev local
+  if (isProduction) {
+    res.setHeader(
+      "Strict-Transport-Security",
+      "max-age=63072000; includeSubDomains; preload",
+    );
+  }
+  next();
+});
+
+// Brotli/gzip compression
+app.use(
+  compression({
+    threshold: 1024,
+    filter: (req, res) => {
+      if (req.headers["x-no-compression"]) return false;
+      return compression.filter(req, res);
+    },
+  }),
+);
 
 app.use(
   express.json({

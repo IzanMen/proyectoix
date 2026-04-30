@@ -3,8 +3,29 @@ import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { InteractiveBackground } from "@/components/layout/InteractiveBackground";
 import { ArrowRight } from "lucide-react";
+import { useSeo } from "@/lib/useSeo";
+import { webPageLd, breadcrumbLd } from "@/lib/structured-data";
 
 export default function EmailDiario() {
+  useSeo({
+    title: "Email diario · Proyecto IX | Construyendo una agencia web en Menorca",
+    description:
+      "Suscríbete al email diario de Proyecto IX. Cada día contamos cómo construimos una agencia de diseño y desarrollo web desde Menorca: decisiones, problemas, lo que funciona y lo que no.",
+    canonical: "https://proyectoix.com/email-diario",
+    jsonLd: [
+      webPageLd({
+        url: "https://proyectoix.com/email-diario",
+        name: "Email diario · Proyecto IX",
+        description:
+          "Cómo construimos una agencia de diseño y desarrollo web desde Menorca, contado a diario por email.",
+      }),
+      breadcrumbLd([
+        { name: "Inicio", url: "https://proyectoix.com/" },
+        { name: "Email diario", url: "https://proyectoix.com/email-diario" },
+      ]),
+    ],
+  });
+
   const [email, setEmail] = useState("");
   const [accepted, setAccepted] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");

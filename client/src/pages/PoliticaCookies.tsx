@@ -1,7 +1,31 @@
 import { Link } from "wouter";
 import { InteractiveBackground } from "@/components/layout/InteractiveBackground";
+import { useSeo } from "@/lib/useSeo";
+import { webPageLd, breadcrumbLd } from "@/lib/structured-data";
 
 export default function PoliticaCookies() {
+  useSeo({
+    title: "Política de Cookies · Proyecto IX",
+    description:
+      "Política de cookies de Proyecto IX. Información sobre las cookies que utilizamos en el sitio web y cómo gestionarlas.",
+    canonical: "https://proyectoix.com/politica-cookies",
+    jsonLd: [
+      webPageLd({
+        url: "https://proyectoix.com/politica-cookies",
+        name: "Política de Cookies · Proyecto IX",
+        description:
+          "Información sobre las cookies que utilizamos en el sitio web de Proyecto IX y cómo gestionarlas.",
+      }),
+      breadcrumbLd([
+        { name: "Inicio", url: "https://proyectoix.com/" },
+        {
+          name: "Política de Cookies",
+          url: "https://proyectoix.com/politica-cookies",
+        },
+      ]),
+    ],
+  });
+
   return (
     <div className="min-h-[100dvh] relative px-4 sm:px-6 py-16 sm:py-20">
       <InteractiveBackground />

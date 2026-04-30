@@ -22,7 +22,9 @@ export function About() {
           <p className="text-base md:text-lg text-white/60 leading-relaxed">
             Proyecto IX no nació como una agencia al uso. Nació como un proceso real: dos
             personas jóvenes, de Menorca, construyendo algo con disciplina, criterio y sin
-            atajos. Lo documentamos, lo compartimos y lo aplicamos en cada proyecto que
+            atajos. Trabajamos desde Maó para todo tipo de negocios de la isla — desde
+            Ciutadella hasta Sant Lluís — combinando desarrollo web, SEO local y estrategia
+            digital. Lo documentamos, lo compartimos y lo aplicamos en cada proyecto que
             hacemos. No vendemos teoría. Mostramos el trabajo.
           </p>
         </FadeIn>

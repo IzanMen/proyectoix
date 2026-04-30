@@ -24,7 +24,8 @@ export function Problem() {
             <p className="text-lg md:text-xl text-white/60 leading-relaxed">
               La mayoría de negocios en Menorca tienen presencia online. Pero pocas webs
               están bien construidas, cargan rápido, aparecen en Google y generan confianza
-              desde el primer segundo. Esa diferencia es la que trabajamos.
+              desde el primer segundo. Como agencia de diseño y desarrollo web en Menorca,
+              esa diferencia es exactamente la que trabajamos.
             </p>
           </FadeIn>
         </div>
