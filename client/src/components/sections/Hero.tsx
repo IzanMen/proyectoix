@@ -1,6 +1,6 @@
+import { FadeIn } from "../layout/FadeIn";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { WhatsAppButton } from "../layout/WhatsAppButton";
 
 export function Hero() {
   return (
@@ -14,29 +14,30 @@ export function Hero() {
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12">
         <div className="max-w-4xl">
-          <span className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-medium tracking-widest uppercase border border-[hsl(270,100%,60%)]/30 rounded-full bg-[hsl(270,100%,60%)]/10 text-white backdrop-blur-sm shadow-[0_0_15px_-5px_hsl(270,100%,60%)]">
-            <span
-              className="w-2 h-2 rounded-full bg-[hsl(270,100%,60%)] animate-pulse shadow-[0_0_10px_hsl(270,100%,60%)]"
-              aria-hidden="true"
-            />
-            Aceptando nuevos proyectos
-          </span>
+          <FadeIn direction="up" delay={0.2}>
+            <span className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-medium tracking-widest uppercase border border-[hsl(270,100%,60%)]/30 rounded-full bg-[hsl(270,100%,60%)]/10 text-white backdrop-blur-sm shadow-[0_0_15px_-5px_hsl(270,100%,60%)]">
+              <span className="w-2 h-2 rounded-full bg-[hsl(270,100%,60%)] animate-pulse shadow-[0_0_10px_hsl(270,100%,60%)]" />
+              Aceptando nuevos proyectos
+            </span>
+          </FadeIn>
 
-          <h1
-            id="hero-title"
-            className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[0.95] tracking-tight mb-8 text-white"
-          >
-            <strong className="font-bold">Diseño y desarrollo web</strong> en{" "}
-            <strong className="font-bold">Menorca</strong>
-          </h1>
+          <FadeIn direction="up" delay={0.3}>
+            <h1
+              id="hero-title"
+              className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[0.95] tracking-tight mb-8 text-white"
+            >
+              Diseño y desarrollo web en Menorca
+            </h1>
+          </FadeIn>
 
-          <p className="text-xl md:text-2xl text-white/70 max-w-xl font-light leading-relaxed mb-10">
-            <strong className="text-white font-medium">Agencia con IA integrada</strong> para
-            negocios que <strong className="text-white font-medium">quieren crecer</strong>,
-            no solo estar online.
-          </p>
+          <FadeIn direction="up" delay={0.4}>
+            <p className="text-xl md:text-2xl text-white/70 max-w-xl font-light leading-relaxed mb-10">
+              Integramos la IA para negocios que quieren crecer,
+              no solo estar online.
+            </p>
+          </FadeIn>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <FadeIn direction="up" delay={0.5}>
             <a
               href="#contact"
               data-testid="link-hero-cta"
@@ -45,13 +46,7 @@ export function Hero() {
               Cuéntanos tu proyecto
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <WhatsAppButton
-              variant="outline"
-              label="Escríbenos por WhatsApp"
-              testId="link-hero-whatsapp"
-              className="px-7 py-4 text-base"
-            />
-          </div>
+          </FadeIn>
         </div>
       </div>
 
@@ -59,7 +54,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden sm:block"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
         aria-hidden="true"
       >
         <div className="w-[2px] h-20 bg-gradient-to-b from-transparent via-[hsl(270,100%,60%)] to-transparent opacity-80 shadow-[0_0_10px_hsl(270,100%,60%)]" />
