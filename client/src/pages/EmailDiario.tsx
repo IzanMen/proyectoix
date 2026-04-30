@@ -117,7 +117,7 @@ export default function EmailDiario() {
                   Estamos construyendo Proyecto IX en público.
                 </p>
                 <h1
-                  className="text-3xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-[1.1] tracking-tight"
+                  className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-[1.1] tracking-tight"
                   data-testid="text-headline"
                 >
                   No cabe todo en redes.
