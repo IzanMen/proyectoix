@@ -18,11 +18,40 @@ export async function registerRoutes(
 
   app.post("/api/contact", async (req, res) => {
     try {
-      const { businessName, contact, hasWebsite, message } = req.body;
+      const {
+        businessName,
+        contact,
+        hasWebsite,
+        message,
+        privacyAccepted,
+        policyVersion,
+        acceptedAt,
+      } = req.body;
 
       if (!businessName || !contact || !hasWebsite) {
         return res.status(400).json({ message: "Todos los campos son obligatorios." });
       }
+
+      // RGPD: validamos el consentimiento explícito del usuario antes de procesar.
+      if (privacyAccepted !== true) {
+        return res.status(400).json({
+          message:
+            "Debes aceptar la política de privacidad para enviar el formulario.",
+        });
+      }
+
+      // Evidencia mínima de consentimiento (accountability — art. 5.2 RGPD).
+      const consentRecord = {
+        ip: req.ip || "unknown",
+        userAgent: req.headers["user-agent"] || "unknown",
+        policyVersion: policyVersion ? String(policyVersion) : "unknown",
+        acceptedAt: acceptedAt ? String(acceptedAt) : new Date().toISOString(),
+        receivedAt: new Date().toISOString(),
+      };
+      console.log(
+        "[contact] consent recorded:",
+        JSON.stringify(consentRecord),
+      );
 
       const transporter = createTransporter();
 
@@ -30,6 +59,8 @@ export async function registerRoutes(
       const safeContact = escapeHtml(String(contact));
       const safeWebsite = escapeHtml(String(hasWebsite));
       const safeMessage = message ? escapeHtml(String(message)).replace(/\n/g, "<br>") : "";
+      const safePolicyVersion = escapeHtml(consentRecord.policyVersion);
+      const safeAcceptedAt = escapeHtml(consentRecord.acceptedAt);
 
       const subject = `Nuevo Proyecto: ${safeBusiness}`;
       const to = "hola@proyectoix.com";
@@ -66,7 +97,10 @@ export async function registerRoutes(
           }
 
           <div style="border-top: 1px solid #222; padding-top: 20px; margin-top: 30px;">
-            <p style="color: #555; font-size: 12px;">Enviado desde proyectoix.com</p>
+            <p style="color: #555; font-size: 12px; margin: 0 0 6px 0;">Enviado desde proyectoix.com</p>
+            <p style="color: #555; font-size: 11px; margin: 0;">
+              Consentimiento RGPD aceptado · v${safePolicyVersion} · ${safeAcceptedAt}
+            </p>
           </div>
         </div>
       `;

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ChevronRight, Loader2, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -51,9 +52,11 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
 
   const currentQuestion = questions[step];
   const isLastStep = step === questions.length - 1;
+  const consentRequiredAndMissing = isLastStep && !privacyAccepted;
 
   const submitForm = async (data: FormData) => {
     setIsSubmitting(true);
@@ -62,7 +65,12 @@ export function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          privacyAccepted: true,
+          policyVersion: "2026-05",
+          acceptedAt: new Date().toISOString(),
+        }),
       });
 
       if (!response.ok) {
@@ -80,6 +88,7 @@ export function ContactForm() {
 
   const handleNext = () => {
     if (isLastStep) {
+      if (!privacyAccepted) return;
       submitForm(formData);
     } else {
       setStep((prev) => prev + 1);
@@ -112,6 +121,7 @@ export function ContactForm() {
             setIsSuccess(false);
             setStep(0);
             setFormData({ businessName: "", contact: "", hasWebsite: "", message: "" });
+            setPrivacyAccepted(false);
           }}
           className="text-sm text-[hsl(270,100%,60%)] hover:text-white transition-colors"
         >
@@ -226,15 +236,76 @@ export function ContactForm() {
 
           {errorMsg && <p className="text-red-400 text-sm mt-4">{errorMsg}</p>}
 
+          {isLastStep && (
+            <div className="mt-6 space-y-3">
+              <label
+                className="flex items-start gap-2.5 cursor-pointer group"
+                data-testid="label-form-privacy"
+              >
+                <input
+                  type="checkbox"
+                  checked={privacyAccepted}
+                  onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                  className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/5 accent-[hsl(270,100%,60%)] cursor-pointer shrink-0"
+                  data-testid="checkbox-form-privacy"
+                  required
+                />
+                <span className="text-white/55 text-xs leading-relaxed">
+                  He leído y acepto la{" "}
+                  <Link
+                    href="/politica-privacidad"
+                    className="underline text-white/80 hover:text-white transition-colors"
+                    data-testid="link-form-privacy"
+                  >
+                    política de privacidad
+                  </Link>
+                  .
+                </span>
+              </label>
+              <p className="text-white/35 text-[11px] leading-relaxed">
+                <strong className="text-white/55 font-medium">Información básica de protección de datos:</strong>{" "}
+                Responsable: Proyecto IX (Izan & Xaloc). Finalidad: responder a
+                tu consulta y, si procede, gestionar la relación comercial.
+                Legitimación: tu consentimiento. Destinatarios: no se ceden
+                datos a terceros, salvo obligación legal o a encargados del
+                tratamiento (proveedor de email). Derechos: acceder,
+                rectificar, suprimir, oponerse y portabilidad escribiendo a{" "}
+                <a
+                  href="mailto:hola@proyectoix.com"
+                  className="underline hover:text-white/60"
+                >
+                  hola@proyectoix.com
+                </a>
+                . Más información en nuestra{" "}
+                <Link
+                  href="/politica-privacidad"
+                  className="underline hover:text-white/60"
+                >
+                  política de privacidad
+                </Link>
+                .
+              </p>
+            </div>
+          )}
+
           {currentQuestion.type !== "options" && (
             <div className="mt-8 flex justify-end">
               <button
                 onClick={handleNext}
-                disabled={(!currentValue && !("optional" in currentQuestion && currentQuestion.optional)) || isSubmitting}
+                disabled={
+                  (!currentValue &&
+                    !("optional" in currentQuestion &&
+                      currentQuestion.optional)) ||
+                  isSubmitting ||
+                  consentRequiredAndMissing
+                }
                 data-testid="button-form-next"
                 className={cn(
                   "group flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300",
-                  !currentValue && !("optional" in currentQuestion && currentQuestion.optional)
+                  (!currentValue &&
+                    !("optional" in currentQuestion &&
+                      currentQuestion.optional)) ||
+                    consentRequiredAndMissing
                     ? "opacity-50 cursor-not-allowed bg-white/10 text-white/30"
                     : "bg-[hsl(270,100%,60%)] text-white shadow-[0_0_20px_hsl(270,100%,60%)] hover:shadow-[0_0_30px_hsl(270,100%,60%)] hover:scale-105",
                 )}

@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Switch, Route } from "wouter";
 import Home from "@/pages/Home";
+import { CookieBanner } from "@/components/layout/CookieBanner";
 
 const EmailDiario = lazy(() => import("@/pages/EmailDiario"));
 const PoliticaPrivacidad = lazy(() => import("@/pages/PoliticaPrivacidad"));
@@ -19,16 +20,19 @@ function PageFallback() {
 
 function App() {
   return (
-    <Suspense fallback={<PageFallback />}>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/email-diario" component={EmailDiario} />
-        <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
-        <Route path="/aviso-legal" component={AvisoLegal} />
-        <Route path="/politica-cookies" component={PoliticaCookies} />
-        <Route component={NotFound} />
-      </Switch>
-    </Suspense>
+    <>
+      <Suspense fallback={<PageFallback />}>
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/email-diario" component={EmailDiario} />
+          <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
+          <Route path="/aviso-legal" component={AvisoLegal} />
+          <Route path="/politica-cookies" component={PoliticaCookies} />
+          <Route component={NotFound} />
+        </Switch>
+      </Suspense>
+      <CookieBanner />
+    </>
   );
 }
 

@@ -7,7 +7,7 @@ export default function AvisoLegal() {
   useSeo({
     title: "Aviso Legal · Proyecto IX",
     description:
-      "Aviso legal de Proyecto IX, agencia de diseño y desarrollo web en Menorca. Información legal y términos de uso del sitio web.",
+      "Aviso legal de Proyecto IX, agencia de diseño y desarrollo web en Menorca. Información legal y términos de uso del sitio web conforme a la LSSI-CE.",
     canonical: "https://proyectoix.com/aviso-legal",
     jsonLd: [
       webPageLd({
@@ -40,43 +40,107 @@ export default function AvisoLegal() {
         <h1 className="text-3xl sm:text-4xl font-display font-bold text-white mb-8">Aviso Legal</h1>
 
         <div className="prose-sm text-white/60 space-y-6 leading-relaxed text-sm">
-          <p><strong className="text-white/80">Última actualización:</strong> Abril 2026</p>
+          <p><strong className="text-white/80">Última actualización:</strong> Mayo de 2026</p>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-display font-semibold text-white/90">1. Datos identificativos</h2>
-            <p>En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, a continuación se reflejan los siguientes datos:</p>
+            <h2 className="text-lg font-display font-semibold text-white/90">1. Datos identificativos del titular</h2>
+            <p>
+              En cumplimiento del deber de información recogido en el artículo
+              10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad
+              de la Información y del Comercio Electrónico (LSSI-CE), se
+              ofrecen los siguientes datos:
+            </p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Denominación: Izan & Xaloc (Proyecto IX)</li>
-              <li>Domicilio: Menorca, Islas Baleares, España</li>
-              <li>Email: hola@proyectoix.com</li>
-              <li>Actividad: Diseño y desarrollo web, marketing digital</li>
+              <li><strong className="text-white/80">Denominación:</strong> Proyecto IX (Izan Sánchez Ginés y Xaloc)</li>
+              <li><strong className="text-white/80">NIF/DNI:</strong> [PENDIENTE — añadir DNI/NIF del titular]</li>
+              <li><strong className="text-white/80">Domicilio:</strong> Menorca, Illes Balears, España</li>
+              <li><strong className="text-white/80">Email de contacto:</strong> hola@proyectoix.com</li>
+              <li><strong className="text-white/80">Teléfono / WhatsApp:</strong> +34 655 30 59 11</li>
+              <li><strong className="text-white/80">Actividad:</strong> Diseño y desarrollo web, SEO local, marketing digital e integración de IA para negocios.</li>
+              <li><strong className="text-white/80">Sitio web:</strong> https://proyectoix.com</li>
             </ul>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-display font-semibold text-white/90">2. Objeto</h2>
-            <p>El presente sitio web tiene como objeto facilitar información sobre los servicios de diseño y desarrollo web, SEO y marketing digital ofrecidos por Proyecto IX, así como permitir la suscripción al email diario y el contacto a través de formulario.</p>
+            <h2 className="text-lg font-display font-semibold text-white/90">2. Objeto del sitio web</h2>
+            <p>
+              El presente sitio web tiene como objeto facilitar información
+              sobre los servicios profesionales que presta Proyecto IX, así
+              como permitir el contacto comercial a través del formulario y la
+              suscripción al newsletter.
+            </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-display font-semibold text-white/90">3. Propiedad intelectual e industrial</h2>
-            <p>Todos los contenidos del sitio web, incluyendo textos, imágenes, diseño gráfico, código fuente, logos y demás elementos, son propiedad de Proyecto IX o se utilizan con la debida autorización, y están protegidos por la normativa de propiedad intelectual e industrial.</p>
-            <p>Queda prohibida su reproducción, distribución, comunicación pública o transformación sin autorización expresa.</p>
+            <h2 className="text-lg font-display font-semibold text-white/90">3. Condiciones de uso</h2>
+            <p>
+              El acceso a este sitio web atribuye la condición de usuario, que
+              acepta, desde dicho acceso, las presentes condiciones generales
+              de uso. El usuario se compromete a hacer un uso adecuado y lícito
+              de los contenidos y servicios ofrecidos, conforme a la
+              legislación vigente, la moral y el orden público.
+            </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-display font-semibold text-white/90">4. Responsabilidad</h2>
-            <p>Proyecto IX no se hace responsable de los daños o perjuicios que pudieran derivarse del acceso o uso del sitio web, incluyendo errores u omisiones en los contenidos, falta de disponibilidad del sitio o la transmisión de virus o programas maliciosos.</p>
+            <h2 className="text-lg font-display font-semibold text-white/90">4. Propiedad intelectual e industrial</h2>
+            <p>
+              Todos los contenidos del sitio web —incluyendo textos, imágenes,
+              fotografías, diseño gráfico, código fuente, marcas, logotipos y
+              cualquier otro elemento— son propiedad de Proyecto IX o de sus
+              autores y se utilizan con la debida autorización. Están
+              protegidos por la normativa de propiedad intelectual e
+              industrial.
+            </p>
+            <p>
+              Queda expresamente prohibida su reproducción, distribución,
+              comunicación pública, transformación o cualquier otra forma de
+              explotación, total o parcial, sin la autorización expresa y por
+              escrito del titular.
+            </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-display font-semibold text-white/90">5. Enlaces externos</h2>
-            <p>Este sitio web puede contener enlaces a sitios de terceros. Proyecto IX no se responsabiliza del contenido, políticas de privacidad o prácticas de dichos sitios.</p>
+            <h2 className="text-lg font-display font-semibold text-white/90">5. Exención de responsabilidad</h2>
+            <p>
+              Proyecto IX no se hace responsable de los daños o perjuicios que
+              pudieran derivarse del acceso o uso del sitio, incluyendo
+              errores u omisiones en los contenidos, falta de disponibilidad
+              del sitio o la transmisión de virus o programas maliciosos, a
+              pesar de haber adoptado todas las medidas tecnológicas
+              necesarias para evitarlo.
+            </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-display font-semibold text-white/90">6. Legislación aplicable</h2>
-            <p>El presente aviso legal se rige por la legislación española. Para la resolución de cualquier controversia, las partes se someten a los Juzgados y Tribunales de Menorca, Islas Baleares.</p>
+            <h2 className="text-lg font-display font-semibold text-white/90">6. Enlaces a terceros</h2>
+            <p>
+              Este sitio puede contener enlaces a páginas de terceros (por
+              ejemplo, Instagram o WhatsApp). Proyecto IX no se responsabiliza
+              del contenido, las políticas de privacidad ni las prácticas de
+              dichos sitios externos.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-display font-semibold text-white/90">7. Protección de datos</h2>
+            <p>
+              El tratamiento de los datos personales recogidos a través de
+              este sitio se realiza conforme a lo establecido en la{" "}
+              <Link href="/politica-privacidad" className="underline hover:text-white">Política de Privacidad</Link>.
+            </p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-display font-semibold text-white/90">8. Legislación aplicable y jurisdicción</h2>
+            <p>
+              El presente aviso legal se rige por la legislación española.
+              Para la resolución de cualquier controversia derivada del acceso
+              o uso del sitio web, las partes se someten a los Juzgados y
+              Tribunales de Maó (Menorca, Illes Balears), salvo que la
+              normativa aplicable obligue a otra cosa cuando el usuario tenga
+              la condición de consumidor.
+            </p>
           </section>
         </div>
 
