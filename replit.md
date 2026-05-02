@@ -38,7 +38,8 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 
 ## Pages
 - `/` — Main landing page (Hero, Perception, Services, Context, Process, About, FAQ, Contact)
-- `/email-diario` — Email subscription capture page (MailerLite integration). MailerLite gestiona la confirmación double opt-in con su propia URL (no necesitamos /confirmado)
+- `/email-diario` — Email subscription capture page (MailerLite integration). MailerLite gestiona el envío del email de confirmación double opt-in
+- `/suscrito` — Página de "ya estás suscrito" usada como URL de redirección tras confirmar el double opt-in en MailerLite (configurar en MailerLite > Forms / Group settings > Redirect after confirmation: https://proyectoix.com/suscrito). `noIndex` activado
 - `/politica-privacidad` — Privacy policy
 - `/aviso-legal` — Legal notice
 - `/politica-cookies` — Cookie policy

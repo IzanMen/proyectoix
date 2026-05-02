@@ -4,6 +4,7 @@ import Home from "@/pages/Home";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 
 const EmailDiario = lazy(() => import("@/pages/EmailDiario"));
+const Suscrito = lazy(() => import("@/pages/Suscrito"));
 const PoliticaPrivacidad = lazy(() => import("@/pages/PoliticaPrivacidad"));
 const AvisoLegal = lazy(() => import("@/pages/AvisoLegal"));
 const PoliticaCookies = lazy(() => import("@/pages/PoliticaCookies"));
@@ -25,6 +26,7 @@ function App() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/email-diario" component={EmailDiario} />
+          <Route path="/suscrito" component={Suscrito} />
           <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
           <Route path="/aviso-legal" component={AvisoLegal} />
           <Route path="/politica-cookies" component={PoliticaCookies} />
