@@ -63,8 +63,8 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 - Endpoint: `POST https://connect.mailerlite.com/api/subscribers`
 - Requires secret: `MAILERLITE_API_KEY` (Bearer token auth)
 - Optional secret: `MAILERLITE_GROUP_ID` — if set, new subscribers are auto-added to that group
-- Sends `status: "unconfirmed"` to trigger MailerLite's double opt-in (must be enabled in MailerLite dashboard); MailerLite owns the confirmation email and confirmation page — no `/confirmado` route in this site
-- Treats HTTP 409 as success (already subscribed). For HTTP 422 it parses MailerLite's error payload and only treats it as success when the message clearly indicates a duplicate/already-subscribed email — other 422s (e.g. bad group_id) surface as 500 so real misconfigurations are not masked
+- Does NOT send the `status` field on purpose: passing `status` would force the subscriber state and skip MailerLite's confirmation email. By omitting it, MailerLite respects the double opt-in setting from the dashboard and sends the confirmation email itself
+- MailerLite returns 200 if the subscriber already existed and 201 if new — both treated as success on the frontend
 - Privacy checkbox required before subscribing
 
 ## Contact Form

@@ -163,10 +163,13 @@ export async function registerRoutes(
         return res.status(500).json({ message: "Servicio no configurado. Inténtalo más tarde." });
       }
 
-      const payload: { email: string; status: string; groups?: string[] } = {
+      // IMPORTANTE: NO enviamos `status`. Si lo enviamos ("unconfirmed" o "active")
+      // estaríamos forzando el estado y MailerLite NO dispararía el email de
+      // confirmación del double opt-in. Al omitir `status`, MailerLite respeta
+      // la configuración de double opt-in del panel y envía el email de
+      // confirmación automáticamente.
+      const payload: { email: string; groups?: string[] } = {
         email: normalized,
-        // 'unconfirmed' fuerza el double opt-in si está activado en MailerLite.
-        status: "unconfirmed",
       };
       if (groupId) {
         payload.groups = [groupId];
@@ -182,44 +185,11 @@ export async function registerRoutes(
         body: JSON.stringify(payload),
       });
 
+      // MailerLite responde 200 si el suscriptor ya existía y 201 si es nuevo.
+      // En ambos casos response.ok === true.
       if (!response.ok) {
         const errText = await response.text().catch(() => "");
         console.error("MailerLite API error:", response.status, errText);
-
-        // Solo tratamos como éxito los duplicados confirmados (email ya suscrito),
-        // no cualquier 422 — un 422 también puede ser un group_id mal configurado u
-        // otro fallo de validación, y no queremos enmascarar esos errores reales.
-        if (response.status === 409) {
-          return res.json({ success: true });
-        }
-
-        if (response.status === 422) {
-          let isDuplicate = false;
-          try {
-            const parsed = JSON.parse(errText) as {
-              errors?: Record<string, unknown>;
-              message?: string;
-            };
-            const emailErrors = parsed?.errors?.email;
-            const flatText = JSON.stringify(parsed).toLowerCase();
-            if (
-              (Array.isArray(emailErrors) &&
-                emailErrors.some((e) =>
-                  typeof e === "string" && /already|exist|taken|subscrib/i.test(e),
-                )) ||
-              /already|exist|taken|subscrib/.test(flatText)
-            ) {
-              isDuplicate = true;
-            }
-          } catch {
-            // cuerpo no-JSON: no asumimos duplicado
-          }
-
-          if (isDuplicate) {
-            return res.json({ success: true });
-          }
-        }
-
         return res.status(500).json({ message: "No se ha podido registrar. Inténtalo de nuevo." });
       }
 
