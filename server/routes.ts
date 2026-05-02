@@ -155,28 +155,69 @@ export async function registerRoutes(
         return res.status(400).json({ message: "Email no válido." });
       }
 
-      const apiToken = process.env.HOSTINGER_API_TOKEN;
+      const apiKey = process.env.MAILERLITE_API_KEY;
+      const groupId = process.env.MAILERLITE_GROUP_ID;
 
-      if (!apiToken) {
-        console.error("Missing HOSTINGER_API_TOKEN");
+      if (!apiKey) {
+        console.error("Missing MAILERLITE_API_KEY");
         return res.status(500).json({ message: "Servicio no configurado. Inténtalo más tarde." });
       }
 
-      const response = await fetch("https://developers.hostinger.com/api/reach/v1/contacts", {
+      const payload: { email: string; status: string; groups?: string[] } = {
+        email: normalized,
+        // 'unconfirmed' fuerza el double opt-in si está activado en MailerLite.
+        status: "unconfirmed",
+      };
+      if (groupId) {
+        payload.groups = [groupId];
+      }
+
+      const response = await fetch("https://connect.mailerlite.com/api/subscribers", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${apiToken}`,
+          Accept: "application/json",
+          Authorization: `Bearer ${apiKey}`,
         },
-        body: JSON.stringify({ email: normalized }),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
         const errText = await response.text().catch(() => "");
-        console.error("Hostinger API error:", response.status, errText);
+        console.error("MailerLite API error:", response.status, errText);
 
-        if (response.status === 409 || response.status === 422) {
+        // Solo tratamos como éxito los duplicados confirmados (email ya suscrito),
+        // no cualquier 422 — un 422 también puede ser un group_id mal configurado u
+        // otro fallo de validación, y no queremos enmascarar esos errores reales.
+        if (response.status === 409) {
           return res.json({ success: true });
+        }
+
+        if (response.status === 422) {
+          let isDuplicate = false;
+          try {
+            const parsed = JSON.parse(errText) as {
+              errors?: Record<string, unknown>;
+              message?: string;
+            };
+            const emailErrors = parsed?.errors?.email;
+            const flatText = JSON.stringify(parsed).toLowerCase();
+            if (
+              (Array.isArray(emailErrors) &&
+                emailErrors.some((e) =>
+                  typeof e === "string" && /already|exist|taken|subscrib/i.test(e),
+                )) ||
+              /already|exist|taken|subscrib/.test(flatText)
+            ) {
+              isDuplicate = true;
+            }
+          } catch {
+            // cuerpo no-JSON: no asumimos duplicado
+          }
+
+          if (isDuplicate) {
+            return res.json({ success: true });
+          }
         }
 
         return res.status(500).json({ message: "No se ha podido registrar. Inténtalo de nuevo." });

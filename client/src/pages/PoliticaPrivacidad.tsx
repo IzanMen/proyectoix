@@ -141,12 +141,8 @@ export default function PoliticaPrivacidad() {
             </p>
             <ul className="list-disc pl-5 space-y-1">
               <li>
-                <strong className="text-white/80">Hostinger International Ltd.</strong>{" "}
-                — alojamiento del sitio web y, en su caso, gestión de email.
-              </li>
-              <li>
-                <strong className="text-white/80">Beehiiv Inc. (EE.&nbsp;UU.)</strong>{" "}
-                — plataforma de envío de la newsletter.
+                <strong className="text-white/80">MailerLite Limited (Irlanda)</strong>{" "}
+                — plataforma de gestión y envío de la newsletter.
               </li>
               <li>
                 <strong className="text-white/80">Google LLC (EE.&nbsp;UU.)</strong>{" "}
@@ -159,7 +155,7 @@ export default function PoliticaPrivacidad() {
           <section className="space-y-3">
             <h2 className="text-lg font-display font-semibold text-white/90">6. Transferencias internacionales</h2>
             <p>
-              Algunos de nuestros proveedores (Beehiiv y Google) están
+              Algunos de nuestros proveedores (en particular, Google) están
               ubicados en EE.&nbsp;UU. Estas transferencias se amparan en las
               <strong className="text-white/80"> Cláusulas Contractuales Tipo</strong>{" "}
               aprobadas por la Comisión Europea y/o en el{" "}

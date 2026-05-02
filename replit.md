@@ -26,7 +26,7 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 
 ### Backend
 - `server/index.ts` — Express app setup
-- `server/routes.ts` — `/api/contact` POST (Nodemailer) + `/api/subscribe` POST (Maileon)
+- `server/routes.ts` — `/api/contact` POST (Nodemailer) + `/api/subscribe` POST (MailerLite)
 - `server/mailer.ts` — Gmail SMTP transporter factory
 - `server/vite.ts` — Vite dev middleware
 - `server/static.ts` — Production static file serving
@@ -38,7 +38,7 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 
 ## Pages
 - `/` — Main landing page (Hero, Perception, Services, Context, Process, About, FAQ, Contact)
-- `/email-diario` — Email subscription capture page (Hostinger Reach integration). Hostinger gestiona la confirmación double opt-in con su propia URL (no necesitamos /confirmado)
+- `/email-diario` — Email subscription capture page (MailerLite integration). MailerLite gestiona la confirmación double opt-in con su propia URL (no necesitamos /confirmado)
 - `/politica-privacidad` — Privacy policy
 - `/aviso-legal` — Legal notice
 - `/politica-cookies` — Cookie policy
@@ -57,12 +57,14 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 - `team-photo.png` (980KB) reemplazada por `.webp` (220KB) servida con `<picture><source>`
 - React.lazy para todas las rutas no-Home; particle background diferido
 
-## Email Diario (Hostinger Reach)
+## Email Diario (MailerLite)
 - Page at `/email-diario` captures email subscriptions
-- Backend `/api/subscribe` forwards to Hostinger Reach API
-- Endpoint: `POST https://developers.hostinger.com/api/reach/v1/contacts`
-- Requires secret: `HOSTINGER_API_TOKEN` (Bearer token auth)
-- Hostinger handles double opt-in confirmation emails y gestiona toda la pantalla de confirmación (no hay /confirmado en este sitio)
+- Backend `/api/subscribe` forwards to MailerLite API v2
+- Endpoint: `POST https://connect.mailerlite.com/api/subscribers`
+- Requires secret: `MAILERLITE_API_KEY` (Bearer token auth)
+- Optional secret: `MAILERLITE_GROUP_ID` — if set, new subscribers are auto-added to that group
+- Sends `status: "unconfirmed"` to trigger MailerLite's double opt-in (must be enabled in MailerLite dashboard); MailerLite owns the confirmation email and confirmation page — no `/confirmado` route in this site
+- Treats HTTP 409 as success (already subscribed). For HTTP 422 it parses MailerLite's error payload and only treats it as success when the message clearly indicates a duplicate/already-subscribed email — other 422s (e.g. bad group_id) surface as 500 so real misconfigurations are not masked
 - Privacy checkbox required before subscribing
 
 ## Contact Form
