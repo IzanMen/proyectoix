@@ -8,16 +8,16 @@ import { webPageLd, breadcrumbLd } from "@/lib/structured-data";
 
 export default function EmailDiario() {
   useSeo({
-    title: "Email diario · Proyecto IX | Construyendo una agencia web en Menorca",
+    title: "Email diario · Proyecto IX | Tips reales para que tu web venda",
     description:
-      "Suscríbete al email diario de Proyecto IX. Cada día contamos cómo construimos una agencia de diseño y desarrollo web desde Menorca: decisiones, problemas, lo que funciona y lo que no.",
+      "Suscríbete al email diario de Proyecto IX. Tips reales para convertir visitas en clientes y posicionar tu web en Google, más el día a día de cómo construimos una agencia desde Menorca.",
     canonical: "https://proyectoix.com/email-diario",
     jsonLd: [
       webPageLd({
         url: "https://proyectoix.com/email-diario",
         name: "Email diario · Proyecto IX",
         description:
-          "Cómo construimos una agencia de diseño y desarrollo web desde Menorca, contado a diario por email.",
+          "Tips reales para que tu web convierta y posicione en Google, más el progreso de Proyecto IX desde Menorca.",
       }),
       breadcrumbLd([
         { name: "Inicio", url: "https://proyectoix.com/" },
@@ -30,11 +30,18 @@ export default function EmailDiario() {
   const [accepted, setAccepted] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [showAcceptHint, setShowAcceptHint] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !accepted || status === "loading") return;
+    if (status === "loading") return;
+
+    if (!accepted) {
+      setShowAcceptHint(true);
+      return;
+    }
+    if (!email) return;
 
     setStatus("loading");
     setErrorMsg("");
@@ -74,7 +81,7 @@ export default function EmailDiario() {
         <span className="w-2 h-2 bg-[hsl(270,100%,60%)] rounded-full mt-1 shadow-[0_0_15px_hsl(270,100%,60%)] animate-pulse"></span>
       </Link>
 
-      <div className="relative z-10 w-full max-w-xl">
+      <div className="relative z-10 w-full max-w-md">
         <AnimatePresence mode="wait">
           {status === "success" ? (
             <motion.div
@@ -88,17 +95,17 @@ export default function EmailDiario() {
                 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-wide"
                 data-testid="text-success-title"
               >
-                Todavía no estás suscrito
+                Casi estás dentro
               </h2>
-              <p className="text-white/60 text-base sm:text-lg max-w-md leading-relaxed" data-testid="text-success-message">
-                Lo único que debes hacer es clicar en el enlace del mail que te acabamos de mandar al correo que nos has dejado.
+              <p className="text-white/60 text-base sm:text-lg leading-relaxed" data-testid="text-success-message">
+                Te acabamos de mandar un email. Pulsa el enlace que hay dentro para confirmar tu suscripción.
               </p>
-              <div className="w-full max-w-md rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-[hsl(270,100%,60%)]/10 px-5 py-4 shadow-[0_0_40px_-18px_hsl(270,100%,60%)]">
+              <div className="w-full rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-[hsl(270,100%,60%)]/10 px-5 py-4 shadow-[0_0_40px_-18px_hsl(270,100%,60%)]">
                 <p className="text-white text-sm sm:text-base font-semibold uppercase tracking-[0.2em]">
-                  OJO: puede tardar 3 o 4 minutos
+                  Puede tardar unos minutos
                 </p>
                 <p className="mt-2 text-[hsl(270,100%,70%)] text-sm sm:text-base leading-relaxed">
-                  Si no aparece al momento, espera unos minutos.
+                  Revisa también la carpeta de spam por si acaso.
                 </p>
               </div>
             </motion.div>
@@ -109,87 +116,136 @@ export default function EmailDiario() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col gap-6 sm:gap-8"
+              className="flex flex-col gap-8"
             >
-
-              <div className="text-center space-y-3 sm:space-y-4">
-                <p className="text-white/60 text-sm sm:text-base leading-relaxed">
-                  Estamos construyendo Proyecto IX en público.
+              <div className="text-center space-y-3">
+                <p className="text-[hsl(270,100%,70%)] text-xs sm:text-sm uppercase tracking-[0.25em] font-semibold">
+                  Email diario
                 </p>
                 <h1
-                  className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-[1.1] tracking-tight"
+                  className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-[1.05] tracking-tight uppercase"
                   data-testid="text-headline"
                 >
-                  No cabe todo en redes.
+                  Tu web,<br />vendiendo en serio.
                 </h1>
-                <p className="text-white/50 text-sm sm:text-base">
-                  Por eso enviamos un <span className="text-[hsl(270,100%,70%)] font-semibold">email diario</span>.
+                <p className="text-white/60 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
+                  Cada día, un email corto. Sin paja.
                 </p>
               </div>
 
-              <div className="space-y-2 text-left">
-                <p className="text-white/50 text-xs sm:text-sm uppercase tracking-widest mb-2">Ahí contamos TODO:</p>
-                <ul className="space-y-1.5 text-white/60 text-sm sm:text-base leading-relaxed">
-                  <li>– Cada <span className="text-[hsl(270,100%,70%)]">decisión que tomamos</span> (y por qué)</li>
-                  <li>– <span className="text-[hsl(270,100%,70%)]">Problemas</span> que nos encontramos</li>
-                  <li>– Qué <span className="text-[hsl(270,100%,70%)]">funciona</span>… y qué no</li>
-                </ul>
-                <p className="text-white/30 text-xs sm:text-sm mt-3">Sin buscar más visualizaciones o más seguidores.</p>
-              </div>
+              <ul className="space-y-3 text-white/75 text-sm sm:text-base leading-relaxed">
+                <li className="flex gap-3">
+                  <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
+                  <span>
+                    <span className="text-white font-semibold">Tips para convertir</span> visitas en clientes reales — los mismos cambios que aplicamos a webs que cobran.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
+                  <span>
+                    <span className="text-white font-semibold">SEO sin humo</span> para subir tu web a las primeras posiciones de Google.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
+                  <span>
+                    El día a día de <span className="text-white font-semibold">cómo construimos Proyecto IX</span> desde Menorca: decisiones, fallos, lo que funciona.
+                  </span>
+                </li>
+              </ul>
 
               <form
                 onSubmit={handleSubmit}
-                className="w-full space-y-3"
+                className="w-full space-y-4"
                 data-testid="form-subscribe"
+                noValidate
               >
-                <div className="relative flex items-center">
-                  <input
-                    ref={inputRef}
-                    type="email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      if (status === "error") setStatus("idle");
-                    }}
-                    placeholder="tu@email.com"
-                    required
-                    autoFocus
-                    className="w-full h-12 sm:h-14 pl-4 sm:pl-5 pr-12 sm:pr-14 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-white/25 text-sm sm:text-base focus:outline-none focus:border-[hsl(270,100%,60%)]/50 focus:ring-1 focus:ring-[hsl(270,100%,60%)]/30 transition-all"
-                    data-testid="input-email"
-                  />
-                  <button
-                    type="submit"
-                    disabled={status === "loading" || !email || !accepted}
-                    className="absolute right-1.5 sm:right-2 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-md bg-white text-black hover:bg-white/90 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-                    data-testid="button-subscribe"
+                <div>
+                  <label
+                    htmlFor="email-input"
+                    className="block text-white/50 text-[11px] uppercase tracking-[0.2em] font-semibold mb-2"
                   >
-                    {status === "loading" ? (
-                      <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
-                    ) : (
-                      <ArrowRight className="w-4 h-4" />
-                    )}
-                  </button>
+                    1 · Tu email
+                  </label>
+                  <div className="relative flex items-center">
+                    <input
+                      id="email-input"
+                      ref={inputRef}
+                      type="email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (status === "error") setStatus("idle");
+                      }}
+                      placeholder="tu@email.com"
+                      required
+                      className="w-full h-14 pl-5 pr-14 bg-white/5 border border-white/15 rounded-lg text-white placeholder:text-white/25 text-base focus:outline-none focus:border-[hsl(270,100%,60%)] focus:ring-2 focus:ring-[hsl(270,100%,60%)]/30 transition-all"
+                      data-testid="input-email"
+                    />
+                    <button
+                      type="submit"
+                      disabled={status === "loading" || !email}
+                      className="absolute right-2 w-10 h-10 flex items-center justify-center rounded-md bg-white text-black hover:bg-white/90 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                      data-testid="button-subscribe"
+                      aria-label="Suscribirme"
+                    >
+                      {status === "loading" ? (
+                        <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                      ) : (
+                        <ArrowRight className="w-4 h-4" />
+                      )}
+                    </button>
+                  </div>
                 </div>
 
-                <label className="flex items-start gap-2.5 cursor-pointer group" data-testid="label-privacy">
-                  <input
-                    type="checkbox"
-                    checked={accepted}
-                    onChange={(e) => setAccepted(e.target.checked)}
-                    className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/5 accent-[hsl(270,100%,60%)] cursor-pointer"
-                    data-testid="checkbox-privacy"
-                  />
-                  <span className="text-white/40 text-xs leading-relaxed">
-                    Acepto la{" "}
-                    <Link
-                      href="/politica-privacidad"
-                      className="underline text-white/60 hover:text-white transition-colors"
-                      data-testid="link-privacy"
-                    >
-                      política de privacidad
-                    </Link>
-                  </span>
-                </label>
+                <div>
+                  <p className="block text-white/50 text-[11px] uppercase tracking-[0.2em] font-semibold mb-2">
+                    2 · Acepta antes de enviar
+                  </p>
+                  <label
+                    className={`flex items-start gap-3 cursor-pointer rounded-lg border px-3 py-3 transition-all ${
+                      showAcceptHint && !accepted
+                        ? "border-[hsl(270,100%,60%)] bg-[hsl(270,100%,60%)]/10 shadow-[0_0_30px_-12px_hsl(270,100%,60%)]"
+                        : "border-white/10 bg-white/[0.02] hover:border-white/20"
+                    }`}
+                    data-testid="label-privacy"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={accepted}
+                      onChange={(e) => {
+                        setAccepted(e.target.checked);
+                        if (e.target.checked) setShowAcceptHint(false);
+                      }}
+                      className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/5 accent-[hsl(270,100%,60%)] cursor-pointer flex-shrink-0"
+                      data-testid="checkbox-privacy"
+                    />
+                    <span className="text-white/70 text-sm leading-relaxed">
+                      Acepto la{" "}
+                      <Link
+                        href="/politica-privacidad"
+                        className="underline text-white hover:text-[hsl(270,100%,70%)] transition-colors"
+                        data-testid="link-privacy"
+                      >
+                        política de privacidad
+                      </Link>
+                      .
+                    </span>
+                  </label>
+                  <AnimatePresence>
+                    {showAcceptHint && !accepted && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                        className="text-[hsl(270,100%,75%)] text-xs mt-2 ml-1"
+                        data-testid="text-accept-hint"
+                      >
+                        Marca la casilla para poder enviar.
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 <AnimatePresence>
                   {status === "error" && errorMsg && (
@@ -206,18 +262,8 @@ export default function EmailDiario() {
                 </AnimatePresence>
               </form>
 
-              <div className="space-y-2 text-left">
-                <p className="text-white/50 text-xs sm:text-sm uppercase tracking-widest mb-2">Y por estar dentro, te llevas algo más:</p>
-                <ul className="space-y-1.5 text-white/60 text-sm sm:text-base leading-relaxed">
-                  <li>– <span className="text-[hsl(270,100%,70%)]">Tips reales</span> para mejorar tu web (sin necesidad de contratarnos)</li>
-                  <li>– Cambios que puedes aplicar tú mismo y <span className="text-[hsl(270,100%,70%)]">conseguir más clientes</span></li>
-                  <li>– <span className="text-[hsl(270,100%,70%)]">Ideas que usamos con clientes</span>, gratis</li>
-                </ul>
-                <p className="text-white/30 text-xs sm:text-sm mt-3">Aunque nunca trabajes con nosotros.</p>
-              </div>
-
-              <p className="text-white/20 text-xs tracking-wide text-center" data-testid="text-author">
-                Escrito por Izan — cada día, desde Menorca.
+              <p className="text-white/30 text-xs text-center" data-testid="text-author">
+                Escrito por Izan, desde Menorca. Te puedes ir cuando quieras.
               </p>
 
               <div className="flex items-center justify-center gap-4 text-white/20 text-[10px] sm:text-xs pt-4 border-t border-white/5">
