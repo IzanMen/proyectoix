@@ -3,61 +3,105 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   whatsappLink,
   DEFAULT_WHATSAPP_MESSAGE,
+  WHATSAPP_NUMBER_DISPLAY,
 } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function WhatsAppFloat() {
-  const [visible, setVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [showLabel, setShowLabel] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    let nearContact = false;
-    const onScroll = () => {
-      const scrolled = window.scrollY > 480;
-      const contactEl = document.getElementById("contact");
-      if (contactEl) {
-        const rect = contactEl.getBoundingClientRect();
-        nearContact = rect.top < window.innerHeight * 0.85;
-      }
-      const footerEl = document.querySelector("footer");
-      let nearFooter = false;
-      if (footerEl) {
-        const rect = footerEl.getBoundingClientRect();
-        nearFooter = rect.top < window.innerHeight - 40;
-      }
-      setVisible(scrolled && !nearContact && !nearFooter);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    const t1 = window.setTimeout(() => setMounted(true), 600);
+    const t2 = window.setTimeout(() => setShowLabel(true), 1800);
+    const t3 = window.setTimeout(() => setShowLabel(false), 6800);
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
     };
   }, []);
 
+  if (dismissed) return null;
+
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.a
-          key="wa-float"
-          href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Escríbenos por WhatsApp"
-          data-testid="link-whatsapp-float"
-          initial={{ opacity: 0, scale: 0.6, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.6, y: 20 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_-4px_rgba(37,211,102,0.55)] hover:scale-105 active:scale-95 transition-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          style={{
-            paddingBottom: "env(safe-area-inset-bottom, 0)",
-            marginBottom: "env(safe-area-inset-bottom, 0)",
-          }}
-        >
-          <WhatsAppIcon size={26} />
-        </motion.a>
-      )}
-    </AnimatePresence>
+    <div
+      className="fixed z-[60] right-4 sm:right-6 pointer-events-none"
+      style={{
+        bottom: "calc(1rem + env(safe-area-inset-bottom, 0px))",
+      }}
+      aria-hidden={!mounted}
+    >
+      <AnimatePresence>
+        {mounted && (
+          <motion.div
+            key="wa-float-wrapper"
+            initial={{ opacity: 0, y: 16, scale: 0.85 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 16, scale: 0.85 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="relative pointer-events-auto flex items-center justify-end gap-2"
+          >
+            {/* Dismiss button (subtle, only visible when label expanded) */}
+            <AnimatePresence>
+              {showLabel && (
+                <motion.button
+                  key="wa-dismiss"
+                  type="button"
+                  onClick={() => setDismissed(true)}
+                  aria-label="Cerrar invitación de WhatsApp"
+                  data-testid="button-whatsapp-dismiss"
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.6 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-black/80 text-white/70 hover:text-white text-[11px] leading-none flex items-center justify-center border border-white/15 shadow"
+                >
+                  ×
+                </motion.button>
+              )}
+            </AnimatePresence>
+
+            {/* Expandable label (tooltip-style) */}
+            <AnimatePresence>
+              {showLabel && (
+                <motion.div
+                  key="wa-label"
+                  initial={{ opacity: 0, x: 12, scale: 0.9 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: 12, scale: 0.9 }}
+                  transition={{
+                    duration: 0.35,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="flex items-center gap-2 bg-black/85 backdrop-blur-md text-white text-[13px] font-medium pl-3 pr-3.5 py-2 rounded-full shadow-[0_8px_30px_-6px_rgba(0,0,0,0.6)] border border-white/10 whitespace-nowrap"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+                  ¿Hablamos?
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Main FAB */}
+            <a
+              href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Escríbenos por WhatsApp al ${WHATSAPP_NUMBER_DISPLAY}`}
+              data-testid="link-whatsapp-float"
+              className="group relative inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_-6px_rgba(37,211,102,0.6),0_4px_12px_rgba(0,0,0,0.35)] transition-transform duration-200 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              {/* Ambient pulse ring (very subtle) */}
+              <span
+                className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-wa-pulse"
+                aria-hidden="true"
+              />
+              <WhatsAppIcon size={28} className="relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]" />
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

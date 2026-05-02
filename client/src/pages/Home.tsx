@@ -10,6 +10,7 @@ import { About } from "@/components/sections/About";
 import { FAQ, faqs } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { InteractiveBackground } from "@/components/layout/InteractiveBackground";
+import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useSeo } from "@/lib/useSeo";
 import {
@@ -71,6 +72,8 @@ export default function Home() {
       </main>
 
       <Footer />
+
+      <WhatsAppFloat />
     </div>
   );
 }
