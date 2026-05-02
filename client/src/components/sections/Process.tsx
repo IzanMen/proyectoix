@@ -29,7 +29,7 @@ export function Process() {
     <section
       id="process"
       aria-labelledby="process-title"
-      className="py-24 md:py-32 relative"
+      className="py-24 md:py-32 relative overflow-hidden"
     >
       <div className="w-full max-w-6xl mx-auto px-6 md:px-12 relative z-10">
         <FadeIn className="mb-14 max-w-3xl">

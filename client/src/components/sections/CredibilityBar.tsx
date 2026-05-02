@@ -10,7 +10,7 @@ export function CredibilityBar() {
   return (
     <aside
       aria-label="Por qué Proyecto IX"
-      className="border-y border-white/10 bg-white/[0.02] backdrop-blur-sm"
+      className="overflow-hidden border-y border-white/10 bg-white/[0.02] backdrop-blur-sm"
     >
       <div className="w-full max-w-6xl mx-auto px-6 md:px-12 py-5">
         <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[11px] sm:text-xs font-mono uppercase tracking-widest text-white/50">

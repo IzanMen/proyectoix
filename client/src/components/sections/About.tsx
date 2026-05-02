@@ -6,7 +6,7 @@ export function About() {
     <section
       id="about"
       aria-labelledby="about-title"
-      className="py-24 md:py-32 bg-white/[0.02] backdrop-blur-sm border-y border-white/5"
+      className="relative overflow-hidden py-24 md:py-32 bg-white/[0.02] backdrop-blur-sm border-y border-white/5"
     >
       <div className="w-full max-w-6xl mx-auto px-6 md:px-12">
         <FadeIn className="mb-14 max-w-3xl">
