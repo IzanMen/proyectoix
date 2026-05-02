@@ -52,7 +52,7 @@ export default function AvisoLegal() {
             </p>
             <ul className="list-disc pl-5 space-y-1">
               <li><strong className="text-white/80">Denominación:</strong> Proyecto IX (Izan Sánchez Ginés y Xaloc)</li>
-              <li><strong className="text-white/80">NIF/DNI:</strong> [PENDIENTE — añadir DNI/NIF del titular]</li>
+              <li><strong className="text-white/80">NIF:</strong> 49155013B</li>
               <li><strong className="text-white/80">Domicilio:</strong> Menorca, Illes Balears, España</li>
               <li><strong className="text-white/80">Email de contacto:</strong> hola@proyectoix.com</li>
               <li><strong className="text-white/80">Teléfono / WhatsApp:</strong> +34 655 30 59 11</li>

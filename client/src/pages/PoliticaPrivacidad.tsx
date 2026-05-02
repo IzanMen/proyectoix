@@ -58,7 +58,7 @@ export default function PoliticaPrivacidad() {
             <h2 className="text-lg font-display font-semibold text-white/90">1. Responsable del tratamiento</h2>
             <ul className="list-disc pl-5 space-y-1">
               <li><strong className="text-white/80">Titular:</strong> Proyecto IX (Izan Sánchez Ginés y Xaloc)</li>
-              <li><strong className="text-white/80">NIF/DNI:</strong> [PENDIENTE — añadir DNI/NIF del titular]</li>
+              <li><strong className="text-white/80">NIF:</strong> 49155013B</li>
               <li><strong className="text-white/80">Domicilio:</strong> Menorca, Illes Balears, España</li>
               <li><strong className="text-white/80">Email:</strong> hola@proyectoix.com</li>
             </ul>
