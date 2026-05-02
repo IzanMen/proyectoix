@@ -1,5 +1,5 @@
-export const WHATSAPP_NUMBER_DISPLAY = "+34 640 662 892";
-export const WHATSAPP_NUMBER_RAW = "34640662892";
+export const WHATSAPP_NUMBER_DISPLAY = "+34 655 30 59 11";
+export const WHATSAPP_NUMBER_RAW = "34655305911";
 
 export function whatsappLink(message?: string): string {
   const base = `https://wa.me/${WHATSAPP_NUMBER_RAW}`;

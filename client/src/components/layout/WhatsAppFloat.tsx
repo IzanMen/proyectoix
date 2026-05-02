@@ -43,7 +43,7 @@ export function WhatsAppFloat() {
           href={whatsappLink(DEFAULT_WHATSAPP_MESSAGE)}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Escríbenos por WhatsApp al +34 640 662 892"
+          aria-label="Escríbenos por WhatsApp"
           data-testid="link-whatsapp-float"
           initial={{ opacity: 0, scale: 0.6, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
