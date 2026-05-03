@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { InteractiveBackground } from "@/components/layout/InteractiveBackground";
-import { ArrowRight } from "lucide-react";
 import { useSeo } from "@/lib/useSeo";
 import { webPageLd, breadcrumbLd } from "@/lib/structured-data";
 
@@ -167,40 +166,25 @@ export default function EmailDiario() {
                   >
                     1 · Tu email
                   </label>
-                  <div className="relative flex items-center">
-                    <input
-                      id="email-input"
-                      ref={inputRef}
-                      type="email"
-                      value={email}
-                      onChange={(e) => {
-                        setEmail(e.target.value);
-                        if (status === "error") setStatus("idle");
-                      }}
-                      placeholder="tu@email.com"
-                      required
-                      className="w-full h-14 pl-5 pr-14 bg-white/5 border border-white/15 rounded-lg text-white placeholder:text-white/25 text-base focus:outline-none focus:border-[hsl(270,100%,60%)] focus:ring-2 focus:ring-[hsl(270,100%,60%)]/30 transition-all"
-                      data-testid="input-email"
-                    />
-                    <button
-                      type="submit"
-                      disabled={status === "loading" || !email}
-                      className="absolute right-2 w-10 h-10 flex items-center justify-center rounded-md bg-white text-black hover:bg-white/90 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-                      data-testid="button-subscribe"
-                      aria-label="Suscribirme"
-                    >
-                      {status === "loading" ? (
-                        <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
-                      ) : (
-                        <ArrowRight className="w-4 h-4" />
-                      )}
-                    </button>
-                  </div>
+                  <input
+                    id="email-input"
+                    ref={inputRef}
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (status === "error") setStatus("idle");
+                    }}
+                    placeholder="tu@email.com"
+                    required
+                    className="w-full h-14 pl-5 pr-5 bg-white/5 border border-white/15 rounded-lg text-white placeholder:text-white/25 text-base focus:outline-none focus:border-[hsl(270,100%,60%)] focus:ring-2 focus:ring-[hsl(270,100%,60%)]/30 transition-all"
+                    data-testid="input-email"
+                  />
                 </div>
 
                 <div>
                   <p className="block text-white/50 text-[11px] uppercase tracking-[0.2em] font-semibold mb-2">
-                    2 · Acepta antes de enviar
+                    2 · Acepta la privacidad
                   </p>
                   <label
                     className={`flex items-start gap-3 cursor-pointer rounded-lg border px-3 py-3 transition-all ${
@@ -260,6 +244,27 @@ export default function EmailDiario() {
                     </motion.p>
                   )}
                 </AnimatePresence>
+
+                <div>
+                  <p className="block text-white/50 text-[11px] uppercase tracking-[0.2em] font-semibold mb-2">
+                    3 · Enviar
+                  </p>
+                  <button
+                    type="submit"
+                    disabled={status === "loading" || !email}
+                    className="w-full h-14 rounded-lg bg-white text-black text-base font-bold tracking-wide hover:bg-white/90 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                    data-testid="button-subscribe"
+                  >
+                    {status === "loading" ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <span className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin inline-block" />
+                        Enviando…
+                      </span>
+                    ) : (
+                      "Suscribirme"
+                    )}
+                  </button>
+                </div>
               </form>
 
               <p className="text-white/30 text-xs text-center" data-testid="text-author">
