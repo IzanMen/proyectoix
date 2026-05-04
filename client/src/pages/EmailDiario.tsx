@@ -118,43 +118,25 @@ export default function EmailDiario() {
               className="flex flex-col gap-8"
             >
               <div className="text-center space-y-3">
-                <p className="text-[hsl(270,100%,70%)] text-xs sm:text-sm uppercase tracking-[0.25em] font-semibold">
-                  Email diario
-                </p>
                 <h1
-                  className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-[1.05] tracking-tight uppercase"
+                  className="text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.25em] font-semibold text-[hsl(270,100%,70%)]"
                   data-testid="text-headline"
                 >
-                  Tu web,<br />vendiendo en serio.
+                  Un email diario.
                 </h1>
-                <p className="text-white/60 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
-                  Cada día, un email corto. Sin paja.
-                </p>
-              </div>
-
-              <div className="w-full rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-[hsl(270,100%,60%)]/10 px-5 py-4 shadow-[0_0_40px_-18px_hsl(270,100%,60%)]">
-                <p className="text-white text-sm sm:text-base font-bold uppercase tracking-wide">
-                  Al suscribirte, recibes gratis:
-                </p>
-                <p className="mt-1.5 text-[hsl(270,100%,75%)] text-sm sm:text-base leading-relaxed font-semibold">
-                  «Los 5 errores que cometen el 90% de las webs (y cómo solucionarlos)»
-                </p>
-                <p className="mt-1 text-white/50 text-xs sm:text-sm">
-                  Una guía directa que puedes aplicar hoy mismo.
-                </p>
               </div>
 
               <ul className="space-y-3 text-white/75 text-sm sm:text-base leading-relaxed">
                 <li className="flex gap-3">
                   <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
                   <span>
-                    <span className="text-white font-semibold">Tips para convertir</span> visitas en clientes reales — los mismos cambios que aplicamos a webs que cobran.
+                    <span className="text-white font-semibold">Tips para convertir</span> visitas en clientes reales — los mismos cambios que aplicamos a nuestros clientes.
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
                   <span>
-                    <span className="text-white font-semibold">SEO sin humo</span> para subir tu web a las primeras posiciones de Google.
+                    <span className="text-white font-semibold">SEO</span> para subir tu web a las primeras posiciones de Google.
                   </span>
                 </li>
                 <li className="flex gap-3">
@@ -279,6 +261,18 @@ export default function EmailDiario() {
                 </div>
               </form>
 
+              <div className="w-full rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-[hsl(270,100%,60%)]/10 px-5 py-4 shadow-[0_0_40px_-18px_hsl(270,100%,60%)]">
+                <p className="text-white text-sm sm:text-base font-bold uppercase tracking-wide">
+                  Al suscribirte, recibes gratis:
+                </p>
+                <p className="mt-1.5 text-[hsl(270,100%,75%)] text-sm sm:text-base leading-relaxed font-semibold">
+                  «Los 5 errores que cometen el 90% de las webs (y cómo solucionarlos)»
+                </p>
+                <p className="mt-1 text-white/50 text-xs sm:text-sm">
+                  Una guía directa que puedes aplicar hoy mismo.
+                </p>
+              </div>
+              
               <p className="text-white/30 text-xs text-center" data-testid="text-author">
                 Escrito por Izan, desde Menorca. Te puedes ir cuando quieras.
               </p>

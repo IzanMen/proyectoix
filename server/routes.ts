@@ -78,7 +78,7 @@ export async function registerRoutes(
           </div>
 
           <div style="margin-bottom: 24px;">
-            <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Contacto</p>
+            <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Teléfono</p>
             <p style="font-size: 18px; margin: 0;">${safeContact}</p>
           </div>
 

@@ -20,10 +20,10 @@ const questions = [
   },
   {
     id: "contact",
-    label: "¿Dónde te contactamos?",
-    description: "Déjanos tu teléfono o email para que podamos responderte.",
-    placeholder: "Ej: 612 345 678 o tu@email.com",
-    type: "text" as const,
+    label: "¿Cuál es tu teléfono?",
+    description: "Para poder llamarte o escribirte por WhatsApp.",
+    placeholder: "Ej: 612 345 678",
+    type: "tel" as const,
   },
   {
     id: "hasWebsite",
@@ -86,7 +86,22 @@ export function ContactForm() {
     }
   };
 
+  const isValidPhone = (value: string): boolean => {
+    const digits = value.replace(/[\s\-().+]/g, "");
+    return /^\d{6,15}$/.test(digits);
+  };
+
+  const [phoneError, setPhoneError] = useState("");
+
   const handleNext = () => {
+    if (currentQuestion.id === "contact") {
+      if (!isValidPhone(formData.contact)) {
+        setPhoneError("Introduce un número de teléfono válido.");
+        return;
+      }
+      setPhoneError("");
+    }
+
     if (isLastStep) {
       if (!privacyAccepted) return;
       submitForm(formData);
@@ -96,7 +111,7 @@ export function ContactForm() {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey && currentQuestion.type === "text") {
+    if (e.key === "Enter" && !e.shiftKey && (currentQuestion.type === "text" || currentQuestion.type === "tel")) {
       e.preventDefault();
       handleNext();
     }
@@ -173,20 +188,27 @@ export function ContactForm() {
           )}
 
           <div className="mt-4 flex-1">
-            {currentQuestion.type === "text" && (
-              <input
-                autoFocus
-                type="text"
-                value={currentValue}
-                onChange={(e) =>
-                  setFormData({ ...formData, [currentQuestion.id]: e.target.value })
-                }
-                onKeyDown={handleKeyDown}
-                placeholder={currentQuestion.placeholder}
-                aria-labelledby={`question-label-${currentQuestion.id}`}
-                data-testid={`input-${currentQuestion.id}`}
-                className="w-full bg-transparent border-b-2 border-white/10 focus:border-[hsl(270,100%,60%)] py-4 text-xl md:text-2xl outline-none transition-colors placeholder:text-white/20"
-              />
+            {(currentQuestion.type === "text" || currentQuestion.type === "tel") && (
+              <>
+                <input
+                  autoFocus
+                  type={currentQuestion.type === "tel" ? "tel" : "text"}
+                  inputMode={currentQuestion.type === "tel" ? "tel" : "text"}
+                  value={currentValue}
+                  onChange={(e) => {
+                    setFormData({ ...formData, [currentQuestion.id]: e.target.value });
+                    if (phoneError) setPhoneError("");
+                  }}
+                  onKeyDown={handleKeyDown}
+                  placeholder={currentQuestion.placeholder}
+                  aria-labelledby={`question-label-${currentQuestion.id}`}
+                  data-testid={`input-${currentQuestion.id}`}
+                  className="w-full bg-transparent border-b-2 border-white/10 focus:border-[hsl(270,100%,60%)] py-4 text-xl md:text-2xl outline-none transition-colors placeholder:text-white/20"
+                />
+                {phoneError && currentQuestion.type === "tel" && (
+                  <p className="text-red-400/80 text-sm mt-2" data-testid="text-phone-error">{phoneError}</p>
+                )}
+              </>
             )}
 
             {currentQuestion.type === "textarea" && (
@@ -288,7 +310,7 @@ export function ContactForm() {
             </div>
           )}
 
-          {currentQuestion.type !== "options" && (
+          {currentQuestion.type !== "options" && currentQuestion.type !== undefined && (
             <div className="mt-8 flex justify-end">
               <button
                 onClick={handleNext}

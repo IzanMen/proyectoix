@@ -105,15 +105,7 @@ export function Contact() {
                 </button>
 
                 <div className="flex items-center gap-4 text-sm text-white/55">
-                  <a
-                    href={`tel:+${WHATSAPP_NUMBER_RAW}`}
-                    className="hover:text-white transition-colors"
-                    data-testid="link-tel"
-                  >
-                    Llámanos
-                  </a>
-                  <a
-                    href="https://www.instagram.com/proyecto.ix/"
+                  <a     href="https://www.instagram.com/proyecto.ix/"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-testid="link-instagram"

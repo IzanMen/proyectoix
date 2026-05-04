@@ -48,7 +48,7 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 - Dark aesthetic with purple accent: `hsl(270, 100%, 60%)`
 - Interactive particle background (canvas-based, deferred via requestIdleCallback)
 - Team photo: `client/public/team-photo.webp` (220KB, served via `<picture>` with `.png` fallback) y `client/public/opengraph.jpg` (1200x630, OG con team photo compuesta)
-- 3-step contact form: businessName → contact → hasWebsite
+- 4-step contact form: businessName → phone (validated) → hasWebsite → message (optional)
 - Email sends FROM `sanchezginesizan@gmail.com` TO `hola@proyectoix.com`
 - NEVER use the word "newsletter" — always "email diario"
 - WhatsApp CTAs distribuidas por toda la página (Hero, Problem, Process/Beneficios, About, Contact, Footer + FAB flotante en `WhatsAppFloat`); número visible y botón copiar en Contact

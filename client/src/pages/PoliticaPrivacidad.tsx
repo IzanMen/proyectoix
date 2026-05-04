@@ -70,7 +70,7 @@ export default function PoliticaPrivacidad() {
             <ul className="list-disc pl-5 space-y-1">
               <li>
                 <strong className="text-white/80">Formulario de contacto:</strong>{" "}
-                nombre del negocio, teléfono o email de contacto, situación
+                nombre del negocio, número de teléfono, situación
                 actual de tu web y, opcionalmente, una breve descripción de tu
                 proyecto.
               </li>
