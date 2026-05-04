@@ -14,14 +14,14 @@ export function Hero() {
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12">
         <div className="max-w-4xl">
-          <FadeIn direction="up" delay={0.2}>
+          <FadeIn direction="up" delay={0.2} immediate>
             <span className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-medium tracking-widest uppercase border border-[hsl(270,100%,60%)]/30 rounded-full bg-[hsl(270,100%,60%)]/10 text-white backdrop-blur-sm shadow-[0_0_15px_-5px_hsl(270,100%,60%)]">
               <span className="w-2 h-2 rounded-full bg-[hsl(270,100%,60%)] animate-pulse shadow-[0_0_10px_hsl(270,100%,60%)]" />
               Aceptando nuevos proyectos
             </span>
           </FadeIn>
 
-          <FadeIn direction="up" delay={0.3}>
+          <FadeIn direction="up" delay={0.3} immediate>
             <h1
               id="hero-title"
               className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[0.95] tracking-tight mb-8 text-white"
@@ -30,14 +30,14 @@ export function Hero() {
             </h1>
           </FadeIn>
 
-          <FadeIn direction="up" delay={0.4}>
+          <FadeIn direction="up" delay={0.4} immediate>
             <p className="text-xl md:text-2xl text-white/70 max-w-xl font-light leading-relaxed mb-10">
               Integramos la IA para negocios que quieren crecer,
               no solo estar online.
             </p>
           </FadeIn>
 
-          <FadeIn direction="up" delay={0.5}>
+          <FadeIn direction="up" delay={0.5} immediate>
             <a
               href="#contact"
               data-testid="link-hero-cta"

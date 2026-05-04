@@ -132,6 +132,18 @@ export default function EmailDiario() {
                 </p>
               </div>
 
+              <div className="w-full rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-[hsl(270,100%,60%)]/10 px-5 py-4 shadow-[0_0_40px_-18px_hsl(270,100%,60%)]">
+                <p className="text-white text-sm sm:text-base font-bold uppercase tracking-wide">
+                  Al suscribirte, recibes gratis:
+                </p>
+                <p className="mt-1.5 text-[hsl(270,100%,75%)] text-sm sm:text-base leading-relaxed font-semibold">
+                  «Los 5 errores que cometen el 90% de las webs (y cómo solucionarlos)»
+                </p>
+                <p className="mt-1 text-white/50 text-xs sm:text-sm">
+                  Una guía directa que puedes aplicar hoy mismo.
+                </p>
+              </div>
+
               <ul className="space-y-3 text-white/75 text-sm sm:text-base leading-relaxed">
                 <li className="flex gap-3">
                   <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
