@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ChevronRight, Loader2, Send } from "lucide-react";
@@ -43,6 +43,8 @@ const questions = [
 
 export function ContactForm() {
   const [step, setStep] = useState(0);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
   const [formData, setFormData] = useState<FormData>({
     businessName: "",
     contact: "",
@@ -53,6 +55,12 @@ export function ContactForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+
+  useEffect(() => {
+    if (hasInteracted && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [step, hasInteracted]);
 
   const currentQuestion = questions[step];
   const isLastStep = step === questions.length - 1;
@@ -94,6 +102,8 @@ export function ContactForm() {
   const [phoneError, setPhoneError] = useState("");
 
   const handleNext = () => {
+    if (!hasInteracted) setHasInteracted(true);
+
     if (currentQuestion.id === "contact") {
       if (!isValidPhone(formData.contact)) {
         setPhoneError("Introduce un número de teléfono válido.");
@@ -191,11 +201,13 @@ export function ContactForm() {
             {(currentQuestion.type === "text" || currentQuestion.type === "tel") && (
               <>
                 <input
-                  autoFocus
+                  ref={inputRef as React.RefObject<HTMLInputElement>}
                   type={currentQuestion.type === "tel" ? "tel" : "text"}
                   inputMode={currentQuestion.type === "tel" ? "tel" : "text"}
                   value={currentValue}
+                  onFocus={() => { if (!hasInteracted) setHasInteracted(true); }}
                   onChange={(e) => {
+                    if (!hasInteracted) setHasInteracted(true);
                     setFormData({ ...formData, [currentQuestion.id]: e.target.value });
                     if (phoneError) setPhoneError("");
                   }}
@@ -213,12 +225,14 @@ export function ContactForm() {
 
             {currentQuestion.type === "textarea" && (
               <textarea
-                autoFocus
+                ref={inputRef as React.RefObject<HTMLTextAreaElement>}
                 rows={4}
                 value={currentValue}
-                onChange={(e) =>
-                  setFormData({ ...formData, [currentQuestion.id]: e.target.value })
-                }
+                onFocus={() => { if (!hasInteracted) setHasInteracted(true); }}
+                onChange={(e) => {
+                  if (!hasInteracted) setHasInteracted(true);
+                  setFormData({ ...formData, [currentQuestion.id]: e.target.value });
+                }}
                 placeholder={currentQuestion.placeholder}
                 aria-labelledby={`question-label-${currentQuestion.id}`}
                 data-testid={`input-${currentQuestion.id}`}
