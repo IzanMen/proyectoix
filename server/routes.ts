@@ -22,17 +22,43 @@ export async function registerRoutes(
         businessName,
         contact,
         hasWebsite,
+        goal,
+        budget,
         message,
         privacyAccepted,
         policyVersion,
         acceptedAt,
       } = req.body;
 
-      if (!businessName || !contact || !hasWebsite) {
-        return res.status(400).json({ message: "Todos los campos son obligatorios." });
+      if (!businessName || !contact || !hasWebsite || !goal || !budget) {
+        return res.status(400).json({ message: "Faltan datos obligatorios." });
       }
 
-      // RGPD: validamos el consentimiento explícito del usuario antes de procesar.
+      const allowedHasWebsite = [
+        "Sí, tengo web",
+        "No tengo web",
+        "Tengo web pero creo que se puede mejorar",
+      ];
+      const allowedGoals = [
+        "Que los clientes me llamen o escriban",
+        "Que hagan una reserva",
+        "Que compren un producto",
+        "No lo tengo claro",
+      ];
+      const allowedBudgets = [
+        "500 - 800 €",
+        "800 - 1.200 €",
+        "1.200 - 2.000 €",
+        "+ de 2.000 €",
+      ];
+      if (
+        !allowedHasWebsite.includes(String(hasWebsite)) ||
+        !allowedGoals.includes(String(goal)) ||
+        !allowedBudgets.includes(String(budget))
+      ) {
+        return res.status(400).json({ message: "Valores no válidos en el formulario." });
+      }
+
       if (privacyAccepted !== true) {
         return res.status(400).json({
           message:
@@ -40,7 +66,6 @@ export async function registerRoutes(
         });
       }
 
-      // Evidencia mínima de consentimiento (accountability — art. 5.2 RGPD).
       const consentRecord = {
         ip: req.ip || "unknown",
         userAgent: req.headers["user-agent"] || "unknown",
@@ -58,41 +83,48 @@ export async function registerRoutes(
       const safeBusiness = escapeHtml(String(businessName));
       const safeContact = escapeHtml(String(contact));
       const safeWebsite = escapeHtml(String(hasWebsite));
-      const safeMessage = message ? escapeHtml(String(message)).replace(/\n/g, "<br>") : "";
+      const safeGoal = goal ? escapeHtml(String(goal)) : "";
+      const safeBudget = budget ? escapeHtml(String(budget)) : "";
+      const safeMessage = message
+        ? escapeHtml(String(message)).replace(/\n/g, "<br>")
+        : "";
       const safePolicyVersion = escapeHtml(consentRecord.policyVersion);
       const safeAcceptedAt = escapeHtml(consentRecord.acceptedAt);
 
-      const subject = `Nuevo Proyecto: ${safeBusiness}`;
-      const to = "hola@proyectoix.com";
+      const subject = `Nuevo lead: ${safeBusiness}`;
+      const to = [
+        "hola@proyectoix.com",
+        "sanchezginesizan@gmail.com",
+        "izan@proyectoix.com",
+        "xaloc@proyectoix.com",
+      ];
+
+      const row = (label: string, value: string) =>
+        value
+          ? `<div style="margin-bottom: 22px;">
+              <p style="color: #c4a4ff; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 6px 0;">${label}</p>
+              <p style="font-size: 16px; margin: 0; line-height: 1.5;">${value}</p>
+            </div>`
+          : "";
 
       const htmlContent = `
         <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #fff; padding: 40px; border-radius: 12px;">
           <div style="border-bottom: 2px solid #7c3aed; padding-bottom: 20px; margin-bottom: 30px;">
-            <h1 style="font-size: 28px; margin: 0; color: #fff;">Nuevo Proyecto Potencial</h1>
-            <p style="color: #888; margin-top: 5px; font-size: 14px;">Formulario de contacto — IX.</p>
+            <h1 style="font-size: 26px; margin: 0; color: #fff;">Nuevo lead</h1>
+            <p style="color: #888; margin-top: 5px; font-size: 14px;">Landing Proyecto IX · Meta Ads</p>
           </div>
 
-          <div style="margin-bottom: 24px;">
-            <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Negocio</p>
-            <p style="font-size: 18px; margin: 0;">${safeBusiness}</p>
-          </div>
-
-          <div style="margin-bottom: 24px;">
-            <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Teléfono</p>
-            <p style="font-size: 18px; margin: 0;">${safeContact}</p>
-          </div>
-
-          <div style="margin-bottom: 24px;">
-            <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">¿Tiene web?</p>
-            <p style="font-size: 18px; margin: 0;">${safeWebsite}</p>
-          </div>
-
+          ${row("Negocio", safeBusiness)}
+          ${row("WhatsApp", safeContact)}
+          ${row("¿Tiene web?", safeWebsite)}
+          ${row("Objetivo", safeGoal)}
+          ${row("Presupuesto", safeBudget)}
           ${
             safeMessage
-              ? `<div style="margin-bottom: 24px;">
-            <p style="color: #7c3aed; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;">Qué quiere</p>
-            <p style="font-size: 16px; margin: 0; line-height: 1.6;">${safeMessage}</p>
-          </div>`
+              ? `<div style="margin-bottom: 22px;">
+                  <p style="color: #c4a4ff; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 6px 0;">Comentarios</p>
+                  <p style="font-size: 15px; margin: 0; line-height: 1.6;">${safeMessage}</p>
+                </div>`
               : ""
           }
 
@@ -106,7 +138,7 @@ export async function registerRoutes(
       `;
 
       await transporter.sendMail({
-        from: '"IX. Studio" <sanchezginesizan@gmail.com>',
+        from: '"Proyecto IX" <sanchezginesizan@gmail.com>',
         to,
         subject,
         html: htmlContent,

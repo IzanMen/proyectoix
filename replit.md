@@ -12,7 +12,8 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 
 ### Frontend
 - `client/src/App.tsx` — Router (wouter)
-- `client/src/pages/Home.tsx` — Main page, composes all sections
+- `client/src/pages/Home.tsx` — Landing alta conversión (Meta Ads): compone secciones de `client/src/components/landing/*`. Sin Navbar/Footer enlaces de navegación, una sola meta = capturar lead por WhatsApp
+- `client/src/components/landing/` — MinimalHeader, LandingHero, VideoSection (placeholder vídeo), ProblemAnimated (browsers comparados web mala vs buena), BeforeAfter (3 cards), AboutVisual (Izan + Xaloc), ProcessSteps (3 pasos), Objections, LeadForm (5 preguntas), FormSection, FinalCta, MinimalFooter, StickyMobileCta (barra inferior móvil que se oculta al llegar al form)
 - `client/src/pages/EmailDiario.tsx` — Email subscription capture page
 - `client/src/pages/PoliticaPrivacidad.tsx` — Privacy policy
 - `client/src/pages/AvisoLegal.tsx` — Legal notice
@@ -26,7 +27,7 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 
 ### Backend
 - `server/index.ts` — Express app setup
-- `server/routes.ts` — `/api/contact` POST (Nodemailer) + `/api/subscribe` POST (MailerLite)
+- `server/routes.ts` — `/api/contact` POST (Nodemailer, multi-recipient: hola@/sanchezginesizan@/izan@/xaloc@; campos: businessName, contact, hasWebsite, goal, budget — los 3 últimos validados con whitelist) + `/api/subscribe` POST (MailerLite)
 - `server/mailer.ts` — Gmail SMTP transporter factory
 - `server/vite.ts` — Vite dev middleware
 - `server/static.ts` — Production static file serving

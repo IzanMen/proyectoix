@@ -1,23 +1,22 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { Hero } from "@/components/sections/Hero";
-import { CredibilityBar } from "@/components/sections/CredibilityBar";
-import { Problem } from "@/components/sections/Problem";
-import { AI } from "@/components/sections/AI";
-import { Services } from "@/components/sections/Services";
-import { Process } from "@/components/sections/Process";
-import { About } from "@/components/sections/About";
-import { FAQ, faqs } from "@/components/sections/FAQ";
-import { Contact } from "@/components/sections/Contact";
-import { InteractiveBackground } from "@/components/layout/InteractiveBackground";
-import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useSeo } from "@/lib/useSeo";
 import {
   webPageLd,
   breadcrumbLd,
-  faqPageLd,
 } from "@/lib/structured-data";
+import { InteractiveBackground } from "@/components/layout/InteractiveBackground";
+import { MinimalHeader } from "@/components/landing/MinimalHeader";
+import { LandingHero } from "@/components/landing/LandingHero";
+import { VideoSection } from "@/components/landing/VideoSection";
+import { ProblemAnimated } from "@/components/landing/ProblemAnimated";
+import { BeforeAfter } from "@/components/landing/BeforeAfter";
+import { AboutVisual } from "@/components/landing/AboutVisual";
+import { ProcessSteps } from "@/components/landing/ProcessSteps";
+import { Objections } from "@/components/landing/Objections";
+import { FormSection } from "@/components/landing/FormSection";
+import { FinalCta } from "@/components/landing/FinalCta";
+import { MinimalFooter } from "@/components/landing/MinimalFooter";
+import { StickyMobileCta } from "@/components/landing/StickyMobileCta";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -29,51 +28,48 @@ export default function Home() {
 
   useSeo({
     title:
-      "Proyecto IX · Diseño y desarrollo web en Menorca | Agencia con IA",
+      "Proyecto IX · Diseño y desarrollo web para negocios de Menorca",
     description:
-      "Agencia de diseño y desarrollo web en Menorca. Webs a medida, rápidas y posicionadas en Google. SEO local, marketing digital e inteligencia artificial integrada en el proceso.",
+      "Webs modernas, rápidas y optimizadas para convertir visitas en clientes. Cuéntanos tu caso en menos de 1 minuto y te respondemos por WhatsApp.",
     canonical: "https://proyectoix.com/",
     jsonLd: [
       webPageLd({
         url: "https://proyectoix.com/",
-        name: "Proyecto IX · Diseño y desarrollo web en Menorca",
+        name: "Proyecto IX · Diseño y desarrollo web para negocios de Menorca",
         description:
-          "Agencia de diseño y desarrollo web en Menorca. SEO local, marketing digital e IA integrada en el proceso.",
+          "Webs modernas, rápidas y optimizadas para convertir visitas en clientes. Cuéntanos tu caso en menos de 1 minuto.",
       }),
       breadcrumbLd([{ name: "Inicio", url: "https://proyectoix.com/" }]),
-      faqPageLd(
-        faqs.map((f) => ({ question: f.question, answer: f.answer })),
-      ),
     ],
   });
 
   return (
-    <div className="min-h-screen bg-transparent text-foreground selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-transparent text-foreground selection:bg-[hsl(270,100%,60%)] selection:text-white">
       <InteractiveBackground />
 
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-white origin-left z-[100]"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-[hsl(270,100%,60%)] origin-left z-[100] shadow-[0_0_8px_hsl(270,100%,60%)]"
         style={{ scaleX }}
         aria-hidden="true"
       />
 
-      <Navbar />
+      <MinimalHeader />
 
       <main className="relative z-10">
-        <Hero />
-        <CredibilityBar />
-        <Problem />
-        <AI />
-        <Services />
-        <Process />
-        <About />
-        <FAQ />
-        <Contact />
+        <LandingHero />
+        <VideoSection />
+        <ProblemAnimated />
+        <BeforeAfter />
+        <AboutVisual />
+        <ProcessSteps />
+        <Objections />
+        <FormSection />
+        <FinalCta />
       </main>
 
-      <Footer />
+      <MinimalFooter />
 
-      <WhatsAppFloat />
+      <StickyMobileCta />
     </div>
   );
 }
