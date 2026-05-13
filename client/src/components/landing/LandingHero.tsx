@@ -36,12 +36,12 @@ export function LandingHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[40px] sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[0.98] tracking-tight mb-6 text-white"
+          className="text-[38px] sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[0.98] tracking-tight mb-6 text-white"
         >
-          Diseño y desarrollo web profesional para{" "}
+          Desarrollo web{" "}
           <span className="relative inline-block">
             <span className="relative z-10 bg-gradient-to-r from-white via-[hsl(270,100%,80%)] to-white bg-clip-text text-transparent">
-              negocios de Menorca
+              profesional en Menorca
             </span>
           </span>
         </motion.h1>
@@ -50,10 +50,9 @@ export function LandingHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="text-lg md:text-xl text-white/70 max-w-2xl font-light leading-relaxed mb-10"
+          className="text-lg md:text-xl text-white/70 max-w-xl font-light leading-relaxed mb-10"
         >
-          Creamos webs modernas, rápidas y optimizadas para convertir visitas en
-          clientes. Cuéntanos tu caso y te decimos cómo podemos ayudarte.
+          Moderna, rápida y optimizada para convertir visitas en clientes.
         </motion.p>
 
         <motion.div
