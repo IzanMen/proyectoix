@@ -76,12 +76,19 @@ const questions: Question[] = [
     label: "¿Cuál es tu número de WhatsApp?",
     description: "Te escribiremos aquí con nuestra propuesta.",
     type: "tel",
-    placeholder: "Ej: 612 345 678",
+    placeholder: "612 345 678",
   },
 ];
 
-const isValidPhone = (value: string) =>
-  /^\d{6,15}$/.test(value.replace(/[\s\-().+]/g, ""));
+// Acepta un único móvil español: 9 dígitos empezando por 6 o 7.
+const normalizePhone = (value: string) => value.replace(/\D/g, "");
+const isValidPhone = (value: string) => /^[67]\d{8}$/.test(normalizePhone(value));
+const formatPhone = (digits: string) => {
+  const d = digits.slice(0, 9);
+  if (d.length <= 3) return d;
+  if (d.length <= 6) return `${d.slice(0, 3)} ${d.slice(3)}`;
+  return `${d.slice(0, 3)} ${d.slice(3, 6)} ${d.slice(6)}`;
+};
 
 export function LeadForm() {
   const [step, setStep] = useState(0);
@@ -122,7 +129,7 @@ export function LeadForm() {
           hasWebsite: final.hasWebsite,
           goal: final.goal,
           budget: final.budget,
-          contact: final.whatsapp,
+          contact: `+34 ${final.whatsapp}`.trim(),
           privacyAccepted: true,
           policyVersion: "2026-05",
           acceptedAt: new Date().toISOString(),
@@ -233,12 +240,72 @@ export function LeadForm() {
           )}
 
           <div className="mt-6 flex-1">
-            {(current.type === "text" || current.type === "tel") && (
+            {current.type === "tel" && (
+              <>
+                <div
+                  className={cn(
+                    "flex items-stretch border-b-2 transition-colors",
+                    phoneError
+                      ? "border-red-400/60"
+                      : "border-white/10 focus-within:border-[hsl(270,100%,60%)]",
+                  )}
+                >
+                  <span
+                    className="inline-flex items-center gap-1.5 pr-3 mr-3 border-r border-white/10 text-white/55 text-lg md:text-xl font-mono select-none"
+                    aria-hidden="true"
+                  >
+                    🇪🇸 +34
+                  </span>
+                  <input
+                    ref={inputRef}
+                    type="tel"
+                    inputMode="numeric"
+                    autoComplete="tel-national"
+                    pattern="[0-9 ]*"
+                    maxLength={11}
+                    value={value}
+                    onFocus={() => {
+                      if (!hasInteracted) setHasInteracted(true);
+                    }}
+                    onChange={(e) => {
+                      if (!hasInteracted) setHasInteracted(true);
+                      const digits = normalizePhone(e.target.value).slice(0, 9);
+                      setData({ ...data, whatsapp: formatPhone(digits) });
+                      if (phoneError) setPhoneError("");
+                    }}
+                    onKeyDown={onKey}
+                    placeholder={current.placeholder}
+                    aria-labelledby={`q-${current.id}`}
+                    aria-describedby={`hint-${current.id}`}
+                    aria-invalid={!!phoneError}
+                    data-testid={`input-${current.id}`}
+                    className="flex-1 bg-transparent py-3 text-lg md:text-xl outline-none placeholder:text-white/20 tracking-wide"
+                  />
+                </div>
+                <p
+                  id={`hint-${current.id}`}
+                  className="mt-2 text-white/40 text-xs"
+                >
+                  Móvil español: 9 dígitos, empieza por 6 o 7.
+                </p>
+                {phoneError && (
+                  <p
+                    className="text-red-300 text-sm mt-2"
+                    data-testid="text-phone-error"
+                    role="alert"
+                  >
+                    {phoneError}
+                  </p>
+                )}
+              </>
+            )}
+
+            {current.type === "text" && (
               <>
                 <input
                   ref={inputRef}
-                  type={current.type === "tel" ? "tel" : "text"}
-                  inputMode={current.type === "tel" ? "tel" : "text"}
+                  type="text"
+                  inputMode="text"
                   value={value}
                   onFocus={() => {
                     if (!hasInteracted) setHasInteracted(true);
@@ -246,7 +313,6 @@ export function LeadForm() {
                   onChange={(e) => {
                     if (!hasInteracted) setHasInteracted(true);
                     setData({ ...data, [current.id]: e.target.value });
-                    if (phoneError) setPhoneError("");
                   }}
                   onKeyDown={onKey}
                   placeholder={current.placeholder}
@@ -254,14 +320,6 @@ export function LeadForm() {
                   data-testid={`input-${current.id}`}
                   className="w-full bg-transparent border-b-2 border-white/10 focus:border-[hsl(270,100%,60%)] py-3 text-lg md:text-xl outline-none transition-colors placeholder:text-white/20"
                 />
-                {phoneError && (
-                  <p
-                    className="text-red-300 text-sm mt-3"
-                    data-testid="text-phone-error"
-                  >
-                    {phoneError}
-                  </p>
-                )}
               </>
             )}
 

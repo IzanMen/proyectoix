@@ -30,8 +30,7 @@ export function FormSection() {
               id="form-title"
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-white leading-[1.05]"
             >
-              Cuéntanos tu caso.{" "}
-              <span className="text-white/45">Es gratis.</span>
+              Cuéntanos tu caso.
             </h2>
             <p className="mt-4 text-white/65 text-base md:text-lg">
               5 preguntas. Menos de 1 minuto. Te respondemos por WhatsApp.

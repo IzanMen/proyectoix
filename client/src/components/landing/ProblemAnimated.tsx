@@ -1,6 +1,5 @@
-import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
-import { Frown, Smile, X, ArrowRight, Loader2 } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Frown, Smile, X, ArrowRight, Loader2, Timer } from "lucide-react";
 import { FadeIn } from "../layout/FadeIn";
 
 function BadBrowser() {
@@ -251,20 +250,11 @@ function GoodBrowser() {
   );
 }
 
-const stats = [
-  { value: "70%", label: "se va sin hacer nada" },
-  { value: "3s", label: "para ganar su confianza" },
-  { value: "1", label: "acción obvia, no más" },
-];
-
 export function ProblemAnimated() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
   const reduce = useReducedMotion();
 
   return (
     <section
-      ref={ref}
       aria-labelledby="problem-title"
       className="relative py-24 md:py-36 overflow-hidden border-t border-white/5"
     >
@@ -312,25 +302,31 @@ export function ProblemAnimated() {
           )}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
-          {stats.map((s, i) => (
-            <motion.div
-              key={s.value}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 + i * 0.12 }}
-              className="rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-6 text-center hover:border-[hsl(270,100%,60%)]/40 transition-colors"
-              data-testid={`stat-${i}`}
-            >
-              <div className="text-4xl md:text-5xl font-display font-bold bg-gradient-to-br from-white to-[hsl(270,100%,75%)] bg-clip-text text-transparent">
-                {s.value}
-              </div>
-              <p className="mt-2 text-white/60 text-sm md:text-base">
-                {s.label}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-gradient-to-br from-[hsl(270,100%,60%)]/[0.08] via-white/[0.02] to-transparent backdrop-blur-sm p-8 md:p-10 overflow-hidden"
+          data-testid="card-problem-stat"
+        >
+          <div
+            className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-[hsl(270,100%,60%)]/15 blur-3xl pointer-events-none"
+            aria-hidden="true"
+          />
+          <div className="relative flex flex-col md:flex-row items-center gap-6 md:gap-10 text-center md:text-left">
+            <div className="shrink-0 inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-[hsl(270,100%,60%)]/15 border border-[hsl(270,100%,60%)]/40 text-[hsl(270,100%,80%)]">
+              <Timer className="w-10 h-10 md:w-12 md:h-12" />
+            </div>
+            <p className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white leading-tight">
+              Tu web tiene{" "}
+              <span className="bg-gradient-to-r from-[hsl(270,100%,75%)] to-white bg-clip-text text-transparent">
+                3 segundos
+              </span>{" "}
+              para ganarse la confianza del visitante.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -40,7 +40,23 @@ export function MinimalFooter() {
               data-testid="link-footer-privacy"
               className="hover:text-white transition-colors"
             >
-              Política de privacidad
+              Privacidad
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link
+              href="/aviso-legal"
+              data-testid="link-footer-legal"
+              className="hover:text-white transition-colors"
+            >
+              Aviso legal
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link
+              href="/politica-cookies"
+              data-testid="link-footer-cookies"
+              className="hover:text-white transition-colors"
+            >
+              Cookies
             </Link>
           </div>
         </div>

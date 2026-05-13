@@ -15,9 +15,13 @@ export function VideoSection() {
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12">
         <FadeIn>
           <div className="text-center mb-8">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/65 text-[11px] tracking-widest uppercase">
-              <Clock className="w-3 h-3" />
-              Antes de rellenar el formulario, mira esto · 2 min
+            <span className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/65 text-[10px] sm:text-[11px] tracking-widest uppercase max-w-full">
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="w-3 h-3" />
+                Mira esto antes
+              </span>
+              <span className="hidden sm:inline" aria-hidden="true">·</span>
+              <span>2 min</span>
             </span>
             <h2
               id="video-title"

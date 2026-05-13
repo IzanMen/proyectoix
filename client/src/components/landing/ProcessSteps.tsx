@@ -33,13 +33,13 @@ export function ProcessSteps() {
         <FadeIn>
           <div className="text-center mb-14">
             <span className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-white/5 border border-white/10 text-white/65 text-[11px] tracking-widest uppercase">
-              Proceso
+              Siguientes pasos
             </span>
             <h2
               id="process-title"
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-white leading-[1.05]"
             >
-              Así funciona.
+              Qué pasa cuando rellenas el formulario.
             </h2>
           </div>
         </FadeIn>
