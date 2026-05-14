@@ -1,8 +1,100 @@
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Frown, Smile, X, ArrowRight, Loader2, Timer } from "lucide-react";
 import { FadeIn } from "../layout/FadeIn";
 
-function BadBrowser() {
+const LOOP_INTERVAL = 9000;
+
+function BadBrowserContent({ loopKey }: { loopKey: number }) {
+  return (
+    <div key={loopKey} className="absolute inset-0 overflow-hidden">
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ delay: 1.4, duration: 0.5 }}
+        className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#161616]"
+      >
+        <Loader2 className="w-7 h-7 text-white/30 animate-spin" />
+        <p className="text-[11px] font-mono text-white/30 uppercase tracking-widest">
+          Cargando...
+        </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.6, duration: 0.4 }}
+        className="absolute inset-0 p-5 flex flex-col gap-3 grayscale-[40%]"
+      >
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded bg-orange-700/60" />
+            <div className="h-2.5 w-20 bg-white/15 rounded" />
+          </div>
+          <div className="flex gap-1.5">
+            <div className="h-2 w-8 bg-white/10 rounded" />
+            <div className="h-2 w-8 bg-white/10 rounded" />
+            <div className="h-2 w-8 bg-white/10 rounded" />
+          </div>
+        </div>
+
+        <div className="mt-3">
+          <div className="h-3 w-2/3 bg-white/15 rounded mb-2" />
+          <div className="h-2 w-full bg-white/10 rounded mb-1.5" />
+          <div className="h-2 w-5/6 bg-white/10 rounded mb-1.5" />
+          <div className="h-2 w-3/4 bg-white/10 rounded" />
+        </div>
+
+        <div className="flex-1 grid grid-cols-3 gap-2 mt-2">
+          <div className="bg-orange-700/30 rounded-sm" />
+          <div className="bg-white/5 rounded-sm" />
+          <div className="bg-orange-700/20 rounded-sm" />
+        </div>
+
+        <div className="flex items-center gap-2 mt-2">
+          <div className="h-2 w-12 bg-white/10 rounded" />
+          <div className="h-2 w-16 bg-white/10 rounded" />
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={{
+          opacity: [0, 1, 1, 0],
+          scale: [0.85, 1, 1, 0.85],
+        }}
+        transition={{
+          delay: 2.0,
+          duration: 2.6,
+          times: [0, 0.15, 0.7, 1],
+        }}
+        className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/85 backdrop-blur-md border border-red-400/30 rounded-full px-4 py-2 text-xs text-red-200 font-medium inline-flex items-center gap-2 shadow-2xl"
+      >
+        <Frown className="w-3.5 h-3.5" />
+        ¿Dónde contacto? Me voy.
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, x: 0, y: 0 }}
+        animate={{
+          opacity: [0, 1, 1, 0],
+          x: [0, 30, 60, 200],
+        }}
+        transition={{
+          delay: 4.4,
+          duration: 1.4,
+          times: [0, 0.15, 0.6, 1],
+        }}
+        className="absolute z-20 right-6 top-6 inline-flex items-center gap-1.5 bg-red-500/15 border border-red-400/30 rounded-full px-2.5 py-1 text-[11px] text-red-200 font-medium"
+      >
+        <X className="w-3 h-3" />
+        Se va
+      </motion.div>
+    </div>
+  );
+}
+
+function BadBrowser({ loopKey }: { loopKey: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -21,93 +113,8 @@ function BadBrowser() {
         </span>
       </div>
 
-      <div className="relative h-[260px] md:h-[300px] bg-[#161616] flex items-center justify-center overflow-hidden">
-        <motion.div
-          initial={{ opacity: 1 }}
-          whileInView={{ opacity: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ delay: 1.4, duration: 0.5 }}
-          className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#161616]"
-        >
-          <Loader2 className="w-7 h-7 text-white/30 animate-spin" />
-          <p className="text-[11px] font-mono text-white/30 uppercase tracking-widest">
-            Cargando...
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ delay: 1.6, duration: 0.4 }}
-          className="absolute inset-0 p-5 flex flex-col gap-3 grayscale-[40%]"
-        >
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded bg-orange-700/60" />
-              <div className="h-2.5 w-20 bg-white/15 rounded" />
-            </div>
-            <div className="flex gap-1.5">
-              <div className="h-2 w-8 bg-white/10 rounded" />
-              <div className="h-2 w-8 bg-white/10 rounded" />
-              <div className="h-2 w-8 bg-white/10 rounded" />
-            </div>
-          </div>
-
-          <div className="mt-3">
-            <div className="h-3 w-2/3 bg-white/15 rounded mb-2" />
-            <div className="h-2 w-full bg-white/10 rounded mb-1.5" />
-            <div className="h-2 w-5/6 bg-white/10 rounded mb-1.5" />
-            <div className="h-2 w-3/4 bg-white/10 rounded" />
-          </div>
-
-          <div className="flex-1 grid grid-cols-3 gap-2 mt-2">
-            <div className="bg-orange-700/30 rounded-sm" />
-            <div className="bg-white/5 rounded-sm" />
-            <div className="bg-orange-700/20 rounded-sm" />
-          </div>
-
-          <div className="flex items-center gap-2 mt-2">
-            <div className="h-2 w-12 bg-white/10 rounded" />
-            <div className="h-2 w-16 bg-white/10 rounded" />
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          whileInView={{
-            opacity: [0, 1, 1, 0],
-            scale: [0.85, 1, 1, 0.85],
-          }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{
-            delay: 2.0,
-            duration: 2.6,
-            times: [0, 0.15, 0.7, 1],
-          }}
-          className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/85 backdrop-blur-md border border-red-400/30 rounded-full px-4 py-2 text-xs text-red-200 font-medium inline-flex items-center gap-2 shadow-2xl"
-        >
-          <Frown className="w-3.5 h-3.5" />
-          ¿Dónde contacto? Me voy.
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 0, y: 0 }}
-          whileInView={{
-            opacity: [0, 1, 1, 0],
-            x: [0, 30, 60, 200],
-          }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{
-            delay: 4.4,
-            duration: 1.4,
-            times: [0, 0.15, 0.6, 1],
-          }}
-          className="absolute z-20 right-6 top-6 inline-flex items-center gap-1.5 bg-red-500/15 border border-red-400/30 rounded-full px-2.5 py-1 text-[11px] text-red-200 font-medium"
-        >
-          <X className="w-3 h-3" />
-          Se va
-        </motion.div>
+      <div className="relative h-[260px] md:h-[300px] bg-[#161616] overflow-hidden">
+        <BadBrowserContent loopKey={loopKey} />
       </div>
 
       <div className="px-4 py-3 bg-[#0f0f0f] border-t border-red-500/10 flex items-center justify-between text-[11px]">
@@ -120,7 +127,104 @@ function BadBrowser() {
   );
 }
 
-function GoodBrowser() {
+function GoodBrowserContent({ loopKey }: { loopKey: number }) {
+  return (
+    <div key={loopKey} className="absolute inset-0">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.4 }}
+        className="absolute inset-0 p-5 flex flex-col"
+      >
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <span className="text-base font-display font-bold text-white">
+              IX
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[hsl(270,100%,60%)] mt-1 animate-pulse shadow-[0_0_8px_hsl(270,100%,60%)]" />
+          </div>
+          <span className="text-[9px] font-mono text-white/40 uppercase tracking-widest inline-flex items-center gap-1.5">
+            <span className="w-1 h-1 rounded-full bg-[hsl(270,100%,60%)] animate-pulse" />
+            Aceptando proyectos
+          </span>
+        </div>
+
+        <div className="mt-6 max-w-[80%]">
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.4 }}
+            className="h-3.5 w-4/5 bg-white rounded mb-2"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.65, duration: 0.4 }}
+            className="h-3 w-2/3 bg-white/30 rounded mb-3"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.4 }}
+            className="h-2 w-full bg-white/15 rounded mb-1"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.85, duration: 0.4 }}
+            className="h-2 w-4/5 bg-white/15 rounded"
+          />
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ delay: 1.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 bg-[hsl(270,100%,60%)] text-white text-xs font-bold rounded-sm w-max shadow-[0_0_30px_-6px_hsl(270,100%,60%)]"
+        >
+          Quiero hablar con vosotros
+          <ArrowRight className="w-3.5 h-3.5" />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{
+            opacity: [0, 1, 1, 1],
+            scale: [0, 1.4, 1, 1],
+          }}
+          transition={{
+            delay: 1.7,
+            duration: 0.6,
+            times: [0, 0.5, 0.8, 1],
+          }}
+          className="absolute right-5 bottom-5"
+        >
+          <span className="absolute inset-0 rounded-full bg-[hsl(270,100%,60%)]/40 animate-ping" />
+          <span className="relative block w-3 h-3 rounded-full bg-[hsl(270,100%,60%)] shadow-[0_0_15px_hsl(270,100%,60%)]" />
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={{
+          opacity: [0, 1, 1, 0],
+          scale: [0.85, 1, 1, 0.95],
+        }}
+        transition={{
+          delay: 2.4,
+          duration: 2.6,
+          times: [0, 0.2, 0.7, 1],
+        }}
+        className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/85 backdrop-blur-md border border-[hsl(270,100%,60%)]/40 rounded-full px-4 py-2 text-xs text-white font-medium inline-flex items-center gap-2 shadow-2xl"
+      >
+        <Smile className="w-3.5 h-3.5 text-[hsl(270,100%,75%)]" />
+        Vale, hablo con ellos.
+      </motion.div>
+    </div>
+  );
+}
+
+function GoodBrowser({ loopKey }: { loopKey: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -140,104 +244,7 @@ function GoodBrowser() {
       </div>
 
       <div className="relative h-[260px] md:h-[300px] bg-gradient-to-br from-[#0c0014] via-[#100022] to-black overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-          className="absolute inset-0 p-5 flex flex-col"
-        >
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              <span className="text-base font-display font-bold text-white">
-                IX
-              </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[hsl(270,100%,60%)] mt-1 animate-pulse shadow-[0_0_8px_hsl(270,100%,60%)]" />
-            </div>
-            <span className="text-[9px] font-mono text-white/40 uppercase tracking-widest inline-flex items-center gap-1.5">
-              <span className="w-1 h-1 rounded-full bg-[hsl(270,100%,60%)] animate-pulse" />
-              Aceptando proyectos
-            </span>
-          </div>
-
-          <div className="mt-6 max-w-[80%]">
-            <motion.div
-              initial={{ opacity: 0, y: 6 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: 0.5, duration: 0.4 }}
-              className="h-3.5 w-4/5 bg-white rounded mb-2"
-            />
-            <motion.div
-              initial={{ opacity: 0, y: 6 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: 0.65, duration: 0.4 }}
-              className="h-3 w-2/3 bg-white/30 rounded mb-3"
-            />
-            <motion.div
-              initial={{ opacity: 0, y: 6 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: 0.8, duration: 0.4 }}
-              className="h-2 w-full bg-white/15 rounded mb-1"
-            />
-            <motion.div
-              initial={{ opacity: 0, y: 6 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: 0.85, duration: 0.4 }}
-              className="h-2 w-4/5 bg-white/15 rounded"
-            />
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: 1.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 bg-[hsl(270,100%,60%)] text-white text-xs font-bold rounded-sm w-max shadow-[0_0_30px_-6px_hsl(270,100%,60%)]"
-          >
-            Quiero hablar con vosotros
-            <ArrowRight className="w-3.5 h-3.5" />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{
-              opacity: [0, 1, 1, 1],
-              scale: [0, 1.4, 1, 1],
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{
-              delay: 1.7,
-              duration: 0.6,
-              times: [0, 0.5, 0.8, 1],
-            }}
-            className="absolute right-5 bottom-5"
-          >
-            <span className="absolute inset-0 rounded-full bg-[hsl(270,100%,60%)]/40 animate-ping" />
-            <span className="relative block w-3 h-3 rounded-full bg-[hsl(270,100%,60%)] shadow-[0_0_15px_hsl(270,100%,60%)]" />
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          whileInView={{
-            opacity: [0, 1, 1, 0],
-            scale: [0.85, 1, 1, 0.95],
-          }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{
-            delay: 2.4,
-            duration: 2.6,
-            times: [0, 0.2, 0.7, 1],
-          }}
-          className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/85 backdrop-blur-md border border-[hsl(270,100%,60%)]/40 rounded-full px-4 py-2 text-xs text-white font-medium inline-flex items-center gap-2 shadow-2xl"
-        >
-          <Smile className="w-3.5 h-3.5 text-[hsl(270,100%,75%)]" />
-          Vale, hablo con ellos.
-        </motion.div>
+        <GoodBrowserContent loopKey={loopKey} />
       </div>
 
       <div className="px-4 py-3 bg-[#0f0f0f] border-t border-[hsl(270,100%,60%)]/15 flex items-center justify-between text-[11px]">
@@ -252,6 +259,16 @@ function GoodBrowser() {
 
 export function ProblemAnimated() {
   const reduce = useReducedMotion();
+  const [loopKey, setLoopKey] = useState(0);
+
+  useEffect(() => {
+    if (reduce) return;
+    const id = setInterval(
+      () => setLoopKey((k) => k + 1),
+      LOOP_INTERVAL,
+    );
+    return () => clearInterval(id);
+  }, [reduce]);
 
   return (
     <section
@@ -296,8 +313,8 @@ export function ProblemAnimated() {
             </>
           ) : (
             <>
-              <BadBrowser />
-              <GoodBrowser />
+              <BadBrowser loopKey={loopKey} />
+              <GoodBrowser loopKey={loopKey} />
             </>
           )}
         </div>

@@ -69,9 +69,6 @@ export function LandingHero() {
             Quiero hablar con vosotros
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
-          <span className="text-white/50 text-sm">
-            5 preguntas · Menos de 1 minuto
-          </span>
         </motion.div>
 
         <motion.ul
