@@ -105,27 +105,6 @@ export function AboutVisual() {
             </div>
           </div>
         </FadeIn>
-
-        <FadeIn delay={0.25}>
-          <div className="mt-8 max-w-4xl mx-auto rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-6 md:p-7 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <p className="text-white/70 text-sm md:text-base leading-relaxed text-center md:text-left">
-              Documentamos todo en Instagram. Puedes ver{" "}
-              <span className="text-white">cómo trabajamos</span> antes de
-              hablar con nosotros.
-            </p>
-            <a
-              href="https://www.instagram.com/proyecto.ix/"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="link-about-instagram"
-              className="shrink-0 group inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-white text-black text-sm font-bold hover:scale-[1.02] transition-transform"
-            >
-              <Instagram className="w-4 h-4" />
-              @proyecto.ix
-              <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
-            </a>
-          </div>
-        </FadeIn>
       </div>
     </section>
   );

@@ -6,7 +6,7 @@ export function VideoSection() {
   return (
     <section
       aria-labelledby="video-title"
-      className="relative py-20 md:py-28 overflow-hidden"
+      className="relative py-10 md:py-14 overflow-hidden"
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[hsl(270,100%,60%)]/5 rounded-full blur-[120px]" />

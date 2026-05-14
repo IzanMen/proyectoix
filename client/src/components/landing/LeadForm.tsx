@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 interface FormData {
   business: string;
   hasWebsite: string;
+  websiteUrl: string;
   goal: string;
   budget: string;
   whatsapp: string;
@@ -24,7 +25,7 @@ type Question =
       id: keyof FormData;
       label: string;
       description?: string;
-      type: "text" | "tel";
+      type: "text" | "tel" | "url";
       placeholder: string;
     }
   | {
@@ -35,7 +36,7 @@ type Question =
       options: string[];
     };
 
-const questions: Question[] = [
+const BASE_QUESTIONS: Question[] = [
   {
     id: "business",
     label: "¿Cómo se llama tu negocio y a qué te dedicas?",
@@ -47,11 +48,7 @@ const questions: Question[] = [
     id: "hasWebsite",
     label: "¿Tienes web actualmente?",
     type: "options",
-    options: [
-      "Sí, tengo web",
-      "No tengo web",
-      "Tengo web pero creo que se puede mejorar",
-    ],
+    options: ["Sí, tengo web", "No, no tengo web"],
   },
   {
     id: "goal",
@@ -80,6 +77,14 @@ const questions: Question[] = [
   },
 ];
 
+const URL_QUESTION: Question = {
+  id: "websiteUrl",
+  label: "¿Cuál es la URL de tu web?",
+  description: "Así podemos verla antes de hablar contigo.",
+  type: "url",
+  placeholder: "Ej: www.mirestaurante.com",
+};
+
 // Acepta un único móvil español: 9 dígitos empezando por 6 o 7.
 const normalizePhone = (value: string) => value.replace(/\D/g, "");
 const isValidPhone = (value: string) => /^[67]\d{8}$/.test(normalizePhone(value));
@@ -95,6 +100,7 @@ export function LeadForm() {
   const [data, setData] = useState<FormData>({
     business: "",
     hasWebsite: "",
+    websiteUrl: "",
     goal: "",
     budget: "",
     whatsapp: "",
@@ -107,8 +113,18 @@ export function LeadForm() {
   const [hasInteracted, setHasInteracted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const current = questions[step];
-  const isLast = step === questions.length - 1;
+  const activeQuestions = useMemo(() => {
+    if (data.hasWebsite === "Sí, tengo web") {
+      const idx = BASE_QUESTIONS.findIndex((q) => q.id === "hasWebsite");
+      const qs = [...BASE_QUESTIONS];
+      qs.splice(idx + 1, 0, URL_QUESTION);
+      return qs;
+    }
+    return BASE_QUESTIONS;
+  }, [data.hasWebsite]);
+
+  const current = activeQuestions[step] ?? activeQuestions[activeQuestions.length - 1];
+  const isLast = step === activeQuestions.length - 1;
   const value = data[current.id];
 
   useEffect(() => {
@@ -127,6 +143,7 @@ export function LeadForm() {
         body: JSON.stringify({
           businessName: final.business,
           hasWebsite: final.hasWebsite,
+          ...(final.websiteUrl ? { websiteUrl: final.websiteUrl } : {}),
           goal: final.goal,
           budget: final.budget,
           contact: `+34 ${final.whatsapp}`.trim(),
@@ -205,10 +222,10 @@ export function LeadForm() {
     <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-6 md:p-10">
       <div className="mb-8 flex items-center justify-between">
         <span className="text-[11px] font-mono text-[hsl(270,100%,75%)] uppercase tracking-widest">
-          Pregunta {step + 1} / {questions.length}
+          Pregunta {step + 1} / {activeQuestions.length}
         </span>
         <div className="flex gap-1">
-          {questions.map((_, i) => (
+          {activeQuestions.map((_, i) => (
             <div
               key={i}
               className={cn(
@@ -251,10 +268,10 @@ export function LeadForm() {
                   )}
                 >
                   <span
-                    className="inline-flex items-center gap-1.5 pr-3 mr-3 border-r border-white/10 text-white/55 text-lg md:text-xl font-mono select-none"
+                    className="inline-flex items-center pr-3 mr-3 border-r border-white/10 text-white/55 text-lg md:text-xl font-mono select-none"
                     aria-hidden="true"
                   >
-                    🇪🇸 +34
+                    +34
                   </span>
                   <input
                     ref={inputRef}
@@ -300,12 +317,13 @@ export function LeadForm() {
               </>
             )}
 
-            {current.type === "text" && (
+            {(current.type === "text" || current.type === "url") && (
               <>
                 <input
                   ref={inputRef}
-                  type="text"
-                  inputMode="text"
+                  type={current.type === "url" ? "url" : "text"}
+                  inputMode={current.type === "url" ? "url" : "text"}
+                  autoComplete={current.type === "url" ? "url" : "off"}
                   value={value}
                   onFocus={() => {
                     if (!hasInteracted) setHasInteracted(true);
@@ -335,7 +353,14 @@ export function LeadForm() {
                       data-testid={`option-${current.id}-${opt.slice(0, 12).replace(/\s+/g, "-")}`}
                       onClick={() => {
                         if (!hasInteracted) setHasInteracted(true);
-                        const nd = { ...data, [current.id]: opt };
+                        // If user switches hasWebsite to "No", clear any stored URL
+                        const nd: FormData = {
+                          ...data,
+                          [current.id]: opt,
+                          ...(current.id === "hasWebsite" && opt !== "Sí, tengo web"
+                            ? { websiteUrl: "" }
+                            : {}),
+                        };
                         setData(nd);
                         if (!isLast) {
                           setTimeout(() => setStep((p) => p + 1), 180);

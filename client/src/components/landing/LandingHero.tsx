@@ -13,7 +13,7 @@ export function LandingHero() {
     <section
       id="top"
       aria-labelledby="hero-title"
-      className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden pt-28 pb-16"
+      className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden pt-28 pb-6"
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[15%] right-[5%] w-[520px] h-[520px] bg-[hsl(270,100%,60%)]/10 rounded-full blur-[120px]" />
