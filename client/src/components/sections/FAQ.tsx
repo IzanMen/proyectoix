@@ -34,7 +34,7 @@ export const faqs = [
       "Sí. Realizamos actualizaciones, mejoras de rendimiento, ajustes de diseño y soporte cuando lo necesites. No desaparecemos al entregar.",
   },
   {
-    question: "¿Por qué trabajáis con inteligencia artificial?",
+    question: "¿Por qué trabajáis con inEl forteligencia artificial?",
     answer:
       "Porque de esta forma, recibes la web mucho más rápido. Además, cualquier cambio que quisieras hacer pre y post-lanzamiento, una agencia tradicional puede tardar semanas en realizarlo. Nosotros tardamos pocas horas desde que pides el cambio, hasta que se publica.",
   },

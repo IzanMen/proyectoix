@@ -22,6 +22,7 @@ export async function registerRoutes(
         businessName,
         contact,
         hasWebsite,
+        websiteUrl,
         goal,
         budget,
         message,
@@ -82,6 +83,7 @@ export async function registerRoutes(
       const safeBusiness = escapeHtml(String(businessName));
       const safeContact = escapeHtml(String(contact));
       const safeWebsite = escapeHtml(String(hasWebsite));
+      const safeUrl = websiteUrl ? escapeHtml(String(websiteUrl)) : "";
       const safeGoal = goal ? escapeHtml(String(goal)) : "";
       const safeBudget = budget ? escapeHtml(String(budget)) : "";
       const safeMessage = message
@@ -116,6 +118,7 @@ export async function registerRoutes(
           ${row("Negocio", safeBusiness)}
           ${row("WhatsApp", safeContact)}
           ${row("¿Tiene web?", safeWebsite)}
+          ${row("URL de su web", safeUrl)}
           ${row("Objetivo", safeGoal)}
           ${row("Presupuesto", safeBudget)}
           ${
