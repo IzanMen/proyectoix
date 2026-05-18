@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useReducedMotion } from "framer-motion";
-import { Frown, Smile, X, ArrowRight, Loader2, Timer } from "lucide-react";
+import { Frown, Smile, X, ArrowRight, Loader2, Timer, Star } from "lucide-react";
 import { FadeIn } from "../layout/FadeIn";
 
 const delay = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
@@ -193,43 +193,87 @@ function GoodBrowserContent() {
       <motion.div
         animate={navCtrl}
         initial={{ opacity: 0, y: 8 }}
-        className="absolute inset-0 p-5 flex flex-col"
+        className="absolute inset-x-0 top-0 px-5 pt-4 pb-3 flex items-center justify-between border-b border-white/5"
       >
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
-            <span className="text-base font-display font-bold text-white">IX</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[hsl(270,100%,60%)] mt-1 animate-pulse shadow-[0_0_8px_hsl(270,100%,60%)]" />
-          </div>
-          <span className="text-[9px] font-mono text-white/40 uppercase tracking-widest inline-flex items-center gap-1.5">
-            <span className="w-1 h-1 rounded-full bg-[hsl(270,100%,60%)] animate-pulse" />
-            Aceptando proyectos
+        <div className="flex items-center gap-1.5">
+          <span className="w-5 h-5 rounded-md bg-gradient-to-br from-white to-white/60" />
+          <span className="text-[11px] font-display font-bold text-white tracking-tight">
+            tu&nbsp;negocio
           </span>
         </div>
-
-        <div className="mt-6 max-w-[80%]">
-          <motion.div animate={line1Ctrl} initial={{ opacity: 0, y: 6 }} className="h-3.5 w-4/5 bg-white rounded mb-2" />
-          <motion.div animate={line2Ctrl} initial={{ opacity: 0, y: 6 }} className="h-3 w-2/3 bg-white/30 rounded mb-3" />
-          <motion.div animate={line3Ctrl} initial={{ opacity: 0, y: 6 }} className="h-2 w-full bg-white/15 rounded mb-1" />
-          <motion.div animate={line4Ctrl} initial={{ opacity: 0, y: 6 }} className="h-2 w-4/5 bg-white/15 rounded" />
+        <div className="flex items-center gap-3">
+          <span className="h-1.5 w-7 bg-white/25 rounded-full" />
+          <span className="h-1.5 w-7 bg-white/15 rounded-full" />
+          <span className="h-1.5 w-7 bg-white/15 rounded-full" />
         </div>
+      </motion.div>
+
+      <div className="absolute inset-0 pt-12 px-5 flex flex-col">
+        <motion.div
+          animate={line1Ctrl}
+          initial={{ opacity: 0, y: 6 }}
+          className="mt-3"
+        >
+          <span className="inline-block h-4 w-16 rounded-full bg-white/10 border border-white/15" />
+        </motion.div>
+
+        <motion.div
+          animate={line2Ctrl}
+          initial={{ opacity: 0, y: 6 }}
+          className="mt-3 max-w-[90%]"
+        >
+          <div className="h-4 w-full bg-white rounded mb-1.5" />
+          <div className="h-4 w-2/3 bg-white rounded" />
+        </motion.div>
+
+        <motion.div
+          animate={line3Ctrl}
+          initial={{ opacity: 0, y: 6 }}
+          className="mt-2.5 max-w-[80%]"
+        >
+          <div className="h-2 w-full bg-white/25 rounded mb-1" />
+          <div className="h-2 w-5/6 bg-white/25 rounded" />
+        </motion.div>
+
+        <motion.div
+          animate={line4Ctrl}
+          initial={{ opacity: 0, y: 6 }}
+          className="mt-3 flex items-center gap-2"
+        >
+          <span className="inline-flex items-center gap-1 h-5 px-2 rounded-full bg-white/5 border border-white/10 text-[8px] font-mono text-white/55 uppercase tracking-widest">
+            <Star className="w-2 h-2 text-[hsl(270,100%,75%)]" />
+            4.9 · 120 reseñas
+          </span>
+          <span className="h-5 px-2 rounded-full bg-white/5 border border-white/10 text-[8px] font-mono text-white/55 uppercase tracking-widest inline-flex items-center">
+            Atendiendo hoy
+          </span>
+        </motion.div>
 
         <motion.div
           animate={btnCtrl}
           initial={{ opacity: 0, y: 10, scale: 0.95 }}
-          className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 bg-[hsl(270,100%,60%)] text-white text-xs font-bold rounded-sm w-max shadow-[0_0_30px_-6px_hsl(270,100%,60%)]"
+          className="mt-4 inline-flex items-center gap-2 px-4 py-2.5 bg-white text-black text-xs font-bold rounded-md w-max shadow-[0_0_40px_-8px_rgba(255,255,255,0.7)]"
         >
-          Quiero hablar con vosotros
+          Reserva tu mesa
           <ArrowRight className="w-3.5 h-3.5" />
         </motion.div>
 
-        <motion.div
-          animate={pingCtrl}
-          initial={{ opacity: 0, scale: 0 }}
-          className="absolute right-5 bottom-5"
-        >
-          <span className="absolute inset-0 rounded-full bg-[hsl(270,100%,60%)]/40 animate-ping" />
-          <span className="relative block w-3 h-3 rounded-full bg-[hsl(270,100%,60%)] shadow-[0_0_15px_hsl(270,100%,60%)]" />
-        </motion.div>
+        <div className="mt-auto pb-5 flex items-end justify-between">
+          <div className="flex gap-1.5">
+            <span className="w-10 h-10 rounded-lg bg-gradient-to-br from-[hsl(270,100%,60%)]/40 to-fuchsia-500/20 border border-white/10" />
+            <span className="w-10 h-10 rounded-lg bg-gradient-to-br from-white/15 to-white/5 border border-white/10" />
+            <span className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400/25 to-[hsl(270,100%,60%)]/15 border border-white/10" />
+          </div>
+        </div>
+      </div>
+
+      <motion.div
+        animate={pingCtrl}
+        initial={{ opacity: 0, scale: 0 }}
+        className="absolute right-5 bottom-5"
+      >
+        <span className="absolute inset-0 rounded-full bg-[hsl(270,100%,60%)]/40 animate-ping" />
+        <span className="relative block w-3 h-3 rounded-full bg-[hsl(270,100%,60%)] shadow-[0_0_15px_hsl(270,100%,60%)]" />
       </motion.div>
 
       <motion.div
@@ -238,7 +282,7 @@ function GoodBrowserContent() {
         className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/85 backdrop-blur-md border border-[hsl(270,100%,60%)]/40 rounded-full px-4 py-2 text-xs text-white font-medium inline-flex items-center gap-2 shadow-2xl"
       >
         <Smile className="w-3.5 h-3.5 text-[hsl(270,100%,75%)]" />
-        Vale, hablo con ellos.
+        Vale, los llamo.
       </motion.div>
     </div>
   );

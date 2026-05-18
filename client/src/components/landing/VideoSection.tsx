@@ -1,8 +1,19 @@
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Clock } from "lucide-react";
 import { FadeIn } from "../layout/FadeIn";
 
 export function VideoSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [started, setStarted] = useState(false);
+
+  const handlePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    setStarted(true);
+    v.play().catch(() => {});
+  };
+
   return (
     <section
       aria-labelledby="video-title"
@@ -23,10 +34,7 @@ export function VideoSection() {
               <span className="hidden sm:inline" aria-hidden="true">·</span>
               <span>2 min</span>
             </span>
-            <h2
-              id="video-title"
-              className="sr-only"
-            >
+            <h2 id="video-title" className="sr-only">
               Vídeo explicativo
             </h2>
           </div>
@@ -36,32 +44,38 @@ export function VideoSection() {
           <div className="relative group">
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-[hsl(270,100%,60%)]/40 via-fuchsia-500/20 to-transparent opacity-60 blur-xl pointer-events-none" />
             <div
-              data-testid="placeholder-video"
-              className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-br from-black via-[#0a0a14] to-black flex items-center justify-center"
+              className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black"
+              data-testid="video-explainer"
             >
-              <div className="absolute inset-0 opacity-40" aria-hidden="true">
-                <div className="absolute inset-0" style={{
-                  backgroundImage:
-                    "linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)",
-                  backgroundSize: "40px 40px",
-                }} />
-              </div>
+              <video
+                ref={videoRef}
+                className="absolute inset-0 w-full h-full object-cover"
+                src="/video/proyectoix.mp4"
+                preload="metadata"
+                playsInline
+                controls={started}
+              />
 
-              <motion.div
-                animate={{ scale: [1, 1.06, 1] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-                className="relative z-10 flex flex-col items-center gap-5"
-              >
-                <div className="relative">
-                  <span className="absolute inset-0 rounded-full bg-[hsl(270,100%,60%)]/40 animate-ping" />
-                  <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-white text-black flex items-center justify-center shadow-[0_0_60px_-10px_rgba(255,255,255,0.6)]">
-                    <Play className="w-8 h-8 md:w-10 md:h-10 ml-1" fill="currentColor" />
-                  </div>
-                </div>
-                <p className="text-white/60 text-sm font-mono uppercase tracking-widest">
-                  Vídeo · Próximamente
-                </p>
-              </motion.div>
+              {!started && (
+                <button
+                  type="button"
+                  onClick={handlePlay}
+                  aria-label="Reproducir vídeo"
+                  data-testid="button-play-video"
+                  className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-[2px] hover:bg-black/20 transition-colors cursor-pointer"
+                >
+                  <motion.div
+                    animate={{ scale: [1, 1.06, 1] }}
+                    transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                    className="relative"
+                  >
+                    <span className="absolute inset-0 rounded-full bg-[hsl(270,100%,60%)]/40 animate-ping" />
+                    <span className="relative flex w-20 h-20 md:w-24 md:h-24 rounded-full bg-white text-black items-center justify-center shadow-[0_0_60px_-10px_rgba(255,255,255,0.6)]">
+                      <Play className="w-8 h-8 md:w-10 md:h-10 ml-1" fill="currentColor" />
+                    </span>
+                  </motion.div>
+                </button>
+              )}
             </div>
           </div>
         </FadeIn>

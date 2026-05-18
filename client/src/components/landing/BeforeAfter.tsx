@@ -13,31 +13,38 @@ interface ProjectItem {
   type: string;
   client: string;
   url: string;
-  bg: string;
+  image: string;
   accent: string;
 }
 
 const projects: ProjectItem[] = [
   {
-    type: "Restaurante en Ciutadella",
-    client: "[Cliente 1]",
-    url: "#",
-    bg: "from-amber-500/30 via-orange-600/20 to-rose-700/30",
-    accent: "Reservas online · Carta digital",
+    type: "Restaurante en Maó",
+    client: "Disbarat Burger",
+    url: "https://disbarat-burger-web.replit.app/",
+    image: "/projects/disbarat.webp",
+    accent: "Reservas online · Carta digital · 4 idiomas",
   },
   {
-    type: "Tienda en Maó",
-    client: "[Cliente 2]",
-    url: "#",
-    bg: "from-emerald-400/30 via-teal-500/20 to-cyan-700/30",
-    accent: "Catálogo · Contacto directo",
+    type: "Apartamentos en Cala Galdana",
+    client: "Xaloc & Garbí",
+    url: "https://xaloc-garbi-web.replit.app/",
+    image: "/projects/xaloc.webp",
+    accent: "Reservas directas · Galería · Reviews",
   },
   {
-    type: "Servicio profesional",
-    client: "[Cliente 3]",
-    url: "#",
-    bg: "from-indigo-500/30 via-violet-600/25 to-fuchsia-700/30",
-    accent: "Imagen profesional · Lead form",
+    type: "Finca de cría en Alaior",
+    client: "Finca Els Almuds",
+    url: "https://burrada-els-almuds.replit.app/",
+    image: "/projects/burrada.webp",
+    accent: "Catálogo · Blog · 3 idiomas",
+  },
+  {
+    type: "Club deportivo en Menorca",
+    client: "Lô Esport Menorca",
+    url: "https://www.loesport.es/",
+    image: "/projects/loesport.webp",
+    accent: "Grupos · Competiciones · Patrocinadores",
   },
 ];
 
@@ -82,30 +89,25 @@ function ProjectCard({
         opacity: offset > 2 ? 0 : 1,
       }}
       transition={{ type: "spring", stiffness: 280, damping: 30 }}
-      className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] cursor-grab active:cursor-grabbing select-none"
+      className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] cursor-grab active:cursor-grabbing select-none bg-black"
       data-testid={`card-project-${item.client}`}
       aria-hidden={!isTop}
       inert={!isTop}
     >
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${item.bg} bg-black`}
+      <img
+        src={item.image}
+        alt={`Vista previa de la web de ${item.client}`}
+        className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none"
+        draggable={false}
+        loading={isTop ? "eager" : "lazy"}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10 pointer-events-none" />
 
-      <div
-        className="absolute inset-0 opacity-30 mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0px, transparent 60%), radial-gradient(circle at 70% 60%, rgba(0,0,0,0.5) 0px, transparent 60%)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-[10px] font-mono text-white/60">
-        <span className="px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 uppercase tracking-widest">
+      <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-[10px] font-mono text-white/70">
+        <span className="px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10 uppercase tracking-widest">
           Proyecto
         </span>
-        <span className="px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 uppercase tracking-widest">
+        <span className="px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10 uppercase tracking-widest">
           Vista previa
         </span>
       </div>
@@ -142,9 +144,6 @@ function ProjectCard({
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={(e) => {
-            if (item.url === "#") e.preventDefault();
-          }}
           data-testid={`link-project-${item.client}`}
           className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-black text-sm font-bold hover:scale-[1.02] transition-transform"
         >
