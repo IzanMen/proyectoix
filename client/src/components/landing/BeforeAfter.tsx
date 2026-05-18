@@ -20,7 +20,7 @@ interface ProjectItem {
 
 const projects: ProjectItem[] = [
   {
-    type: "Club deportivo en Menorca",
+    type: "Club de atletismo en Menorca",
     client: "Lô Esport Menorca",
     url: "https://www.loesport.es/",
     image: "/projects/loesport.webp",
@@ -28,9 +28,9 @@ const projects: ProjectItem[] = [
     status: "live",
   },
   {
-    type: "Restaurante en Maó",
-    client: "Disbarat Burger",
-    url: "https://disbarat-burger-web.replit.app/",
+    type: "Hamburguesería en Maó",
+    client: "Disbarat",
+    url: "/",
     image: "/projects/disbarat.webp",
     accent: "Reservas online · Carta digital · 4 idiomas",
     status: "soon",
@@ -38,7 +38,7 @@ const projects: ProjectItem[] = [
   {
     type: "Apartamentos en Cala Galdana",
     client: "Xaloc & Garbí",
-    url: "https://xaloc-garbi-web.replit.app/",
+    url: "/",
     image: "/projects/xaloc.webp",
     accent: "Reservas directas · Galería · Reviews",
     status: "soon",
@@ -46,7 +46,7 @@ const projects: ProjectItem[] = [
   {
     type: "Finca de cría en Alaior",
     client: "Finca Els Almuds",
-    url: "https://burrada-els-almuds.replit.app/",
+    url: "/",
     image: "/projects/burrada.webp",
     accent: "Catálogo · Blog · 3 idiomas",
     status: "soon",
