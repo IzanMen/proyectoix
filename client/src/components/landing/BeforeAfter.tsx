@@ -89,8 +89,10 @@ function ProjectCard({
       style={{ x: isTop ? x : 0, rotate: isTop ? rotate : 0, zIndex }}
       initial={false}
       animate={{
-        scale: 1 - offset * 0.05,
-        y: offset * 12,
+        scale: 1 - offset * 0.04,
+        x: offset * 22,
+        y: offset * 6,
+        rotate: isTop ? undefined : offset * 2.5,
         opacity: offset > 2 ? 0 : 1,
       }}
       transition={{ type: "spring", stiffness: 280, damping: 30 }}

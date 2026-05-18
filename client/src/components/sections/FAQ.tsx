@@ -31,12 +31,12 @@ export const faqs = [
   {
     question: "¿Mantenéis la web una vez lanzada?",
     answer:
-      "Ofrecemos mantenimiento opcional: actualizaciones, mejoras de rendimiento, ajustes de diseño y soporte cuando lo necesites. No desaparecemos al entregar.",
+      "Sí. Realizamos actualizaciones, mejoras de rendimiento, ajustes de diseño y soporte cuando lo necesites. No desaparecemos al entregar.",
   },
   {
     question: "¿Por qué trabajáis con inteligencia artificial?",
     answer:
-      "Porque construye más rápido y con más precisión técnica. La IA no sustituye nuestro criterio: lo amplifica. Cada decisión pasa por nuestra revisión.",
+      "Porque de esta forma, recibes la web mucho más rápido. Además, cualquier cambio que quisieras hacer pre y post-lanzamiento, una agencia tradicional puede tardar semanas en realizarlo. Nosotros tardamos pocas horas desde que pides el cambio, hasta que se publica.",
   },
 ];
 
