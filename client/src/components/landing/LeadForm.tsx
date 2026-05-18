@@ -189,7 +189,7 @@ export function LeadForm() {
     if (
       e.key === "Enter" &&
       !e.shiftKey &&
-      (current.type === "text" || current.type === "tel")
+      (current.type === "text" || current.type === "tel" || current.type === "url")
     ) {
       e.preventDefault();
       next();

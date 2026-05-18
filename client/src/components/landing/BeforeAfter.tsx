@@ -215,7 +215,7 @@ export function BeforeAfter() {
         <FadeIn>
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-white/5 border border-white/10 text-white/65 text-[11px] tracking-widest uppercase">
-              Proyectos terminados
+              Nuestros proyectos
             </span>
             <h2
               id="cases-title"

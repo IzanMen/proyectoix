@@ -13,6 +13,7 @@ import { BeforeAfter } from "@/components/landing/BeforeAfter";
 import { AboutVisual } from "@/components/landing/AboutVisual";
 import { ProcessSteps } from "@/components/landing/ProcessSteps";
 import { Objections } from "@/components/landing/Objections";
+import { FAQ } from "@/components/sections/FAQ";
 import { FormSection } from "@/components/landing/FormSection";
 import { FinalCta } from "@/components/landing/FinalCta";
 import { MinimalFooter } from "@/components/landing/MinimalFooter";
@@ -63,6 +64,7 @@ export default function Home() {
         <AboutVisual />
         <ProcessSteps />
         <Objections />
+        <FAQ />
         <FormSection />
         <FinalCta />
       </main>
