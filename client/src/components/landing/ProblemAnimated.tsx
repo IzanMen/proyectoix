@@ -5,9 +5,9 @@ import { FadeIn } from "../layout/FadeIn";
 
 const LOOP_INTERVAL = 9000;
 
-function BadBrowserContent({ loopKey }: { loopKey: number }) {
+function BadBrowserContent() {
   return (
-    <div key={loopKey} className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden">
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
@@ -114,7 +114,7 @@ function BadBrowser({ loopKey }: { loopKey: number }) {
       </div>
 
       <div className="relative h-[260px] md:h-[300px] bg-[#161616] overflow-hidden">
-        <BadBrowserContent loopKey={loopKey} />
+        <BadBrowserContent key={loopKey} />
       </div>
 
       <div className="px-4 py-3 bg-[#0f0f0f] border-t border-red-500/10 flex items-center justify-between text-[11px]">
@@ -127,9 +127,9 @@ function BadBrowser({ loopKey }: { loopKey: number }) {
   );
 }
 
-function GoodBrowserContent({ loopKey }: { loopKey: number }) {
+function GoodBrowserContent() {
   return (
-    <div key={loopKey} className="absolute inset-0">
+    <div className="absolute inset-0">
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -244,7 +244,7 @@ function GoodBrowser({ loopKey }: { loopKey: number }) {
       </div>
 
       <div className="relative h-[260px] md:h-[300px] bg-gradient-to-br from-[#0c0014] via-[#100022] to-black overflow-hidden">
-        <GoodBrowserContent loopKey={loopKey} />
+        <GoodBrowserContent key={loopKey} />
       </div>
 
       <div className="px-4 py-3 bg-[#0f0f0f] border-t border-[hsl(270,100%,60%)]/15 flex items-center justify-between text-[11px]">
