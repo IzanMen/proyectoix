@@ -36,8 +36,7 @@ export async function registerRoutes(
 
       const allowedHasWebsite = [
         "Sí, tengo web",
-        "No tengo web",
-        "Tengo web pero creo que se puede mejorar",
+        "No, no tengo web",
       ];
       const allowedGoals = [
         "Que los clientes me llamen o escriban",

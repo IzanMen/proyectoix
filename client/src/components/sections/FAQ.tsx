@@ -6,27 +6,27 @@ export const faqs = [
   {
     question: "¿Trabajáis solo con negocios de Menorca?",
     answer:
-      "Trabajamos sobre todo con negocios de Menorca (Maó, Ciutadella, Alaior, Es Mercadal, Ferreries, Sant Lluís) porque conocer la isla nos permite entender mejor a tu cliente final. También aceptamos proyectos de Baleares y de España de forma puntual.",
+      "Trabajamos sobre todo con negocios de Menorca (Maó, Ciutadella, Alaior, Es Mercadal, Ferreries, Sant Lluís) porque conocer la isla nos permite entender mejor a tu cliente final. Aún así, aceptamos proyectos de Baleares y de España de forma puntual.",
   },
   {
     question: "¿Cuánto cuesta una web en Proyecto IX?",
     answer:
-      "Cada web es a medida: el precio depende del alcance y los objetivos. Trabajamos con presupuestos cerrados y transparentes desde la primera reunión.",
+      "Cada web es a medida: el precio depende de los objetivos. Trabajamos con presupuestos cerrados y transparentes desde la primera reunión. Rellena el formulario para recibir tu presupuesto.",
   },
   {
     question: "¿Cuánto tarda en estar lista la web?",
     answer:
-      "Entre 2 y 3 semanas, según contenido y funcionalidades. Integramos IA en el desarrollo para ir más rápido que un estudio tradicional sin perder calidad.",
+      "Entre 2 y 3 semanas, según contenido y funcionalidades. Antes de empezar te lo decimos.",
   },
   {
-    question: "¿Hacéis SEO local para posicionar mi negocio en Google Menorca?",
+    question: "¿Hacéis SEO local para posicionar mi negocio en Google?",
     answer:
       "Sí. Cada web sale optimizada desde el primer día: estructura semántica, datos estructurados, rendimiento, contenido enfocado a búsquedas reales y SEO local en Menorca.",
   },
   {
     question: "¿Qué incluye exactamente vuestro servicio?",
     answer:
-      "Diseño a medida, desarrollo con código limpio, optimización de Core Web Vitals, SEO técnico y on-page, integración con tus herramientas (formularios, email, analítica) y formación post-lanzamiento.",
+      "Diseño a medida, desarrollo con código limpio, optimización de Core Web Vitals, SEO técnico y on-page, integración con tus herramientas (formularios, email, analítica) y formación post-lanzamiento. Dependendiendo de el proyecto y tus objetivos, el servicio incluirá más o menos funcionalidades.",
   },
   {
     question: "¿Mantenéis la web una vez lanzada?",

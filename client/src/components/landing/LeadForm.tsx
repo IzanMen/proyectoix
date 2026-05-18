@@ -449,6 +449,7 @@ export function LeadForm() {
 
             {(current.type === "text" ||
               current.type === "tel" ||
+              current.type === "url" ||
               isLast) && (
               <button
                 type="button"

@@ -6,7 +6,7 @@ import {
   useTransform,
   type PanInfo,
 } from "framer-motion";
-import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink, ChevronLeft, ChevronRight, Hammer, CheckCircle2 } from "lucide-react";
 import { FadeIn } from "../layout/FadeIn";
 
 interface ProjectItem {
@@ -15,15 +15,25 @@ interface ProjectItem {
   url: string;
   image: string;
   accent: string;
+  status: "live" | "soon";
 }
 
 const projects: ProjectItem[] = [
+  {
+    type: "Club deportivo en Menorca",
+    client: "Lô Esport Menorca",
+    url: "https://www.loesport.es/",
+    image: "/projects/loesport.webp",
+    accent: "Grupos · Competiciones · Patrocinadores",
+    status: "live",
+  },
   {
     type: "Restaurante en Maó",
     client: "Disbarat Burger",
     url: "https://disbarat-burger-web.replit.app/",
     image: "/projects/disbarat.webp",
     accent: "Reservas online · Carta digital · 4 idiomas",
+    status: "soon",
   },
   {
     type: "Apartamentos en Cala Galdana",
@@ -31,6 +41,7 @@ const projects: ProjectItem[] = [
     url: "https://xaloc-garbi-web.replit.app/",
     image: "/projects/xaloc.webp",
     accent: "Reservas directas · Galería · Reviews",
+    status: "soon",
   },
   {
     type: "Finca de cría en Alaior",
@@ -38,13 +49,7 @@ const projects: ProjectItem[] = [
     url: "https://burrada-els-almuds.replit.app/",
     image: "/projects/burrada.webp",
     accent: "Catálogo · Blog · 3 idiomas",
-  },
-  {
-    type: "Club deportivo en Menorca",
-    client: "Lô Esport Menorca",
-    url: "https://www.loesport.es/",
-    image: "/projects/loesport.webp",
-    accent: "Grupos · Competiciones · Patrocinadores",
+    status: "soon",
   },
 ];
 
@@ -97,20 +102,43 @@ function ProjectCard({
       <img
         src={item.image}
         alt={`Vista previa de la web de ${item.client}`}
-        className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none"
+        className={`absolute inset-0 w-full h-full object-cover object-top pointer-events-none ${item.status === "soon" ? "blur-[2px] scale-105 brightness-50" : ""}`}
         draggable={false}
         loading={isTop ? "eager" : "lazy"}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10 pointer-events-none" />
 
-      <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-[10px] font-mono text-white/70">
-        <span className="px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10 uppercase tracking-widest">
+      <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 text-[10px] font-mono">
+        <span className="px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10 uppercase tracking-widest text-white/70">
           Proyecto
         </span>
-        <span className="px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10 uppercase tracking-widest">
-          Vista previa
-        </span>
+        {item.status === "live" ? (
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/20 backdrop-blur-md border border-emerald-400/40 uppercase tracking-widest text-emerald-200">
+            <CheckCircle2 className="w-3 h-3" />
+            En línea
+          </span>
+        ) : (
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-400/40 uppercase tracking-widest text-amber-200">
+            <Hammer className="w-3 h-3" />
+            En construcción
+          </span>
+        )}
       </div>
+
+      {item.status === "soon" && (
+        <div
+          className="absolute inset-x-0 top-1/2 -translate-y-[55%] flex flex-col items-center gap-3 pointer-events-none px-6"
+          role="status"
+        >
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-400/95 text-black text-sm font-bold tracking-widest uppercase shadow-[0_10px_40px_-5px_rgba(251,191,36,0.7)] -rotate-3">
+            <Hammer className="w-4 h-4" />
+            Próximamente
+          </span>
+          <p className="text-center text-white/85 text-xs md:text-sm font-medium max-w-[18rem] leading-snug">
+            Web en desarrollo · disponible pronto
+          </p>
+        </div>
+      )}
 
       {isTop && (
         <>
@@ -145,9 +173,13 @@ function ProjectCard({
           target="_blank"
           rel="noopener noreferrer"
           data-testid={`link-project-${item.client}`}
-          className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-black text-sm font-bold hover:scale-[1.02] transition-transform"
+          className={`mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-bold hover:scale-[1.02] transition-transform ${
+            item.status === "live"
+              ? "bg-white text-black"
+              : "bg-white/10 border border-white/20 text-white backdrop-blur-md"
+          }`}
         >
-          Ver web completa
+          {item.status === "live" ? "Ver web completa" : "Ver borrador"}
           <ExternalLink className="w-3.5 h-3.5" />
         </a>
       </div>
