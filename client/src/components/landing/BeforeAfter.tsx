@@ -51,6 +51,14 @@ const projects: ProjectItem[] = [
     accent: "Catálogo · Blog · 3 idiomas",
     status: "soon",
   },
+  {
+    type: "Evento de baloncesto en Menorca",
+    client: "Menorca All Star",
+    url: "https://menorca-all-star.replit.app/",
+    image: "/projects/menorcaallstar.webp",
+    accent: "Inscripciones · Landing épica · Menorca",
+    status: "soon",
+  },
 ];
 
 function ProjectCard({
@@ -170,20 +178,18 @@ function ProjectCard({
         </h3>
         <p className="mt-1.5 text-sm text-white/75">{item.accent}</p>
 
-        <a
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-testid={`link-project-${item.client}`}
-          className={`mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-bold hover:scale-[1.02] transition-transform ${
-            item.status === "live"
-              ? "bg-white text-black"
-              : "bg-white/10 border border-white/20 text-white backdrop-blur-md"
-          }`}
-        >
-          {item.status === "live" ? "Ver web completa" : "Ver borrador"}
-          <ExternalLink className="w-3.5 h-3.5" />
-        </a>
+        {item.status === "live" && (
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid={`link-project-${item.client}`}
+            className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-bold hover:scale-[1.02] transition-transform bg-white text-black"
+          >
+            Ver web completa
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        )}
       </div>
     </motion.article>
   );
