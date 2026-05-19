@@ -13,7 +13,7 @@ Premium web design agency landing page for "Izan & Xaloc" (IX.), based in Menorc
 ### Frontend
 - `client/src/App.tsx` — Router (wouter)
 - `client/src/pages/Home.tsx` — Landing alta conversión (Meta Ads): compone secciones de `client/src/components/landing/*`. Sin Navbar/Footer enlaces de navegación, una sola meta = capturar lead por WhatsApp
-- `client/src/components/landing/` — MinimalHeader, LandingHero, VideoSection (vídeo MP4 self-hosted en `/video/proyectoix.mp4`, click-to-play), ProblemAnimated (browsers comparados web mala vs buena — GoodBrowser muestra diseño genérico "tu negocio", NO branding IX), BeforeAfter (4 cards Tinder con screenshots reales: Disbarat Burger, Xaloc & Garbí, Finca Els Almuds, Lô Esport Menorca), AboutVisual (Izan + Xaloc), ProcessSteps (3 pasos), Objections, LeadForm (5 preguntas), FormSection, FinalCta, MinimalFooter, StickyMobileCta (barra inferior móvil que se oculta al llegar al form)
+- `client/src/components/landing/` — MinimalHeader, LandingHero, VideoSection (vídeo MP4 self-hosted en `/video/proyectoix.mp4`, click-to-play), ProblemAnimated (browsers comparados web mala vs buena — GoodBrowser muestra diseño genérico "tu negocio", NO branding IX), BeforeAfter (4 cards Tinder con screenshots reales: Disbarat Burger, Xaloc & Garbí, Finca Els Almuds, Lô Esport Menorca), AboutVisual (Izan + Xaloc), ProcessSteps (3 pasos), FAQS, LeadForm (5 preguntas), FormSection, FinalCta, MinimalFooter, StickyMobileCta (barra inferior móvil que se oculta al llegar al form)
 - `client/src/pages/EmailDiario.tsx` — Email subscription capture page
 - `client/src/pages/PoliticaPrivacidad.tsx` — Privacy policy
 - `client/src/pages/AvisoLegal.tsx` — Legal notice

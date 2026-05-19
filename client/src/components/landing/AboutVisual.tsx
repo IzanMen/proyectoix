@@ -67,7 +67,7 @@ export function AboutVisual() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-[10px] font-mono uppercase tracking-widest text-[hsl(270,100%,80%)]">
-                      Izan · 17
+                      Izan · 16
                     </p>
                     <p className="mt-0.5 text-white text-base font-bold leading-snug">
                       Programa desde los 12.
@@ -91,7 +91,7 @@ export function AboutVisual() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-[10px] font-mono uppercase tracking-widest text-fuchsia-200">
-                      Xaloc · 16
+                      Xaloc · 17
                     </p>
                     <p className="mt-0.5 text-white text-base font-bold leading-snug">
                       Hace que la web cumpla su objetivo.
