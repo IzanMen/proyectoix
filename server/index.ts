@@ -21,11 +21,11 @@ const isProduction = process.env.NODE_ENV === "production";
 const PROD_CSP = [
   "default-src 'self'",
   // 'unsafe-inline' es necesario para los <script type="application/ld+json"> y los estilos en línea de Tailwind/framer-motion
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://connect.facebook.net",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com data:",
-  "img-src 'self' data: blob: https:",
-  "connect-src 'self' https://www.instagram.com",
+  "img-src 'self' data: blob: https: https://www.facebook.com",
+  "connect-src 'self' https://www.instagram.com https://graph.facebook.com",
   "frame-ancestors 'self'",
   "form-action 'self'",
   "base-uri 'self'",
