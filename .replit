@@ -47,3 +47,8 @@ waitForPort = 5000
 [agent]
 mockupState = "FULLSTACK"
 integrations = ["sendgrid:1.0.0", "google-mail:1.0.0"]
+
+[userenv]
+
+[userenv.shared]
+META_CAPI_TEST_CODE = "TEST17589"
