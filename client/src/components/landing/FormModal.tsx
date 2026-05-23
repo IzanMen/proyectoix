@@ -26,9 +26,12 @@ export function FormModal() {
           role="dialog"
           aria-modal="true"
           aria-label="Cuéntanos tu caso"
-          onClick={(e) => { if (e.target === e.currentTarget) closeForm(); }}
         >
-          <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" aria-hidden="true" />
+          <div
+            className="absolute inset-0 bg-black/75 backdrop-blur-sm"
+            aria-hidden="true"
+            onClick={closeForm}
+          />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.96, y: 16 }}
