@@ -42,25 +42,14 @@ export function FormModal() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[hsl(270,100%,60%)]/8 rounded-full blur-[100px]" />
             </div>
 
-            <div className="relative z-10 p-6 md:p-10">
-              <div className="flex items-start justify-between mb-6">
-                <div>
-                  <p className="text-[11px] font-mono uppercase tracking-widest text-[hsl(270,100%,75%)] mb-1">
-                    El paso que importa
-                  </p>
-                  <h2 className="text-xl md:text-2xl font-display font-bold text-white leading-tight">
-                    Cuéntanos tu caso.
-                  </h2>
-                  <p className="mt-1 text-white/50 text-sm">
-                    5 preguntas · menos de 1 minuto · te respondemos por WhatsApp.
-                  </p>
-                </div>
+            <div className="relative z-10 p-5 md:p-8">
+              <div className="flex justify-end mb-2">
                 <button
                   type="button"
                   onClick={closeForm}
                   data-testid="button-close-modal"
                   aria-label="Cerrar formulario"
-                  className="shrink-0 ml-4 w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex items-center justify-center text-white/60 hover:text-white"
+                  className="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex items-center justify-center text-white/50 hover:text-white"
                 >
                   <X className="w-4 h-4" />
                 </button>
