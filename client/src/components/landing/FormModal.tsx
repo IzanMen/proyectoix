@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
 import { useFormModal } from "@/lib/formModal";
 import { LeadForm } from "./LeadForm";
 
@@ -36,15 +35,9 @@ export function FormModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 16 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-10 w-full max-w-xl max-h-[90svh] overflow-y-auto rounded-2xl border border-white/10 bg-[#0a0a0a] shadow-[0_40px_120px_-20px_rgba(0,0,0,0.9)]"
+            className="relative z-10 w-full max-w-xl max-h-[90svh] overflow-y-auto"
           >
-            <div className="absolute inset-0 pointer-events-none rounded-2xl overflow-hidden">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[hsl(270,100%,60%)]/8 rounded-full blur-[100px]" />
-            </div>
-
-            <div className="relative z-10 p-5 md:p-8">
-              <LeadForm onSuccess={closeForm} />
-            </div>
+            <LeadForm onSuccess={closeForm} />
           </motion.div>
         </motion.div>
       )}
