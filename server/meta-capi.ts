@@ -42,7 +42,7 @@ export async function sendLeadEventToMeta(input: LeadEventInput): Promise<void> 
   if (input.fbp) userData.fbp = input.fbp;
   if (input.fbc) userData.fbc = input.fbc;
 
-  const payload = {
+  const payload: Record<string, unknown> = {
     data: [
       {
         event_name: "Lead",
@@ -55,6 +55,12 @@ export async function sendLeadEventToMeta(input: LeadEventInput): Promise<void> 
     ],
   };
 
+  // Si META_CAPI_TEST_CODE está configurado, Meta lo usará para rutar eventos a Test Events.
+  const testCode = process.env.META_CAPI_TEST_CODE;
+  if (testCode) {
+    payload.test_event_code = testCode;
+  }
+
   const url = `https://graph.facebook.com/${GRAPH_API_VERSION}/${PIXEL_ID}/events?access_token=${encodeURIComponent(accessToken)}`;
 
   try {
@@ -63,11 +69,11 @@ export async function sendLeadEventToMeta(input: LeadEventInput): Promise<void> 
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
+    const body = await r.text().catch(() => "");
     if (!r.ok) {
-      const text = await r.text().catch(() => "");
-      console.error("[meta-capi] error:", r.status, text);
+      console.error("[meta-capi] error:", r.status, body);
     } else {
-      console.log("[meta-capi] Lead event sent, event_id:", input.eventId);
+      console.log("[meta-capi] Lead event sent, event_id:", input.eventId, "response:", body);
     }
   } catch (err) {
     console.error("[meta-capi] network error:", err);

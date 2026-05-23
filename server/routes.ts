@@ -151,11 +151,21 @@ export async function registerRoutes(
       });
 
       if (eventId && typeof eventId === "string") {
+        // En producción detrás de proxy, req.ip devuelve 127.0.0.1.
+        // Usamos x-forwarded-for para la IP real del usuario (Meta la necesita para matching).
+        const forwarded = req.headers["x-forwarded-for"];
+        const realIp =
+          typeof forwarded === "string"
+            ? forwarded.split(",")[0].trim()
+            : Array.isArray(forwarded)
+              ? forwarded[0]?.trim()
+              : undefined;
+
         sendLeadEventToMeta({
           eventId,
           eventSourceUrl:
             (req.headers["referer"] as string) || "https://proyectoix.com/",
-          clientIp: req.ip,
+          clientIp: realIp || req.ip || undefined,
           clientUserAgent: req.headers["user-agent"] as string | undefined,
           phone: String(contact),
           fbp: typeof fbp === "string" ? fbp : undefined,
