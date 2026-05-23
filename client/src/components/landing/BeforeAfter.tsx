@@ -150,24 +150,6 @@ function ProjectCard({
         </div>
       )}
 
-      {isTop && (
-        <>
-          <motion.div
-            style={{ opacity: likeOpacity }}
-            className="absolute top-20 left-6 px-4 py-2 rounded-xl border-4 border-[hsl(270,100%,75%)] text-[hsl(270,100%,75%)] font-display font-bold tracking-widest text-xl rotate-[-12deg] bg-black/40 backdrop-blur-sm"
-            aria-hidden="true"
-          >
-            ME GUSTA
-          </motion.div>
-          <motion.div
-            style={{ opacity: nopeOpacity }}
-            className="absolute top-20 right-6 px-4 py-2 rounded-xl border-4 border-white/60 text-white/80 font-display font-bold tracking-widest text-xl rotate-[12deg] bg-black/40 backdrop-blur-sm"
-            aria-hidden="true"
-          >
-            SIGUIENTE
-          </motion.div>
-        </>
-      )}
 
       <div className="absolute bottom-0 left-0 right-0 p-6 md:p-7 text-white">
         <p className="text-[11px] font-mono uppercase tracking-widest text-white/70">
