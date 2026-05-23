@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck, MapPin, Zap, MessageCircle } from "lucide-react";
+import { useFormModal } from "@/lib/formModal";
 
 const trust = [
   { icon: ShieldCheck, label: "Sin compromiso" },
@@ -9,6 +10,8 @@ const trust = [
 ];
 
 export function LandingHero() {
+  const { openForm } = useFormModal();
+
   return (
     <section
       id="top"
@@ -61,14 +64,15 @@ export function LandingHero() {
           transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col sm:flex-row sm:items-center gap-4"
         >
-          <a
-            href="#formulario"
+          <button
+            type="button"
+            onClick={openForm}
             data-testid="link-hero-cta"
             className="group inline-flex items-center justify-center gap-3 px-8 py-5 bg-[hsl(270,100%,60%)] text-white text-base md:text-lg font-bold tracking-tight rounded-sm hover:bg-[hsl(270,100%,65%)] transition-all duration-300 shadow-[0_0_40px_-8px_hsl(270,100%,60%)] hover:shadow-[0_0_60px_-6px_hsl(270,100%,60%)] hover:scale-[1.02]"
           >
             Quiero hablar con vosotros
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </button>
         </motion.div>
 
         <motion.ul

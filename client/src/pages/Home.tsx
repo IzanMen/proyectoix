@@ -17,6 +17,8 @@ import { FormSection } from "@/components/landing/FormSection";
 import { FinalCta } from "@/components/landing/FinalCta";
 import { MinimalFooter } from "@/components/landing/MinimalFooter";
 import { StickyMobileCta } from "@/components/landing/StickyMobileCta";
+import { FormModalProvider } from "@/lib/formModal";
+import { FormModal } from "@/components/landing/FormModal";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -44,32 +46,35 @@ export default function Home() {
   });
 
   return (
-    <div className="min-h-screen bg-transparent text-foreground selection:bg-[hsl(270,100%,60%)] selection:text-white">
-      <InteractiveBackground />
+    <FormModalProvider>
+      <div className="min-h-screen bg-transparent text-foreground selection:bg-[hsl(270,100%,60%)] selection:text-white">
+        <InteractiveBackground />
 
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-[hsl(270,100%,60%)] origin-left z-[100] shadow-[0_0_8px_hsl(270,100%,60%)]"
-        style={{ scaleX }}
-        aria-hidden="true"
-      />
+        <motion.div
+          className="fixed top-0 left-0 right-0 h-[2px] bg-[hsl(270,100%,60%)] origin-left z-[100] shadow-[0_0_8px_hsl(270,100%,60%)]"
+          style={{ scaleX }}
+          aria-hidden="true"
+        />
 
-      <MinimalHeader />
+        <MinimalHeader />
 
-      <main className="relative z-10">
-        <LandingHero />
-        <VideoSection />
-        <ProblemAnimated />
-        <BeforeAfter />
-        <AboutVisual />
-        <ProcessSteps />
-        <FAQ />
-        <FormSection />
-        <FinalCta />
-      </main>
+        <main className="relative z-10">
+          <LandingHero />
+          <VideoSection />
+          <ProblemAnimated />
+          <BeforeAfter />
+          <AboutVisual />
+          <ProcessSteps />
+          <FAQ />
+          <FormSection />
+          <FinalCta />
+        </main>
 
-      <MinimalFooter />
+        <MinimalFooter />
 
-      <StickyMobileCta />
-    </div>
+        <StickyMobileCta />
+        <FormModal />
+      </div>
+    </FormModalProvider>
   );
 }

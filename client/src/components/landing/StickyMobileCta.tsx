@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useFormModal } from "@/lib/formModal";
 
 export function StickyMobileCta() {
   const [visible, setVisible] = useState(false);
+  const { openForm } = useFormModal();
 
   useEffect(() => {
-    const form = document.getElementById("formulario");
     const hero = document.getElementById("top");
 
     const onScroll = () => {
       const scrolled = window.scrollY > (hero?.offsetHeight || 600) * 0.6;
-      const formRect = form?.getBoundingClientRect();
-      const formInView =
-        formRect && formRect.top < window.innerHeight - 100;
-      setVisible(scrolled && !formInView);
+      setVisible(scrolled);
     };
 
     onScroll();
@@ -46,14 +44,15 @@ export function StickyMobileCta() {
                 5 preguntas · 1 minuto
               </span>
             </p>
-            <a
-              href="#formulario"
+            <button
+              type="button"
+              onClick={openForm}
               data-testid="link-sticky-cta"
               className="inline-flex items-center gap-2 px-4 py-2.5 bg-[hsl(270,100%,60%)] text-white text-sm font-bold rounded-sm shadow-[0_0_20px_-4px_hsl(270,100%,60%)]"
             >
               Cuéntanos
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
           </div>
         </motion.div>
       )}

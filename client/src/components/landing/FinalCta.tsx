@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { FadeIn } from "../layout/FadeIn";
+import { useFormModal } from "@/lib/formModal";
 
 export function FinalCta() {
+  const { openForm } = useFormModal();
+
   return (
     <section
       aria-labelledby="final-cta-title"
@@ -33,15 +36,16 @@ export function FinalCta() {
           </p>
         </FadeIn>
         <FadeIn delay={0.2}>
-          <motion.a
-            href="#formulario"
+          <motion.button
+            type="button"
+            onClick={openForm}
             data-testid="link-final-cta"
             whileHover={{ scale: 1.02 }}
             className="mt-10 group inline-flex items-center justify-center gap-3 px-9 py-5 bg-[hsl(270,100%,60%)] text-white text-base md:text-lg font-bold tracking-tight rounded-sm hover:bg-[hsl(270,100%,65%)] transition-all duration-300 shadow-[0_0_50px_-8px_hsl(270,100%,60%)] hover:shadow-[0_0_70px_-6px_hsl(270,100%,60%)]"
           >
             Empezar ahora
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </motion.a>
+          </motion.button>
         </FadeIn>
       </div>
     </section>

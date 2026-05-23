@@ -2,10 +2,12 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Clock } from "lucide-react";
 import { FadeIn } from "../layout/FadeIn";
+import { useFormModal } from "@/lib/formModal";
 
 export function VideoSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
+  const { openForm } = useFormModal();
 
   const handlePlay = () => {
     const v = videoRef.current;
@@ -89,14 +91,15 @@ export function VideoSection() {
 
         <FadeIn delay={0.15}>
           <div className="mt-8 flex justify-center">
-            <a
-              href="#formulario"
+            <button
+              type="button"
+              onClick={openForm}
               data-testid="link-video-cta"
               className="group inline-flex items-center gap-3 px-7 py-4 bg-white text-black text-base font-bold tracking-tight rounded-sm hover:scale-[1.02] transition-all duration-300 shadow-[0_0_40px_-10px_rgba(255,255,255,0.4)]"
             >
               Quiero hablar con vosotros
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </button>
           </div>
         </FadeIn>
       </div>

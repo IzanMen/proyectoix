@@ -1,6 +1,6 @@
-import { ShieldCheck, MailCheck, Zap } from "lucide-react";
+import { ShieldCheck, MailCheck, Zap, ArrowRight } from "lucide-react";
 import { FadeIn } from "../layout/FadeIn";
-import { LeadForm } from "./LeadForm";
+import { useFormModal } from "@/lib/formModal";
 
 const guarantees = [
   { icon: ShieldCheck, label: "Sin compromiso" },
@@ -9,6 +9,8 @@ const guarantees = [
 ];
 
 export function FormSection() {
+  const { openForm } = useFormModal();
+
   return (
     <section
       id="formulario"
@@ -39,11 +41,21 @@ export function FormSection() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <LeadForm />
+          <div className="flex justify-center">
+            <button
+              type="button"
+              onClick={openForm}
+              data-testid="button-open-form"
+              className="group inline-flex items-center gap-3 px-9 py-5 bg-[hsl(270,100%,60%)] text-white text-base md:text-lg font-bold tracking-tight rounded-sm hover:bg-[hsl(270,100%,65%)] transition-all duration-300 shadow-[0_0_50px_-8px_hsl(270,100%,60%)] hover:shadow-[0_0_70px_-6px_hsl(270,100%,60%)] hover:scale-[1.02]"
+            >
+              Rellenar formulario
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-white/50">
+          <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-white/50">
             {guarantees.map(({ icon: Icon, label }) => (
               <li key={label} className="inline-flex items-center gap-1.5">
                 <Icon className="w-3.5 h-3.5 text-[hsl(270,100%,75%)]" />

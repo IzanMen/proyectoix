@@ -95,7 +95,7 @@ const formatPhone = (digits: string) => {
   return `${d.slice(0, 3)} ${d.slice(3, 6)} ${d.slice(6)}`;
 };
 
-export function LeadForm() {
+export function LeadForm({ onSuccess }: { onSuccess?: () => void } = {}) {
   const [step, setStep] = useState(0);
   const [data, setData] = useState<FormData>({
     business: "",
@@ -157,6 +157,7 @@ export function LeadForm() {
         throw new Error(p.message || "Error al enviar");
       }
       setSuccess(true);
+      onSuccess?.();
     } catch (e: any) {
       setErrorMsg(e.message || "Error al enviar. Inténtalo de nuevo.");
     } finally {
