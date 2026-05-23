@@ -157,6 +157,9 @@ export function LeadForm({ onSuccess }: { onSuccess?: () => void } = {}) {
         throw new Error(p.message || "Error al enviar");
       }
       setSuccess(true);
+      if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+        (window as any).fbq("track", "Lead");
+      }
       onSuccess?.();
     } catch (e: any) {
       setErrorMsg(e.message || "Error al enviar. Inténtalo de nuevo.");
