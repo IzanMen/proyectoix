@@ -137,6 +137,19 @@ export function LeadForm({ onSuccess }: { onSuccess?: () => void } = {}) {
     setSubmitting(true);
     setErrorMsg("");
     try {
+      const eventId =
+        typeof crypto !== "undefined" && "randomUUID" in crypto
+          ? crypto.randomUUID()
+          : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
+      const getCookie = (name: string): string | undefined => {
+        if (typeof document === "undefined") return undefined;
+        const m = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+        return m ? decodeURIComponent(m[1]) : undefined;
+      };
+      const fbp = getCookie("_fbp");
+      const fbc = getCookie("_fbc");
+
       const r = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -150,6 +163,9 @@ export function LeadForm({ onSuccess }: { onSuccess?: () => void } = {}) {
           privacyAccepted: true,
           policyVersion: "2026-05",
           acceptedAt: new Date().toISOString(),
+          eventId,
+          ...(fbp ? { fbp } : {}),
+          ...(fbc ? { fbc } : {}),
         }),
       });
       if (!r.ok) {
@@ -158,7 +174,7 @@ export function LeadForm({ onSuccess }: { onSuccess?: () => void } = {}) {
       }
       setSuccess(true);
       if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
-        (window as any).fbq("track", "Lead");
+        (window as any).fbq("track", "Lead", {}, { eventID: eventId });
       }
       onSuccess?.();
     } catch (e: any) {

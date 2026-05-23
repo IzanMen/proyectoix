@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import type { Server } from "http";
 import { createTransporter } from "./mailer";
+import { sendLeadEventToMeta } from "./meta-capi";
 
 function escapeHtml(str: string): string {
   return str
@@ -29,6 +30,9 @@ export async function registerRoutes(
         privacyAccepted,
         policyVersion,
         acceptedAt,
+        eventId,
+        fbp,
+        fbc,
       } = req.body;
 
       if (!businessName || !contact || !hasWebsite || !goal || !budget) {
@@ -145,6 +149,19 @@ export async function registerRoutes(
         subject,
         html: htmlContent,
       });
+
+      if (eventId && typeof eventId === "string") {
+        sendLeadEventToMeta({
+          eventId,
+          eventSourceUrl:
+            (req.headers["referer"] as string) || "https://proyectoix.com/",
+          clientIp: req.ip,
+          clientUserAgent: req.headers["user-agent"] as string | undefined,
+          phone: String(contact),
+          fbp: typeof fbp === "string" ? fbp : undefined,
+          fbc: typeof fbc === "string" ? fbc : undefined,
+        }).catch((err) => console.error("[meta-capi] unhandled:", err));
+      }
 
       return res.json({ success: true });
     } catch (error: any) {
