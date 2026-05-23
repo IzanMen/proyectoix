@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+
 import { useFormModal } from "@/lib/formModal";
 import { LeadForm } from "./LeadForm";
 
@@ -43,18 +43,6 @@ export function FormModal() {
             </div>
 
             <div className="relative z-10 p-5 md:p-8">
-              <div className="flex justify-end mb-2">
-                <button
-                  type="button"
-                  onClick={closeForm}
-                  data-testid="button-close-modal"
-                  aria-label="Cerrar formulario"
-                  className="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex items-center justify-center text-white/50 hover:text-white"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-
               <LeadForm onSuccess={closeForm} />
             </div>
           </motion.div>
