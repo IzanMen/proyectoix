@@ -33,10 +33,12 @@ export function Footer() {
               className="inline-flex items-center gap-1 group"
               data-testid="link-footer-home"
             >
-              <span className="text-2xl font-display font-bold tracking-tighter text-white">
-                IX
-              </span>
-              <span className="w-2 h-2 bg-[hsl(270,100%,60%)] rounded-full mt-1 shadow-[0_0_15px_hsl(270,100%,60%)] animate-pulse" />
+              <img
+                src="/favicon.png"
+                alt="Proyecto IX"
+                className="h-8 w-auto"
+                draggable={false}
+              />
             </Link>
             <p className="text-white/45 text-sm leading-relaxed">
               Estudio de diseño y desarrollo web en Menorca. Webs a medida con
