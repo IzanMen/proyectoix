@@ -15,12 +15,10 @@ export function MinimalHeader() {
           className="inline-flex items-center gap-1.5 group"
           aria-label="Proyecto IX"
         >
-          <img
-            src="/favicon.png"
-            alt="Proyecto IX"
-            className="h-7 w-auto"
-            draggable={false}
-          />
+          <span className="text-xl font-display font-bold tracking-tighter text-white">
+            IX
+          </span>
+          <span className="w-2 h-2 bg-[hsl(270,100%,60%)] rounded-full mt-1 shadow-[0_0_15px_hsl(270,100%,60%)] animate-pulse" />
         </a>
         <span
           className="hidden sm:inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-white/55"

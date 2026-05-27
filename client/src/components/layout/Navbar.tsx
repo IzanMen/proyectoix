@@ -46,13 +46,9 @@ export function Navbar() {
         )}
       >
         <div className="w-full max-w-6xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        <Link href="/" className="z-50 relative group cursor-pointer flex items-center gap-1" onClick={() => setMobileMenuOpen(false)}>
-            <img
-              src="/favicon.png"
-              alt="Proyecto IX"
-              className="h-7 w-auto"
-              draggable={false}
-            />
+        <Link href="/" className="text-xl font-display font-bold tracking-tighter text-white z-50 relative group cursor-pointer flex items-center gap-1" onClick={() => setMobileMenuOpen(false)}>
+            <span className="text-2xl">IX</span>
+            <span className="w-2 h-2 bg-[hsl(270,100%,60%)] rounded-full mt-1 shadow-[0_0_15px_hsl(270,100%,60%)] animate-pulse"></span>
         </Link>
 
         {/* Desktop Menu */}
