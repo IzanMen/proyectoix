@@ -7,20 +7,20 @@ import { webPageLd, breadcrumbLd } from "@/lib/structured-data";
 
 export default function EmailDiario() {
   useSeo({
-    title: "Email diario · Proyecto IX | Tips reales para que tu web venda",
+    title: "Tu guía gratuita · Proyecto IX | Los 5 errores que arruinan tu web",
     description:
-      "Suscríbete al email diario de Proyecto IX. Tips reales para convertir visitas en clientes y posicionar tu web en Google, más el día a día de cómo construimos una agencia desde Menorca.",
+      "Descarga gratis la guía: los 5 errores que cometen el 90% de las webs en Menorca y cómo solucionarlos. Solo tienes que dejar tu email.",
     canonical: "https://proyectoix.com/email-diario",
     jsonLd: [
       webPageLd({
         url: "https://proyectoix.com/email-diario",
-        name: "Email diario · Proyecto IX",
+        name: "Tu guía gratuita · Proyecto IX",
         description:
-          "Tips reales para que tu web convierta y posicione en Google, más el progreso de Proyecto IX desde Menorca.",
+          "Guía gratuita: los 5 errores que cometen el 90% de las webs en Menorca y cómo solucionarlos.",
       }),
       breadcrumbLd([
         { name: "Inicio", url: "https://proyectoix.com/" },
-        { name: "Email diario", url: "https://proyectoix.com/email-diario" },
+        { name: "Guía gratuita", url: "https://proyectoix.com/email-diario" },
       ]),
     ],
   });
@@ -94,17 +94,17 @@ export default function EmailDiario() {
                 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-wide"
                 data-testid="text-success-title"
               >
-                Casi estás dentro
+                Guía en camino
               </h2>
               <p className="text-white/60 text-base sm:text-lg leading-relaxed" data-testid="text-success-message">
-                Te acabamos de mandar un email. Pulsa el enlace que hay dentro para confirmar tu suscripción.
+                Te acabamos de mandar un email de confirmación. Pulsa el enlace dentro para verificar tu email.
               </p>
               <div className="w-full rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-[hsl(270,100%,60%)]/10 px-5 py-4 shadow-[0_0_40px_-18px_hsl(270,100%,60%)]">
                 <p className="text-white text-sm sm:text-base font-semibold uppercase tracking-[0.2em]">
-                  Puede tardar unos minutos
+                  Después de confirmar, recibirás la guía
                 </p>
                 <p className="mt-2 text-[hsl(270,100%,70%)] text-sm sm:text-base leading-relaxed">
-                  Revisa también la carpeta de spam por si acaso.
+                  Revisa también la carpeta de spam. Puede tardar unos minutos.
                 </p>
               </div>
             </motion.div>
@@ -122,30 +122,58 @@ export default function EmailDiario() {
                   className="text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.25em] font-semibold text-[hsl(270,100%,70%)]"
                   data-testid="text-headline"
                 >
-                  Un email diario.
+                  Te la prometimos. Aquí está.
                 </h1>
+                <p className="text-white/60 text-sm sm:text-base leading-relaxed">
+                  Si acabas de ver el vídeo, ya sabes los 5 errores que hacen que tu web no traiga clientes.
+                  Ahora te enviamos la guía completa para solucionarlos.
+                </p>
               </div>
 
               <ul className="space-y-3 text-white/75 text-sm sm:text-base leading-relaxed">
                 <li className="flex gap-3">
                   <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
                   <span>
-                    <span className="text-white font-semibold">Tips para convertir</span> visitas en clientes reales — los mismos cambios que aplicamos a nuestros clientes.
+                    <span className="text-white font-semibold">Error 1.</span> No apareces en Google. Nadie te encuentra.
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
                   <span>
-                    <span className="text-white font-semibold">SEO</span> para subir tu web a las primeras posiciones de Google.
+                    <span className="text-white font-semibold">Error 2.</span> Tu web tarda más de 3 segundos. Se van el 50% antes de entrar.
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
                   <span>
-                    El día a día de <span className="text-white font-semibold">cómo construimos Proyecto IX</span> desde Menorca: decisiones, fallos, lo que funciona.
+                    <span className="text-white font-semibold">Error 3.</span> Es aburrida. Texto plano, imágenes malas, colores feos.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
+                  <span>
+                    <span className="text-white font-semibold">Error 4.</span> No tiene un objetivo claro. Y no hay botones para que el usuario actúe.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
+                  <span>
+                    <span className="text-white font-semibold">Error 5.</span> Hablas de ti en vez de responder lo que el cliente gana eligiéndote.
                   </span>
                 </li>
               </ul>
+
+              <div className="w-full rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-[hsl(270,100%,60%)]/10 px-5 py-4 shadow-[0_0_40px_-18px_hsl(270,100%,60%)]">
+                <p className="text-white text-sm sm:text-base font-bold uppercase tracking-wide">
+                  Lo que recibes:
+                </p>
+                <p className="mt-1.5 text-[hsl(270,100%,75%)] text-sm sm:text-base leading-relaxed font-semibold">
+                  «Los 5 errores que cometen el 90% de las webs (y cómo solucionarlos paso a paso)»
+                </p>
+                <p className="mt-1 text-white/50 text-xs sm:text-sm">
+                  Una guía directa que puedes aplicar hoy mismo. Sin técnicas raras, sin costes extra.
+                </p>
+              </div>
 
               <form
                 onSubmit={handleSubmit}
@@ -255,26 +283,14 @@ export default function EmailDiario() {
                         Enviando…
                       </span>
                     ) : (
-                      "Suscribirme"
+                      "Quiero la guía"
                     )}
                   </button>
                 </div>
               </form>
 
-              <div className="w-full rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-[hsl(270,100%,60%)]/10 px-5 py-4 shadow-[0_0_40px_-18px_hsl(270,100%,60%)]">
-                <p className="text-white text-sm sm:text-base font-bold uppercase tracking-wide">
-                  Al suscribirte, recibes gratis:
-                </p>
-                <p className="mt-1.5 text-[hsl(270,100%,75%)] text-sm sm:text-base leading-relaxed font-semibold">
-                  «Los 5 errores que cometen el 90% de las webs (y cómo solucionarlos)»
-                </p>
-                <p className="mt-1 text-white/50 text-xs sm:text-sm">
-                  Una guía directa que puedes aplicar hoy mismo.
-                </p>
-              </div>
-              
               <p className="text-white/30 text-xs text-center" data-testid="text-author">
-                Escrito por Izan, desde Menorca. Te puedes ir cuando quieras.
+                Escrito por Izan y Xaloc, desde Menorca. Sin spam, sin técnicas raras.
               </p>
 
               <div className="flex items-center justify-center gap-4 text-white/20 text-[10px] sm:text-xs pt-4 border-t border-white/5">
