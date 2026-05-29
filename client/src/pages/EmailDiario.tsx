@@ -122,46 +122,14 @@ export default function EmailDiario() {
                   className="text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.25em] font-semibold text-[hsl(270,100%,70%)]"
                   data-testid="text-headline"
                 >
-                  Te la prometimos. Aquí está.
+                  AQUÍ TIENES LA GUÍA GRATUITA
                 </h1>
                 <p className="text-white/60 text-sm sm:text-base leading-relaxed">
-                  Si acabas de ver el vídeo, ya sabes los 5 errores que hacen que tu web no traiga clientes.
-                  Ahora te enviamos la guía completa para solucionarlos.
+                  Si acabas de ver el vídeo, ya sabes los 5 errores que hacen que tu web no traiga clientes. <b>Pero necesitas saber cómo solucionarlos.</b>
                 </p>
               </div>
 
-              <ul className="space-y-3 text-white/75 text-sm sm:text-base leading-relaxed">
-                <li className="flex gap-3">
-                  <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
-                  <span>
-                    <span className="text-white font-semibold">Error 1.</span> No apareces en Google. Nadie te encuentra.
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
-                  <span>
-                    <span className="text-white font-semibold">Error 2.</span> Tu web tarda más de 3 segundos. Se van el 50% antes de entrar.
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
-                  <span>
-                    <span className="text-white font-semibold">Error 3.</span> Es aburrida. Texto plano, imágenes malas, colores feos.
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
-                  <span>
-                    <span className="text-white font-semibold">Error 4.</span> No tiene un objetivo claro. Y no hay botones para que el usuario actúe.
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[hsl(270,100%,70%)] font-bold mt-0.5">→</span>
-                  <span>
-                    <span className="text-white font-semibold">Error 5.</span> Hablas de ti en vez de responder lo que el cliente gana eligiéndote.
-                  </span>
-                </li>
-              </ul>
+             
 
               <div className="w-full rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-[hsl(270,100%,60%)]/10 px-5 py-4 shadow-[0_0_40px_-18px_hsl(270,100%,60%)]">
                 <p className="text-white text-sm sm:text-base font-bold uppercase tracking-wide">
@@ -287,7 +255,15 @@ export default function EmailDiario() {
                     )}
                   </button>
                 </div>
+                <p className="text-white/60 text-sm sm:text-base leading-relaxed">
+                  También entrarás en nuestro email diario, donde enviamos cada día un mensaje en el que contamos:
+                </p>
+                <ul className="text-white/60 text-sm sm:text-base leading-relaxed space-y-1">
+                  <li>1. Técnicas para atraer más clientes a tu negocio</li>
+                  <li>2. Cómo evoluciona nuestra historia: 2 chavales de 16 y 17 años montando un negocio desde 0 en Menorca.</li>
+                </ul>
               </form>
+              
 
               <p className="text-white/30 text-xs text-center" data-testid="text-author">
                 Escrito por Izan y Xaloc, desde Menorca. Sin spam, sin técnicas raras.
