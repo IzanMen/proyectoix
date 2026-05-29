@@ -99,12 +99,12 @@ export default function EmailDiario() {
               <p className="text-white/60 text-base sm:text-lg leading-relaxed" data-testid="text-success-message">
                 Te acabamos de mandar un email de confirmación. Pulsa el enlace dentro para verificar tu email.
               </p>
+              <p className="text-[#f00] text-base sm:text-lg leading-relaxed" data-testid="text-success-message">
+                IMPORTANTE: Si no lo has recibido, revisa tu carpeta de PROMOCIONES
+              </p>
               <div className="w-full rounded-2xl border border-[hsl(270,100%,60%)]/30 bg-[hsl(270,100%,60%)]/10 px-5 py-4 shadow-[0_0_40px_-18px_hsl(270,100%,60%)]">
-                <p className="text-white text-sm sm:text-base font-semibold uppercase tracking-[0.2em]">
-                  Después de confirmar, recibirás la guía
-                </p>
-                <p className="mt-2 text-[hsl(270,100%,70%)] text-sm sm:text-base leading-relaxed">
-                  Revisa también la carpeta de spam. Puede tardar unos minutos.
+                <p className="text-white text-sm sm:text-base font-semibold tracking-[0.2em]">
+                  Después de confirmar, recibirás la GUÍA GRATUITA
                 </p>
               </div>
             </motion.div>
