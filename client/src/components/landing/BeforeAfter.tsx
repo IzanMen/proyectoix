@@ -20,6 +20,14 @@ interface ProjectItem {
 
 const projects: ProjectItem[] = [
   {
+    type: "Medicina estética en Madrid",
+    client: "Dr. Rodríguez Esteban",
+    url: "https://drrodriguezesteban.com/",
+    image: "/projects/drrodriguezesteban.webp",
+    accent: "Citas online · Tratamientos · MonaLisa Touch",
+    status: "live",
+  },
+  {
     type: "Club de atletismo en Menorca",
     client: "Lô Esport Menorca",
     url: "https://www.loesport.es/",
