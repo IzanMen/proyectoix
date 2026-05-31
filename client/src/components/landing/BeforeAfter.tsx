@@ -36,6 +36,14 @@ const projects: ProjectItem[] = [
     status: "live",
   },
   {
+    type: "Evento de baloncesto en Menorca",
+    client: "Menorca All Star",
+    url: "https://menorca-all-star.replit.app/",
+    image: "/projects/menorcaallstar.webp",
+    accent: "Inscripciones · Landing épica · Menorca",
+    status: "live",
+  },
+  {
     type: "Hamburguesería en Maó",
     client: "Disbarat",
     url: "/",
@@ -57,14 +65,6 @@ const projects: ProjectItem[] = [
     url: "/",
     image: "/projects/burrada.webp",
     accent: "Catálogo · Blog · 3 idiomas",
-    status: "soon",
-  },
-  {
-    type: "Evento de baloncesto en Menorca",
-    client: "Menorca All Star",
-    url: "https://menorca-all-star.replit.app/",
-    image: "/projects/menorcaallstar.webp",
-    accent: "Inscripciones · Landing épica · Menorca",
     status: "soon",
   },
 ];
