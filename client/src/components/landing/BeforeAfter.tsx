@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
   useMotionValue,
-  useTransform,
   type PanInfo,
 } from "framer-motion";
 import { ExternalLink, ChevronLeft, ChevronRight, Hammer, CheckCircle2 } from "lucide-react";
@@ -69,62 +68,75 @@ const projects: ProjectItem[] = [
   },
 ];
 
+// Visual layout per relative position in the coverflow.
+const LAYOUT: Record<number, { x: string; scale: number; rotateY: number; opacity: number; z: number }> = {
+  0: { x: "0%", scale: 1, rotateY: 0, opacity: 1, z: 40 },
+  1: { x: "64%", scale: 0.82, rotateY: -32, opacity: 0.55, z: 30 },
+  [-1]: { x: "-64%", scale: 0.82, rotateY: 32, opacity: 0.55, z: 30 },
+  2: { x: "115%", scale: 0.64, rotateY: -42, opacity: 0.22, z: 20 },
+  [-2]: { x: "-115%", scale: 0.64, rotateY: 42, opacity: 0.22, z: 20 },
+};
+
 function ProjectCard({
   item,
+  position,
+  isCenter,
+  onSelect,
   onSwipe,
-  isTop,
-  zIndex,
-  offset,
 }: {
   item: ProjectItem;
+  position: number;
+  isCenter: boolean;
+  onSelect: () => void;
   onSwipe: (dir: 1 | -1) => void;
-  isTop: boolean;
-  zIndex: number;
-  offset: number;
 }) {
   const x = useMotionValue(0);
-  const rotate = useTransform(x, [-200, 0, 200], [-12, 0, 12]);
-  const likeOpacity = useTransform(x, [20, 120], [0, 1]);
-  const nopeOpacity = useTransform(x, [-120, -20], [1, 0]);
+  const hidden = Math.abs(position) > 2;
+  const layout = LAYOUT[position] ?? { x: "0%", scale: 0.5, rotateY: 0, opacity: 0, z: 0 };
 
   const handleDragEnd = (_: unknown, info: PanInfo) => {
-    const threshold = 100;
-    if (info.offset.x > threshold || info.velocity.x > 500) {
-      onSwipe(1);
-    } else if (info.offset.x < -threshold || info.velocity.x < -500) {
-      onSwipe(-1);
-    }
+    const threshold = 80;
+    if (info.offset.x > threshold || info.velocity.x > 500) onSwipe(-1);
+    else if (info.offset.x < -threshold || info.velocity.x < -500) onSwipe(1);
   };
 
   return (
     <motion.article
-      drag={isTop ? "x" : false}
+      drag={isCenter ? "x" : false}
       dragConstraints={{ left: 0, right: 0 }}
-      dragElastic={0.6}
+      dragElastic={0.2}
       onDragEnd={handleDragEnd}
-      style={{ x: isTop ? x : 0, rotate: isTop ? rotate : 0, zIndex }}
+      style={{ x: isCenter ? x : undefined, zIndex: layout.z, transformStyle: "preserve-3d" }}
       initial={false}
       animate={{
-        scale: 1 - offset * 0.04,
-        x: offset * 22,
-        y: offset * 6,
-        rotate: isTop ? undefined : offset * 2.5,
-        opacity: offset > 2 ? 0 : 1,
+        x: layout.x,
+        scale: layout.scale,
+        rotateY: layout.rotateY,
+        opacity: hidden ? 0 : layout.opacity,
       }}
-      transition={{ type: "spring", stiffness: 280, damping: 30 }}
-      className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] cursor-grab active:cursor-grabbing select-none bg-black"
+      transition={{ type: "spring", stiffness: 220, damping: 30 }}
+      className={`absolute inset-0 rounded-3xl overflow-hidden bg-black select-none ${
+        isCenter
+          ? "shadow-[0_40px_120px_-30px_rgba(124,58,237,0.45)] cursor-grab active:cursor-grabbing ring-1 ring-white/15"
+          : "shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)] cursor-pointer ring-1 ring-white/5"
+      } ${hidden ? "pointer-events-none" : ""}`}
+      onClick={() => {
+        if (!isCenter) onSelect();
+      }}
       data-testid={`card-project-${item.client}`}
-      aria-hidden={!isTop}
-      inert={!isTop}
+      aria-hidden={hidden}
+      inert={hidden}
     >
       <img
         src={item.image}
         alt={`Vista previa de la web de ${item.client}`}
-        className={`absolute inset-0 w-full h-full object-cover object-top pointer-events-none ${item.status === "soon" ? "blur-[2px] scale-105 brightness-50" : ""}`}
+        className={`absolute inset-0 w-full h-full object-cover object-top pointer-events-none ${
+          item.status === "soon" ? "blur-[2px] scale-105 brightness-50" : ""
+        } ${!isCenter ? "brightness-[0.6]" : ""}`}
         draggable={false}
-        loading={isTop ? "eager" : "lazy"}
+        loading={Math.abs(position) <= 1 ? "eager" : "lazy"}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/5 pointer-events-none" />
 
       <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 text-[10px] font-mono">
         <span className="px-2 py-0.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10 uppercase tracking-widest text-white/70">
@@ -158,7 +170,6 @@ function ProjectCard({
         </div>
       )}
 
-
       <div className="absolute bottom-0 left-0 right-0 p-6 md:p-7 text-white">
         <p className="text-[11px] font-mono uppercase tracking-widest text-white/70">
           {item.type}
@@ -168,18 +179,25 @@ function ProjectCard({
         </h3>
         <p className="mt-1.5 text-sm text-white/75">{item.accent}</p>
 
-        {item.status === "live" && (
-          <a
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid={`link-project-${item.client}`}
-            className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-bold hover:scale-[1.02] transition-transform bg-white text-black"
-          >
-            Ver web completa
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
-        )}
+        <AnimatePresence>
+          {isCenter && item.status === "live" && (
+            <motion.a
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              transition={{ duration: 0.3 }}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid={`link-project-${item.client}`}
+              className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-bold hover:scale-[1.02] transition-transform bg-white text-black"
+              draggable={false}
+            >
+              Ver web completa
+              <ExternalLink className="w-3.5 h-3.5" />
+            </motion.a>
+          )}
+        </AnimatePresence>
       </div>
     </motion.article>
   );
@@ -187,29 +205,51 @@ function ProjectCard({
 
 export function BeforeAfter() {
   const [index, setIndex] = useState(0);
+  const total = projects.length;
 
-  const handleSwipe = (dir: 1 | -1 = 1) => {
-    setIndex((i) =>
-      dir === 1
-        ? (i + 1) % projects.length
-        : (i - 1 + projects.length) % projects.length,
-    );
+  const go = useCallback(
+    (dir: 1 | -1) => {
+      setIndex((i) => (i + dir + total) % total);
+    },
+    [total],
+  );
+
+  // Shortest signed distance from the active card (handles looping).
+  const relativePosition = (i: number) => {
+    let diff = i - index;
+    if (diff > total / 2) diff -= total;
+    if (diff < -total / 2) diff += total;
+    return diff;
   };
 
-  const visible = [
-    projects[index % projects.length],
-    projects[(index + 1) % projects.length],
-    projects[(index + 2) % projects.length],
-  ];
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    if (!hovered) return;
+    const onKey = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (
+        target &&
+        (target.isContentEditable ||
+          ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName))
+      ) {
+        return;
+      }
+      if (e.key === "ArrowLeft") go(-1);
+      if (e.key === "ArrowRight") go(1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [go, hovered]);
 
   return (
     <section
       aria-labelledby="cases-title"
       className="relative py-24 md:py-32 overflow-hidden border-t border-white/5"
     >
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12">
         <FadeIn>
-          <div className="text-center mb-12">
+          <div className="text-center mb-14">
             <span className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-white/5 border border-white/10 text-white/65 text-[11px] tracking-widest uppercase">
               Nuestros proyectos
             </span>
@@ -220,69 +260,96 @@ export function BeforeAfter() {
               Webs que hemos construido.
             </h2>
             <p className="mt-4 text-white/60 text-base md:text-lg">
-              Desliza para ver. Probablemente conoces alguno de estos negocios.
+              Navega por los proyectos. Probablemente conoces alguno de estos negocios.
             </p>
           </div>
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="relative w-full max-w-sm mx-auto">
-            <div
-              className="relative w-full"
-              style={{ aspectRatio: "3 / 4" }}
-              data-testid="carousel-projects"
-              role="region"
-              aria-roledescription="carrusel"
-              aria-label={`Proyecto ${(index % projects.length) + 1} de ${projects.length}`}
-            >
-              <AnimatePresence>
-                {visible.map((p, i) => (
+          <div
+            className="relative w-full"
+            data-testid="carousel-projects"
+            role="region"
+            aria-roledescription="carrusel"
+            aria-label={`Proyecto ${index + 1} de ${total}`}
+            style={{ perspective: "1800px" }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            {/* Stage: center slot defines card size; siblings peek out via 3D transforms */}
+            <div className="relative mx-auto h-[clamp(300px,68vw,460px)] w-[clamp(280px,80vw,640px)] [transform-style:preserve-3d]">
+              {projects.map((p, i) => {
+                const position = relativePosition(i);
+                return (
                   <ProjectCard
-                    key={`${p.client}-${index + i}`}
+                    key={p.client}
                     item={p}
-                    onSwipe={handleSwipe}
-                    isTop={i === 0}
-                    zIndex={3 - i}
-                    offset={i}
+                    position={position}
+                    isCenter={position === 0}
+                    onSelect={() => setIndex(i)}
+                    onSwipe={go}
                   />
-                ))}
-              </AnimatePresence>
+                );
+              })}
             </div>
 
-            <div className="mt-6 flex items-center justify-between">
-              <button
-                type="button"
-                onClick={() => handleSwipe(-1)}
-                data-testid="button-prev-project"
-                aria-label="Proyecto anterior"
-                className="w-11 h-11 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors flex items-center justify-center"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
+            {/* Desktop arrows: floating on the sides */}
+            <button
+              type="button"
+              onClick={() => go(-1)}
+              data-testid="button-prev-project"
+              aria-label="Proyecto anterior"
+              className="hidden md:flex absolute left-2 lg:left-6 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white hover:bg-white/20 hover:scale-105 transition-all items-center justify-center"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => go(1)}
+              data-testid="button-next-project"
+              aria-label="Siguiente proyecto"
+              className="hidden md:flex absolute right-2 lg:right-6 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white hover:bg-white/20 hover:scale-105 transition-all items-center justify-center"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
 
-              <div className="flex items-center gap-2" aria-hidden="true">
-                {projects.map((_, i) => (
-                  <span
-                    key={i}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === index % projects.length
-                        ? "w-8 bg-[hsl(270,100%,60%)]"
-                        : "w-1.5 bg-white/20"
-                    }`}
-                  />
-                ))}
-              </div>
+          {/* Controls: mobile arrows + dots */}
+          <div className="mt-8 flex items-center justify-center gap-5">
+            <button
+              type="button"
+              onClick={() => go(-1)}
+              aria-label="Proyecto anterior"
+              className="md:hidden w-11 h-11 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors flex items-center justify-center"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
 
-              <button
-                type="button"
-                onClick={() => handleSwipe(1)}
-                data-testid="button-next-project"
-                aria-label="Siguiente proyecto"
-                className="w-11 h-11 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors flex items-center justify-center"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
+            <div className="flex items-center gap-2">
+              {projects.map((p, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  aria-label={`Ir al proyecto ${i + 1}: ${p.client}`}
+                  aria-current={i === index}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === index
+                      ? "w-8 bg-[hsl(270,100%,60%)]"
+                      : "w-1.5 bg-white/20 hover:bg-white/40"
+                  }`}
+                />
+              ))}
             </div>
+
+            <button
+              type="button"
+              onClick={() => go(1)}
+              aria-label="Siguiente proyecto"
+              className="md:hidden w-11 h-11 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors flex items-center justify-center"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
         </FadeIn>
 
