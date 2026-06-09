@@ -2,7 +2,6 @@ import { useState, useCallback, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
-  useMotionValue,
   type PanInfo,
 } from "framer-motion";
 import { ExternalLink, ChevronLeft, ChevronRight, Hammer, CheckCircle2 } from "lucide-react";
@@ -18,6 +17,14 @@ interface ProjectItem {
 }
 
 const projects: ProjectItem[] = [
+  {
+    type: "Evento de baloncesto en Menorca",
+    client: "Menorca All Star",
+    url: "https://menorca-all-star.replit.app/",
+    image: "/projects/menorcaallstar.webp",
+    accent: "Inscripciones · Landing épica · Menorca",
+    status: "live",
+  },
   {
     type: "Medicina estética en Madrid",
     client: "Dr. Rodríguez Esteban",
@@ -35,12 +42,20 @@ const projects: ProjectItem[] = [
     status: "live",
   },
   {
-    type: "Evento de baloncesto en Menorca",
-    client: "Menorca All Star",
-    url: "https://menorca-all-star.replit.app/",
-    image: "/projects/menorcaallstar.webp",
-    accent: "Inscripciones · Landing épica · Menorca",
-    status: "live",
+    type: "Apartamentos en Cala Galdana",
+    client: "Xaloc & Garbí",
+    url: "/",
+    image: "/projects/xaloc.webp",
+    accent: "Reservas directas · Galería · Reviews",
+    status: "soon",
+  },
+  {
+    type: "Agencia de viajes",
+    client: "Sportlidays",
+    url: "/",
+    image: "/projects/xaloc.webp",
+    accent: "Reservas directas · Galería · Reviews",
+    status: "soon",
   },
   {
     type: "Hamburguesería en Maó",
@@ -48,14 +63,6 @@ const projects: ProjectItem[] = [
     url: "/",
     image: "/projects/disbarat.webp",
     accent: "Reservas online · Carta digital · 4 idiomas",
-    status: "soon",
-  },
-  {
-    type: "Apartamentos en Cala Galdana",
-    client: "Xaloc & Garbí",
-    url: "/",
-    image: "/projects/xaloc.webp",
-    accent: "Reservas directas · Galería · Reviews",
     status: "soon",
   },
   {
@@ -90,7 +97,6 @@ function ProjectCard({
   onSelect: () => void;
   onSwipe: (dir: 1 | -1) => void;
 }) {
-  const x = useMotionValue(0);
   const hidden = Math.abs(position) > 2;
   const layout = LAYOUT[position] ?? { x: "0%", scale: 0.5, rotateY: 0, opacity: 0, z: 0 };
 
@@ -104,9 +110,9 @@ function ProjectCard({
     <motion.article
       drag={isCenter ? "x" : false}
       dragConstraints={{ left: 0, right: 0 }}
-      dragElastic={0.2}
+      dragElastic={0.15}
       onDragEnd={handleDragEnd}
-      style={{ x: isCenter ? x : undefined, zIndex: layout.z, transformStyle: "preserve-3d" }}
+      style={{ zIndex: layout.z, transformStyle: "preserve-3d" }}
       initial={false}
       animate={{
         x: layout.x,
