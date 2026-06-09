@@ -53,8 +53,8 @@ const projects: ProjectItem[] = [
     type: "Agencia de viajes",
     client: "Sportlidays",
     url: "/",
-    image: "/projects/xaloc.webp",
-    accent: "Reservas directas · Galería · Reviews",
+    image: "/projects/sportlidays.webp",
+    accent: "Escapes deportivos · Mallorca · Menorca",
     status: "soon",
   },
   {
