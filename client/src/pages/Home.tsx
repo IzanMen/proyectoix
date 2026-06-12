@@ -63,6 +63,7 @@ export default function Home() {
           <VideoSection />
           <ProblemAnimated />
           <BeforeAfter />
+          <AboutVisual />
           <ProcessSteps />
           <FAQ />
           <FormSection />
