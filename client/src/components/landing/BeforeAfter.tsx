@@ -44,10 +44,10 @@ const projects: ProjectItem[] = [
   {
     type: "Apartamentos en Cala Galdana",
     client: "Xaloc & Garbí",
-    url: "/",
+    url: "https://www.xalocgarbi.com/",
     image: "/projects/xaloc.webp",
     accent: "Reservas directas · Galería · Reviews",
-    status: "soon",
+    status: "live",
   },
   {
     type: "Agencia de viajes",

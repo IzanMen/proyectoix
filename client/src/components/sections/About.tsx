@@ -107,10 +107,10 @@ export function About() {
                     alt="Izan y Xaloc, fundadores de Proyecto IX en Menorca"
                     loading="lazy"
                     decoding="async"
-                    width={896}
-                    height={1200}
+                    width={1086}
+                    height={1448}
                     className="w-full h-auto max-h-[450px] object-contain drop-shadow-[0_0_30px_rgba(124,58,237,0.15)]"
-                    style={{ aspectRatio: "896 / 1200" }}
+                    style={{ aspectRatio: "1086 / 1448" }}
                     data-testid="img-team-photo"
                   />
                 </picture>

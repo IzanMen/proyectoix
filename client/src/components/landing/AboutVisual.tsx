@@ -43,11 +43,11 @@ export function AboutVisual() {
               <img
                 src="/team-photo.png"
                 alt="Izan y Xaloc, fundadores de Proyecto IX"
-                width="1280"
-                height="720"
+                width="1086"
+                height="1448"
                 loading="lazy"
                 decoding="async"
-                className="block w-full h-auto object-cover"
+                className="block w-full h-auto object-contain"
                 data-testid="img-team"
               />
             </picture>
