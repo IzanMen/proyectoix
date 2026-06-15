@@ -50,8 +50,8 @@ class ImageUrlBuilder {
     const match = ref.match(/^image-([a-zA-Z0-9]+)-(\d+x\d+)-(\w+)$/);
     if (!match) return "";
 
-    const [, id, , ext] = match;
-    let url = `https://cdn.sanity.io/images/${this._projectId}/${this._dataset}/${id}.${ext}`;
+    const [, id, dimensions, ext] = match;
+    let url = `https://cdn.sanity.io/images/${this._projectId}/${this._dataset}/${id}-${dimensions}.${ext}`;
     const params: string[] = [];
     if (this._width) params.push(`w=${this._width}`);
     if (this._height) params.push(`h=${this._height}`);
