@@ -52,3 +52,5 @@ integrations = ["sendgrid:1.0.0", "google-mail:1.0.0"]
 
 [userenv.shared]
 META_CAPI_TEST_CODE = "TEST17589"
+VITE_SANITY_PROJECT_ID = "jhzj7eh3"
+VITE_SANITY_DATASET = "production"
