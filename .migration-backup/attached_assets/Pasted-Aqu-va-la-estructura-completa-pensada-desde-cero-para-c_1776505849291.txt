@@ -1,0 +1,162 @@
+Aquí va la estructura completa, pensada desde cero para convertir y posicionar.
+
+PROYECTO IX — Estructura web optimizada
+
+1. NAVBAR
+IX        Proceso    Nosotros    Contactar
+                              • Aceptando proyectos
+
+2. HERO
+Titular:
+
+Diseño web en Menorca
+que realmente funciona.
+
+Subtítulo:
+
+Para negocios que quieren crecer, no solo estar online.
+
+CTA:
+
+Cuéntanos tu proyecto
+
+
+3. BARRA DE CREDIBILIDAD (una línea, justo bajo el hero)
+
+Webs desarrolladas con IA · Desde Menorca · Resultados medibles · Código limpio · Trato directo
+
+
+4. SECCIÓN PROBLEMA
+Titular:
+
+Tener una web y tener una buena web
+no es lo mismo.
+
+Párrafo:
+
+La mayoría de negocios en Menorca tienen presencia online. Pero pocas webs están bien construidas, cargan rápido, aparecen en Google y generan confianza desde el primer segundo. Esa diferencia es la que trabajamos.
+
+
+5. SECCIÓN IA (aquí, pronto — este es el diferenciador)
+Titular:
+
+Trabajamos con IA.
+Y eso cambia el resultado.
+
+Párrafo:
+
+Hemos integrado inteligencia artificial en todo nuestro proceso de desarrollo web. No como experimento, sino como estándar de trabajo. Eso nos permite detectar mejores soluciones técnicas, construir más rápido y entregar webs más sólidas que la mayoría de estudios que operan de forma tradicional.
+Lo que la IA no hace es pensar por nosotros. Cada decisión de diseño, cada línea de código y cada entrega pasa por nuestra revisión y criterio. Izan lleva programando desde los 12 años. Xaloc conoce la estrategia digital desde dentro. La tecnología acelera nuestro proceso. El estándar lo marcamos nosotros.
+
+Tres iconos/chips debajo:
+
+⚡ Más rápido · 🎯 Más preciso · ✅ Revisado por nosotros
+
+
+6. SECCIÓN SERVICIOS
+Titular:
+
+Qué hacemos
+
+Card 1
+
+Diseño web a medida
+Nada de plantillas. Cada web parte de cero, pensada para tu negocio y para las personas que quieres atraer. El resultado refleja quién eres.
+
+Card 2
+
+Desarrollo y rendimiento
+Una web rápida, bien construida y optimizada técnicamente. Lo que no se ve también importa, y mucho.
+
+Card 3
+
+Posicionamiento SEO
+Estar en Google no es suerte. Es estructura, contenido y código bien hecho desde el principio. Lo integramos en cada proyecto.
+
+Card 4
+
+Orientada a resultados
+No entregamos una web y desaparecemos. La construimos para que atraiga clientes, genere confianza y mejore con el tiempo.
+
+
+7. SECCIÓN PROCESO
+Titular:
+
+Así trabajamos
+
+01 — Escuchar
+
+Antes de tocar nada, entendemos tu negocio, tu cliente y lo que quieres conseguir. La web viene después de tener eso claro.
+
+02 — Construir
+
+Diseñamos y desarrollamos con IA integrada en el proceso. Más rápido, más preciso, sin perder el control técnico en ningún momento.
+
+03 — Lanzar
+
+Publicamos cuando está listo de verdad. No antes. Y nos aseguramos de que salga posicionado desde el primer día.
+
+04 — Acompañar
+
+El lanzamiento no es el final. Seguimos disponibles porque un negocio online no es estático.
+
+
+8. SECCIÓN QUIÉNES SOMOS
+Titular:
+
+Somos Izan y Xaloc.
+Esto es Proyecto IX.
+
+Párrafo de marca:
+
+ProyectoIX no nació como una agencia al uso. Nació como un proceso real: dos personas jóvenes, de Menorca, construyendo algo con disciplina, criterio y sin atajos. Lo documentamos, lo compartimos y lo aplicamos en cada proyecto que hacemos.
+No vendemos teoría. Mostramos el trabajo.
+
+Tarjeta Izan:
+
+Izan — Desarrollo y rendimiento
+Lleva programando desde los 12 años y ha construido decenas de webs. Su obsesión es que todo funcione bien por dentro: rápido, limpio, sólido. Nada se publica hasta que cumple el estándar.
+
+Tarjeta Xaloc:
+
+Xaloc — Estrategia y crecimiento digital
+Piensa en el cliente final de tu negocio antes de tomar cualquier decisión de diseño. Se ocupa de que cada web tenga sentido estratégico: que posicione, que comunique y que convierta.
+
+
+9. SECCIÓN SEO LOCAL (bloque de texto pensado para Google, invisible para el usuario como sección pero presente en el HTML)
+
+Somos un estudio de diseño web en Menorca especializado en pequeños y medianos negocios. Ofrecemos desarrollo web en Menorca con tecnología actual, inteligencia artificial integrada y orientación a resultados. Trabajamos con negocios de toda la isla: Maó, Ciutadella, Alaior, Es Mercadal, Ferreries y Sant Lluís.
+
+(Este párrafo va en el footer o en un bloque de texto discreto. No necesita ser protagonista visualmente, pero sí estar en el DOM para indexación.)
+
+10. SECCIÓN CONTACTO
+Titular:
+
+¿Tienes un proyecto en mente?
+Cuéntanoslo.
+
+Párrafo:
+
+Respondemos rápido y con honestidad. Si podemos ayudarte, te lo decimos. Si no encajamos o no es el momento, también. Sin rodeos.
+
+CTA:
+
+Escribirnos · o encuéntranos en Instagram
+
+
+11. FOOTER
+Proyecto IX © 2026 · Menorca, Islas Baleares
+Diseño web Menorca · Desarrollo web Menorca
+
+Política de Privacidad · Aviso Legal · Cookies
+
+📐 Lógica de la estructura
+El orden no es aleatorio. Sigue este flujo psicológico:
+Hero → capta con claridad qué hacéis y dónde
+Problema → el cliente se reconoce
+IA → el diferenciador aparece pronto, cuando el usuario aún tiene atención plena
+Servicios → ahora ya sabe quiénes sois, entiende qué ofrecéis
+Proceso → reduce la fricción antes de contactar
+Nosotros → humaniza y genera confianza final
+Contacto → llamada a la acción cuando la confianza ya está construida
+El SEO para diseño web Menorca y desarrollo web Menorca está integrado en el titular del hero, en el footer, en el bloque oculto y de forma natural en varios párrafos, sin forzarlo.

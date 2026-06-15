@@ -1,0 +1,1 @@
+- [Sanity Studio deploy constraint](sanity-studio-deploy.md) — Studio can't be cleanly installed/deployed from this repo (one shared toolchain, Node 20 vs Sanity v6 Node 22, React 19 vs Studio React 18); user deploys standalone `studio/` from their machine.

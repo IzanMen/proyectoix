@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Proyecto IX"
+version = "1.0.0"
+id = "artifacts/ix-landing"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23423
+
+[services.development]
+run = "pnpm --filter @workspace/ix-landing run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ix-landing", "run", "build" ]
+publicDir = "artifacts/ix-landing/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23423"
+BASE_PATH = "/"

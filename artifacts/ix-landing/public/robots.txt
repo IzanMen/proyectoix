@@ -1,0 +1,39 @@
+# Regla global — aplica a cualquier user-agent no listado abajo
+User-agent: *
+Disallow: /api/
+Allow: /
+
+# Crawlers principales
+User-agent: Googlebot
+Disallow: /api/
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Disallow: /api/
+Allow: /
+
+User-agent: DuckDuckBot
+Disallow: /api/
+Allow: /
+
+# Bots de IA permitidos (cambia a Disallow si no quieres ser entrenado)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Sitemap
+Sitemap: https://proyectoix.com/sitemap.xml

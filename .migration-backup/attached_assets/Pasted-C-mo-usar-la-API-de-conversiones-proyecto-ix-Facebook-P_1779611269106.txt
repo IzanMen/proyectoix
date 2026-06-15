@@ -1,0 +1,125 @@
+Cómo usar la API de conversiones
+
+proyecto.ix
+Facebook
+Primeros pasos
+Explorar integración
+Generar token de acceso
+Configurar eventos
+Administrar implementación
+Finalizar implementación
+Enviar comentarios
+Cómo usar la API de conversiones
+Descubre cómo usar la API de conversiones para enviar eventos directamente desde el servidor, y así poder medir y aumentar las conversiones. Más información
+Nota: Para configurar esta API, deberás tener acceso al entorno del servidor.
+Información sobre la API de conversiones
+Cómo usar la API
+Obtén más información sobre la API de conversiones y cómo funciona.
+Más información
+Cómo configurar parámetros
+Obtén más información sobre los parámetros que es necesario enviar junto con los eventos de la API de conversiones.
+Más información
+Generar un token de acceso
+Un token de acceso te permite acceder a la API de conversiones. Cada vez que realices una llamada a la API, deberás usar tu token de acceso.
+Genera tu token de acceso y cópialo. Por tu seguridad, Facebook no guardará el token de acceso. Si se te olvida, puedes crear otro. Más información
+Configurar integración directa
+La integración directa es una opción más personalizable para configurar la API de conversiones y el píxel de Meta. Para completar este proceso, necesitarás la ayuda de un desarrollador.
+Configurar integración directa
+
+Configurar con Dataset Quality API
+Recommended
+Recomendado
+Incluye la Dataset Quality API en tu integración directa y accede a métricas como la proporción de coincidencias de eventos para supervisar y optimizar el rendimiento. Si generas un token de la Dataset Quality API, también obtendrás permiso para acceder a los tokens generados con anterioridad.
+
+Configurar sin Dataset Quality API
+Continuar solo con integración directa.
+Mostrar todos los conjunto de datos con la Dataset Quality API
+Copia y guarda este token en un lugar seguro porque no se almacenará en Facebook.
+[REDACTED — Meta CAPI access token removed. Rotate this token in the Meta Events Manager.]
+Fecha de última creación: 24 may 2026, 10:24 am por Izan Sánchez
+Enviar eventos mediante la API
+Una vez que tengas un token de acceso, elige los eventos que quieres enviar desde el servidor, genera la carga y realiza las solicitudes. La carga incluirá información sobre los eventos y los parámetros que quieres enviar.
+Realizar una solicitud POST
+Para enviar eventos nuevos, realiza una solicitud POST al perímetro /events de la API desde esta ruta: https://graph.facebook.com/{API_VERSION}/{PIXEL_ID}/events?access_token={TOKEN}.
+Cuando realizas una solicitud POST a este perímetro, Facebook crea nuevos eventos del servidor.
+Más información
+Recursos
+Lista de eventos estándar
+Parámetros de eventos
+Parámetros de datos de usuario
+Parámetros de datos personalizados
+Generar una carga
+Usa el asistente de carga para crear una carga de prueba para tus eventos y comprobar qué estructura debes usar. Además, podrás asegurarte de que no haya errores estructurales.
+{
+"data": [
+{
+"event_name": "Purchase",
+"event_time": 1779611034,
+"action_source": "website",
+"user_data": {
+"em": [
+"7b17fb0bd173f625b58636fb796407c22b3d16fc78302d79f0fd30c2fc2fc068"
+],
+"ph": [
+null
+]
+},
+"attribution_data": {
+"attribution_share": "0.3"
+},
+"custom_data": {
+"currency": "USD",
+"value": "142.52"
+},
+"original_event_data": {
+"event_name": "Purchase",
+"event_time": 1779611034
+}
+}
+]
+}
+Incluir eventos y parámetros seleccionados en la carga
+Tu colega definió los eventos y parámetros obligatorios para realizar una configuración completa de la API de conversiones.
+Configurar el evento Cliente potencial
+Envío de información por parte de un cliente que entiende que es posible que tu negocio se ponga en contacto más adelante.
+Parámetros del evento
+Fecha del evento
+Nombre del evento
+URL de origen del evento
+Origen de acción
+Parámetros de información del cliente
+Agente de usuario del cliente - No convertir a formato hash
+Teléfono
+Configurar el evento PageView
+Consulta con tu socio de marketing para determinar cuándo debe enviarse este evento.
+Parámetros del evento
+Fecha del evento
+Nombre del evento
+URL de origen del evento
+Origen de acción
+Parámetros de información del cliente
+Agente de usuario del cliente - No convertir a formato hash
+Teléfono
+Tiempo de transacción del evento
+El parámetro event_time representa el tiempo de transacción del evento. El tiempo especificado puede ser anterior al momento en que se envía el evento a Facebook. Si el valor de event_time supera en más de 7 días la fecha actual, se devolverá un error para toda la solicitud y no procesaremos ningún evento. Más información
+Deduplicar eventos del píxel y del servidor
+Facebook intenta deduplicar los eventos idénticos que se envían mediante el píxel de Meta y la API de conversiones. Para determinar si los eventos son idénticos, usamos su identificador y su nombre. Más información
+Crear lotes de eventos
+Puedes enviar hasta 1.000 eventos en un lote de datos. Sin embargo, para garantizar un rendimiento óptimo, recomendamos que los eventos se envíen tan pronto como se produzcan. Si uno de los eventos de un lote no es válido, rechazaremos todo el lote. Más información
+Probar los eventos
+Usa un identificador de prueba para enviar eventos de prueba desde el servidor y verificar si Facebook los recibe correctamente.
+Más información
+Depurar errores de la API de conversiones
+Paso 3: Supervisar las métricas de los eventos
+Cuando hayas enviado suficientes datos a través de la API de conversiones, podrás supervisar tres métricas que indican el estado de tus eventos. Si las supervisas, podrás observar su rendimiento y descubrir cómo puedes mejorar los resultados con las prácticas recomendadas, lo que te permitirá optimizar el rendimiento de los anuncios y reducir el costo por resultado.
+Calidad de coincidencias de eventos
+Esta métrica indica el nivel de eficacia de la información de los clientes para encontrar coincidencias entre instancias de eventos y una cuenta de Facebook.
+Tasa de deduplicación
+Esta métrica indica el porcentaje de eventos del píxel y de la API de conversiones que se deduplicaron para obtener un recuento preciso.
+Actualización de datos
+Esta métrica indica el tiempo transcurrido entre el momento en que ocurre el evento y el momento en que lo recibimos para evaluar la probabilidad de que una persona realice la acción deseada después de ver el anuncio.
+Cobertura de eventos de la API de conversiones
+El envío de los mismos eventos desde el navegador y el servidor ofrece datos más precisos, para que puedas mejorar la segmentación del público y reducir tu costo por resultado.
+Ve al servicio de ayuda para obtener más información sobre cada métrica y sus prácticas recomendadas. Para ver una métrica, ve a su pestaña en la página de detalles del evento.
+Finalizar implementación
+Cierra esta guía y notifica a tu socio de marketing que completaste la implementación de la API de conversiones.

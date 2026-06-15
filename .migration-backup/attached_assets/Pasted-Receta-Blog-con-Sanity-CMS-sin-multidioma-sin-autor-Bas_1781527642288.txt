@@ -1,0 +1,427 @@
+Receta: Blog con Sanity CMS (sin multidioma, sin autor)
+Basado en el blog de Xaloc & Garbí, simplificado para un solo idioma y sin autor.
+
+1. Instalar dependencias
+npm install @sanity/client @portabletext/react
+npm install -D @types/react
+
+2. Configurar variables de entorno
+En tu .env (o en tu hosting):
+
+VITE_SANITY_PROJECT_ID=tu-project-id
+VITE_SANITY_DATASET=production
+
+En Vite, las variables deben empezar con VITE_ para que lleguen al frontend.
+
+3. Cliente de Sanity
+Crea src/sanity/client.ts:
+
+import { createClient } from "@sanity/client";
+const projectId = import.meta.env.VITE_SANITY_PROJECT_ID;
+const dataset = import.meta.env.VITE_SANITY_DATASET;
+if (!projectId || !dataset) {
+  throw new Error("Faltan VITE_SANITY_PROJECT_ID o VITE_SANITY_DATASET");
+}
+export const sanityClient = createClient({
+  projectId,
+  dataset,
+  apiVersion: "2025-01-01",
+  useCdn: true,
+  perspective: "published",
+});
+export { projectId, dataset };
+
+4. Tipos de TypeScript
+Crea src/sanity/types.ts:
+
+import type { PortableTextBlock } from "@portabletext/react";
+export interface SanityImageAsset {
+  _type: "image";
+  asset: { _ref: string; _type: "reference" };
+  alt?: string;
+  caption?: string;
+}
+export interface Category {
+  _id: string;
+  title: string;
+  slug: { current: string };
+}
+export interface PostListItem {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  excerpt?: string;
+  mainImage?: SanityImageAsset;
+  publishedAt: string;
+  categories?: Pick<Category, "title" | "slug">[];
+}
+export interface Post extends PostListItem {
+  body: PortableTextBlock[];
+  seoTitle?: string;
+  metaDescription?: string;
+  keywords?: string[];
+  updatedAt?: string;
+}
+
+5. Queries (consultas)
+Crea src/sanity/queries.ts:
+
+import { sanityClient } from "./client";
+import type { Post, PostListItem } from "./types";
+const POST_LIST_PROJECTION = `
+  _id,
+  title,
+  slug,
+  excerpt,
+  mainImage,
+  publishedAt,
+  "categories": categories[]->{
+    title,
+    slug
+  }
+`;
+const POST_DETAIL_PROJECTION = `
+  _id,
+  title,
+  slug,
+  excerpt,
+  seoTitle,
+  metaDescription,
+  keywords,
+  mainImage,
+  publishedAt,
+  "updatedAt": _updatedAt,
+  body,
+  "categories": categories[]->{
+    title,
+    slug
+  }
+`;
+export async function fetchPosts(): Promise<PostListItem[]> {
+  return sanityClient.fetch<PostListItem[]>(
+    `*[_type == "post" && defined(slug.current) && publishedAt <= now()] | order(publishedAt desc) {${POST_LIST_PROJECTION}}`
+  );
+}
+export async function fetchPostBySlug(slug: string): Promise<Post | null> {
+  return sanityClient.fetch<Post | null>(
+    `*[_type == "post" && slug.current == $slug && defined(slug.current) && publishedAt <= now()][0] {${POST_DETAIL_PROJECTION}}`,
+    { slug }
+  );
+}
+
+6. Helper para imágenes de Sanity
+Crea src/sanity/image.ts:
+
+import imageUrlBuilder from "@sanity/image-url";
+import { sanityClient } from "./client";
+const builder = imageUrlBuilder(sanityClient);
+export function urlFor(source: { asset: { _ref: string } }) {
+  return builder.image(source);
+}
+
+7. Componente para renderizar el contenido (PortableText)
+Instala:
+
+npm install @portabletext/react
+
+Crea src/components/PortableContent.tsx:
+
+import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/react";
+interface Props {
+  value: PortableTextBlock[];
+}
+export default function PortableContent({ value }: Props) {
+  return (
+    <PortableText
+      value={value}
+      components={{
+        block: {
+          h2: ({ children }) => (
+            <h2 className="text-2xl font-bold mt-8 mb-4">{children}</h2>
+          ),
+          h3: ({ children }) => (
+            <h3 className="text-xl font-bold mt-6 mb-3">{children}</h3>
+          ),
+          normal: ({ children }) => (
+            <p className="mb-4 leading-relaxed">{children}</p>
+          ),
+        },
+        marks: {
+          link: ({ value, children }) => (
+            <a href={value?.href} className="text-blue-600 underline">
+              {children}
+            </a>
+          ),
+        },
+        types: {
+          image: ({ value }) => (
+            <figure className="my-6">
+              <img
+                src={urlFor(value).width(800).url()}
+                alt={value.alt || ""}
+                className="w-full rounded"
+              />
+              {value.caption && (
+                <figcaption className="text-sm text-gray-500 mt-2">
+                  {value.caption}
+                </figcaption>
+              )}
+            </figure>
+          ),
+        },
+      }}
+    />
+  );
+}
+
+8. Página de listado de blog
+Crea src/pages/Blog.tsx:
+
+import { useEffect, useState } from "react";
+import { Link } from "wouter"; // o react-router
+import { fetchPosts } from "@/sanity/queries";
+import { urlFor } from "@/sanity/image";
+import type { PostListItem } from "@/sanity/types";
+export default function Blog() {
+  const [posts, setPosts] = useState<PostListItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetchPosts()
+      .then(setPosts)
+      .finally(() => setLoading(false));
+  }, []);
+  if (loading) return <p>Cargando...</p>;
+  return (
+    <div className="container mx-auto px-4 py-12">
+      <h1 className="text-3xl font-bold mb-8">Blog</h1>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <article key={post._id} className="border rounded-lg overflow-hidden">
+            {post.mainImage && (
+              <img
+                src={urlFor(post.mainImage).width(600).url()}
+                alt={post.mainImage.alt || post.title}
+                className="w-full h-48 object-cover"
+              />
+            )}
+            <div className="p-4">
+              <h2 className="text-xl font-semibold mb-2">
+                <Link href={`/blog/${post.slug.current}`}>
+                  {post.title}
+                </Link>
+              </h2>
+              <p className="text-gray-600 text-sm mb-3">
+                {new Date(post.publishedAt).toLocaleDateString()}
+              </p>
+              {post.excerpt && (
+                <p className="text-gray-700 line-clamp-3">{post.excerpt}</p>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+9. Página de detalle de artículo
+Crea src/pages/BlogPost.tsx:
+
+import { useEffect, useState } from "react";
+import { useParams } from "wouter"; // o react-router
+import { fetchPostBySlug } from "@/sanity/queries";
+import { urlFor } from "@/sanity/image";
+import PortableContent from "@/components/PortableContent";
+import type { Post } from "@/sanity/types";
+export default function BlogPost() {
+  const { slug } = useParams();
+  const [post, setPost] = useState<Post | null>(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (!slug) return;
+    fetchPostBySlug(slug)
+      .then(setPost)
+      .finally(() => setLoading(false));
+  }, [slug]);
+  if (loading) return <p>Cargando...</p>;
+  if (!post) return <p>Artículo no encontrado</p>;
+  return (
+    <article className="container mx-auto px-4 py-12 max-w-3xl">
+      <header className="mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
+        <p className="text-gray-500">
+          {new Date(post.publishedAt).toLocaleDateString()}
+        </p>
+      </header>
+      {post.mainImage && (
+        <img
+          src={urlFor(post.mainImage).width(1200).url()}
+          alt={post.mainImage.alt || post.title}
+          className="w-full rounded-lg mb-8"
+        />
+      )}
+      <div className="prose max-w-none">
+        <PortableContent value={post.body} />
+      </div>
+    </article>
+  );
+}
+
+10. Añadir rutas
+En tu router principal (App.tsx o similar):
+
+import { lazy } from "react";
+import { Route } from "wouter"; // o react-router
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+// En tu JSX:
+<Route path="/blog" component={Blog} />
+<Route path="/blog/:slug" component={BlogPost} />
+
+11. Esquema de Sanity Studio
+En tu proyecto de Sanity Studio, crea schemaTypes/post.ts:
+
+import { defineField, defineType } from "sanity";
+export const post = defineType({
+  name: "post",
+  title: "Artículo",
+  type: "document",
+  groups: [
+    { name: "content", title: "Contenido", default: true },
+    { name: "seo", title: "SEO" },
+  ],
+  fields: [
+    defineField({
+      name: "title",
+      title: "Título",
+      type: "string",
+      group: "content",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      group: "content",
+      options: { source: "title", maxLength: 80 },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "mainImage",
+      title: "Imagen principal",
+      type: "image",
+      group: "content",
+      options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Texto alternativo",
+          type: "string",
+        }),
+        defineField({
+          name: "caption",
+          title: "Pie de foto",
+          type: "string",
+        }),
+      ],
+    }),
+    defineField({
+      name: "publishedAt",
+      title: "Fecha de publicación",
+      type: "datetime",
+      group: "content",
+      initialValue: () => new Date().toISOString(),
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "excerpt",
+      title: "Extracto",
+      type: "text",
+      group: "content",
+      rows: 3,
+    }),
+    defineField({
+      name: "body",
+      title: "Cuerpo",
+      type: "array",
+      group: "content",
+      of: [
+        { type: "block" },
+        { type: "image", options: { hotspot: true } },
+      ],
+    }),
+    // SEO
+    defineField({
+      name: "seoTitle",
+      title: "Título SEO",
+      type: "string",
+      group: "seo",
+    }),
+    defineField({
+      name: "metaDescription",
+      title: "Meta descripción",
+      type: "text",
+      group: "seo",
+      rows: 3,
+    }),
+    defineField({
+      name: "keywords",
+      title: "Palabras clave",
+      type: "array",
+      group: "seo",
+      of: [{ type: "string" }],
+      options: { layout: "tags" },
+    }),
+  ],
+  preview: {
+    select: {
+      title: "title",
+      media: "mainImage",
+    },
+  },
+  orderings: [
+    {
+      title: "Fecha de publicación, más reciente primero",
+      name: "publishedAtDesc",
+      by: [{ field: "publishedAt", direction: "desc" }],
+    },
+  ],
+});
+
+Y añádelo a schemaTypes/index.ts:
+
+import { post } from "./post";
+export const schemaTypes = [post];
+
+12. Configurar CORS en Sanity
+Ve a manage.sanity.io → tu proyecto → API → CORS Origins y añade:
+
+http://localhost:5173 (desarrollo)
+Tu dominio de producción (ej: https://www.tudominio.com)
+13. Desplegar Sanity Studio
+cd tu-studio
+npx sanity deploy
+
+14. Escribir y publicar
+Abre tu Sanity Studio (https://tu-studio.sanity.studio)
+Crea un nuevo "Artículo"
+Rellena título, slug, extracto, imagen y cuerpo
+Guarda y publica
+Recarga tu web → ¡aparecerá el artículo!
+Resumen de archivos que necesitas
+Archivo	Propósito
+src/sanity/client.ts	Conexión a Sanity
+src/sanity/types.ts	Tipos de TypeScript
+src/sanity/queries.ts	Consultas GROQ
+src/sanity/image.ts	Helper para imágenes
+src/components/PortableContent.tsx	Renderiza contenido rico
+src/pages/Blog.tsx	Listado de artículos
+src/pages/BlogPost.tsx	Detalle de artículo
+schemaTypes/post.ts	Esquema en Sanity Studio
+Notas
+Sin autor: simplemente no incluyas el campo author en el esquema ni en las queries.
+Sin multidioma: todos los campos son string en lugar de localeString.
+SEO: usa seoTitle y metaDescription para sobreescribir los valores por defecto.
+Imágenes: usa urlFor() para generar URLs con el tamaño que necesites.
+Estilos: adapta las clases de Tailwind (o tu CSS) a tu diseño.

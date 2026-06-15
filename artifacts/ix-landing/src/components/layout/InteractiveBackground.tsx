@@ -1,0 +1,194 @@
+import { useEffect, useRef, useState } from "react";
+
+export function InteractiveBackground() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [ready, setReady] = useState(false);
+
+  // Retrasamos el montaje del canvas hasta que el navegador esté ocioso
+  // para no penalizar el LCP de la primera carga.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const w = window as Window &
+      typeof globalThis & {
+        requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      };
+    let cancelled = false;
+    const onReady = () => {
+      if (!cancelled) setReady(true);
+    };
+    if (typeof w.requestIdleCallback === "function") {
+      w.requestIdleCallback(onReady, { timeout: 1500 });
+    } else {
+      const t = window.setTimeout(onReady, 800);
+      return () => {
+        cancelled = true;
+        window.clearTimeout(t);
+      };
+    }
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!ready) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    
+    // Resize handler
+    const handleResize = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    };
+    
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    // Mouse state
+    const mouse = { x: 0, y: 0 };
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
+    // Particles
+    const particles: Particle[] = [];
+    const particleCount = Math.min(width * 0.08, 100); // Responsive count
+    
+    class Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+      
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.2;
+        this.vy = (Math.random() - 0.5) * 0.2;
+        this.size = Math.random() * 1.5 + 0.5;
+      }
+      
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        // Bounce off edges
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+        
+        // Mouse interaction (gentle repulsion)
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const maxDistance = 200;
+        
+        if (distance < maxDistance) {
+          const forceDirectionX = dx / distance;
+          const forceDirectionY = dy / distance;
+          const force = (maxDistance - distance) / maxDistance;
+          const directionX = forceDirectionX * force * 0.5;
+          const directionY = forceDirectionY * force * 0.5;
+          
+          this.x -= directionX;
+          this.y -= directionY;
+        }
+      }
+      
+      draw() {
+        if (!ctx) return;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        // All particles white, bright and crisp
+        ctx.fillStyle = "rgba(255, 255, 255, 0.9)"; 
+        ctx.fill();
+        
+        // Add a subtle glow to some particles
+        if (Math.random() > 0.9) {
+           ctx.shadowBlur = 10;
+           ctx.shadowColor = "white";
+           ctx.fill();
+           ctx.shadowBlur = 0;
+        }
+      }
+    }
+
+    // Initialize particles
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, width, height);
+      
+      // Stronger Nebula/Glow
+      const gradient = ctx.createRadialGradient(width * 0.8, height * 0.2, 0, width * 0.8, height * 0.2, width * 0.6);
+      gradient.addColorStop(0, "rgba(140, 20, 255, 0.15)"); // Stronger Center purple
+      gradient.addColorStop(0.5, "rgba(80, 0, 160, 0.08)"); // Outer dark purple
+      gradient.addColorStop(1, "transparent");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+
+      const gradient2 = ctx.createRadialGradient(width * 0.2, height * 0.8, 0, width * 0.2, height * 0.8, width * 0.5);
+      gradient2.addColorStop(0, "rgba(120, 40, 255, 0.12)"); // Stronger Blue-ish purple
+      gradient2.addColorStop(1, "transparent");
+      ctx.fillStyle = gradient2;
+      ctx.fillRect(0, 0, width, height);
+
+      // Update and draw particles
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      
+      // Draw connections
+      ctx.lineWidth = 1;
+      
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 150) {
+            ctx.beginPath();
+            // Crisp white connections with slight purple tint only when very close
+            const opacity = 1 - distance / 150;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * opacity})`; 
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      
+      requestAnimationFrame(animate);
+    };
+    
+    animate();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [ready]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 z-0 pointer-events-none bg-[#050505]"
+      aria-hidden="true"
+    />
+  );
+}
