@@ -41,3 +41,9 @@ externalPort = 8081
 [[ports]]
 localPort = 23423
 externalPort = 3002
+
+[userenv]
+
+[userenv.shared]
+VITE_SANITY_PROJECT_ID = "jhzj7eh3"
+VITE_SANITY_DATASET = "production"
