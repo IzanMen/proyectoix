@@ -1,3 +1,1 @@
-- [Sanity Studio deploy constraint](sanity-studio-deploy.md) — Studio can't be cleanly installed/deployed from this repo (one shared toolchain, Node 20 vs Sanity v6 Node 22, React 19 vs Studio React 18); user deploys standalone `studio/` from their machine.
-- [pnpm install OOM pattern](pnpm-oom-pattern.md) — pnpm install (and npm install) gets killed (exit -1) when downloading large NEW packages in this environment; workaround patterns documented.
-- [nodemailer replacement](nodemailer-replacement.md) — nodemailer is in esbuild externals and can't be installed; replaced with pure Node.js TLS SMTP client in mailer.ts.
+- [Replit object storage upload size + serving](replit-object-storage-upload-size.md) — presigned PUT can't cap body size at sign time; enforce at consumption + nosniff/attachment when serving.

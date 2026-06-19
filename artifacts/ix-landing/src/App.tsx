@@ -10,6 +10,7 @@ const AvisoLegal = lazy(() => import("@/pages/AvisoLegal"));
 const PoliticaCookies = lazy(() => import("@/pages/PoliticaCookies"));
 const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
+const Cuestionario = lazy(() => import("@/pages/Cuestionario"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 function PageFallback() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/politica-cookies" component={PoliticaCookies} />
           <Route path="/blog" component={Blog} />
           <Route path="/blog/:slug" component={BlogPost} />
+          <Route path="/brief/9k3a7q2x5m" component={Cuestionario} />
           <Route component={NotFound} />
         </Switch>
       </Suspense>
