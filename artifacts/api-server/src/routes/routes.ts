@@ -28,6 +28,7 @@ router.post("/contact", async (req, res) => {
       goal,
       budget,
       message,
+      source,
       privacyAccepted,
       policyVersion,
       acceptedAt,
@@ -36,7 +37,7 @@ router.post("/contact", async (req, res) => {
       fbc,
     } = req.body;
 
-    if (!businessName || !contact || !hasWebsite || !goal || !budget) {
+    if (!businessName || !contact || !hasWebsite || !budget) {
       return res.status(400).json({ message: "Faltan datos obligatorios." });
     }
 
@@ -58,7 +59,7 @@ router.post("/contact", async (req, res) => {
     ];
     if (
       !allowedHasWebsite.includes(String(hasWebsite)) ||
-      !allowedGoals.includes(String(goal)) ||
+      (goal && !allowedGoals.includes(String(goal))) ||
       !allowedBudgets.includes(String(budget))
     ) {
       return res.status(400).json({ message: "Valores no válidos en el formulario." });
@@ -88,6 +89,7 @@ router.post("/contact", async (req, res) => {
     const safeUrl = websiteUrl ? escapeHtml(String(websiteUrl)) : "";
     const safeGoal = goal ? escapeHtml(String(goal)) : "";
     const safeBudget = budget ? escapeHtml(String(budget)) : "";
+    const safeSource = source ? escapeHtml(String(source)) : "";
     const safeMessage = message
       ? escapeHtml(String(message)).replace(/\n/g, "<br>")
       : "";
@@ -117,6 +119,7 @@ router.post("/contact", async (req, res) => {
           <p style="color: #888; margin-top: 5px; font-size: 14px;">Landing Proyecto IX · Meta Ads</p>
         </div>
 
+        ${row("Origen", safeSource)}
         ${row("Negocio", safeBusiness)}
         ${row("WhatsApp", safeContact)}
         ${row("¿Tiene web?", safeWebsite)}

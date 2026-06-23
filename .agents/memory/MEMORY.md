@@ -1,1 +1,1 @@
-- [Replit object storage upload size + serving](replit-object-storage-upload-size.md) — presigned PUT can't cap body size at sign time; enforce at consumption + nosniff/attachment when serving.
+- [IX ad campaign landings](ix-campaign-landings.md) — /lp/:slug paid landings are config-driven (content file + registry), verbatim copy, noIndex, reuse LeadForm w/ includeGoal=false + source attribution.

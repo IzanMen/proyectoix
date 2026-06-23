@@ -95,7 +95,15 @@ const formatPhone = (digits: string) => {
   return `${d.slice(0, 3)} ${d.slice(3, 6)} ${d.slice(6)}`;
 };
 
-export function LeadForm({ onSuccess }: { onSuccess?: () => void } = {}) {
+export function LeadForm({
+  onSuccess,
+  includeGoal = true,
+  source,
+}: {
+  onSuccess?: () => void;
+  includeGoal?: boolean;
+  source?: string;
+} = {}) {
   const [step, setStep] = useState(0);
   const [data, setData] = useState<FormData>({
     business: "",
@@ -113,15 +121,23 @@ export function LeadForm({ onSuccess }: { onSuccess?: () => void } = {}) {
   const [hasInteracted, setHasInteracted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const baseQuestions = useMemo(
+    () =>
+      includeGoal
+        ? BASE_QUESTIONS
+        : BASE_QUESTIONS.filter((q) => q.id !== "goal"),
+    [includeGoal],
+  );
+
   const activeQuestions = useMemo(() => {
     if (data.hasWebsite === "Sí, tengo web") {
-      const idx = BASE_QUESTIONS.findIndex((q) => q.id === "hasWebsite");
-      const qs = [...BASE_QUESTIONS];
+      const idx = baseQuestions.findIndex((q) => q.id === "hasWebsite");
+      const qs = [...baseQuestions];
       qs.splice(idx + 1, 0, URL_QUESTION);
       return qs;
     }
-    return BASE_QUESTIONS;
-  }, [data.hasWebsite]);
+    return baseQuestions;
+  }, [data.hasWebsite, baseQuestions]);
 
   const current = activeQuestions[step] ?? activeQuestions[activeQuestions.length - 1];
   const isLast = step === activeQuestions.length - 1;
@@ -157,9 +173,10 @@ export function LeadForm({ onSuccess }: { onSuccess?: () => void } = {}) {
           businessName: final.business,
           hasWebsite: final.hasWebsite,
           ...(final.websiteUrl ? { websiteUrl: final.websiteUrl } : {}),
-          goal: final.goal,
+          ...(final.goal ? { goal: final.goal } : {}),
           budget: final.budget,
           contact: `+34 ${final.whatsapp}`.trim(),
+          ...(source ? { source } : {}),
           privacyAccepted: true,
           policyVersion: "2026-05",
           acceptedAt: new Date().toISOString(),
