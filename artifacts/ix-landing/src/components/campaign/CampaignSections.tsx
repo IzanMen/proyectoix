@@ -36,11 +36,32 @@ export function CtaButton({
       type="button"
       onClick={onClick}
       data-testid={testId}
-      className="group inline-flex items-center justify-center gap-3 px-7 py-4 bg-[hsl(270,100%,60%)] text-white text-base md:text-lg font-bold tracking-tight rounded-sm hover:bg-[hsl(270,100%,65%)] transition-all duration-300 shadow-[0_0_40px_-8px_hsl(270,100%,60%)] hover:shadow-[0_0_60px_-6px_hsl(270,100%,60%)] hover:scale-[1.02]"
+      className="group inline-flex w-full max-w-md items-center justify-center gap-2.5 rounded-sm bg-[hsl(270,100%,60%)] px-6 py-3.5 text-center text-base font-bold leading-snug tracking-tight text-white shadow-[0_0_40px_-8px_hsl(270,100%,60%)] transition-all duration-300 hover:scale-[1.02] hover:bg-[hsl(270,100%,65%)] hover:shadow-[0_0_60px_-6px_hsl(270,100%,60%)] sm:w-auto sm:gap-3 sm:px-7 sm:text-lg"
     >
-      {label}
-      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+      <span>{label}</span>
+      <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
     </button>
+  );
+}
+
+/**
+ * Renders text with simple **bold** markup. Words stay verbatim; only the
+ * emphasis wrappers are formatting.
+ */
+export function Rich({ text }: { text: string }) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.startsWith("**") && part.endsWith("**") ? (
+          <strong key={i} className="font-semibold text-white">
+            {part.slice(2, -2)}
+          </strong>
+        ) : (
+          part
+        ),
+      )}
+    </>
   );
 }
 
@@ -114,7 +135,7 @@ function Scenario({ lines }: { lines: string[] }) {
           <li key={i} className="relative pl-7">
             <span className="absolute left-0 top-[9px] h-2.5 w-2.5 rounded-full bg-[hsl(270,100%,60%)] shadow-[0_0_10px_hsl(270,100%,60%)]" />
             <p className="text-base leading-relaxed text-white/75 md:text-lg">
-              {l}
+              <Rich text={l} />
             </p>
           </li>
         ))}
@@ -153,7 +174,7 @@ function Block({
                   key={i}
                   className="text-base leading-relaxed text-white/70 md:text-lg"
                 >
-                  {p}
+                  <Rich text={p} />
                 </p>
               ))}
             </div>
@@ -184,7 +205,7 @@ function Block({
                   key={i}
                   className="text-base leading-relaxed text-white/70 md:text-lg"
                 >
-                  {p}
+                  <Rich text={p} />
                 </p>
               ))}
             </div>

@@ -39,7 +39,7 @@ export const negociosMenorca: CampaignContent = {
       },
       tail: [
         "Si toda esta información está repartida entre Instagram, Google, WhatsApp, publicaciones antiguas y llamadas, estás haciendo que el cliente tenga que esforzarse demasiado.",
-        "Y cuando encontrar información o contactar resulta complicado, muchas personas simplemente eligen otra opción.",
+        "Y cuando encontrar información o contactar resulta complicado, **muchas personas simplemente eligen otra opción.**",
       ],
       cta: "Quiero facilitar las cosas a mis clientes",
     },
@@ -47,7 +47,7 @@ export const negociosMenorca: CampaignContent = {
       heading: "Tu negocio puede ser muy bueno…",
       lead: [
         "Pero una persona que todavía no te conoce no lo sabe.",
-        "Antes de contactar, reservar o comprar, necesita confiar en ti.",
+        "Antes de contactar, reservar o comprar, **necesita confiar en ti.**",
       ],
       visual: {
         type: "chips",
@@ -220,9 +220,9 @@ export const negociosMenorca: CampaignContent = {
   form: {
     heading: "Hablemos de tu negocio",
     lead: [
-      "Rellena este breve formulario y nos pondremos en contacto contigo directamente por WhatsApp.",
+      "Rellena este breve formulario y nos pondremos en contacto contigo **directamente por WhatsApp**.",
       "Nos explicarás cuál es tu situación, qué quieres conseguir y qué problemas tienes actualmente.",
-      "Después te diremos con sinceridad cómo podemos ayudarte y qué solución tendría sentido para tu negocio.",
+      "Después te diremos **con sinceridad** cómo podemos ayudarte y qué solución tendría sentido para tu negocio.",
     ],
   },
   closing: {

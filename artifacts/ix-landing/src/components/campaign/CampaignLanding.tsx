@@ -11,7 +11,7 @@ import {
 import { useSeo } from "@/lib/useSeo";
 import { InteractiveBackground } from "@/components/layout/InteractiveBackground";
 import { LeadForm } from "@/components/landing/LeadForm";
-import { CampaignSections, CtaButton, Reveal } from "./CampaignSections";
+import { CampaignSections, CtaButton, Reveal, Rich } from "./CampaignSections";
 import type { CampaignContent } from "./types";
 
 const TRUST_ICONS: LucideIcon[] = [ShieldCheck, MapPin, Zap, MessageCircle];
@@ -66,20 +66,44 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
       </header>
 
       <main className="relative z-10">
-        {/* Hero */}
-        <section className="relative flex items-center overflow-hidden px-6 pt-28 pb-16 md:px-10 lg:min-h-[100svh] lg:py-0">
-          <div className="pointer-events-none absolute inset-0 z-0">
-            <div className="absolute right-[6%] top-[12%] h-[520px] w-[520px] rounded-full bg-[hsl(270,100%,60%)]/10 blur-[120px]" />
-            <div className="absolute bottom-[8%] left-[4%] h-[420px] w-[420px] rounded-full bg-blue-500/5 blur-[120px]" />
+        {/* Hero — founders photo as full-bleed background */}
+        <section className="relative flex min-h-[100svh] items-center overflow-hidden px-6 pt-28 pb-20 md:px-10">
+          {/* Background photo + readability overlays */}
+          <div className="absolute inset-0 z-0">
+            <picture>
+              <source srcSet="/team-photo.webp" type="image/webp" />
+              <img
+                src="/team-photo.png"
+                alt="Izan y Xaloc, fundadores de Proyecto IX"
+                className="h-full w-full object-cover object-center md:object-[65%_center]"
+                loading="eager"
+              />
+            </picture>
+            {/* Horizontal: dark on the left (under the text), clearer on the right */}
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/65 to-[#050505]/30 md:via-[#050505]/80 md:to-transparent"
+              aria-hidden="true"
+            />
+            {/* Vertical: extra contrast top (under header) and bottom */}
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/35 to-[#050505]/45 md:via-[#050505]/40 md:to-[#050505]/75"
+              aria-hidden="true"
+            />
+            {/* Uniform tint so text is legible over any part of the photo */}
+            <div className="absolute inset-0 bg-[#050505]/15 md:bg-[#050505]/25" aria-hidden="true" />
+            <div
+              className="pointer-events-none absolute -bottom-24 left-1/4 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[hsl(270,100%,60%)]/20 blur-[130px]"
+              aria-hidden="true"
+            />
           </div>
 
-          <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-12">
-            <div>
+          <div className="relative z-10 mx-auto w-full max-w-6xl">
+            <div className="max-w-2xl">
               <motion.span
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-white/70"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-white/80 backdrop-blur-sm"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-[hsl(270,100%,60%)] shadow-[0_0_8px_hsl(270,100%,60%)]" />
                 {hero.eyebrow}
@@ -89,7 +113,7 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.05 }}
-                className={`mt-6 font-display font-bold leading-[1.05] tracking-tight text-white ${
+                className={`mt-6 font-display font-bold leading-[1.05] tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.85)] ${
                   hero.title.length > 60
                     ? "text-3xl sm:text-4xl md:text-5xl"
                     : "text-4xl sm:text-5xl md:text-6xl"
@@ -102,7 +126,7 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.12 }}
-                className="mt-6 max-w-xl text-lg leading-relaxed text-white/70 md:text-xl"
+                className="mt-6 max-w-xl text-lg leading-relaxed text-white/85 drop-shadow-[0_1px_10px_rgba(0,0,0,0.8)] md:text-xl"
               >
                 {hero.subtitle}
               </motion.p>
@@ -131,49 +155,23 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
                   return (
                     <li
                       key={t}
-                      className="inline-flex items-center gap-2 text-sm text-white/60"
+                      className="inline-flex items-center gap-2 text-sm text-white/80 drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]"
                     >
-                      <Icon className="h-4 w-4 text-[hsl(270,100%,70%)]" />
+                      <Icon className="h-4 w-4 text-[hsl(270,100%,75%)]" />
                       {t}
                     </li>
                   );
                 })}
               </motion.ul>
             </div>
+          </div>
 
-            {/* Founders photo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="relative mx-auto w-full max-w-sm lg:max-w-none"
-            >
-              <div
-                className="absolute -inset-4 rounded-[2rem] bg-[hsl(270,100%,60%)]/15 blur-2xl"
-                aria-hidden="true"
-              />
-              <div className="relative overflow-hidden rounded-3xl border border-white/12 shadow-[0_20px_80px_-20px_hsl(270,100%,40%)]">
-                <picture>
-                  <source srcSet="/team-photo.webp" type="image/webp" />
-                  <img
-                    src="/team-photo.png"
-                    alt="Izan y Xaloc, fundadores de Proyecto IX"
-                    className="h-full w-full object-cover"
-                    loading="eager"
-                  />
-                </picture>
-                <div
-                  className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-black/55 via-transparent to-transparent"
-                  aria-hidden="true"
-                />
-                <div className="absolute inset-x-4 bottom-4">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-sm font-medium text-white backdrop-blur-md">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[hsl(270,100%,60%)] shadow-[0_0_8px_hsl(270,100%,60%)]" />
-                    Izan &amp; Xaloc · Proyecto IX
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+          {/* Founders credit */}
+          <div className="absolute bottom-6 right-6 z-10 hidden lg:block">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-sm font-medium text-white backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-[hsl(270,100%,60%)] shadow-[0_0_8px_hsl(270,100%,60%)]" />
+              Izan &amp; Xaloc · Proyecto IX
+            </div>
           </div>
         </section>
 
@@ -187,20 +185,26 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
         >
           <div className="mx-auto max-w-3xl px-6">
             <Reveal>
-              <div className="mb-8 text-center">
+              <div className="mb-8">
                 <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
                   {form.heading}
                 </h2>
-                <div className="mt-4 space-y-2">
+                <ul className="mt-5 space-y-3">
                   {form.lead.map((p, i) => (
-                    <p
+                    <li
                       key={i}
-                      className="text-base leading-relaxed text-white/70 md:text-lg"
+                      className="flex items-start gap-3 text-base leading-relaxed text-white/75 md:text-lg"
                     >
-                      {p}
-                    </p>
+                      <span
+                        className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[hsl(270,100%,60%)] shadow-[0_0_8px_hsl(270,100%,60%)]"
+                        aria-hidden="true"
+                      />
+                      <span>
+                        <Rich text={p} />
+                      </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </Reveal>
             <Reveal delay={0.1}>
@@ -223,7 +227,7 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
                   <div className="mt-3 space-y-1.5">
                     {closing.lead.map((p, i) => (
                       <p key={i} className="text-white/70">
-                        {p}
+                        <Rich text={p} />
                       </p>
                     ))}
                   </div>

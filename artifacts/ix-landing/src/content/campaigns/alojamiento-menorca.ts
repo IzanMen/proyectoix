@@ -28,13 +28,13 @@ export const alojamientoMenorca: CampaignContent = {
       lead: [
         "Cuando nuestros clientes, Rosa y Javier, propietarios de Xaloc & Garbí Apartments, nos contaron cuánto pagaban en comisiones por las reservas de sus apartamentos, entendimos que necesitaban otra alternativa.",
         "No se trataba de dejar de utilizar Booking o Airbnb de un día para otro.",
-        "Se trataba de empezar a depender menos de estas plataformas y conseguir que una parte de sus clientes pudiera reservar directamente.",
+        "Se trataba de empezar a depender menos de estas plataformas y conseguir que **una parte de sus clientes pudiera reservar directamente.**",
       ],
     },
     {
       heading: "Porque quejarse de las comisiones no sirve de mucho",
       lead: [
-        "Lo que necesitas es ofrecer a tus huéspedes una forma sencilla y fiable de reservar sin intermediarios.",
+        "Lo que necesitas es ofrecer a tus huéspedes una forma **sencilla y fiable** de reservar sin intermediarios.",
         "Con una página web propia, puedes presentar tus alojamientos, resolver las dudas del cliente y facilitar que contacte o reserve directamente contigo.",
       ],
       cta: "Quiero reducir mi dependencia de las plataformas",
@@ -90,7 +90,7 @@ export const alojamientoMenorca: CampaignContent = {
       },
       tail: [
         "Por ejemplo, una persona puede buscar «las mejores calas de Menorca», encontrar uno de tus artículos y descubrir que uno de tus alojamientos está cerca de ellas.",
-        "Así, llegas al viajero mientras está preparando su viaje y puedes conseguir que valore tu alojamiento antes de entrar en Booking o Airbnb.",
+        "Así, llegas al viajero mientras está preparando su viaje y puedes conseguir que **valore tu alojamiento antes de entrar en Booking o Airbnb.**",
       ],
     },
   ],

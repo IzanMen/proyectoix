@@ -39,7 +39,7 @@ export const peluqueriaMenorca: CampaignContent = {
         ],
       },
       tail: [
-        "Si toda esta información está repartida entre publicaciones, historias destacadas, ficha de Google, mensajes de WhatsApp y llamadas, estás haciendo que reservar sea más complicado de lo necesario.",
+        "Si toda esta información está repartida entre publicaciones, historias destacadas, ficha de Google, mensajes de WhatsApp y llamadas, estás haciendo que reservar sea **más complicado de lo necesario.**",
       ],
       cta: "Quiero facilitar las reservas",
     },
@@ -61,7 +61,7 @@ export const peluqueriaMenorca: CampaignContent = {
       },
       tail: [
         "Una página web te permite reunir toda esa información en un mismo sitio y presentarla de una forma clara, cuidada y profesional.",
-        "Porque tu imagen en internet debería estar al mismo nivel que el trabajo que realizas dentro de tu peluquería.",
+        "Porque tu imagen en internet debería estar **al mismo nivel que el trabajo que realizas** dentro de tu peluquería.",
       ],
       cta: "Quiero mostrar mejor mi trabajo",
     },
@@ -98,7 +98,7 @@ export const peluqueriaMenorca: CampaignContent = {
         "Le gusta tu trabajo y quiere pedir cita.",
         "Pero está cerrado.",
         "Si para reservar necesita llamarte, tendrá que acordarse de hacerlo al día siguiente.",
-        "Y puede que no lo haga.",
+        "**Y puede que no lo haga.**",
         "Con un sistema de reservas integrado en la web, puede consultar los servicios y solicitar o reservar su cita en ese mismo momento.",
         "Sin llamadas.",
         "Sin tener que esperar una respuesta.",
@@ -123,7 +123,7 @@ export const peluqueriaMenorca: CampaignContent = {
         "Pero responder las mismas preguntas constantemente sí consume tiempo.",
         "En la web podemos mostrar la información más importante y resolver las dudas habituales antes de que el cliente contacte contigo.",
         "Además, si utilizas un sistema de reservas online, tus clientes pueden consultar la disponibilidad y reservar sin que tengas que gestionar cada cita manualmente.",
-        "Así puedes dedicar menos tiempo al teléfono y más tiempo a tu trabajo.",
+        "Así puedes dedicar **menos tiempo al teléfono y más tiempo a tu trabajo.**",
       ],
     },
     {
