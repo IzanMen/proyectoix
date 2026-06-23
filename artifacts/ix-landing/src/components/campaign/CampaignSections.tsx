@@ -1,5 +1,4 @@
-import { type ReactNode } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowRight, Check, Store } from "lucide-react";
 import type { CampaignBlock, CampaignVisual } from "./types";
 
@@ -10,15 +9,41 @@ export function Reveal({
   children: ReactNode;
   delay?: number;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            io.disconnect();
+            break;
+          }
+        }
+      },
+      { rootMargin: "0px 0px -80px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+    <div
+      ref={ref}
+      className="ix-reveal"
+      data-visible={visible}
+      style={{ transitionDelay: visible ? `${delay}s` : undefined }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 

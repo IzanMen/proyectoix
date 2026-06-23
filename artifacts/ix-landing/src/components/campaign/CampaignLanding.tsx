@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { Link } from "wouter";
 import {
   ShieldCheck,
@@ -77,6 +76,8 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
                 alt="Izan y Xaloc, fundadores de Proyecto IX"
                 className="h-full w-full object-cover object-center md:object-[65%_center]"
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </picture>
             {/* Horizontal: dark on the left (under the text), clearer on the right */}
@@ -99,56 +100,40 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
 
           <div className="relative z-10 mx-auto w-full max-w-6xl">
             <div className="max-w-2xl">
-              <motion.span
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-white/80 backdrop-blur-sm"
-              >
+              <span className="ix-fade-up inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-white/80 backdrop-blur-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-[hsl(270,100%,60%)] shadow-[0_0_8px_hsl(270,100%,60%)]" />
                 {hero.eyebrow}
-              </motion.span>
+              </span>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.05 }}
-                className={`mt-6 font-display font-bold leading-[1.05] tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.85)] ${
+              <h1
+                style={{ animationDelay: "0.05s" }}
+                className={`ix-fade-up mt-6 font-display font-bold leading-[1.05] tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.85)] ${
                   hero.title.length > 60
                     ? "text-3xl sm:text-4xl md:text-5xl"
                     : "text-4xl sm:text-5xl md:text-6xl"
                 }`}
               >
                 {hero.title}
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.12 }}
-                className="mt-6 max-w-xl text-lg leading-relaxed text-white/85 drop-shadow-[0_1px_10px_rgba(0,0,0,0.8)] md:text-xl"
+              <p
+                style={{ animationDelay: "0.12s" }}
+                className="ix-fade-up mt-6 max-w-xl text-lg leading-relaxed text-white/85 drop-shadow-[0_1px_10px_rgba(0,0,0,0.8)] md:text-xl"
               >
                 {hero.subtitle}
-              </motion.p>
+              </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-9"
-              >
+              <div style={{ animationDelay: "0.2s" }} className="ix-fade-up mt-9">
                 <CtaButton
                   label={hero.cta}
                   onClick={onCta}
                   testId="button-hero-cta"
                 />
-              </motion.div>
+              </div>
 
-              <motion.ul
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-8 flex flex-wrap gap-x-6 gap-y-3"
+              <ul
+                style={{ animationDelay: "0.3s" }}
+                className="ix-fade-up mt-8 flex flex-wrap gap-x-6 gap-y-3"
               >
                 {hero.trust.map((t, i) => {
                   const Icon = TRUST_ICONS[i % TRUST_ICONS.length];
@@ -162,7 +147,7 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
                     </li>
                   );
                 })}
-              </motion.ul>
+              </ul>
             </div>
           </div>
 

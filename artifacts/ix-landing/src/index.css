@@ -56,10 +56,9 @@
   }
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    background-image: url('/src/assets/bg-texture.png');
+    background-image: url('/src/assets/bg-texture.webp');
     background-blend-mode: overlay;
     background-size: cover;
-    background-attachment: fixed;
     background-color: rgba(5, 5, 5, 0.92); 
   }
   
@@ -98,5 +97,43 @@
 
   .animate-wa-pulse {
     animation: wa-pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes ix-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .ix-fade-up {
+    animation: ix-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .ix-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ix-reveal[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ix-fade-up,
+    .ix-reveal {
+      animation: none;
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
   }
 }

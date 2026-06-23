@@ -1,1 +1,2 @@
 - [IX ad campaign landings](ix-campaign-landings.md) — /lp/:slug paid landings are config-driven (content file + registry), verbatim copy, noIndex, reuse LeadForm w/ includeGoal=false + source attribution.
+- [IX landing mobile perf](ix-landing-mobile-perf.md) — self-host fonts (no Google CDN link), webp images, defer Meta Pixel, no canvas/framer-motion on mobile; re-publish to see PageSpeed change.
