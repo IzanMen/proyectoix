@@ -17,7 +17,7 @@ import type { CampaignContent } from "./types";
 const TRUST_ICONS: LucideIcon[] = [ShieldCheck, MapPin, Zap, MessageCircle];
 
 function scrollToForm() {
-  const el = document.getElementById("formulario");
+  const el = document.getElementById("lead-form");
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -208,7 +208,9 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <LeadForm includeGoal={false} source={content.source} />
+              <div id="lead-form">
+                <LeadForm includeGoal={false} source={content.source} />
+              </div>
             </Reveal>
           </div>
         </section>
