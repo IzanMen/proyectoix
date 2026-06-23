@@ -89,7 +89,11 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.05 }}
-                className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl"
+                className={`mt-6 font-display font-bold leading-[1.05] tracking-tight text-white ${
+                  hero.title.length > 60
+                    ? "text-3xl sm:text-4xl md:text-5xl"
+                    : "text-4xl sm:text-5xl md:text-6xl"
+                }`}
               >
                 {hero.title}
               </motion.h1>
