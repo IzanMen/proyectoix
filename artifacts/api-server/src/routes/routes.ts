@@ -42,27 +42,29 @@ router.post("/contact", async (req, res) => {
       fbc,
     } = req.body;
 
-    if (!businessName || !contact || !hasWebsite || !budget) {
+    if (!businessName || !contact || !hasWebsite) {
       return res.status(400).json({ message: "Faltan datos obligatorios." });
     }
 
-    const allowedHasWebsite = ["Sí, tengo web", "No, no tengo web"];
+    const allowedHasWebsite = [
+      "Sí, tengo web",
+      "No, no tengo web",
+      "Sí, pero quiero cambiarla",
+      "No, empiezo de cero",
+      "Tengo redes sociales",
+    ];
     const allowedGoals = [
       "Que los clientes me llamen o escriban",
       "Que hagan una reserva",
       "Que compren un producto",
       "No lo tengo claro",
     ];
-    const allowedBudgets = [
-      "500 - 800 €",
-      "800 - 1.200 €",
-      "1.200 - 2.000 €",
-      "+ de 2.000 €",
-    ];
+    const allowedBudgets = ["500 - 800 €", "800 - 1.200 €", "1.200 - 2.000 €", "+ de 2.000 €"];
+    const normalizedBudget = budget ? String(budget) : "";
     if (
       !allowedHasWebsite.includes(String(hasWebsite)) ||
       (goal && !allowedGoals.includes(String(goal))) ||
-      !allowedBudgets.includes(String(budget))
+      (normalizedBudget && !allowedBudgets.includes(normalizedBudget))
     ) {
       return res
         .status(400)
@@ -92,7 +94,7 @@ router.post("/contact", async (req, res) => {
     const safeWebsite = escapeHtml(String(hasWebsite));
     const safeUrl = websiteUrl ? escapeHtml(String(websiteUrl)) : "";
     const safeGoal = goal ? escapeHtml(String(goal)) : "";
-    const safeBudget = budget ? escapeHtml(String(budget)) : "";
+    const safeBudget = normalizedBudget ? escapeHtml(normalizedBudget) : "No especificado";
     const safeSource = source ? escapeHtml(String(source)) : "";
     const safeMessage = message
       ? escapeHtml(String(message)).replace(/\n/g, "<br>")
