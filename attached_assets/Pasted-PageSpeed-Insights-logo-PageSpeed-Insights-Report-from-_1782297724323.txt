@@ -1,0 +1,292 @@
+PageSpeed Insights logo
+PageSpeed Insights
+Report from 24 Jun 2026, 12:33:36
+https://proyectoix.com/lp/negocios-menorca
+Enter a valid URL
+
+
+smartphone
+Mobile
+
+computer
+Desktop
+
+Discover what your real users are experiencing
+No data
+
+Diagnose performance issues
+60
+Performance
+96
+Accessibility
+100
+Best Practices
+100
+SEO
+2/3
+Agentic browsing
+60
+FCP
++1
+LCP
++0
+TBT
++30
+CLS
++25
+SI
++4
+Performance
+Values are estimated and may vary. The performance score is calculated directly from these metrics.See calculator.
+0–49
+50–89
+90–100
+Final Screenshot
+
+Metrics
+Expand view
+First Contentful Paint
+5.2 s
+Largest Contentful Paint
+10.5 s
+Total Blocking Time
+0 ms
+Cumulative Layout Shift
+0
+Speed Index
+6.5 s
+Captured at 24 Jun 2026, 12:33 CEST
+Emulated Moto G Power with Lighthouse 13.4.0
+Single-page session
+Initial page load
+Slow 4G throttling
+Using HeadlessChromium 146.0.7680.177 with lr
+View Treemap
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Show audits relevant to:
+
+All
+
+FCP
+
+LCP
+
+TBT
+Insights
+Use efficient cache lifetimes Est savings of 1,552 KiB
+A long cache lifetime can speed up repeat visits to your page. Learn more about caching.LCPFCPUnscored
+Request
+Cache TTL
+Transfer size
+proyectoix.com First party
+1,414 KiB
+/assets/bg-textur….png(proyectoix.com)
+None
+778 KiB
+/assets/index-DdU0WIT2.js(proyectoix.com)
+None
+422 KiB
+/assets/index-DkHcK8dm.css(proyectoix.com)
+None
+149 KiB
+/assets/Campaign-DAVw_3dy.js(proyectoix.com)
+None
+35 KiB
+/team-photo.webp(proyectoix.com)
+None
+29 KiB
+Facebook social 
+156 KiB
+/en_US/fbevents.js(connect.facebook.net)
+20m
+102 KiB
+…config/257…?v=…(connect.facebook.net)
+20m
+54 KiB
+/tr/?id=…(www.facebook.com)
+None
+0 KiB
+Render-blocking requests Est savings of 1,970 ms
+Requests are blocking the page's initial render, which may delay LCP. Deferring or inlining can move these network requests out of the critical path.LCPFCPUnscored
+URL
+Transfer size
+Duration
+proyectoix.com First party
+148.5 KiB	2,640 ms
+/assets/index-DkHcK8dm.css(proyectoix.com)
+148.5 KiB
+2,640 ms
+Google Fonts cdn 
+1.8 KiB	750 ms
+/css2?family=…(fonts.googleapis.com)
+1.8 KiB
+750 ms
+Improve image delivery Est savings of 607 KiB
+Reducing the download time of images can improve the perceived load time of the page and LCP. Learn more about optimising image sizeLCPFCPUnscored
+URL
+Resource size
+Est savings
+proyectoix.com First party
+778.0 KiB	607.4 KiB
+/assets/bg-textur….png(proyectoix.com)
+778.0 KiB
+607.4 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+607.4 KiB
+Legacy JavaScript Est savings of 13 KiB
+Polyfills and transforms enable older browsers to use new JavaScript features. However, many aren't necessary for modern browsers. Consider modifying your JavaScript build process to not transpile Baseline features, unless you know that you must support older browsers. Learn why most sites can deploy ES6+ code without transpilingLCPFCPUnscored
+URL
+Wasted bytes
+Facebook social 
+12.5 KiB
+/en_US/fbevents.js(connect.facebook.net)
+12.5 KiB
+/en_US/fbevents.js:24:6382(connect.facebook.net)
+@babel/plugin-transform-classes
+/en_US/fbevents.js:24:2819(connect.facebook.net)
+@babel/plugin-transform-regenerator
+/en_US/fbevents.js:24:5990(connect.facebook.net)
+@babel/plugin-transform-spread
+/en_US/fbevents.js:296:15837(connect.facebook.net)
+Array.from
+/en_US/fbevents.js:296:2722(connect.facebook.net)
+Array.prototype.filter
+/en_US/fbevents.js:296:21490(connect.facebook.net)
+Array.prototype.find
+/en_US/fbevents.js:296:19706(connect.facebook.net)
+Array.prototype.includes
+/en_US/fbevents.js:296:2905(connect.facebook.net)
+Array.prototype.map
+/en_US/fbevents.js:296:6104(connect.facebook.net)
+String.prototype.startsWith
+Network dependency tree
+Avoid chaining critical requests by reducing the length of chains, reducing the download size of resources or deferring the download of unnecessary resources to improve page load.LCPUnscored
+Maximum critical path latency: 1,026 ms
+Initial Navigation
+/lp/negocios-menorca(proyectoix.com) - 261 ms, 10.29 KiB
+/css2?family=…(fonts.googleapis.com) - 272 ms, 1.78 KiB
+…v22/V8mDoQDjQ….woff2(fonts.gstatic.com) - 1,026 ms, 22.59 KiB
+…v24/8vIH7w4qz….woff2(fonts.gstatic.com) - 1,026 ms, 34.54 KiB
+/assets/index-DdU0WIT2.js(proyectoix.com) - 645 ms, 422.41 KiB
+/assets/Campaign-DAVw_3dy.js(proyectoix.com) - 933 ms, 35.10 KiB
+/assets/index-DkHcK8dm.css(proyectoix.com) - 668 ms, 148.52 KiB
+Preconnected origins
+preconnect hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.
+Origin
+Source
+https://fonts.googleapis.com/
+head > link
+<link rel="preconnect" href="https://fonts.googleapis.com">
+https://fonts.gstatic.com/
+head > link
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+Preconnect candidates
+Add preconnect hints to your most important origins, but try to use no more than 4.
+No additional origins are good candidates for preconnecting
+Document request latency Est savings of 6 KiB
+Your first network request is the most important. Reduce its latency by avoiding redirects, ensuring a fast server response and enabling text compression.LCPFCPUnscored
+Avoids redirects
+Server responds quickly (observed 1 ms)
+No compression applied
+LCP breakdown
+Third parties
+These insights are also available in the Chrome DevTools performance panel – record a trace to view more detailed information.
+Diagnostics
+Reduce unused JavaScript Est savings of 230 KiB
+Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. Learn how to reduce unused JavaScript.LCPFCPUnscored
+URL
+Transfer size
+Est savings
+proyectoix.com First party
+421.9 KiB	195.1 KiB
+/assets/index-DdU0WIT2.js(proyectoix.com)
+421.9 KiB
+195.1 KiB
+Facebook social 
+97.7 KiB	34.8 KiB
+/en_US/fbevents.js(connect.facebook.net)
+97.7 KiB
+34.8 KiB
+Avoid long main-thread tasks 1 long task found
+More information about the performance of your application. These numbers don't directly affect the performance score.
+Passed audits (17)
+Show
+96
+Accessibility
+These checks highlight opportunities to improve the accessibility of your web app. Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so manual testing is also encouraged.
+Contrast
+Background and foreground colours do not have a sufficient contrast ratio.
+These are opportunities to improve the legibility of your content.
+Additional items to manually check (10)
+Show
+These items address areas which an automated testing tool cannot cover. Learn more in our guide on conducting an accessibility review.
+Passed audits (25)
+Show
+Not applicable (37)
+Show
+100
+Best Practices
+Trust and safety
+Ensure CSP is effective against XSS attacks
+Use a strong HSTS policy
+Ensure proper origin isolation with COOP
+Mitigate clickjacking with XFO or CSP
+Mitigate DOM-based XSS with trusted types
+Browser compatibility
+Baseline features
+General
+Detected JavaScript libraries
+Passed audits (13)
+Show
+Not applicable (1)
+Show
+100
+SEO
+These checks ensure that your page is following basic search engine optimisation advice. There are many additional factors that Lighthouse does not score here that may affect your search ranking, including performance on Core Web Vitals. Learn more about Google Search essentials.
+Passed audits but with warnings (1)
+Hide
+Page isn’t blocked from indexing
+Warnings: The following bot user agents are blocked from crawling: bingbot, DuckDuckBot, archive.org_bot. The audit is otherwise passing, because at least one bot was explicitly allowed.
+Additional items to manually check (1)
+Hide
+Structured data is valid
+Run these additional validators on your site to check additional SEO best practices.
+Passed audits (9)
+Show
+2/3
+Agentic browsing
+These checks ensure high-quality, browsable websites for AI agents and validate the correctness of WebMCP integrations. This category is still under development and subject to change.
+Agent accessibility
+llms.txt does not follow recommendations
+These audits highlight best practices for improving the accessibility of the website for AI agents.
+Passed audits (2)
+Show
+Not applicable (3)
+Show
+More on PageSpeed Insights
+What's new
+Documentation
+Learn about web performance
+Ask questions on Stack Overflow
+Mailing list
+Related content
+Updates
+Web Fundamentals
+Case studies
+Podcasts
+Connect
+Twitter
+YouTube
+Google Developers Logo
+Chrome
+Firebase
+All products
+Terms and Privacy Policy
+For details, see the Google Developers site policies.

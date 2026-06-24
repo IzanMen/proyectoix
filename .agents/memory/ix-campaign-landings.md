@@ -16,7 +16,8 @@ the generic `Campaign` page + `/lp/:slug` route render any registered slug.
 - **Copy is verbatim.** The user supplies the body copy per campaign and it must NOT be
   edited. Only supplemental microcopy (eyebrow, button labels, trust badges) may be added.
 - **No goal question.** These landings reuse the main `LeadForm` with `includeGoal={false}`;
-  the single conversion goal is the embedded form (`#formulario`).
+  the single conversion goal is the embedded form. CTAs scroll to the form via the
+  `#lead-form` anchor (the campaign CTA buttons call a `scrollToForm()` that targets it).
 - **Lead attribution via `source`.** Each campaign passes a `source` string to `LeadForm`
   → POST `/api/contact` → rendered as the first "Origen" row in the lead email so the team
   knows which campaign converted. Backend `goal` is optional (validated only if present).

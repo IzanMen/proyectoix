@@ -1,8 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
-import Home from "@/pages/Home";
-import { CookieBanner } from "@/components/layout/CookieBanner";
 
+const Home = lazy(() => import("@/pages/Home"));
 const EmailDiario = lazy(() => import("@/pages/EmailDiario"));
 const Suscrito = lazy(() => import("@/pages/Suscrito"));
 const PoliticaPrivacidad = lazy(() => import("@/pages/PoliticaPrivacidad"));
@@ -13,6 +12,11 @@ const BlogPost = lazy(() => import("@/pages/BlogPost"));
 const Cuestionario = lazy(() => import("@/pages/Cuestionario"));
 const Campaign = lazy(() => import("@/pages/Campaign"));
 const NotFound = lazy(() => import("@/pages/not-found"));
+const CookieBanner = lazy(() =>
+  import("@/components/layout/CookieBanner").then((m) => ({
+    default: m.CookieBanner,
+  })),
+);
 
 function PageFallback() {
   return (
@@ -41,7 +45,9 @@ function App() {
           <Route component={NotFound} />
         </Switch>
       </Suspense>
-      <CookieBanner />
+      <Suspense fallback={null}>
+        <CookieBanner />
+      </Suspense>
     </WouterRouter>
   );
 }

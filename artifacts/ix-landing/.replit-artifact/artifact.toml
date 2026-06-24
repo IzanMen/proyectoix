@@ -18,13 +18,24 @@ localPort = 23423
 run = "pnpm --filter @workspace/ix-landing run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/ix-landing", "run", "build" ]
-publicDir = "artifacts/ix-landing/dist/public"
-serve = "static"
 
-[[services.production.rewrites]]
-from = "/*"
-to = "/index.html"
+[services.production.build]
+args = ["pnpm", "--filter", "@workspace/ix-landing", "run", "build"]
+
+[services.production.build.env]
+NODE_ENV = "production"
+BASE_PATH = "/"
+PORT = "23423"
+
+[services.production.run]
+args = ["node", "artifacts/ix-landing/server.mjs"]
+
+[services.production.run.env]
+PORT = "23423"
+NODE_ENV = "production"
+
+[services.production.health.startup]
+path = "/healthz"
 
 [services.env]
 PORT = "23423"
