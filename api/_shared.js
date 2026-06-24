@@ -170,7 +170,7 @@ async function sendLeadEventToMeta(input) {
   const accessToken = process.env.META_CAPI_ACCESS_TOKEN;
   if (!accessToken) {
     console.warn("[meta-capi] META_CAPI_ACCESS_TOKEN not set, skipping CAPI event");
-    return;
+    return { ok: false, skipped: true, reason: "missing_access_token" };
   }
 
   const userData = {};
@@ -212,11 +212,17 @@ async function sendLeadEventToMeta(input) {
     const body = await r.text().catch(() => "");
     if (!r.ok) {
       console.error("[meta-capi] error:", r.status, body);
+      return { ok: false, status: r.status, body };
     } else {
       console.log("[meta-capi] Lead event sent, event_id:", input.eventId, "response:", body);
+      return { ok: true, status: r.status, body };
     }
   } catch (err) {
     console.error("[meta-capi] network error:", err);
+    return {
+      ok: false,
+      error: err instanceof Error ? err.message : String(err),
+    };
   }
 }
 

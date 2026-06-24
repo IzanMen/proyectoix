@@ -150,33 +150,32 @@ router.post("/contact", async (req, res) => {
       </div>
     `;
 
-    await transporter.sendMail({
+    const metaPromise =
+      eventId && typeof eventId === "string"
+        ? sendLeadEventToMeta({
+            eventId,
+            eventSourceUrl:
+              (req.headers["referer"] as string) || "https://proyectoix.com/",
+            clientIp: realIp || req.ip || undefined,
+            clientUserAgent: req.headers["user-agent"] as string | undefined,
+            phone: String(contact),
+            fbp: typeof fbp === "string" ? fbp : undefined,
+            fbc: typeof fbc === "string" ? fbc : undefined,
+            // @ts-ignore
+          }).catch((err) => req.log.error({ err }, "[meta-capi] unhandled"))
+        : Promise.resolve();
+
+    const emailPromise = transporter.sendMail({
       from: '"Proyecto IX" <sanchezginesizan@gmail.com>',
       to,
       subject,
       html: htmlContent,
     });
 
-    if (eventId && typeof eventId === "string") {
-      const forwarded = req.headers["x-forwarded-for"];
-      const realIp =
-        typeof forwarded === "string"
-          ? forwarded.split(",")[0].trim()
-          : Array.isArray(forwarded)
-            ? forwarded[0]?.trim()
-            : undefined;
+    const [emailResult] = await Promise.allSettled([emailPromise, metaPromise]);
 
-      sendLeadEventToMeta({
-        eventId,
-        eventSourceUrl:
-          (req.headers["referer"] as string) || "https://proyectoix.com/",
-        clientIp: realIp || req.ip || undefined,
-        clientUserAgent: req.headers["user-agent"] as string | undefined,
-        phone: String(contact),
-        fbp: typeof fbp === "string" ? fbp : undefined,
-        fbc: typeof fbc === "string" ? fbc : undefined,
-        // @ts-ignore
-      }).catch((err) => req.log.error({ err }, "[meta-capi] unhandled"));
+    if (emailResult.status === "rejected") {
+      throw emailResult.reason;
     }
 
     return res.json({ success: true });

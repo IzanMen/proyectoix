@@ -131,29 +131,49 @@ module.exports = async function contact(req, res) {
       </div>
     `;
 
-    await transporter.sendMail({
+    const metaPromise =
+      eventId && typeof eventId === "string"
+        ? sendLeadEventToMeta({
+            eventId,
+            eventSourceUrl: firstHeaderValue(headers["referer"]) || "https://proyectoix.com/",
+            clientIp:
+              typeof firstHeaderValue(headers["x-forwarded-for"]) === "string"
+                ? String(firstHeaderValue(headers["x-forwarded-for"]))
+                    .split(",")[0]
+                    .trim()
+                : req.socket?.remoteAddress || undefined,
+            clientUserAgent: firstHeaderValue(headers["user-agent"]),
+            phone: String(contact),
+            fbp: typeof fbp === "string" ? fbp : undefined,
+            fbc: typeof fbc === "string" ? fbc : undefined,
+          }).catch((err) => ({
+            ok: false,
+            error: err instanceof Error ? err.message : String(err),
+          }))
+        : Promise.resolve({ ok: false, skipped: true, reason: "no_event_id" });
+
+    const emailPromise = transporter.sendMail({
       from: '"Proyecto IX" <sanchezginesizan@gmail.com>',
       to: ["hola@proyectoix.com", "sanchezginesizan@gmail.com", "izan@proyectoix.com", "xaloc@proyectoix.com"],
       subject: `Nuevo lead: ${safeBusiness}`,
       html: htmlContent,
     });
 
-    if (eventId && typeof eventId === "string") {
-      const forwarded = firstHeaderValue(headers["x-forwarded-for"]);
-      const realIp = typeof forwarded === "string" ? forwarded.split(",")[0].trim() : undefined;
+    const [emailResult, metaResult] = await Promise.allSettled([emailPromise, metaPromise]);
 
-      sendLeadEventToMeta({
-        eventId,
-        eventSourceUrl: firstHeaderValue(headers["referer"]) || "https://proyectoix.com/",
-        clientIp: realIp || req.socket?.remoteAddress || undefined,
-        clientUserAgent: firstHeaderValue(headers["user-agent"]),
-        phone: String(contact),
-        fbp: typeof fbp === "string" ? fbp : undefined,
-        fbc: typeof fbc === "string" ? fbc : undefined,
-      }).catch((err) => console.error("[meta-capi] unhandled", err));
+    if (emailResult.status === "rejected") {
+      throw emailResult.reason;
     }
 
-    return res.status(200).json({ success: true });
+    const payload = { success: true };
+    if (eventId && typeof eventId === "string") {
+      payload.meta =
+        metaResult.status === "fulfilled"
+          ? metaResult.value
+          : { ok: false, error: String(metaResult.reason) };
+    }
+
+    return res.status(200).json(payload);
   } catch (error) {
     console.error("Error sending email", error);
     return res.status(500).json({ message: "Error al enviar el mensaje. Inténtalo de nuevo." });
