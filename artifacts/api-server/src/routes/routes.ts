@@ -150,6 +150,14 @@ router.post("/contact", async (req, res) => {
       </div>
     `;
 
+    const forwarded = req.headers["x-forwarded-for"];
+    const realIp =
+      typeof forwarded === "string"
+        ? forwarded.split(",")[0].trim()
+        : Array.isArray(forwarded)
+          ? forwarded[0]?.trim()
+          : undefined;
+
     const metaPromise =
       eventId && typeof eventId === "string"
         ? sendLeadEventToMeta({
