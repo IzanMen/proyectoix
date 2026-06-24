@@ -3,6 +3,7 @@ import { Switch, Route, Router as WouterRouter } from "wouter";
 
 const Home = lazy(() => import("@/pages/Home"));
 const EmailDiario = lazy(() => import("@/pages/EmailDiario"));
+const Regalo = lazy(() => import("@/pages/Regalo"));
 const Suscrito = lazy(() => import("@/pages/Suscrito"));
 const PoliticaPrivacidad = lazy(() => import("@/pages/PoliticaPrivacidad"));
 const AvisoLegal = lazy(() => import("@/pages/AvisoLegal"));
@@ -20,10 +21,7 @@ const CookieBanner = lazy(() =>
 
 function PageFallback() {
   return (
-    <div
-      className="min-h-screen w-full bg-[#050505]"
-      aria-hidden="true"
-    />
+    <div className="min-h-screen w-full bg-[#050505]" aria-hidden="true" />
   );
 }
 
@@ -34,6 +32,7 @@ function App() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/email-diario" component={EmailDiario} />
+          <Route path="/regalo" component={Regalo} />
           <Route path="/suscrito" component={Suscrito} />
           <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
           <Route path="/aviso-legal" component={AvisoLegal} />

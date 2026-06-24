@@ -6,5 +6,5 @@ export default defineCliConfig({
     dataset: "production",
   },
   studioHost: "proyectoix",
-  autoUpdates: true,
+  autoUpdates: false,
 });

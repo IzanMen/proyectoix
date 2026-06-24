@@ -2,6 +2,11 @@ import { Router } from "express";
 import { createTransporter } from "../mailer";
 import { sendLeadEventToMeta } from "../meta-capi";
 import { ObjectStorageService } from "../lib/objectStorage";
+import {
+  deleteLocalObject,
+  isLocalObjectStorageEnabled,
+  readLocalObjectMetadata,
+} from "../lib/localObjectStorage";
 
 const router = Router();
 
@@ -41,10 +46,7 @@ router.post("/contact", async (req, res) => {
       return res.status(400).json({ message: "Faltan datos obligatorios." });
     }
 
-    const allowedHasWebsite = [
-      "Sí, tengo web",
-      "No, no tengo web",
-    ];
+    const allowedHasWebsite = ["Sí, tengo web", "No, no tengo web"];
     const allowedGoals = [
       "Que los clientes me llamen o escriban",
       "Que hagan una reserva",
@@ -62,7 +64,9 @@ router.post("/contact", async (req, res) => {
       (goal && !allowedGoals.includes(String(goal))) ||
       !allowedBudgets.includes(String(budget))
     ) {
-      return res.status(400).json({ message: "Valores no válidos en el formulario." });
+      return res
+        .status(400)
+        .json({ message: "Valores no válidos en el formulario." });
     }
 
     if (privacyAccepted !== true) {
@@ -169,7 +173,7 @@ router.post("/contact", async (req, res) => {
         phone: String(contact),
         fbp: typeof fbp === "string" ? fbp : undefined,
         fbc: typeof fbc === "string" ? fbc : undefined,
-      // @ts-ignore
+        // @ts-ignore
       }).catch((err) => req.log.error({ err }, "[meta-capi] unhandled"));
     }
 
@@ -177,7 +181,9 @@ router.post("/contact", async (req, res) => {
   } catch (error: unknown) {
     // @ts-ignore
     req.log.error({ err: error }, "Error sending email");
-    return res.status(500).json({ message: "Error al enviar el mensaje. Inténtalo de nuevo." });
+    return res
+      .status(500)
+      .json({ message: "Error al enviar el mensaje. Inténtalo de nuevo." });
   }
 });
 
@@ -193,7 +199,9 @@ router.post("/subscribe", async (req, res) => {
     const entry = subscribeRateLimit.get(ip);
     if (entry && now < entry.reset) {
       if (entry.count >= maxAttempts) {
-        return res.status(429).json({ message: "Demasiados intentos. Espera un momento." });
+        return res
+          .status(429)
+          .json({ message: "Demasiados intentos. Espera un momento." });
       }
       entry.count++;
     } else {
@@ -221,8 +229,18 @@ router.post("/subscribe", async (req, res) => {
     const groupId = process.env.MAILERLITE_GROUP_ID;
 
     if (!apiKey) {
+      if (process.env.NODE_ENV !== "production") {
+        req.log.info(
+          { email: normalized },
+          "[subscribe:dev] MAILERLITE_API_KEY not set, accepting locally",
+        );
+        return res.json({ success: true, devMode: true });
+      }
+
       req.log.error("Missing MAILERLITE_API_KEY");
-      return res.status(500).json({ message: "Servicio no configurado. Inténtalo más tarde." });
+      return res
+        .status(500)
+        .json({ message: "Servicio no configurado. Inténtalo más tarde." });
     }
 
     const payload: { email: string; groups?: string[] } = {
@@ -232,31 +250,44 @@ router.post("/subscribe", async (req, res) => {
       payload.groups = [groupId];
     }
 
-    const response = await fetch("https://connect.mailerlite.com/api/subscribers", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${apiKey}`,
+    const response = await fetch(
+      "https://connect.mailerlite.com/api/subscribers",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify(payload),
       },
-      body: JSON.stringify(payload),
-    });
+    );
 
     if (!response.ok) {
       const errText = await response.text().catch(() => "");
-      req.log.error({ status: response.status, body: errText }, "MailerLite API error");
-      return res.status(500).json({ message: "No se ha podido registrar. Inténtalo de nuevo." });
+      req.log.error(
+        { status: response.status, body: errText },
+        "MailerLite API error",
+      );
+      return res
+        .status(500)
+        .json({ message: "No se ha podido registrar. Inténtalo de nuevo." });
     }
 
     return res.json({ success: true });
   } catch (error: unknown) {
     // @ts-ignore
     req.log.error({ err: error }, "Subscribe error");
-    return res.status(500).json({ message: "Error interno. Inténtalo de nuevo." });
+    return res
+      .status(500)
+      .json({ message: "Error interno. Inténtalo de nuevo." });
   }
 });
 
-const cuestionarioRateLimit = new Map<string, { count: number; reset: number }>();
+const cuestionarioRateLimit = new Map<
+  string,
+  { count: number; reset: number }
+>();
 
 const QUESTIONNAIRE_RECIPIENTS = [
   "izan@proyectoix.com",
@@ -293,7 +324,9 @@ router.post("/cuestionario", async (req, res): Promise<void> => {
     const entry = cuestionarioRateLimit.get(ip);
     if (entry && now < entry.reset) {
       if (entry.count >= maxAttempts) {
-        res.status(429).json({ message: "Demasiados envíos. Espera un momento." });
+        res
+          .status(429)
+          .json({ message: "Demasiados envíos. Espera un momento." });
         return;
       }
       entry.count++;
@@ -301,17 +334,27 @@ router.post("/cuestionario", async (req, res): Promise<void> => {
       cuestionarioRateLimit.set(ip, { count: 1, reset: now + windowMs });
     }
 
-    const { sections, privacyAccepted, businessName, policyVersion, acceptedAt } =
-      req.body ?? {};
+    const {
+      sections,
+      privacyAccepted,
+      businessName,
+      policyVersion,
+      acceptedAt,
+    } = req.body ?? {};
 
     if (privacyAccepted !== true) {
       res.status(400).json({
-        message: "Debes aceptar la política de privacidad para enviar el cuestionario.",
+        message:
+          "Debes aceptar la política de privacidad para enviar el cuestionario.",
       });
       return;
     }
 
-    if (!Array.isArray(sections) || sections.length === 0 || sections.length > 60) {
+    if (
+      !Array.isArray(sections) ||
+      sections.length === 0 ||
+      sections.length > 60
+    ) {
       res.status(400).json({ message: "Datos del cuestionario no válidos." });
       return;
     }
@@ -344,7 +387,22 @@ router.post("/cuestionario", async (req, res): Promise<void> => {
     await Promise.all(
       [...referencedPaths].map(async (objectPath) => {
         try {
-          const file = await objectStorageService.getObjectEntityFile(objectPath);
+          if (isLocalObjectStorageEnabled()) {
+            const meta = await readLocalObjectMetadata(objectPath);
+            if (meta.size > 0 && meta.size <= MAX_FILE_BYTES) {
+              allowedPaths.add(objectPath);
+            } else if (meta.size > MAX_FILE_BYTES) {
+              await deleteLocalObject(objectPath).catch(() => undefined);
+              req.log.warn(
+                { objectPath, size: meta.size },
+                "[cuestionario] dropped oversized local upload",
+              );
+            }
+            return;
+          }
+
+          const file =
+            await objectStorageService.getObjectEntityFile(objectPath);
           const [meta] = await file.getMetadata();
           const size = Number(meta.size ?? 0);
           if (size > 0 && size <= MAX_FILE_BYTES) {
@@ -396,7 +454,10 @@ router.post("/cuestionario", async (req, res): Promise<void> => {
 
       const value = String(item.value ?? "").trim();
       if (!value) return "";
-      const safeValue = escapeHtml(value.slice(0, 20000)).replace(/\n/g, "<br>");
+      const safeValue = escapeHtml(value.slice(0, 20000)).replace(
+        /\n/g,
+        "<br>",
+      );
       return row(label, safeValue);
     };
 
@@ -461,7 +522,9 @@ router.post("/cuestionario", async (req, res): Promise<void> => {
     req.log.error({ err: error }, "Error sending questionnaire");
     res
       .status(500)
-      .json({ message: "Error al enviar el cuestionario. Inténtalo de nuevo." });
+      .json({
+        message: "Error al enviar el cuestionario. Inténtalo de nuevo.",
+      });
   }
 });
 

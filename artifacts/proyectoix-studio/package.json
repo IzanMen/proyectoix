@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "sanity dev --port 3333",
-    "build": "sanity build",
-    "deploy": "sanity deploy",
+    "dev": "XDG_CONFIG_HOME=../../.config sanity dev --port 3333",
+    "build": "XDG_CONFIG_HOME=../../.config sanity build",
+    "deploy": "XDG_CONFIG_HOME=../../.config sanity deploy",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {

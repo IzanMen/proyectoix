@@ -36,14 +36,22 @@ function buildMimeMessage(opts: MailOptions): string {
 }
 
 function smtpSend(opts: MailOptions): Promise<void> {
+  const pass = process.env.GMAIL_APP_PASSWORD ?? "";
+  if (!pass) {
+    return Promise.reject(
+      new Error("GMAIL_APP_PASSWORD must be set to send email via SMTP"),
+    );
+  }
+
   return new Promise((resolve, reject) => {
     const user = "sanchezginesizan@gmail.com";
-    const pass = process.env.GMAIL_APP_PASSWORD ?? "";
 
     const socket = tls.connect(
       { host: "smtp.gmail.com", port: 465, servername: "smtp.gmail.com" },
       () => {
-        const recipients: string[] = Array.isArray(opts.to) ? opts.to : [opts.to];
+        const recipients: string[] = Array.isArray(opts.to)
+          ? opts.to
+          : [opts.to];
         const message = buildMimeMessage(opts);
 
         let buf = "";
@@ -104,13 +112,19 @@ function smtpSend(opts: MailOptions): Promise<void> {
             const current = steps[step];
             if (!current) {
               socket.destroy();
-              reject(new Error(`Unexpected SMTP response at step ${step}: ${line}`));
+              reject(
+                new Error(`Unexpected SMTP response at step ${step}: ${line}`),
+              );
               return;
             }
 
             if (code !== current.expect) {
               socket.destroy();
-              reject(new Error(`SMTP error at step ${step}: expected ${current.expect}, got ${line}`));
+              reject(
+                new Error(
+                  `SMTP error at step ${step}: expected ${current.expect}, got ${line}`,
+                ),
+              );
               return;
             }
 
@@ -118,7 +132,7 @@ function smtpSend(opts: MailOptions): Promise<void> {
             current.action();
           }
         });
-      }
+      },
     );
 
     socket.on("error", (err) => reject(err));
@@ -134,6 +148,23 @@ export interface Transporter {
 }
 
 export function createTransporter(): Transporter {
+  if (
+    !process.env.GMAIL_APP_PASSWORD &&
+    process.env.NODE_ENV !== "production"
+  ) {
+    return {
+      sendMail: async (opts) => {
+        console.info(
+          "[mailer:dev] Email skipped because GMAIL_APP_PASSWORD is not set",
+          {
+            to: opts.to,
+            subject: opts.subject,
+          },
+        );
+      },
+    };
+  }
+
   return {
     sendMail: (opts) => smtpSend(opts),
   };

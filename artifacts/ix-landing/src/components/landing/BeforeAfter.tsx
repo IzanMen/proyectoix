@@ -1,10 +1,12 @@
 import { useState, useCallback, useEffect } from "react";
+import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 import {
-  motion,
-  AnimatePresence,
-  type PanInfo,
-} from "framer-motion";
-import { ExternalLink, ChevronLeft, ChevronRight, Hammer, CheckCircle2 } from "lucide-react";
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+  Hammer,
+  CheckCircle2,
+} from "lucide-react";
 import { FadeIn } from "../layout/FadeIn";
 
 interface ProjectItem {
@@ -50,20 +52,12 @@ const projects: ProjectItem[] = [
     status: "live",
   },
   {
-    type: "Agencia de viajes",
-    client: "Sportlidays",
-    url: "/",
-    image: "/projects/sportlidays.webp",
-    accent: "Escapes deportivos · Mallorca · Menorca",
-    status: "soon",
-  },
-  {
     type: "Hamburguesería en Maó",
     client: "Disbarat",
-    url: "/",
+    url: "https://disbarat.com/",
     image: "/projects/disbarat.webp",
     accent: "Reservas online · Carta digital · 4 idiomas",
-    status: "soon",
+    status: "live",
   },
   {
     type: "Finca de cría en Alaior",
@@ -76,7 +70,10 @@ const projects: ProjectItem[] = [
 ];
 
 // Visual layout per relative position in the coverflow.
-const LAYOUT: Record<number, { x: string; scale: number; rotateY: number; opacity: number; z: number }> = {
+const LAYOUT: Record<
+  number,
+  { x: string; scale: number; rotateY: number; opacity: number; z: number }
+> = {
   0: { x: "0%", scale: 1, rotateY: 0, opacity: 1, z: 40 },
   1: { x: "64%", scale: 0.82, rotateY: -32, opacity: 0.55, z: 30 },
   [-1]: { x: "-64%", scale: 0.82, rotateY: 32, opacity: 0.55, z: 30 },
@@ -98,7 +95,13 @@ function ProjectCard({
   onSwipe: (dir: 1 | -1) => void;
 }) {
   const hidden = Math.abs(position) > 2;
-  const layout = LAYOUT[position] ?? { x: "0%", scale: 0.5, rotateY: 0, opacity: 0, z: 0 };
+  const layout = LAYOUT[position] ?? {
+    x: "0%",
+    scale: 0.5,
+    rotateY: 0,
+    opacity: 0,
+    z: 0,
+  };
 
   const handleDragEnd = (_: unknown, info: PanInfo) => {
     const threshold = 80;
@@ -266,7 +269,8 @@ export function BeforeAfter() {
               Webs que hemos construido.
             </h2>
             <p className="mt-4 text-white/60 text-base md:text-lg">
-              Navega por los proyectos. Probablemente conoces alguno de estos negocios.
+              Navega por los proyectos. Probablemente conoces alguno de estos
+              negocios.
             </p>
           </div>
         </FadeIn>

@@ -4,12 +4,20 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Run & Operate
 
+- `nvm use 22.18.0` — use the repo Node version (`.nvmrc`, currently Node 22.18.0)
+- `pnpm install` — install workspace dependencies
+- `pnpm run dev` — run the local API and web together, selecting Node from `.nvmrc` first
+- Local web: `http://localhost:5173/`
+- Local API: `http://localhost:5000/api/healthz`
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/ix-landing run dev` — run the Vite web app (port 5173)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
 - Required env: `DATABASE_URL` — Postgres connection string
+- Local env files live in `artifacts/api-server/.env` and `artifacts/ix-landing/.env`.
+- In local development, missing Gmail/MailerLite credentials are handled with dev-safe fallbacks, and uploads use `LOCAL_OBJECT_STORAGE_DIR`.
 
 ## Stack
 
@@ -34,11 +42,11 @@ _Describe the high-level user-facing capabilities of this app once they exist._
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- When the user says `inicia el servidor`, run `pnpm run dev` from the repo root immediately. It starts API + web and exits quickly with the URLs if ports 5000/5173 are already listening.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Use `nvm use 22.18.0` explicitly if selecting Node by hand. In this shell, plain `nvm use` can fail without useful output.
 
 ## Pointers
 
