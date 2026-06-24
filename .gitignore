@@ -41,6 +41,7 @@ node_modules
 /.sass-cache
 /connect.lock
 /coverage
+/public/
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log
@@ -54,5 +55,4 @@ Thumbs.db
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
 
-# Replit
 .cache/

@@ -2,19 +2,7 @@ import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
-
-const replitDevPlugins =
-  process.env.NODE_ENV !== "production" && process.env.REPL_ID !== undefined
-    ? [
-        await import("@replit/vite-plugin-cartographer").then((m) =>
-          m.cartographer({
-            root: path.resolve(import.meta.dirname, ".."),
-          }),
-        ),
-      ]
-    : [];
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, import.meta.dirname, "");
@@ -30,13 +18,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     base: basePath,
-    plugins: [
-      mockupPreviewPlugin(),
-      react(),
-      tailwindcss(),
-      runtimeErrorOverlay(),
-      ...replitDevPlugins,
-    ],
+    plugins: [mockupPreviewPlugin(), react(), tailwindcss()],
     resolve: {
       alias: {
         "@": path.resolve(import.meta.dirname, "src"),
