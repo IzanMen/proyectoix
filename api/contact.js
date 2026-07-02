@@ -7,6 +7,8 @@ const {
 } = require("./_shared");
 
 const ALLOWED_HAS_WEBSITE = [
+  "Sí",
+  "No",
   "Sí, tengo web",
   "No, no tengo web",
   "Sí, pero quiero cambiarla",
@@ -15,13 +17,54 @@ const ALLOWED_HAS_WEBSITE = [
 ];
 
 const ALLOWED_GOALS = [
+  "Conseguir más clientes",
+  "Transmitir una imagen más profesional",
+  "Recibir reservas o solicitudes",
+  "Vender productos online",
+  "Enseñar servicios/productos",
+  "Mejorar una web antigua",
+  "No lo tengo claro, quiero orientación",
   "Que los clientes me llamen o escriban",
   "Que hagan una reserva",
   "Que compren un producto",
   "No lo tengo claro",
 ];
 
-const ALLOWED_BUDGETS = ["500 - 800 €", "800 - 1.200 €", "1.200 - 2.000 €", "+ de 2.000 €"];
+const ALLOWED_PROJECT_TYPES = [
+  "Web informativa / corporativa",
+  "Web con reservas o citas",
+  "Tienda online",
+  "Catálogo online sin pago directo",
+  "Rediseño/mejora de una web existente",
+  "No lo sé todavía",
+];
+
+const ALLOWED_BUDGETS = [
+  "Menos de 500 €",
+  "500–800 €",
+  "800–1.200 €",
+  "1.200–2.000 €",
+  "Más de 2.000 €",
+  "No lo sé, necesito orientación",
+  "500 - 800 €",
+  "800 - 1.200 €",
+  "1.200 - 2.000 €",
+  "+ de 2.000 €",
+];
+
+const ALLOWED_URGENCIES = [
+  "Lo antes posible",
+  "Este mes",
+  "En 1–3 meses",
+  "Más adelante",
+  "Solo estoy mirando opciones",
+];
+
+function normalizeList(value) {
+  if (Array.isArray(value)) return value.map((item) => String(item));
+  if (value) return [String(value)];
+  return [];
+}
 
 module.exports = async function contact(req, res) {
   try {
@@ -37,12 +80,15 @@ module.exports = async function contact(req, res) {
       return res.status(400).json({ message: "JSON inválido." });
     }
 
+    const name = body.name;
     const businessName = body.businessName ?? body.business;
     const contact = body.contact ?? body.whatsapp;
     const hasWebsite = body.hasWebsite;
     const websiteUrl = body.websiteUrl;
     const goal = body.goal;
+    const projectType = body.projectType;
     const budget = body.budget;
+    const urgency = body.urgency;
     const message = body.message;
     const source = body.source;
     const privacyAccepted = body.privacyAccepted;
@@ -57,13 +103,17 @@ module.exports = async function contact(req, res) {
     }
 
     const normalizedHasWebsite = String(hasWebsite);
-    const normalizedGoal = goal ? String(goal) : "";
+    const normalizedGoals = normalizeList(goal);
+    const normalizedProjectType = projectType ? String(projectType) : "";
     const normalizedBudget = budget ? String(budget) : "";
+    const normalizedUrgency = urgency ? String(urgency) : "";
 
     if (
       !ALLOWED_HAS_WEBSITE.includes(normalizedHasWebsite) ||
-      (normalizedGoal && !ALLOWED_GOALS.includes(normalizedGoal)) ||
-      (normalizedBudget && !ALLOWED_BUDGETS.includes(normalizedBudget))
+      normalizedGoals.some((item) => !ALLOWED_GOALS.includes(item)) ||
+      (normalizedProjectType && !ALLOWED_PROJECT_TYPES.includes(normalizedProjectType)) ||
+      (normalizedBudget && !ALLOWED_BUDGETS.includes(normalizedBudget)) ||
+      (normalizedUrgency && !ALLOWED_URGENCIES.includes(normalizedUrgency))
     ) {
       return res.status(400).json({ message: "Valores no válidos en el formulario." });
     }
@@ -84,12 +134,15 @@ module.exports = async function contact(req, res) {
 
     const transporter = createTransporter();
 
+    const safeName = name ? escapeHtml(String(name)) : "";
     const safeBusiness = escapeHtml(String(businessName));
     const safeContact = escapeHtml(String(contact));
     const safeWebsite = escapeHtml(normalizedHasWebsite);
     const safeUrl = websiteUrl ? escapeHtml(String(websiteUrl)) : "";
-    const safeGoal = normalizedGoal ? escapeHtml(normalizedGoal) : "";
+    const safeGoal = normalizedGoals.length ? escapeHtml(normalizedGoals.join(", ")) : "";
+    const safeProjectType = normalizedProjectType ? escapeHtml(normalizedProjectType) : "";
     const safeBudget = normalizedBudget ? escapeHtml(normalizedBudget) : "No especificado";
+    const safeUrgency = normalizedUrgency ? escapeHtml(normalizedUrgency) : "";
     const safeSource = source ? escapeHtml(String(source)) : "";
     const safeMessage = message ? escapeHtml(String(message)).replace(/\n/g, "<br>") : "";
     const safePolicyVersion = escapeHtml(consentRecord.policyVersion);
@@ -111,12 +164,15 @@ module.exports = async function contact(req, res) {
         </div>
 
         ${row("Origen", safeSource)}
+        ${row("Nombre", safeName)}
         ${row("Negocio", safeBusiness)}
         ${row("WhatsApp", safeContact)}
         ${row("¿Tiene web?", safeWebsite)}
         ${row("URL de su web", safeUrl)}
-        ${row("Objetivo", safeGoal)}
+        ${row("Quiere conseguir", safeGoal)}
+        ${row("Tipo de proyecto", safeProjectType)}
         ${row("Presupuesto", safeBudget)}
+        ${row("Urgencia", safeUrgency)}
         ${safeMessage ? `<div style="margin-bottom: 22px;">
             <p style="color: #c4a4ff; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 6px 0;">Comentarios</p>
             <p style="font-size: 15px; margin: 0; line-height: 1.6;">${safeMessage}</p>

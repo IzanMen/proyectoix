@@ -194,7 +194,7 @@ export function CampaignLanding({ content }: { content: CampaignContent }) {
             </Reveal>
             <Reveal delay={0.1}>
               <div id="lead-form">
-                <LeadForm includeGoal={false} source={content.source} />
+                <LeadForm source={content.source} />
               </div>
             </Reveal>
           </div>

@@ -12,11 +12,14 @@ import {
 import { cn } from "@/lib/utils";
 
 interface FormData {
+  name: string;
   business: string;
   hasWebsite: string;
   websiteUrl: string;
-  goal: string;
+  goal: string[];
+  projectType: string;
   budget: string;
+  urgency: string;
   whatsapp: string;
 }
 
@@ -34,44 +37,92 @@ type Question =
       description?: string;
       type: "options";
       options: string[];
+    }
+  | {
+      id: keyof FormData;
+      label: string;
+      description?: string;
+      type: "multi-options";
+      options: string[];
     };
 
 const BASE_QUESTIONS: Question[] = [
   {
-    id: "business",
-    label: "¿Cómo se llama tu negocio y a qué te dedicas?",
-    description: "Una frase corta nos vale.",
+    id: "name",
+    label: "¿Cuál es tu nombre?",
     type: "text",
-    placeholder: "Ej: Restaurante Sa Caleta, comida menorquina en Ciutadella",
+    placeholder: "Ej: Laura",
+  },
+  {
+    id: "business",
+    label: "¿Cómo se llama tu negocio?",
+    type: "text",
+    placeholder: "Ej: Restaurante Sa Caleta",
   },
   {
     id: "hasWebsite",
-    label: "¿Tienes web actualmente?",
+    label: "¿Tienes página web actualmente?",
     type: "options",
-    options: ["Sí, tengo web", "No, no tengo web"],
+    options: ["Sí", "No"],
   },
   {
     id: "goal",
-    label: "¿Qué objetivo buscas con tu web?",
+    label: "¿Qué quieres conseguir con la web?",
+    description: "Puedes elegir varias opciones.",
+    type: "multi-options",
+    options: [
+      "Conseguir más clientes",
+      "Transmitir una imagen más profesional",
+      "Recibir reservas o solicitudes",
+      "Vender productos online",
+      "Enseñar servicios/productos",
+      "Mejorar una web antigua",
+      "No lo tengo claro, quiero orientación",
+    ],
+  },
+  {
+    id: "projectType",
+    label: "¿Qué tipo de web crees que necesitas?",
     type: "options",
     options: [
-      "Que los clientes me llamen o escriban",
-      "Que hagan una reserva",
-      "Que compren un producto",
-      "No lo tengo claro",
+      "Web informativa / corporativa",
+      "Web con reservas o citas",
+      "Tienda online",
+      "Catálogo online sin pago directo",
+      "Rediseño/mejora de una web existente",
+      "No lo sé todavía",
     ],
   },
   {
     id: "budget",
-    label: "¿Cuánto estás dispuesto a invertir en tu web?",
-    description: "Solo para hacernos una idea. No es vinculante.",
+    label: "¿Qué inversión tenías pensada si ves claro el valor del proyecto?",
     type: "options",
-    options: ["500 - 800 €", "800 - 1.200 €", "1.200 - 2.000 €", "+ de 2.000 €"],
+    options: [
+      "Menos de 500 €",
+      "500–800 €",
+      "800–1.200 €",
+      "1.200–2.000 €",
+      "Más de 2.000 €",
+      "No lo sé, necesito orientación",
+    ],
+  },
+  {
+    id: "urgency",
+    label: "¿Cuándo te gustaría tenerla lista o empezar?",
+    type: "options",
+    options: [
+      "Lo antes posible",
+      "Este mes",
+      "En 1–3 meses",
+      "Más adelante",
+      "Solo estoy mirando opciones",
+    ],
   },
   {
     id: "whatsapp",
-    label: "¿Cuál es tu número de WhatsApp?",
-    description: "Te escribiremos aquí con nuestra propuesta.",
+    label: "¿Cuál es tu WhatsApp?",
+    description:
+      "Te escribiremos por WhatsApp para entender mejor el proyecto y decirte si podemos ayudarte.",
     type: "tel",
     placeholder: "612 345 678",
   },
@@ -79,8 +130,8 @@ const BASE_QUESTIONS: Question[] = [
 
 const URL_QUESTION: Question = {
   id: "websiteUrl",
-  label: "¿Cuál es la URL de tu web?",
-  description: "Así podemos verla antes de hablar contigo.",
+  label: "Pega el enlace de tu web actual",
+  description: "Opcional.",
   type: "url",
   placeholder: "Ej: www.mirestaurante.com",
 };
@@ -97,7 +148,6 @@ const formatPhone = (digits: string) => {
 
 export function LeadForm({
   onSuccess,
-  includeGoal = true,
   source,
 }: {
   onSuccess?: () => void;
@@ -106,11 +156,14 @@ export function LeadForm({
 } = {}) {
   const [step, setStep] = useState(0);
   const [data, setData] = useState<FormData>({
+    name: "",
     business: "",
     hasWebsite: "",
     websiteUrl: "",
-    goal: "",
+    goal: [],
+    projectType: "",
     budget: "",
+    urgency: "",
     whatsapp: "",
   });
   const [submitting, setSubmitting] = useState(false);
@@ -121,16 +174,10 @@ export function LeadForm({
   const [hasInteracted, setHasInteracted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const baseQuestions = useMemo(
-    () =>
-      includeGoal
-        ? BASE_QUESTIONS
-        : BASE_QUESTIONS.filter((q) => q.id !== "goal"),
-    [includeGoal],
-  );
+  const baseQuestions = useMemo(() => BASE_QUESTIONS, []);
 
   const activeQuestions = useMemo(() => {
-    if (data.hasWebsite === "Sí, tengo web") {
+    if (data.hasWebsite === "Sí") {
       const idx = baseQuestions.findIndex((q) => q.id === "hasWebsite");
       const qs = [...baseQuestions];
       qs.splice(idx + 1, 0, URL_QUESTION);
@@ -142,6 +189,7 @@ export function LeadForm({
   const current = activeQuestions[step] ?? activeQuestions[activeQuestions.length - 1];
   const isLast = step === activeQuestions.length - 1;
   const value = data[current.id];
+  const hasValue = Array.isArray(value) ? value.length > 0 : Boolean(value);
 
   useEffect(() => {
     if (hasInteracted && inputRef.current) {
@@ -170,11 +218,14 @@ export function LeadForm({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          name: final.name,
           businessName: final.business,
           hasWebsite: final.hasWebsite,
           ...(final.websiteUrl ? { websiteUrl: final.websiteUrl } : {}),
-          ...(final.goal ? { goal: final.goal } : {}),
+          ...(final.goal.length ? { goal: final.goal } : {}),
+          ...(final.projectType ? { projectType: final.projectType } : {}),
           budget: final.budget,
+          urgency: final.urgency,
           contact: `+34 ${final.whatsapp}`.trim(),
           ...(source ? { source } : {}),
           privacyAccepted: true,
@@ -226,7 +277,7 @@ export function LeadForm({
     if (
       e.key === "Enter" &&
       !e.shiftKey &&
-      (current.type === "text" || current.type === "tel" || current.type === "url")
+      (current.type === "text" || current.type === "tel")
     ) {
       e.preventDefault();
       next();
@@ -317,7 +368,7 @@ export function LeadForm({
                     autoComplete="tel-national"
                     pattern="[0-9 ]*"
                     maxLength={11}
-                    value={value}
+                    value={String(value)}
                     onFocus={() => {
                       if (!hasInteracted) setHasInteracted(true);
                     }}
@@ -361,7 +412,7 @@ export function LeadForm({
                   type={current.type === "url" ? "url" : "text"}
                   inputMode={current.type === "url" ? "url" : "text"}
                   autoComplete={current.type === "url" ? "url" : "off"}
-                  value={value}
+                  value={String(value)}
                   onFocus={() => {
                     if (!hasInteracted) setHasInteracted(true);
                   }}
@@ -378,10 +429,13 @@ export function LeadForm({
               </>
             )}
 
-            {current.type === "options" && (
+            {(current.type === "options" || current.type === "multi-options") && (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {current.options.map((opt) => {
-                  const selected = value === opt;
+                  const selected =
+                    current.type === "multi-options"
+                      ? Array.isArray(value) && value.includes(opt)
+                      : value === opt;
                   return (
                     <button
                       key={opt}
@@ -390,11 +444,19 @@ export function LeadForm({
                       data-testid={`option-${current.id}-${opt.slice(0, 12).replace(/\s+/g, "-")}`}
                       onClick={() => {
                         if (!hasInteracted) setHasInteracted(true);
+                        if (current.type === "multi-options") {
+                          const currentValues = Array.isArray(value) ? value : [];
+                          const nextValues = selected
+                            ? currentValues.filter((item) => item !== opt)
+                            : [...currentValues, opt];
+                          setData({ ...data, [current.id]: nextValues });
+                          return;
+                        }
                         // If user switches hasWebsite to "No", clear any stored URL
                         const nd: FormData = {
                           ...data,
                           [current.id]: opt,
-                          ...(current.id === "hasWebsite" && opt !== "Sí, tengo web"
+                          ...(current.id === "hasWebsite" && opt !== "Sí"
                             ? { websiteUrl: "" }
                             : {}),
                         };
@@ -487,19 +549,20 @@ export function LeadForm({
             {(current.type === "text" ||
               current.type === "tel" ||
               current.type === "url" ||
+              current.type === "multi-options" ||
               isLast) && (
               <button
                 type="button"
                 onClick={next}
                 disabled={
                   submitting ||
-                  (!value && current.type !== "options") ||
+                  (!hasValue && current.type !== "options" && current.type !== "url") ||
                   (isLast && !privacy)
                 }
                 data-testid="button-next"
                 className={cn(
                   "group inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold transition-all duration-300",
-                  (!value && current.type !== "options") ||
+                  (!hasValue && current.type !== "options" && current.type !== "url") ||
                     (isLast && !privacy) ||
                     submitting
                     ? "opacity-50 cursor-not-allowed bg-white/10 text-white/40"
