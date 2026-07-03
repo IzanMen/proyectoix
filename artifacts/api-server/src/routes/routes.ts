@@ -300,8 +300,6 @@ const cuestionarioRateLimit = new Map<
 
 const QUESTIONNAIRE_RECIPIENTS = [
   "izan@proyectoix.com",
-  "xaloc@proyectoix.com",
-  "hola@proyectoix.com",
 ];
 
 const OBJECT_PATH_RE = /^\/objects\/uploads\/[0-9a-fA-F-]{36}$/;
