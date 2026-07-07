@@ -1,5 +1,10 @@
 import { Suspense, lazy } from "react";
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import {
+  Switch,
+  Route,
+  Router as WouterRouter,
+  useLocation,
+} from "wouter";
 
 const Home = lazy(() => import("@/pages/Home"));
 const EmailDiario = lazy(() => import("@/pages/EmailDiario"));
@@ -12,6 +17,8 @@ const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
 const Cuestionario = lazy(() => import("@/pages/Cuestionario"));
 const Campaign = lazy(() => import("@/pages/Campaign"));
+const Plantillas = lazy(() => import("@/pages/Plantillas"));
+const PlantillaDemo = lazy(() => import("@/pages/PlantillaDemo"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 const CookieBanner = lazy(() =>
   import("@/components/layout/CookieBanner").then((m) => ({
@@ -25,9 +32,12 @@ function PageFallback() {
   );
 }
 
-function App() {
+function AppRoutes() {
+  const [location] = useLocation();
+  const isPrivateTemplateRoute = location.startsWith("/plantillas");
+
   return (
-    <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+    <>
       <Suspense fallback={<PageFallback />}>
         <Switch>
           <Route path="/" component={Home} />
@@ -39,14 +49,26 @@ function App() {
           <Route path="/politica-cookies" component={PoliticaCookies} />
           <Route path="/blog" component={Blog} />
           <Route path="/blog/:slug" component={BlogPost} />
+          <Route path="/plantillas" component={Plantillas} />
+          <Route path="/plantillas/:slug" component={PlantillaDemo} />
           <Route path="/lp/:slug" component={Campaign} />
           <Route path="/brief/9k3a7q2x5m" component={Cuestionario} />
           <Route component={NotFound} />
         </Switch>
       </Suspense>
-      <Suspense fallback={null}>
-        <CookieBanner />
-      </Suspense>
+      {!isPrivateTemplateRoute && (
+        <Suspense fallback={null}>
+          <CookieBanner />
+        </Suspense>
+      )}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+      <AppRoutes />
     </WouterRouter>
   );
 }

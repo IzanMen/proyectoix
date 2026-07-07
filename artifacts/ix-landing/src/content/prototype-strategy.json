@@ -1,0 +1,3301 @@
+[
+  {
+    "slug": "001-brasa-fosca",
+    "name": "Brasa Fosca",
+    "category": "Restaurante en Menorca",
+    "analysis": {
+      "targetPerception": "Brasa Fosca debe proyectar cocina sólida, sala impecable, producto de temporada y una experiencia mediterránea con criterio. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "residentes, viajeros gastronómicos y grupos que buscan una mesa memorable sin perder naturalidad",
+      "conversionGoal": "reserva directa por teléfono o WhatsApp",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de restaurante reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "split-editorial",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Reservar mesa",
+      "secondaryCta": "Ver carta"
+    },
+    "palette": [
+      "#111111",
+      "#f7f1e8",
+      "#b76e3b",
+      "#24302a"
+    ]
+  },
+  {
+    "slug": "002-taula-de-llevant",
+    "name": "Taula de Llevant",
+    "category": "Restaurante en Menorca",
+    "analysis": {
+      "targetPerception": "Taula de Llevant debe proyectar cocina sólida, sala impecable, producto de temporada y una experiencia mediterránea con criterio. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "residentes, viajeros gastronómicos y grupos que buscan una mesa memorable sin perder naturalidad",
+      "conversionGoal": "reserva directa por teléfono o WhatsApp",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de restaurante reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "full-bleed-reserve",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Reservar mesa",
+      "secondaryCta": "Ver carta"
+    },
+    "palette": [
+      "#08111f",
+      "#f4f7fb",
+      "#68a6ff",
+      "#d9a441"
+    ]
+  },
+  {
+    "slug": "003-sa-llotja-vermella",
+    "name": "Sa Llotja Vermella",
+    "category": "Restaurante en Menorca",
+    "analysis": {
+      "targetPerception": "Sa Llotja Vermella debe proyectar cocina sólida, sala impecable, producto de temporada y una experiencia mediterránea con criterio. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "residentes, viajeros gastronómicos y grupos que buscan una mesa memorable sin perder naturalidad",
+      "conversionGoal": "reserva directa por teléfono o WhatsApp",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de restaurante reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "stacked-magazine",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Reservar mesa",
+      "secondaryCta": "Ver carta"
+    },
+    "palette": [
+      "#2a1714",
+      "#fff7ef",
+      "#c7472f",
+      "#1d3130"
+    ]
+  },
+  {
+    "slug": "004-origens-de-tramuntana",
+    "name": "Orígens de Tramuntana",
+    "category": "Restaurante en Menorca",
+    "analysis": {
+      "targetPerception": "Orígens de Tramuntana debe proyectar cocina sólida, sala impecable, producto de temporada y una experiencia mediterránea con criterio. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "residentes, viajeros gastronómicos y grupos que buscan una mesa memorable sin perder naturalidad",
+      "conversionGoal": "reserva directa por teléfono o WhatsApp",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de restaurante reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "asymmetric-panel",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Reservar mesa",
+      "secondaryCta": "Ver carta"
+    },
+    "palette": [
+      "#0e1713",
+      "#f3f1df",
+      "#93b76e",
+      "#e1b85f"
+    ]
+  },
+  {
+    "slug": "005-nit-de-sal",
+    "name": "Nit de Sal",
+    "category": "Restaurante en Menorca",
+    "analysis": {
+      "targetPerception": "Nit de Sal debe proyectar cocina sólida, sala impecable, producto de temporada y una experiencia mediterránea con criterio. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "residentes, viajeros gastronómicos y grupos que buscan una mesa memorable sin perder naturalidad",
+      "conversionGoal": "reserva directa por teléfono o WhatsApp",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de restaurante reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "cinematic-minimal",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Reservar mesa",
+      "secondaryCta": "Ver carta"
+    },
+    "palette": [
+      "#140f19",
+      "#f6eef8",
+      "#d08cf0",
+      "#9fd4d6"
+    ]
+  },
+  {
+    "slug": "006-cafe-mistral",
+    "name": "Cafè Mistral",
+    "category": "Bar / cafetería en Menorca",
+    "analysis": {
+      "targetPerception": "Cafè Mistral debe proyectar café de especialidad, producto fresco, barra cuidada y un espacio donde apetece quedarse. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "clientes de mañana, profesionales, familias y turistas que valoran buen café y ritmo ágil",
+      "conversionGoal": "visita al local y pedidos para llevar",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de cafetería reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "service-dashboard",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Ver desayunos",
+      "secondaryCta": "Cómo llegar"
+    },
+    "palette": [
+      "#f5f1ea",
+      "#111315",
+      "#556b8e",
+      "#b08b57"
+    ]
+  },
+  {
+    "slug": "007-bar-suro",
+    "name": "Bar Suro",
+    "category": "Bar / cafetería en Menorca",
+    "analysis": {
+      "targetPerception": "Bar Suro debe proyectar café de especialidad, producto fresco, barra cuidada y un espacio donde apetece quedarse. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "clientes de mañana, profesionales, familias y turistas que valoran buen café y ritmo ágil",
+      "conversionGoal": "visita al local y pedidos para llevar",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de cafetería reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "gallery-first",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Ver desayunos",
+      "secondaryCta": "Cómo llegar"
+    },
+    "palette": [
+      "#071616",
+      "#effaf8",
+      "#49c5b6",
+      "#f2c66d"
+    ]
+  },
+  {
+    "slug": "008-lletres-i-crema",
+    "name": "Lletres i Crema",
+    "category": "Bar / cafetería en Menorca",
+    "analysis": {
+      "targetPerception": "Lletres i Crema debe proyectar café de especialidad, producto fresco, barra cuidada y un espacio donde apetece quedarse. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "clientes de mañana, profesionales, familias y turistas que valoran buen café y ritmo ágil",
+      "conversionGoal": "visita al local y pedidos para llevar",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de cafetería reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "luxury-letter",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Ver desayunos",
+      "secondaryCta": "Cómo llegar"
+    },
+    "palette": [
+      "#1d1b16",
+      "#fbf5e8",
+      "#c69c53",
+      "#49635a"
+    ]
+  },
+  {
+    "slug": "009-la-barra-blava",
+    "name": "La Barra Blava",
+    "category": "Bar / cafetería en Menorca",
+    "analysis": {
+      "targetPerception": "La Barra Blava debe proyectar café de especialidad, producto fresco, barra cuidada y un espacio donde apetece quedarse. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "clientes de mañana, profesionales, familias y turistas que valoran buen café y ritmo ágil",
+      "conversionGoal": "visita al local y pedidos para llevar",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de cafetería reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "proof-led",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Ver desayunos",
+      "secondaryCta": "Cómo llegar"
+    },
+    "palette": [
+      "#101018",
+      "#f8f8ff",
+      "#ff6b6b",
+      "#64d2ff"
+    ]
+  },
+  {
+    "slug": "010-raco-despert",
+    "name": "Racó Despert",
+    "category": "Bar / cafetería en Menorca",
+    "analysis": {
+      "targetPerception": "Racó Despert debe proyectar café de especialidad, producto fresco, barra cuidada y un espacio donde apetece quedarse. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "clientes de mañana, profesionales, familias y turistas que valoran buen café y ritmo ágil",
+      "conversionGoal": "visita al local y pedidos para llevar",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de cafetería reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "booking-card",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Ver desayunos",
+      "secondaryCta": "Cómo llegar"
+    },
+    "palette": [
+      "#eef2ed",
+      "#172018",
+      "#6a8f5a",
+      "#b9563f"
+    ]
+  },
+  {
+    "slug": "011-atelier-mirall",
+    "name": "Atelier Mirall",
+    "category": "Peluquería en Menorca",
+    "analysis": {
+      "targetPerception": "Atelier Mirall debe proyectar salón premium, diagnóstico honesto, técnica precisa y resultado natural de alta gama. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "personas que quieren un cambio elegante, mantenimiento experto y asesoramiento real",
+      "conversionGoal": "reserva de cita y diagnóstico",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de salón reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "split-editorial",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Reservar cita",
+      "secondaryCta": "Diagnóstico"
+    },
+    "palette": [
+      "#111111",
+      "#f7f1e8",
+      "#b76e3b",
+      "#24302a"
+    ]
+  },
+  {
+    "slug": "012-tall-salvatge",
+    "name": "Tall Salvatge",
+    "category": "Peluquería en Menorca",
+    "analysis": {
+      "targetPerception": "Tall Salvatge debe proyectar salón premium, diagnóstico honesto, técnica precisa y resultado natural de alta gama. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "personas que quieren un cambio elegante, mantenimiento experto y asesoramiento real",
+      "conversionGoal": "reserva de cita y diagnóstico",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de salón reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "full-bleed-reserve",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Reservar cita",
+      "secondaryCta": "Diagnóstico"
+    },
+    "palette": [
+      "#08111f",
+      "#f4f7fb",
+      "#68a6ff",
+      "#d9a441"
+    ]
+  },
+  {
+    "slug": "013-nura-hair-lab",
+    "name": "Nura Hair Lab",
+    "category": "Peluquería en Menorca",
+    "analysis": {
+      "targetPerception": "Nura Hair Lab debe proyectar salón premium, diagnóstico honesto, técnica precisa y resultado natural de alta gama. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "personas que quieren un cambio elegante, mantenimiento experto y asesoramiento real",
+      "conversionGoal": "reserva de cita y diagnóstico",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de salón reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "stacked-magazine",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Reservar cita",
+      "secondaryCta": "Diagnóstico"
+    },
+    "palette": [
+      "#2a1714",
+      "#fff7ef",
+      "#c7472f",
+      "#1d3130"
+    ]
+  },
+  {
+    "slug": "014-la-cadira-daurada",
+    "name": "La Cadira Daurada",
+    "category": "Peluquería en Menorca",
+    "analysis": {
+      "targetPerception": "La Cadira Daurada debe proyectar salón premium, diagnóstico honesto, técnica precisa y resultado natural de alta gama. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "personas que quieren un cambio elegante, mantenimiento experto y asesoramiento real",
+      "conversionGoal": "reserva de cita y diagnóstico",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de salón reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "asymmetric-panel",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Reservar cita",
+      "secondaryCta": "Diagnóstico"
+    },
+    "palette": [
+      "#0e1713",
+      "#f3f1df",
+      "#93b76e",
+      "#e1b85f"
+    ]
+  },
+  {
+    "slug": "015-rinxol-menorca",
+    "name": "Rínxol Menorca",
+    "category": "Peluquería en Menorca",
+    "analysis": {
+      "targetPerception": "Rínxol Menorca debe proyectar salón premium, diagnóstico honesto, técnica precisa y resultado natural de alta gama. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "personas que quieren un cambio elegante, mantenimiento experto y asesoramiento real",
+      "conversionGoal": "reserva de cita y diagnóstico",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de salón reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "cinematic-minimal",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Reservar cita",
+      "secondaryCta": "Diagnóstico"
+    },
+    "palette": [
+      "#140f19",
+      "#f6eef8",
+      "#d08cf0",
+      "#9fd4d6"
+    ]
+  },
+  {
+    "slug": "016-calma-nua",
+    "name": "Calma Nua",
+    "category": "Centro de estética en Menorca",
+    "analysis": {
+      "targetPerception": "Calma Nua debe proyectar estética avanzada, calma clínica, higiene impecable y tratamientos con seguimiento. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "clientes que buscan resultados visibles, privacidad y una experiencia sensorial cuidada",
+      "conversionGoal": "valoración estética y reserva",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de centro de estética reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "service-dashboard",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Pedir valoración",
+      "secondaryCta": "Ver tratamientos"
+    },
+    "palette": [
+      "#f5f1ea",
+      "#111315",
+      "#556b8e",
+      "#b08b57"
+    ]
+  },
+  {
+    "slug": "017-aura-de-sal",
+    "name": "Aura de Sal",
+    "category": "Centro de estética en Menorca",
+    "analysis": {
+      "targetPerception": "Aura de Sal debe proyectar estética avanzada, calma clínica, higiene impecable y tratamientos con seguimiento. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "clientes que buscan resultados visibles, privacidad y una experiencia sensorial cuidada",
+      "conversionGoal": "valoración estética y reserva",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de centro de estética reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "gallery-first",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Pedir valoración",
+      "secondaryCta": "Ver tratamientos"
+    },
+    "palette": [
+      "#071616",
+      "#effaf8",
+      "#49c5b6",
+      "#f2c66d"
+    ]
+  },
+  {
+    "slug": "018-llum-clinica-estetica",
+    "name": "Llum Clínica Estètica",
+    "category": "Centro de estética en Menorca",
+    "analysis": {
+      "targetPerception": "Llum Clínica Estètica debe proyectar estética avanzada, calma clínica, higiene impecable y tratamientos con seguimiento. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "clientes que buscan resultados visibles, privacidad y una experiencia sensorial cuidada",
+      "conversionGoal": "valoración estética y reserva",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de centro de estética reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "luxury-letter",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Pedir valoración",
+      "secondaryCta": "Ver tratamientos"
+    },
+    "palette": [
+      "#1d1b16",
+      "#fbf5e8",
+      "#c69c53",
+      "#49635a"
+    ]
+  },
+  {
+    "slug": "019-ritual-37",
+    "name": "Ritual 37",
+    "category": "Centro de estética en Menorca",
+    "analysis": {
+      "targetPerception": "Ritual 37 debe proyectar estética avanzada, calma clínica, higiene impecable y tratamientos con seguimiento. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "clientes que buscan resultados visibles, privacidad y una experiencia sensorial cuidada",
+      "conversionGoal": "valoración estética y reserva",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de centro de estética reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "proof-led",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Pedir valoración",
+      "secondaryCta": "Ver tratamientos"
+    },
+    "palette": [
+      "#101018",
+      "#f8f8ff",
+      "#ff6b6b",
+      "#64d2ff"
+    ]
+  },
+  {
+    "slug": "020-pell-i-pedra",
+    "name": "Pell i Pedra",
+    "category": "Centro de estética en Menorca",
+    "analysis": {
+      "targetPerception": "Pell i Pedra debe proyectar estética avanzada, calma clínica, higiene impecable y tratamientos con seguimiento. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "clientes que buscan resultados visibles, privacidad y una experiencia sensorial cuidada",
+      "conversionGoal": "valoración estética y reserva",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de centro de estética reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "booking-card",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Pedir valoración",
+      "secondaryCta": "Ver tratamientos"
+    },
+    "palette": [
+      "#eef2ed",
+      "#172018",
+      "#6a8f5a",
+      "#b9563f"
+    ]
+  },
+  {
+    "slug": "021-eix-fisio",
+    "name": "Eix Fisio",
+    "category": "Fisioterapia en Menorca",
+    "analysis": {
+      "targetPerception": "Eix Fisio debe proyectar clínica seria, evaluación precisa, tratamiento activo y recuperación medible. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "deportistas, pacientes con dolor persistente y personas que necesitan volver a moverse con seguridad",
+      "conversionGoal": "cita de valoración",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de clínica de fisioterapia reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "split-editorial",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "team",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir cita",
+      "secondaryCta": "Primera visita"
+    },
+    "palette": [
+      "#111111",
+      "#f7f1e8",
+      "#b76e3b",
+      "#24302a"
+    ]
+  },
+  {
+    "slug": "022-moure-menorca",
+    "name": "Moure Menorca",
+    "category": "Fisioterapia en Menorca",
+    "analysis": {
+      "targetPerception": "Moure Menorca debe proyectar clínica seria, evaluación precisa, tratamiento activo y recuperación medible. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "deportistas, pacientes con dolor persistente y personas que necesitan volver a moverse con seguridad",
+      "conversionGoal": "cita de valoración",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de clínica de fisioterapia reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "full-bleed-reserve",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "team",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir cita",
+      "secondaryCta": "Primera visita"
+    },
+    "palette": [
+      "#08111f",
+      "#f4f7fb",
+      "#68a6ff",
+      "#d9a441"
+    ]
+  },
+  {
+    "slug": "023-fisio-nord",
+    "name": "Fisio Nord",
+    "category": "Fisioterapia en Menorca",
+    "analysis": {
+      "targetPerception": "Fisio Nord debe proyectar clínica seria, evaluación precisa, tratamiento activo y recuperación medible. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "deportistas, pacientes con dolor persistente y personas que necesitan volver a moverse con seguridad",
+      "conversionGoal": "cita de valoración",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de clínica de fisioterapia reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "stacked-magazine",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "team",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir cita",
+      "secondaryCta": "Primera visita"
+    },
+    "palette": [
+      "#2a1714",
+      "#fff7ef",
+      "#c7472f",
+      "#1d3130"
+    ]
+  },
+  {
+    "slug": "024-respira-cos",
+    "name": "Respira Cos",
+    "category": "Fisioterapia en Menorca",
+    "analysis": {
+      "targetPerception": "Respira Cos debe proyectar clínica seria, evaluación precisa, tratamiento activo y recuperación medible. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "deportistas, pacientes con dolor persistente y personas que necesitan volver a moverse con seguridad",
+      "conversionGoal": "cita de valoración",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de clínica de fisioterapia reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "asymmetric-panel",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "team",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir cita",
+      "secondaryCta": "Primera visita"
+    },
+    "palette": [
+      "#0e1713",
+      "#f3f1df",
+      "#93b76e",
+      "#e1b85f"
+    ]
+  },
+  {
+    "slug": "025-rehab-360",
+    "name": "Rehab 360",
+    "category": "Fisioterapia en Menorca",
+    "analysis": {
+      "targetPerception": "Rehab 360 debe proyectar clínica seria, evaluación precisa, tratamiento activo y recuperación medible. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "deportistas, pacientes con dolor persistente y personas que necesitan volver a moverse con seguridad",
+      "conversionGoal": "cita de valoración",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de clínica de fisioterapia reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "cinematic-minimal",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "team",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir cita",
+      "secondaryCta": "Primera visita"
+    },
+    "palette": [
+      "#140f19",
+      "#f6eef8",
+      "#d08cf0",
+      "#9fd4d6"
+    ]
+  },
+  {
+    "slug": "026-forca-6am",
+    "name": "Força 6AM",
+    "category": "Entrenador personal en Menorca",
+    "analysis": {
+      "targetPerception": "Força 6AM debe proyectar entrenamiento privado, métricas claras, energía alta y seguimiento serio. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "personas ocupadas, deportistas amateur y clientes que quieren constancia sin improvisar",
+      "conversionGoal": "evaluación inicial",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de estudio de entrenamiento reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "service-dashboard",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Empezar evaluación",
+      "secondaryCta": "Ver planes"
+    },
+    "palette": [
+      "#f5f1ea",
+      "#111315",
+      "#556b8e",
+      "#b08b57"
+    ]
+  },
+  {
+    "slug": "027-metxa-training",
+    "name": "Metxa Training",
+    "category": "Entrenador personal en Menorca",
+    "analysis": {
+      "targetPerception": "Metxa Training debe proyectar entrenamiento privado, métricas claras, energía alta y seguimiento serio. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "personas ocupadas, deportistas amateur y clientes que quieren constancia sin improvisar",
+      "conversionGoal": "evaluación inicial",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de estudio de entrenamiento reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "gallery-first",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Empezar evaluación",
+      "secondaryCta": "Ver planes"
+    },
+    "palette": [
+      "#071616",
+      "#effaf8",
+      "#49c5b6",
+      "#f2c66d"
+    ]
+  },
+  {
+    "slug": "028-base-atletica",
+    "name": "Base Atlètica",
+    "category": "Entrenador personal en Menorca",
+    "analysis": {
+      "targetPerception": "Base Atlètica debe proyectar entrenamiento privado, métricas claras, energía alta y seguimiento serio. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "personas ocupadas, deportistas amateur y clientes que quieren constancia sin improvisar",
+      "conversionGoal": "evaluación inicial",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de estudio de entrenamiento reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "luxury-letter",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Empezar evaluación",
+      "secondaryCta": "Ver planes"
+    },
+    "palette": [
+      "#1d1b16",
+      "#fbf5e8",
+      "#c69c53",
+      "#49635a"
+    ]
+  },
+  {
+    "slug": "029-koru-coach",
+    "name": "Koru Coach",
+    "category": "Entrenador personal en Menorca",
+    "analysis": {
+      "targetPerception": "Koru Coach debe proyectar entrenamiento privado, métricas claras, energía alta y seguimiento serio. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "personas ocupadas, deportistas amateur y clientes que quieren constancia sin improvisar",
+      "conversionGoal": "evaluación inicial",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de estudio de entrenamiento reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "proof-led",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Empezar evaluación",
+      "secondaryCta": "Ver planes"
+    },
+    "palette": [
+      "#101018",
+      "#f8f8ff",
+      "#ff6b6b",
+      "#64d2ff"
+    ]
+  },
+  {
+    "slug": "030-roca-fit",
+    "name": "Roca Fit",
+    "category": "Entrenador personal en Menorca",
+    "analysis": {
+      "targetPerception": "Roca Fit debe proyectar entrenamiento privado, métricas claras, energía alta y seguimiento serio. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "personas ocupadas, deportistas amateur y clientes que quieren constancia sin improvisar",
+      "conversionGoal": "evaluación inicial",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de estudio de entrenamiento reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "booking-card",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Empezar evaluación",
+      "secondaryCta": "Ver planes"
+    },
+    "palette": [
+      "#eef2ed",
+      "#172018",
+      "#6a8f5a",
+      "#b9563f"
+    ]
+  },
+  {
+    "slug": "031-cases-de-vent",
+    "name": "Cases de Vent",
+    "category": "Inmobiliaria local en Menorca",
+    "analysis": {
+      "targetPerception": "Cases de Vent debe proyectar cartera selecta, discreción, datos fiables y acompañamiento experto en la isla. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "propietarios, compradores exigentes e inversores que necesitan criterio local",
+      "conversionGoal": "captación de propietarios y leads compradores",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de inmobiliaria reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "split-editorial",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "proof",
+        "gallery",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Valorar propiedad",
+      "secondaryCta": "Ver inmuebles"
+    },
+    "palette": [
+      "#111111",
+      "#f7f1e8",
+      "#b76e3b",
+      "#24302a"
+    ]
+  },
+  {
+    "slug": "032-niu-menorca",
+    "name": "Niu Menorca",
+    "category": "Inmobiliaria local en Menorca",
+    "analysis": {
+      "targetPerception": "Niu Menorca debe proyectar cartera selecta, discreción, datos fiables y acompañamiento experto en la isla. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "propietarios, compradores exigentes e inversores que necesitan criterio local",
+      "conversionGoal": "captación de propietarios y leads compradores",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de inmobiliaria reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "full-bleed-reserve",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "proof",
+        "gallery",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Valorar propiedad",
+      "secondaryCta": "Ver inmuebles"
+    },
+    "palette": [
+      "#08111f",
+      "#f4f7fb",
+      "#68a6ff",
+      "#d9a441"
+    ]
+  },
+  {
+    "slug": "033-porta-nord",
+    "name": "Porta Nord",
+    "category": "Inmobiliaria local en Menorca",
+    "analysis": {
+      "targetPerception": "Porta Nord debe proyectar cartera selecta, discreción, datos fiables y acompañamiento experto en la isla. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "propietarios, compradores exigentes e inversores que necesitan criterio local",
+      "conversionGoal": "captación de propietarios y leads compradores",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de inmobiliaria reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "stacked-magazine",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "proof",
+        "gallery",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Valorar propiedad",
+      "secondaryCta": "Ver inmuebles"
+    },
+    "palette": [
+      "#2a1714",
+      "#fff7ef",
+      "#c7472f",
+      "#1d3130"
+    ]
+  },
+  {
+    "slug": "034-finca-clara",
+    "name": "Finca Clara",
+    "category": "Inmobiliaria local en Menorca",
+    "analysis": {
+      "targetPerception": "Finca Clara debe proyectar cartera selecta, discreción, datos fiables y acompañamiento experto en la isla. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "propietarios, compradores exigentes e inversores que necesitan criterio local",
+      "conversionGoal": "captación de propietarios y leads compradores",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de inmobiliaria reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "asymmetric-panel",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "proof",
+        "gallery",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Valorar propiedad",
+      "secondaryCta": "Ver inmuebles"
+    },
+    "palette": [
+      "#0e1713",
+      "#f3f1df",
+      "#93b76e",
+      "#e1b85f"
+    ]
+  },
+  {
+    "slug": "035-llar-971",
+    "name": "Llar 971",
+    "category": "Inmobiliaria local en Menorca",
+    "analysis": {
+      "targetPerception": "Llar 971 debe proyectar cartera selecta, discreción, datos fiables y acompañamiento experto en la isla. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "propietarios, compradores exigentes e inversores que necesitan criterio local",
+      "conversionGoal": "captación de propietarios y leads compradores",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de inmobiliaria reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "cinematic-minimal",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "proof",
+        "gallery",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Valorar propiedad",
+      "secondaryCta": "Ver inmuebles"
+    },
+    "palette": [
+      "#140f19",
+      "#f6eef8",
+      "#d08cf0",
+      "#9fd4d6"
+    ]
+  },
+  {
+    "slug": "036-obra-neta",
+    "name": "Obra Neta",
+    "category": "Reformas en Menorca",
+    "analysis": {
+      "targetPerception": "Obra Neta debe proyectar obra ordenada, acabados limpios, planificación transparente y solvencia técnica. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "propietarios de viviendas, locales y fincas que quieren una obra controlada",
+      "conversionGoal": "solicitud de visita técnica",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de estudio de reformas reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "service-dashboard",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "gallery",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar visita",
+      "secondaryCta": "Ver proyectos"
+    },
+    "palette": [
+      "#f5f1ea",
+      "#111315",
+      "#556b8e",
+      "#b08b57"
+    ]
+  },
+  {
+    "slug": "037-arc-i-calc",
+    "name": "Arc i Calç",
+    "category": "Reformas en Menorca",
+    "analysis": {
+      "targetPerception": "Arc i Calç debe proyectar obra ordenada, acabados limpios, planificación transparente y solvencia técnica. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "propietarios de viviendas, locales y fincas que quieren una obra controlada",
+      "conversionGoal": "solicitud de visita técnica",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de estudio de reformas reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "gallery-first",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "gallery",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar visita",
+      "secondaryCta": "Ver proyectos"
+    },
+    "palette": [
+      "#071616",
+      "#effaf8",
+      "#49c5b6",
+      "#f2c66d"
+    ]
+  },
+  {
+    "slug": "038-reforma-brava",
+    "name": "Reforma Brava",
+    "category": "Reformas en Menorca",
+    "analysis": {
+      "targetPerception": "Reforma Brava debe proyectar obra ordenada, acabados limpios, planificación transparente y solvencia técnica. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "propietarios de viviendas, locales y fincas que quieren una obra controlada",
+      "conversionGoal": "solicitud de visita técnica",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de estudio de reformas reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "luxury-letter",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "gallery",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar visita",
+      "secondaryCta": "Ver proyectos"
+    },
+    "palette": [
+      "#1d1b16",
+      "#fbf5e8",
+      "#c69c53",
+      "#49635a"
+    ]
+  },
+  {
+    "slug": "039-espai-nou",
+    "name": "Espai Nou",
+    "category": "Reformas en Menorca",
+    "analysis": {
+      "targetPerception": "Espai Nou debe proyectar obra ordenada, acabados limpios, planificación transparente y solvencia técnica. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "propietarios de viviendas, locales y fincas que quieren una obra controlada",
+      "conversionGoal": "solicitud de visita técnica",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de estudio de reformas reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "proof-led",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "gallery",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar visita",
+      "secondaryCta": "Ver proyectos"
+    },
+    "palette": [
+      "#101018",
+      "#f8f8ff",
+      "#ff6b6b",
+      "#64d2ff"
+    ]
+  },
+  {
+    "slug": "040-mestre-de-casa",
+    "name": "Mestre de Casa",
+    "category": "Reformas en Menorca",
+    "analysis": {
+      "targetPerception": "Mestre de Casa debe proyectar obra ordenada, acabados limpios, planificación transparente y solvencia técnica. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "propietarios de viviendas, locales y fincas que quieren una obra controlada",
+      "conversionGoal": "solicitud de visita técnica",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de estudio de reformas reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "booking-card",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "gallery",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar visita",
+      "secondaryCta": "Ver proyectos"
+    },
+    "palette": [
+      "#eef2ed",
+      "#172018",
+      "#6a8f5a",
+      "#b9563f"
+    ]
+  },
+  {
+    "slug": "041-urgent-24-menorca",
+    "name": "Urgent 24 Menorca",
+    "category": "Fontanería / electricidad en Menorca",
+    "analysis": {
+      "targetPerception": "Urgent 24 Menorca debe proyectar urgencia fiable, técnicos profesionales, claridad de precio y solución duradera. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "hogares, negocios y administradores que necesitan respuesta rápida y trabajo garantizado",
+      "conversionGoal": "llamada inmediata",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de servicio técnico reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "split-editorial",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Llamar ahora",
+      "secondaryCta": "Pedir presupuesto"
+    },
+    "palette": [
+      "#111111",
+      "#f7f1e8",
+      "#b76e3b",
+      "#24302a"
+    ]
+  },
+  {
+    "slug": "042-corrent-clar",
+    "name": "Corrent Clar",
+    "category": "Fontanería / electricidad en Menorca",
+    "analysis": {
+      "targetPerception": "Corrent Clar debe proyectar urgencia fiable, técnicos profesionales, claridad de precio y solución duradera. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "hogares, negocios y administradores que necesitan respuesta rápida y trabajo garantizado",
+      "conversionGoal": "llamada inmediata",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de servicio técnico reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "full-bleed-reserve",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Llamar ahora",
+      "secondaryCta": "Pedir presupuesto"
+    },
+    "palette": [
+      "#08111f",
+      "#f4f7fb",
+      "#68a6ff",
+      "#d9a441"
+    ]
+  },
+  {
+    "slug": "043-aigua-i-llum",
+    "name": "Aigua i Llum",
+    "category": "Fontanería / electricidad en Menorca",
+    "analysis": {
+      "targetPerception": "Aigua i Llum debe proyectar urgencia fiable, técnicos profesionales, claridad de precio y solución duradera. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "hogares, negocios y administradores que necesitan respuesta rápida y trabajo garantizado",
+      "conversionGoal": "llamada inmediata",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de servicio técnico reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "stacked-magazine",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Llamar ahora",
+      "secondaryCta": "Pedir presupuesto"
+    },
+    "palette": [
+      "#2a1714",
+      "#fff7ef",
+      "#c7472f",
+      "#1d3130"
+    ]
+  },
+  {
+    "slug": "044-punt-tecnic",
+    "name": "Punt Tècnic",
+    "category": "Fontanería / electricidad en Menorca",
+    "analysis": {
+      "targetPerception": "Punt Tècnic debe proyectar urgencia fiable, técnicos profesionales, claridad de precio y solución duradera. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "hogares, negocios y administradores que necesitan respuesta rápida y trabajo garantizado",
+      "conversionGoal": "llamada inmediata",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de servicio técnico reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "asymmetric-panel",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Llamar ahora",
+      "secondaryCta": "Pedir presupuesto"
+    },
+    "palette": [
+      "#0e1713",
+      "#f3f1df",
+      "#93b76e",
+      "#e1b85f"
+    ]
+  },
+  {
+    "slug": "045-electroport",
+    "name": "ElectroPort",
+    "category": "Fontanería / electricidad en Menorca",
+    "analysis": {
+      "targetPerception": "ElectroPort debe proyectar urgencia fiable, técnicos profesionales, claridad de precio y solución duradera. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "hogares, negocios y administradores que necesitan respuesta rápida y trabajo garantizado",
+      "conversionGoal": "llamada inmediata",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de servicio técnico reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "cinematic-minimal",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Llamar ahora",
+      "secondaryCta": "Pedir presupuesto"
+    },
+    "palette": [
+      "#140f19",
+      "#f6eef8",
+      "#d08cf0",
+      "#9fd4d6"
+    ]
+  },
+  {
+    "slug": "046-navega-nord",
+    "name": "Navega Nord",
+    "category": "Alquiler de barcos en Menorca",
+    "analysis": {
+      "targetPerception": "Navega Nord debe proyectar barcos cuidados, rutas exclusivas, patrón experto y experiencia premium sin complicaciones. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, parejas y grupos que quieren explorar calas con seguridad y estilo",
+      "conversionGoal": "reserva de salida",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de charter náutico reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "service-dashboard",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Reservar salida",
+      "secondaryCta": "Ver flota"
+    },
+    "palette": [
+      "#f5f1ea",
+      "#111315",
+      "#556b8e",
+      "#b08b57"
+    ]
+  },
+  {
+    "slug": "047-llaut-secret",
+    "name": "Llaüt Secret",
+    "category": "Alquiler de barcos en Menorca",
+    "analysis": {
+      "targetPerception": "Llaüt Secret debe proyectar barcos cuidados, rutas exclusivas, patrón experto y experiencia premium sin complicaciones. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, parejas y grupos que quieren explorar calas con seguridad y estilo",
+      "conversionGoal": "reserva de salida",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de charter náutico reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "gallery-first",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Reservar salida",
+      "secondaryCta": "Ver flota"
+    },
+    "palette": [
+      "#071616",
+      "#effaf8",
+      "#49c5b6",
+      "#f2c66d"
+    ]
+  },
+  {
+    "slug": "048-azul-38",
+    "name": "Azul 38",
+    "category": "Alquiler de barcos en Menorca",
+    "analysis": {
+      "targetPerception": "Azul 38 debe proyectar barcos cuidados, rutas exclusivas, patrón experto y experiencia premium sin complicaciones. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, parejas y grupos que quieren explorar calas con seguridad y estilo",
+      "conversionGoal": "reserva de salida",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de charter náutico reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "luxury-letter",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Reservar salida",
+      "secondaryCta": "Ver flota"
+    },
+    "palette": [
+      "#1d1b16",
+      "#fbf5e8",
+      "#c69c53",
+      "#49635a"
+    ]
+  },
+  {
+    "slug": "049-cala-privada",
+    "name": "Cala Privada",
+    "category": "Alquiler de barcos en Menorca",
+    "analysis": {
+      "targetPerception": "Cala Privada debe proyectar barcos cuidados, rutas exclusivas, patrón experto y experiencia premium sin complicaciones. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, parejas y grupos que quieren explorar calas con seguridad y estilo",
+      "conversionGoal": "reserva de salida",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de charter náutico reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "proof-led",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Reservar salida",
+      "secondaryCta": "Ver flota"
+    },
+    "palette": [
+      "#101018",
+      "#f8f8ff",
+      "#ff6b6b",
+      "#64d2ff"
+    ]
+  },
+  {
+    "slug": "050-vent-de-ponent",
+    "name": "Vent de Ponent",
+    "category": "Alquiler de barcos en Menorca",
+    "analysis": {
+      "targetPerception": "Vent de Ponent debe proyectar barcos cuidados, rutas exclusivas, patrón experto y experiencia premium sin complicaciones. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, parejas y grupos que quieren explorar calas con seguridad y estilo",
+      "conversionGoal": "reserva de salida",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de charter náutico reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "booking-card",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Reservar salida",
+      "secondaryCta": "Ver flota"
+    },
+    "palette": [
+      "#eef2ed",
+      "#172018",
+      "#6a8f5a",
+      "#b9563f"
+    ]
+  },
+  {
+    "slug": "051-cami-viu",
+    "name": "Camí Viu",
+    "category": "Excursiones turísticas en Menorca",
+    "analysis": {
+      "targetPerception": "Camí Viu debe proyectar rutas auténticas, guías expertos, grupos cuidados y una Menorca menos obvia. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "viajeros curiosos, familias y grupos que quieren conocer la isla con contexto",
+      "conversionGoal": "reserva de excursión",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de experiencia guiada reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "split-editorial",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Elegir ruta",
+      "secondaryCta": "Calendario"
+    },
+    "palette": [
+      "#111111",
+      "#f7f1e8",
+      "#b76e3b",
+      "#24302a"
+    ]
+  },
+  {
+    "slug": "052-menorca-oculta",
+    "name": "Menorca Oculta",
+    "category": "Excursiones turísticas en Menorca",
+    "analysis": {
+      "targetPerception": "Menorca Oculta debe proyectar rutas auténticas, guías expertos, grupos cuidados y una Menorca menos obvia. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "viajeros curiosos, familias y grupos que quieren conocer la isla con contexto",
+      "conversionGoal": "reserva de excursión",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de experiencia guiada reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "full-bleed-reserve",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Elegir ruta",
+      "secondaryCta": "Calendario"
+    },
+    "palette": [
+      "#08111f",
+      "#f4f7fb",
+      "#68a6ff",
+      "#d9a441"
+    ]
+  },
+  {
+    "slug": "053-far-tours",
+    "name": "Far Tours",
+    "category": "Excursiones turísticas en Menorca",
+    "analysis": {
+      "targetPerception": "Far Tours debe proyectar rutas auténticas, guías expertos, grupos cuidados y una Menorca menos obvia. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "viajeros curiosos, familias y grupos que quieren conocer la isla con contexto",
+      "conversionGoal": "reserva de excursión",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de experiencia guiada reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "stacked-magazine",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Elegir ruta",
+      "secondaryCta": "Calendario"
+    },
+    "palette": [
+      "#2a1714",
+      "#fff7ef",
+      "#c7472f",
+      "#1d3130"
+    ]
+  },
+  {
+    "slug": "054-arrels-experience",
+    "name": "Arrels Experience",
+    "category": "Excursiones turísticas en Menorca",
+    "analysis": {
+      "targetPerception": "Arrels Experience debe proyectar rutas auténticas, guías expertos, grupos cuidados y una Menorca menos obvia. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "viajeros curiosos, familias y grupos que quieren conocer la isla con contexto",
+      "conversionGoal": "reserva de excursión",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de experiencia guiada reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "asymmetric-panel",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Elegir ruta",
+      "secondaryCta": "Calendario"
+    },
+    "palette": [
+      "#0e1713",
+      "#f3f1df",
+      "#93b76e",
+      "#e1b85f"
+    ]
+  },
+  {
+    "slug": "055-ruta-salvatge",
+    "name": "Ruta Salvatge",
+    "category": "Excursiones turísticas en Menorca",
+    "analysis": {
+      "targetPerception": "Ruta Salvatge debe proyectar rutas auténticas, guías expertos, grupos cuidados y una Menorca menos obvia. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "viajeros curiosos, familias y grupos que quieren conocer la isla con contexto",
+      "conversionGoal": "reserva de excursión",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de experiencia guiada reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "cinematic-minimal",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Elegir ruta",
+      "secondaryCta": "Calendario"
+    },
+    "palette": [
+      "#140f19",
+      "#f6eef8",
+      "#d08cf0",
+      "#9fd4d6"
+    ]
+  },
+  {
+    "slug": "056-son-quiet",
+    "name": "Son Quiet",
+    "category": "Agroturismo / alojamiento en Menorca",
+    "analysis": {
+      "targetPerception": "Son Quiet debe proyectar alojamiento boutique, calma rural, desayuno memorable y hospitalidad mediterránea. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, familias y viajeros que buscan descanso con estética, silencio y servicio cuidado",
+      "conversionGoal": "consulta de disponibilidad",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de agroturismo reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "service-dashboard",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Consultar disponibilidad",
+      "secondaryCta": "Ver estancias"
+    },
+    "palette": [
+      "#f5f1ea",
+      "#111315",
+      "#556b8e",
+      "#b08b57"
+    ]
+  },
+  {
+    "slug": "057-finca-estrella",
+    "name": "Finca Estrella",
+    "category": "Agroturismo / alojamiento en Menorca",
+    "analysis": {
+      "targetPerception": "Finca Estrella debe proyectar alojamiento boutique, calma rural, desayuno memorable y hospitalidad mediterránea. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, familias y viajeros que buscan descanso con estética, silencio y servicio cuidado",
+      "conversionGoal": "consulta de disponibilidad",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de agroturismo reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "gallery-first",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Consultar disponibilidad",
+      "secondaryCta": "Ver estancias"
+    },
+    "palette": [
+      "#071616",
+      "#effaf8",
+      "#49c5b6",
+      "#f2c66d"
+    ]
+  },
+  {
+    "slug": "058-era-de-llum",
+    "name": "Era de Llum",
+    "category": "Agroturismo / alojamiento en Menorca",
+    "analysis": {
+      "targetPerception": "Era de Llum debe proyectar alojamiento boutique, calma rural, desayuno memorable y hospitalidad mediterránea. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, familias y viajeros que buscan descanso con estética, silencio y servicio cuidado",
+      "conversionGoal": "consulta de disponibilidad",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de agroturismo reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "luxury-letter",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Consultar disponibilidad",
+      "secondaryCta": "Ver estancias"
+    },
+    "palette": [
+      "#1d1b16",
+      "#fbf5e8",
+      "#c69c53",
+      "#49635a"
+    ]
+  },
+  {
+    "slug": "059-cases-del-cami",
+    "name": "Cases del Camí",
+    "category": "Agroturismo / alojamiento en Menorca",
+    "analysis": {
+      "targetPerception": "Cases del Camí debe proyectar alojamiento boutique, calma rural, desayuno memorable y hospitalidad mediterránea. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, familias y viajeros que buscan descanso con estética, silencio y servicio cuidado",
+      "conversionGoal": "consulta de disponibilidad",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de agroturismo reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "proof-led",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Consultar disponibilidad",
+      "secondaryCta": "Ver estancias"
+    },
+    "palette": [
+      "#101018",
+      "#f8f8ff",
+      "#ff6b6b",
+      "#64d2ff"
+    ]
+  },
+  {
+    "slug": "060-refugi-blau",
+    "name": "Refugi Blau",
+    "category": "Agroturismo / alojamiento en Menorca",
+    "analysis": {
+      "targetPerception": "Refugi Blau debe proyectar alojamiento boutique, calma rural, desayuno memorable y hospitalidad mediterránea. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, familias y viajeros que buscan descanso con estética, silencio y servicio cuidado",
+      "conversionGoal": "consulta de disponibilidad",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de agroturismo reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "booking-card",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Consultar disponibilidad",
+      "secondaryCta": "Ver estancias"
+    },
+    "palette": [
+      "#eef2ed",
+      "#172018",
+      "#6a8f5a",
+      "#b9563f"
+    ]
+  },
+  {
+    "slug": "061-botiga-sargantana",
+    "name": "Botiga Sargantana",
+    "category": "Tienda local en Menorca",
+    "analysis": {
+      "targetPerception": "Botiga Sargantana debe proyectar selección curada, objetos con historia, atención experta y estética memorable. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "residentes y visitantes que compran producto con identidad, regalo y diseño",
+      "conversionGoal": "visita a tienda y compra",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de concept store reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "split-editorial",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Ver selección",
+      "secondaryCta": "Visitar tienda"
+    },
+    "palette": [
+      "#111111",
+      "#f7f1e8",
+      "#b76e3b",
+      "#24302a"
+    ]
+  },
+  {
+    "slug": "062-mercat-petit",
+    "name": "Mercat Petit",
+    "category": "Tienda local en Menorca",
+    "analysis": {
+      "targetPerception": "Mercat Petit debe proyectar selección curada, objetos con historia, atención experta y estética memorable. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "residentes y visitantes que compran producto con identidad, regalo y diseño",
+      "conversionGoal": "visita a tienda y compra",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de concept store reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "full-bleed-reserve",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Ver selección",
+      "secondaryCta": "Visitar tienda"
+    },
+    "palette": [
+      "#08111f",
+      "#f4f7fb",
+      "#68a6ff",
+      "#d9a441"
+    ]
+  },
+  {
+    "slug": "063-fil-de-mar",
+    "name": "Fil de Mar",
+    "category": "Tienda local en Menorca",
+    "analysis": {
+      "targetPerception": "Fil de Mar debe proyectar selección curada, objetos con historia, atención experta y estética memorable. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "residentes y visitantes que compran producto con identidad, regalo y diseño",
+      "conversionGoal": "visita a tienda y compra",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de concept store reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "stacked-magazine",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Ver selección",
+      "secondaryCta": "Visitar tienda"
+    },
+    "palette": [
+      "#2a1714",
+      "#fff7ef",
+      "#c7472f",
+      "#1d3130"
+    ]
+  },
+  {
+    "slug": "064-objectes-bons",
+    "name": "Objectes Bons",
+    "category": "Tienda local en Menorca",
+    "analysis": {
+      "targetPerception": "Objectes Bons debe proyectar selección curada, objetos con historia, atención experta y estética memorable. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "residentes y visitantes que compran producto con identidad, regalo y diseño",
+      "conversionGoal": "visita a tienda y compra",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de concept store reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "asymmetric-panel",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Ver selección",
+      "secondaryCta": "Visitar tienda"
+    },
+    "palette": [
+      "#0e1713",
+      "#f3f1df",
+      "#93b76e",
+      "#e1b85f"
+    ]
+  },
+  {
+    "slug": "065-xaloc-artesa",
+    "name": "Xaloc Artesà",
+    "category": "Tienda local en Menorca",
+    "analysis": {
+      "targetPerception": "Xaloc Artesà debe proyectar selección curada, objetos con historia, atención experta y estética memorable. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "residentes y visitantes que compran producto con identidad, regalo y diseño",
+      "conversionGoal": "visita a tienda y compra",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de concept store reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "cinematic-minimal",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Ver selección",
+      "secondaryCta": "Visitar tienda"
+    },
+    "palette": [
+      "#140f19",
+      "#f6eef8",
+      "#d08cf0",
+      "#9fd4d6"
+    ]
+  },
+  {
+    "slug": "066-clinica-dens",
+    "name": "Clínica Dens",
+    "category": "Clínica dental en Menorca",
+    "analysis": {
+      "targetPerception": "Clínica Dens debe proyectar odontología avanzada, diagnóstico visual, equipo experto y clínica serena. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, adultos y pacientes que buscan confianza, tecnología y trato tranquilo",
+      "conversionGoal": "primera visita",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de clínica dental reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "service-dashboard",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "team",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir primera visita",
+      "secondaryCta": "Tratamientos"
+    },
+    "palette": [
+      "#f5f1ea",
+      "#111315",
+      "#556b8e",
+      "#b08b57"
+    ]
+  },
+  {
+    "slug": "067-somriure-nord",
+    "name": "Somriure Nord",
+    "category": "Clínica dental en Menorca",
+    "analysis": {
+      "targetPerception": "Somriure Nord debe proyectar odontología avanzada, diagnóstico visual, equipo experto y clínica serena. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, adultos y pacientes que buscan confianza, tecnología y trato tranquilo",
+      "conversionGoal": "primera visita",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de clínica dental reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "gallery-first",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "team",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir primera visita",
+      "secondaryCta": "Tratamientos"
+    },
+    "palette": [
+      "#071616",
+      "#effaf8",
+      "#49c5b6",
+      "#f2c66d"
+    ]
+  },
+  {
+    "slug": "068-dental-calma",
+    "name": "Dental Calma",
+    "category": "Clínica dental en Menorca",
+    "analysis": {
+      "targetPerception": "Dental Calma debe proyectar odontología avanzada, diagnóstico visual, equipo experto y clínica serena. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, adultos y pacientes que buscan confianza, tecnología y trato tranquilo",
+      "conversionGoal": "primera visita",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de clínica dental reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "luxury-letter",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "team",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir primera visita",
+      "secondaryCta": "Tratamientos"
+    },
+    "palette": [
+      "#1d1b16",
+      "#fbf5e8",
+      "#c69c53",
+      "#49635a"
+    ]
+  },
+  {
+    "slug": "069-oral-360",
+    "name": "Oral 360",
+    "category": "Clínica dental en Menorca",
+    "analysis": {
+      "targetPerception": "Oral 360 debe proyectar odontología avanzada, diagnóstico visual, equipo experto y clínica serena. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, adultos y pacientes que buscan confianza, tecnología y trato tranquilo",
+      "conversionGoal": "primera visita",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de clínica dental reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "proof-led",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "team",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir primera visita",
+      "secondaryCta": "Tratamientos"
+    },
+    "palette": [
+      "#101018",
+      "#f8f8ff",
+      "#ff6b6b",
+      "#64d2ff"
+    ]
+  },
+  {
+    "slug": "070-blanc-menorca",
+    "name": "Blanc Menorca",
+    "category": "Clínica dental en Menorca",
+    "analysis": {
+      "targetPerception": "Blanc Menorca debe proyectar odontología avanzada, diagnóstico visual, equipo experto y clínica serena. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, adultos y pacientes que buscan confianza, tecnología y trato tranquilo",
+      "conversionGoal": "primera visita",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de clínica dental reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "booking-card",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "team",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir primera visita",
+      "secondaryCta": "Tratamientos"
+    },
+    "palette": [
+      "#eef2ed",
+      "#172018",
+      "#6a8f5a",
+      "#b9563f"
+    ]
+  },
+  {
+    "slug": "071-aula-bruixola",
+    "name": "Aula Brúixola",
+    "category": "Academia en Menorca",
+    "analysis": {
+      "targetPerception": "Aula Brúixola debe proyectar método estructurado, profesores cercanos, objetivos claros y comunicación constante. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, estudiantes y adultos que buscan progreso medible y seguimiento",
+      "conversionGoal": "solicitud de plaza",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de academia reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "split-editorial",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar plaza",
+      "secondaryCta": "Ver cursos"
+    },
+    "palette": [
+      "#111111",
+      "#f7f1e8",
+      "#b76e3b",
+      "#24302a"
+    ]
+  },
+  {
+    "slug": "072-petit-progres",
+    "name": "Petit Progrés",
+    "category": "Academia en Menorca",
+    "analysis": {
+      "targetPerception": "Petit Progrés debe proyectar método estructurado, profesores cercanos, objetivos claros y comunicación constante. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, estudiantes y adultos que buscan progreso medible y seguimiento",
+      "conversionGoal": "solicitud de plaza",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de academia reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "full-bleed-reserve",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar plaza",
+      "secondaryCta": "Ver cursos"
+    },
+    "palette": [
+      "#08111f",
+      "#f4f7fb",
+      "#68a6ff",
+      "#d9a441"
+    ]
+  },
+  {
+    "slug": "073-nivell-nord",
+    "name": "Nivell Nord",
+    "category": "Academia en Menorca",
+    "analysis": {
+      "targetPerception": "Nivell Nord debe proyectar método estructurado, profesores cercanos, objetivos claros y comunicación constante. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, estudiantes y adultos que buscan progreso medible y seguimiento",
+      "conversionGoal": "solicitud de plaza",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de academia reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "stacked-magazine",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar plaza",
+      "secondaryCta": "Ver cursos"
+    },
+    "palette": [
+      "#2a1714",
+      "#fff7ef",
+      "#c7472f",
+      "#1d3130"
+    ]
+  },
+  {
+    "slug": "074-idiomes-xaloc",
+    "name": "Idiomes Xaloc",
+    "category": "Academia en Menorca",
+    "analysis": {
+      "targetPerception": "Idiomes Xaloc debe proyectar método estructurado, profesores cercanos, objetivos claros y comunicación constante. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, estudiantes y adultos que buscan progreso medible y seguimiento",
+      "conversionGoal": "solicitud de plaza",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de academia reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "asymmetric-panel",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar plaza",
+      "secondaryCta": "Ver cursos"
+    },
+    "palette": [
+      "#0e1713",
+      "#f3f1df",
+      "#93b76e",
+      "#e1b85f"
+    ]
+  },
+  {
+    "slug": "075-academia-prisma",
+    "name": "Acadèmia Prisma",
+    "category": "Academia en Menorca",
+    "analysis": {
+      "targetPerception": "Acadèmia Prisma debe proyectar método estructurado, profesores cercanos, objetivos claros y comunicación constante. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "familias, estudiantes y adultos que buscan progreso medible y seguimiento",
+      "conversionGoal": "solicitud de plaza",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de academia reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "cinematic-minimal",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar plaza",
+      "secondaryCta": "Ver cursos"
+    },
+    "palette": [
+      "#140f19",
+      "#f6eef8",
+      "#d08cf0",
+      "#9fd4d6"
+    ]
+  },
+  {
+    "slug": "076-volant-nord",
+    "name": "Volant Nord",
+    "category": "Autoescuela en Menorca",
+    "analysis": {
+      "targetPerception": "Volant Nord debe proyectar formación moderna, profesores pacientes, tecnología útil y progreso visible. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "jóvenes, adultos y conductores que quieren aprobar con seguridad y horarios claros",
+      "conversionGoal": "alta de alumno",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de autoescuela reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "service-dashboard",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Apuntarme",
+      "secondaryCta": "Ver permisos"
+    },
+    "palette": [
+      "#f5f1ea",
+      "#111315",
+      "#556b8e",
+      "#b08b57"
+    ]
+  },
+  {
+    "slug": "077-autoescola-ronda",
+    "name": "Autoescola Ronda",
+    "category": "Autoescuela en Menorca",
+    "analysis": {
+      "targetPerception": "Autoescola Ronda debe proyectar formación moderna, profesores pacientes, tecnología útil y progreso visible. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "jóvenes, adultos y conductores que quieren aprobar con seguridad y horarios claros",
+      "conversionGoal": "alta de alumno",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de autoescuela reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "gallery-first",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Apuntarme",
+      "secondaryCta": "Ver permisos"
+    },
+    "palette": [
+      "#071616",
+      "#effaf8",
+      "#49c5b6",
+      "#f2c66d"
+    ]
+  },
+  {
+    "slug": "078-km-zero",
+    "name": "Km Zero",
+    "category": "Autoescuela en Menorca",
+    "analysis": {
+      "targetPerception": "Km Zero debe proyectar formación moderna, profesores pacientes, tecnología útil y progreso visible. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "jóvenes, adultos y conductores que quieren aprobar con seguridad y horarios claros",
+      "conversionGoal": "alta de alumno",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de autoescuela reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "luxury-letter",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Apuntarme",
+      "secondaryCta": "Ver permisos"
+    },
+    "palette": [
+      "#1d1b16",
+      "#fbf5e8",
+      "#c69c53",
+      "#49635a"
+    ]
+  },
+  {
+    "slug": "079-ruta-segura",
+    "name": "Ruta Segura",
+    "category": "Autoescuela en Menorca",
+    "analysis": {
+      "targetPerception": "Ruta Segura debe proyectar formación moderna, profesores pacientes, tecnología útil y progreso visible. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "jóvenes, adultos y conductores que quieren aprobar con seguridad y horarios claros",
+      "conversionGoal": "alta de alumno",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de autoescuela reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "proof-led",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Apuntarme",
+      "secondaryCta": "Ver permisos"
+    },
+    "palette": [
+      "#101018",
+      "#f8f8ff",
+      "#ff6b6b",
+      "#64d2ff"
+    ]
+  },
+  {
+    "slug": "080-conduir-be",
+    "name": "Conduir Bé",
+    "category": "Autoescuela en Menorca",
+    "analysis": {
+      "targetPerception": "Conduir Bé debe proyectar formación moderna, profesores pacientes, tecnología útil y progreso visible. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "jóvenes, adultos y conductores que quieren aprobar con seguridad y horarios claros",
+      "conversionGoal": "alta de alumno",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de autoescuela reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "booking-card",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Apuntarme",
+      "secondaryCta": "Ver permisos"
+    },
+    "palette": [
+      "#eef2ed",
+      "#172018",
+      "#6a8f5a",
+      "#b9563f"
+    ]
+  },
+  {
+    "slug": "081-llum-nomada",
+    "name": "Llum Nòmada",
+    "category": "Fotografía en Menorca",
+    "analysis": {
+      "targetPerception": "Llum Nòmada debe proyectar dirección artística, luz cuidada, edición premium y experiencia fluida. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, marcas y familias que quieren imágenes elegantes, humanas y memorables",
+      "conversionGoal": "consulta de fecha",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de estudio de fotografía reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "split-editorial",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Consultar fecha",
+      "secondaryCta": "Ver portfolio"
+    },
+    "palette": [
+      "#111111",
+      "#f7f1e8",
+      "#b76e3b",
+      "#24302a"
+    ]
+  },
+  {
+    "slug": "082-frame-salat",
+    "name": "Frame Salat",
+    "category": "Fotografía en Menorca",
+    "analysis": {
+      "targetPerception": "Frame Salat debe proyectar dirección artística, luz cuidada, edición premium y experiencia fluida. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, marcas y familias que quieren imágenes elegantes, humanas y memorables",
+      "conversionGoal": "consulta de fecha",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de estudio de fotografía reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "full-bleed-reserve",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Consultar fecha",
+      "secondaryCta": "Ver portfolio"
+    },
+    "palette": [
+      "#08111f",
+      "#f4f7fb",
+      "#68a6ff",
+      "#d9a441"
+    ]
+  },
+  {
+    "slug": "083-boda-viva",
+    "name": "Boda Viva",
+    "category": "Fotografía en Menorca",
+    "analysis": {
+      "targetPerception": "Boda Viva debe proyectar dirección artística, luz cuidada, edición premium y experiencia fluida. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, marcas y familias que quieren imágenes elegantes, humanas y memorables",
+      "conversionGoal": "consulta de fecha",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de estudio de fotografía reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "stacked-magazine",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Consultar fecha",
+      "secondaryCta": "Ver portfolio"
+    },
+    "palette": [
+      "#2a1714",
+      "#fff7ef",
+      "#c7472f",
+      "#1d3130"
+    ]
+  },
+  {
+    "slug": "084-retrat-nord",
+    "name": "Retrat Nord",
+    "category": "Fotografía en Menorca",
+    "analysis": {
+      "targetPerception": "Retrat Nord debe proyectar dirección artística, luz cuidada, edición premium y experiencia fluida. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, marcas y familias que quieren imágenes elegantes, humanas y memorables",
+      "conversionGoal": "consulta de fecha",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de estudio de fotografía reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "asymmetric-panel",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Consultar fecha",
+      "secondaryCta": "Ver portfolio"
+    },
+    "palette": [
+      "#0e1713",
+      "#f3f1df",
+      "#93b76e",
+      "#e1b85f"
+    ]
+  },
+  {
+    "slug": "085-studio-cala",
+    "name": "Studio Cala",
+    "category": "Fotografía en Menorca",
+    "analysis": {
+      "targetPerception": "Studio Cala debe proyectar dirección artística, luz cuidada, edición premium y experiencia fluida. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, marcas y familias que quieren imágenes elegantes, humanas y memorables",
+      "conversionGoal": "consulta de fecha",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de estudio de fotografía reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "cinematic-minimal",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Consultar fecha",
+      "secondaryCta": "Ver portfolio"
+    },
+    "palette": [
+      "#140f19",
+      "#f6eef8",
+      "#d08cf0",
+      "#9fd4d6"
+    ]
+  },
+  {
+    "slug": "086-motor-clar",
+    "name": "Motor Clar",
+    "category": "Taller mecánico en Menorca",
+    "analysis": {
+      "targetPerception": "Motor Clar debe proyectar taller moderno, transparencia, puntualidad y reparación fiable. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "conductores, flotas pequeñas y amantes del coche que quieren diagnóstico honesto",
+      "conversionGoal": "cita de taller",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de taller reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "service-dashboard",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir cita",
+      "secondaryCta": "Servicios"
+    },
+    "palette": [
+      "#f5f1ea",
+      "#111315",
+      "#556b8e",
+      "#b08b57"
+    ]
+  },
+  {
+    "slug": "087-garaje-nord",
+    "name": "Garaje Nord",
+    "category": "Taller mecánico en Menorca",
+    "analysis": {
+      "targetPerception": "Garaje Nord debe proyectar taller moderno, transparencia, puntualidad y reparación fiable. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "conductores, flotas pequeñas y amantes del coche que quieren diagnóstico honesto",
+      "conversionGoal": "cita de taller",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de taller reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "gallery-first",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir cita",
+      "secondaryCta": "Servicios"
+    },
+    "palette": [
+      "#071616",
+      "#effaf8",
+      "#49c5b6",
+      "#f2c66d"
+    ]
+  },
+  {
+    "slug": "088-roda-fina",
+    "name": "Roda Fina",
+    "category": "Taller mecánico en Menorca",
+    "analysis": {
+      "targetPerception": "Roda Fina debe proyectar taller moderno, transparencia, puntualidad y reparación fiable. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "conductores, flotas pequeñas y amantes del coche que quieren diagnóstico honesto",
+      "conversionGoal": "cita de taller",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de taller reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "luxury-letter",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir cita",
+      "secondaryCta": "Servicios"
+    },
+    "palette": [
+      "#1d1b16",
+      "#fbf5e8",
+      "#c69c53",
+      "#49635a"
+    ]
+  },
+  {
+    "slug": "089-taller-360",
+    "name": "Taller 360",
+    "category": "Taller mecánico en Menorca",
+    "analysis": {
+      "targetPerception": "Taller 360 debe proyectar taller moderno, transparencia, puntualidad y reparación fiable. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "conductores, flotas pequeñas y amantes del coche que quieren diagnóstico honesto",
+      "conversionGoal": "cita de taller",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de taller reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "proof-led",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir cita",
+      "secondaryCta": "Servicios"
+    },
+    "palette": [
+      "#101018",
+      "#f8f8ff",
+      "#ff6b6b",
+      "#64d2ff"
+    ]
+  },
+  {
+    "slug": "090-classics-menorca",
+    "name": "Clàssics Menorca",
+    "category": "Taller mecánico en Menorca",
+    "analysis": {
+      "targetPerception": "Clàssics Menorca debe proyectar taller moderno, transparencia, puntualidad y reparación fiable. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "conductores, flotas pequeñas y amantes del coche que quieren diagnóstico honesto",
+      "conversionGoal": "cita de taller",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de taller reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "booking-card",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "location",
+        "faq"
+      ],
+      "primaryCta": "Pedir cita",
+      "secondaryCta": "Servicios"
+    },
+    "palette": [
+      "#eef2ed",
+      "#172018",
+      "#6a8f5a",
+      "#b9563f"
+    ]
+  },
+  {
+    "slug": "091-net-i-punt",
+    "name": "Net i Punt",
+    "category": "Limpieza / mantenimiento en Menorca",
+    "analysis": {
+      "targetPerception": "Net i Punt debe proyectar equipo profesional, procesos visibles, puntualidad y resultados constantes. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "villas, comunidades, oficinas y negocios que necesitan confianza operativa",
+      "conversionGoal": "presupuesto de servicio",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de empresa de mantenimiento reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "split-editorial",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar presupuesto",
+      "secondaryCta": "Ver servicios"
+    },
+    "palette": [
+      "#111111",
+      "#f7f1e8",
+      "#b76e3b",
+      "#24302a"
+    ]
+  },
+  {
+    "slug": "092-brilla-nord",
+    "name": "Brilla Nord",
+    "category": "Limpieza / mantenimiento en Menorca",
+    "analysis": {
+      "targetPerception": "Brilla Nord debe proyectar equipo profesional, procesos visibles, puntualidad y resultados constantes. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "villas, comunidades, oficinas y negocios que necesitan confianza operativa",
+      "conversionGoal": "presupuesto de servicio",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de empresa de mantenimiento reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "full-bleed-reserve",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar presupuesto",
+      "secondaryCta": "Ver servicios"
+    },
+    "palette": [
+      "#08111f",
+      "#f4f7fb",
+      "#68a6ff",
+      "#d9a441"
+    ]
+  },
+  {
+    "slug": "093-manteniment-blau",
+    "name": "Manteniment Blau",
+    "category": "Limpieza / mantenimiento en Menorca",
+    "analysis": {
+      "targetPerception": "Manteniment Blau debe proyectar equipo profesional, procesos visibles, puntualidad y resultados constantes. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "villas, comunidades, oficinas y negocios que necesitan confianza operativa",
+      "conversionGoal": "presupuesto de servicio",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de empresa de mantenimiento reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "stacked-magazine",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar presupuesto",
+      "secondaryCta": "Ver servicios"
+    },
+    "palette": [
+      "#2a1714",
+      "#fff7ef",
+      "#c7472f",
+      "#1d3130"
+    ]
+  },
+  {
+    "slug": "094-equip-finca",
+    "name": "Equip Finca",
+    "category": "Limpieza / mantenimiento en Menorca",
+    "analysis": {
+      "targetPerception": "Equip Finca debe proyectar equipo profesional, procesos visibles, puntualidad y resultados constantes. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "villas, comunidades, oficinas y negocios que necesitan confianza operativa",
+      "conversionGoal": "presupuesto de servicio",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de empresa de mantenimiento reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "asymmetric-panel",
+      "sections": [
+        "signature",
+        "proof",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages"
+      ],
+      "primaryCta": "Solicitar presupuesto",
+      "secondaryCta": "Ver servicios"
+    },
+    "palette": [
+      "#0e1713",
+      "#f3f1df",
+      "#93b76e",
+      "#e1b85f"
+    ]
+  },
+  {
+    "slug": "095-cristall-971",
+    "name": "Cristall 971",
+    "category": "Limpieza / mantenimiento en Menorca",
+    "analysis": {
+      "targetPerception": "Cristall 971 debe proyectar equipo profesional, procesos visibles, puntualidad y resultados constantes. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "villas, comunidades, oficinas y negocios que necesitan confianza operativa",
+      "conversionGoal": "presupuesto de servicio",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de empresa de mantenimiento reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "cinematic-minimal",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "process",
+        "proof",
+        "packages",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Solicitar presupuesto",
+      "secondaryCta": "Ver servicios"
+    },
+    "palette": [
+      "#140f19",
+      "#f6eef8",
+      "#d08cf0",
+      "#9fd4d6"
+    ]
+  },
+  {
+    "slug": "096-nits-de-llum",
+    "name": "Nits de Llum",
+    "category": "Eventos en Menorca",
+    "analysis": {
+      "targetPerception": "Nits de Llum debe proyectar producción elegante, coordinación total, proveedores premium y ejecución tranquila. La marca debe sentirse como una marca de referencia, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, empresas y anfitriones que quieren un evento impecable sin cargar con la logística",
+      "conversionGoal": "brief de evento",
+      "visualDirection": "editorial sobrio con módulos amplios y una navegación muy limpia",
+      "imageCriteria": "Imágenes de productora de eventos reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "service-dashboard",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Contar el evento",
+      "secondaryCta": "Ver formatos"
+    },
+    "palette": [
+      "#f5f1ea",
+      "#111315",
+      "#556b8e",
+      "#b08b57"
+    ]
+  },
+  {
+    "slug": "097-taula-festa",
+    "name": "Taula Festa",
+    "category": "Eventos en Menorca",
+    "analysis": {
+      "targetPerception": "Taula Festa debe proyectar producción elegante, coordinación total, proveedores premium y ejecución tranquila. La marca debe sentirse como una experiencia boutique, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, empresas y anfitriones que quieren un evento impecable sin cargar con la logística",
+      "conversionGoal": "brief de evento",
+      "visualDirection": "premium cinematográfico con imágenes grandes, datos de confianza y reserva visible",
+      "imageCriteria": "Imágenes de productora de eventos reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "gallery-first",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Contar el evento",
+      "secondaryCta": "Ver formatos"
+    },
+    "palette": [
+      "#071616",
+      "#effaf8",
+      "#49c5b6",
+      "#f2c66d"
+    ]
+  },
+  {
+    "slug": "098-cerimonia-sal",
+    "name": "Cerimònia Sal",
+    "category": "Eventos en Menorca",
+    "analysis": {
+      "targetPerception": "Cerimònia Sal debe proyectar producción elegante, coordinación total, proveedores premium y ejecución tranquila. La marca debe sentirse como una propuesta de servicio privado, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, empresas y anfitriones que quieren un evento impecable sin cargar con la logística",
+      "conversionGoal": "brief de evento",
+      "visualDirection": "sistema boutique con bloques compactos, prueba social y llamadas a la acción rápidas",
+      "imageCriteria": "Imágenes de productora de eventos reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "luxury-letter",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Contar el evento",
+      "secondaryCta": "Ver formatos"
+    },
+    "palette": [
+      "#1d1b16",
+      "#fbf5e8",
+      "#c69c53",
+      "#49635a"
+    ]
+  },
+  {
+    "slug": "099-escena-menorca",
+    "name": "Escena Menorca",
+    "category": "Eventos en Menorca",
+    "analysis": {
+      "targetPerception": "Escena Menorca debe proyectar producción elegante, coordinación total, proveedores premium y ejecución tranquila. La marca debe sentirse como una operativa de alto rendimiento, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, empresas y anfitriones que quieren un evento impecable sin cargar con la logística",
+      "conversionGoal": "brief de evento",
+      "visualDirection": "experiencia de marca madura, jerarquía clara y detalles visuales de alto valor",
+      "imageCriteria": "Imágenes de productora de eventos reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "proof-led",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Contar el evento",
+      "secondaryCta": "Ver formatos"
+    },
+    "palette": [
+      "#101018",
+      "#f8f8ff",
+      "#ff6b6b",
+      "#64d2ff"
+    ]
+  },
+  {
+    "slug": "100-moments-971",
+    "name": "Moments 971",
+    "category": "Eventos en Menorca",
+    "analysis": {
+      "targetPerception": "Moments 971 debe proyectar producción elegante, coordinación total, proveedores premium y ejecución tranquila. La marca debe sentirse como una firma contemporánea, con seguridad operativa y un acabado visual propio de un negocio consolidado.",
+      "audience": "parejas, empresas y anfitriones que quieren un evento impecable sin cargar con la logística",
+      "conversionGoal": "brief de evento",
+      "visualDirection": "web de captación directa con argumentos ordenados, servicios claros y cierre fuerte",
+      "imageCriteria": "Imágenes de productora de eventos reales o aspiracionales: espacios, producto, equipo y detalle de servicio. Deben aportar confianza inmediata, no decoración genérica."
+    },
+    "structure": {
+      "hero": "booking-card",
+      "sections": [
+        "signature",
+        "specific",
+        "services",
+        "packages",
+        "gallery",
+        "proof",
+        "team",
+        "faq"
+      ],
+      "primaryCta": "Contar el evento",
+      "secondaryCta": "Ver formatos"
+    },
+    "palette": [
+      "#eef2ed",
+      "#172018",
+      "#6a8f5a",
+      "#b9563f"
+    ]
+  }
+]

@@ -1,0 +1,1002 @@
+[
+  {
+    "number": 1,
+    "slug": "001-brasa-fosca",
+    "name": "Brasa Fosca",
+    "category": "Restaurante en Menorca",
+    "title": "Brasa Fosca · Restaurante en Menorca",
+    "description": "reserva una mesa con cocina de mercado, servicio atento y una carta pensada para repetir",
+    "heroImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/001-brasa-fosca.png"
+  },
+  {
+    "number": 2,
+    "slug": "002-taula-de-llevant",
+    "name": "Taula de Llevant",
+    "category": "Restaurante en Menorca",
+    "title": "Taula de Llevant · Restaurante en Menorca",
+    "description": "reserva una mesa con cocina de mercado, servicio atento y una carta pensada para repetir",
+    "heroImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/002-taula-de-llevant.png"
+  },
+  {
+    "number": 3,
+    "slug": "003-sa-llotja-vermella",
+    "name": "Sa Llotja Vermella",
+    "category": "Restaurante en Menorca",
+    "title": "Sa Llotja Vermella · Restaurante en Menorca",
+    "description": "reserva una mesa con cocina de mercado, servicio atento y una carta pensada para repetir",
+    "heroImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/003-sa-llotja-vermella.png"
+  },
+  {
+    "number": 4,
+    "slug": "004-origens-de-tramuntana",
+    "name": "Orígens de Tramuntana",
+    "category": "Restaurante en Menorca",
+    "title": "Orígens de Tramuntana · Restaurante en Menorca",
+    "description": "reserva una mesa con cocina de mercado, servicio atento y una carta pensada para repetir",
+    "heroImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/004-origens-de-tramuntana.png"
+  },
+  {
+    "number": 5,
+    "slug": "005-nit-de-sal",
+    "name": "Nit de Sal",
+    "category": "Restaurante en Menorca",
+    "title": "Nit de Sal · Restaurante en Menorca",
+    "description": "reserva una mesa con cocina de mercado, servicio atento y una carta pensada para repetir",
+    "heroImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/005-nit-de-sal.png"
+  },
+  {
+    "number": 6,
+    "slug": "006-cafe-mistral",
+    "name": "Cafè Mistral",
+    "category": "Bar / cafetería en Menorca",
+    "title": "Cafè Mistral · Bar / cafetería en Menorca",
+    "description": "desayunos, brunch y café excelente con un servicio rápido, amable y consistente",
+    "heroImage": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/006-cafe-mistral.png"
+  },
+  {
+    "number": 7,
+    "slug": "007-bar-suro",
+    "name": "Bar Suro",
+    "category": "Bar / cafetería en Menorca",
+    "title": "Bar Suro · Bar / cafetería en Menorca",
+    "description": "desayunos, brunch y café excelente con un servicio rápido, amable y consistente",
+    "heroImage": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/007-bar-suro.png"
+  },
+  {
+    "number": 8,
+    "slug": "008-lletres-i-crema",
+    "name": "Lletres i Crema",
+    "category": "Bar / cafetería en Menorca",
+    "title": "Lletres i Crema · Bar / cafetería en Menorca",
+    "description": "desayunos, brunch y café excelente con un servicio rápido, amable y consistente",
+    "heroImage": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/008-lletres-i-crema.png"
+  },
+  {
+    "number": 9,
+    "slug": "009-la-barra-blava",
+    "name": "La Barra Blava",
+    "category": "Bar / cafetería en Menorca",
+    "title": "La Barra Blava · Bar / cafetería en Menorca",
+    "description": "desayunos, brunch y café excelente con un servicio rápido, amable y consistente",
+    "heroImage": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/009-la-barra-blava.png"
+  },
+  {
+    "number": 10,
+    "slug": "010-raco-despert",
+    "name": "Racó Despert",
+    "category": "Bar / cafetería en Menorca",
+    "title": "Racó Despert · Bar / cafetería en Menorca",
+    "description": "desayunos, brunch y café excelente con un servicio rápido, amable y consistente",
+    "heroImage": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/010-raco-despert.png"
+  },
+  {
+    "number": 11,
+    "slug": "011-atelier-mirall",
+    "name": "Atelier Mirall",
+    "category": "Peluquería en Menorca",
+    "title": "Atelier Mirall · Peluquería en Menorca",
+    "description": "corte, color y tratamiento diseñados para tu cabello, agenda y estilo de vida",
+    "heroImage": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/011-atelier-mirall.png"
+  },
+  {
+    "number": 12,
+    "slug": "012-tall-salvatge",
+    "name": "Tall Salvatge",
+    "category": "Peluquería en Menorca",
+    "title": "Tall Salvatge · Peluquería en Menorca",
+    "description": "corte, color y tratamiento diseñados para tu cabello, agenda y estilo de vida",
+    "heroImage": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/012-tall-salvatge.png"
+  },
+  {
+    "number": 13,
+    "slug": "013-nura-hair-lab",
+    "name": "Nura Hair Lab",
+    "category": "Peluquería en Menorca",
+    "title": "Nura Hair Lab · Peluquería en Menorca",
+    "description": "corte, color y tratamiento diseñados para tu cabello, agenda y estilo de vida",
+    "heroImage": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/013-nura-hair-lab.png"
+  },
+  {
+    "number": 14,
+    "slug": "014-la-cadira-daurada",
+    "name": "La Cadira Daurada",
+    "category": "Peluquería en Menorca",
+    "title": "La Cadira Daurada · Peluquería en Menorca",
+    "description": "corte, color y tratamiento diseñados para tu cabello, agenda y estilo de vida",
+    "heroImage": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/014-la-cadira-daurada.png"
+  },
+  {
+    "number": 15,
+    "slug": "015-rinxol-menorca",
+    "name": "Rínxol Menorca",
+    "category": "Peluquería en Menorca",
+    "title": "Rínxol Menorca · Peluquería en Menorca",
+    "description": "corte, color y tratamiento diseñados para tu cabello, agenda y estilo de vida",
+    "heroImage": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/015-rinxol-menorca.png"
+  },
+  {
+    "number": 16,
+    "slug": "016-calma-nua",
+    "name": "Calma Nua",
+    "category": "Centro de estética en Menorca",
+    "title": "Calma Nua · Centro de estética en Menorca",
+    "description": "tratamientos faciales y corporales con protocolo, medición y una experiencia de bienestar real",
+    "heroImage": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/016-calma-nua.png"
+  },
+  {
+    "number": 17,
+    "slug": "017-aura-de-sal",
+    "name": "Aura de Sal",
+    "category": "Centro de estética en Menorca",
+    "title": "Aura de Sal · Centro de estética en Menorca",
+    "description": "tratamientos faciales y corporales con protocolo, medición y una experiencia de bienestar real",
+    "heroImage": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/017-aura-de-sal.png"
+  },
+  {
+    "number": 18,
+    "slug": "018-llum-clinica-estetica",
+    "name": "Llum Clínica Estètica",
+    "category": "Centro de estética en Menorca",
+    "title": "Llum Clínica Estètica · Centro de estética en Menorca",
+    "description": "tratamientos faciales y corporales con protocolo, medición y una experiencia de bienestar real",
+    "heroImage": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/018-llum-clinica-estetica.png"
+  },
+  {
+    "number": 19,
+    "slug": "019-ritual-37",
+    "name": "Ritual 37",
+    "category": "Centro de estética en Menorca",
+    "title": "Ritual 37 · Centro de estética en Menorca",
+    "description": "tratamientos faciales y corporales con protocolo, medición y una experiencia de bienestar real",
+    "heroImage": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/019-ritual-37.png"
+  },
+  {
+    "number": 20,
+    "slug": "020-pell-i-pedra",
+    "name": "Pell i Pedra",
+    "category": "Centro de estética en Menorca",
+    "title": "Pell i Pedra · Centro de estética en Menorca",
+    "description": "tratamientos faciales y corporales con protocolo, medición y una experiencia de bienestar real",
+    "heroImage": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/020-pell-i-pedra.png"
+  },
+  {
+    "number": 21,
+    "slug": "021-eix-fisio",
+    "name": "Eix Fisio",
+    "category": "Fisioterapia en Menorca",
+    "title": "Eix Fisio · Fisioterapia en Menorca",
+    "description": "diagnóstico claro, tratamiento manual y ejercicio terapéutico para recuperar confianza",
+    "heroImage": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/021-eix-fisio.png"
+  },
+  {
+    "number": 22,
+    "slug": "022-moure-menorca",
+    "name": "Moure Menorca",
+    "category": "Fisioterapia en Menorca",
+    "title": "Moure Menorca · Fisioterapia en Menorca",
+    "description": "diagnóstico claro, tratamiento manual y ejercicio terapéutico para recuperar confianza",
+    "heroImage": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/022-moure-menorca.png"
+  },
+  {
+    "number": 23,
+    "slug": "023-fisio-nord",
+    "name": "Fisio Nord",
+    "category": "Fisioterapia en Menorca",
+    "title": "Fisio Nord · Fisioterapia en Menorca",
+    "description": "diagnóstico claro, tratamiento manual y ejercicio terapéutico para recuperar confianza",
+    "heroImage": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/023-fisio-nord.png"
+  },
+  {
+    "number": 24,
+    "slug": "024-respira-cos",
+    "name": "Respira Cos",
+    "category": "Fisioterapia en Menorca",
+    "title": "Respira Cos · Fisioterapia en Menorca",
+    "description": "diagnóstico claro, tratamiento manual y ejercicio terapéutico para recuperar confianza",
+    "heroImage": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/024-respira-cos.png"
+  },
+  {
+    "number": 25,
+    "slug": "025-rehab-360",
+    "name": "Rehab 360",
+    "category": "Fisioterapia en Menorca",
+    "title": "Rehab 360 · Fisioterapia en Menorca",
+    "description": "diagnóstico claro, tratamiento manual y ejercicio terapéutico para recuperar confianza",
+    "heroImage": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/025-rehab-360.png"
+  },
+  {
+    "number": 26,
+    "slug": "026-forca-6am",
+    "name": "Força 6AM",
+    "category": "Entrenador personal en Menorca",
+    "title": "Força 6AM · Entrenador personal en Menorca",
+    "description": "un plan medible para ganar fuerza, bajar grasa y entrenar con intención",
+    "heroImage": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/026-forca-6am.png"
+  },
+  {
+    "number": 27,
+    "slug": "027-metxa-training",
+    "name": "Metxa Training",
+    "category": "Entrenador personal en Menorca",
+    "title": "Metxa Training · Entrenador personal en Menorca",
+    "description": "un plan medible para ganar fuerza, bajar grasa y entrenar con intención",
+    "heroImage": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/027-metxa-training.png"
+  },
+  {
+    "number": 28,
+    "slug": "028-base-atletica",
+    "name": "Base Atlètica",
+    "category": "Entrenador personal en Menorca",
+    "title": "Base Atlètica · Entrenador personal en Menorca",
+    "description": "un plan medible para ganar fuerza, bajar grasa y entrenar con intención",
+    "heroImage": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/028-base-atletica.png"
+  },
+  {
+    "number": 29,
+    "slug": "029-koru-coach",
+    "name": "Koru Coach",
+    "category": "Entrenador personal en Menorca",
+    "title": "Koru Coach · Entrenador personal en Menorca",
+    "description": "un plan medible para ganar fuerza, bajar grasa y entrenar con intención",
+    "heroImage": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/029-koru-coach.png"
+  },
+  {
+    "number": 30,
+    "slug": "030-roca-fit",
+    "name": "Roca Fit",
+    "category": "Entrenador personal en Menorca",
+    "title": "Roca Fit · Entrenador personal en Menorca",
+    "description": "un plan medible para ganar fuerza, bajar grasa y entrenar con intención",
+    "heroImage": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/030-roca-fit.png"
+  },
+  {
+    "number": 31,
+    "slug": "031-cases-de-vent",
+    "name": "Cases de Vent",
+    "category": "Inmobiliaria local en Menorca",
+    "title": "Cases de Vent · Inmobiliaria local en Menorca",
+    "description": "compra, venta o valoración con estrategia, visibilidad y negociación profesional",
+    "heroImage": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/031-cases-de-vent.png"
+  },
+  {
+    "number": 32,
+    "slug": "032-niu-menorca",
+    "name": "Niu Menorca",
+    "category": "Inmobiliaria local en Menorca",
+    "title": "Niu Menorca · Inmobiliaria local en Menorca",
+    "description": "compra, venta o valoración con estrategia, visibilidad y negociación profesional",
+    "heroImage": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/032-niu-menorca.png"
+  },
+  {
+    "number": 33,
+    "slug": "033-porta-nord",
+    "name": "Porta Nord",
+    "category": "Inmobiliaria local en Menorca",
+    "title": "Porta Nord · Inmobiliaria local en Menorca",
+    "description": "compra, venta o valoración con estrategia, visibilidad y negociación profesional",
+    "heroImage": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/033-porta-nord.png"
+  },
+  {
+    "number": 34,
+    "slug": "034-finca-clara",
+    "name": "Finca Clara",
+    "category": "Inmobiliaria local en Menorca",
+    "title": "Finca Clara · Inmobiliaria local en Menorca",
+    "description": "compra, venta o valoración con estrategia, visibilidad y negociación profesional",
+    "heroImage": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/034-finca-clara.png"
+  },
+  {
+    "number": 35,
+    "slug": "035-llar-971",
+    "name": "Llar 971",
+    "category": "Inmobiliaria local en Menorca",
+    "title": "Llar 971 · Inmobiliaria local en Menorca",
+    "description": "compra, venta o valoración con estrategia, visibilidad y negociación profesional",
+    "heroImage": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/035-llar-971.png"
+  },
+  {
+    "number": 36,
+    "slug": "036-obra-neta",
+    "name": "Obra Neta",
+    "category": "Reformas en Menorca",
+    "title": "Obra Neta · Reformas en Menorca",
+    "description": "reformas con calendario, presupuesto y coordinación para que cada decisión avance",
+    "heroImage": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/036-obra-neta.png"
+  },
+  {
+    "number": 37,
+    "slug": "037-arc-i-calc",
+    "name": "Arc i Calç",
+    "category": "Reformas en Menorca",
+    "title": "Arc i Calç · Reformas en Menorca",
+    "description": "reformas con calendario, presupuesto y coordinación para que cada decisión avance",
+    "heroImage": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/037-arc-i-calc.png"
+  },
+  {
+    "number": 38,
+    "slug": "038-reforma-brava",
+    "name": "Reforma Brava",
+    "category": "Reformas en Menorca",
+    "title": "Reforma Brava · Reformas en Menorca",
+    "description": "reformas con calendario, presupuesto y coordinación para que cada decisión avance",
+    "heroImage": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/038-reforma-brava.png"
+  },
+  {
+    "number": 39,
+    "slug": "039-espai-nou",
+    "name": "Espai Nou",
+    "category": "Reformas en Menorca",
+    "title": "Espai Nou · Reformas en Menorca",
+    "description": "reformas con calendario, presupuesto y coordinación para que cada decisión avance",
+    "heroImage": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/039-espai-nou.png"
+  },
+  {
+    "number": 40,
+    "slug": "040-mestre-de-casa",
+    "name": "Mestre de Casa",
+    "category": "Reformas en Menorca",
+    "title": "Mestre de Casa · Reformas en Menorca",
+    "description": "reformas con calendario, presupuesto y coordinación para que cada decisión avance",
+    "heroImage": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/040-mestre-de-casa.png"
+  },
+  {
+    "number": 41,
+    "slug": "041-urgent-24-menorca",
+    "name": "Urgent 24 Menorca",
+    "category": "Fontanería / electricidad en Menorca",
+    "title": "Urgent 24 Menorca · Fontanería / electricidad en Menorca",
+    "description": "averías e instalaciones con diagnóstico claro, disponibilidad y garantía",
+    "heroImage": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/041-urgent-24-menorca.png"
+  },
+  {
+    "number": 42,
+    "slug": "042-corrent-clar",
+    "name": "Corrent Clar",
+    "category": "Fontanería / electricidad en Menorca",
+    "title": "Corrent Clar · Fontanería / electricidad en Menorca",
+    "description": "averías e instalaciones con diagnóstico claro, disponibilidad y garantía",
+    "heroImage": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/042-corrent-clar.png"
+  },
+  {
+    "number": 43,
+    "slug": "043-aigua-i-llum",
+    "name": "Aigua i Llum",
+    "category": "Fontanería / electricidad en Menorca",
+    "title": "Aigua i Llum · Fontanería / electricidad en Menorca",
+    "description": "averías e instalaciones con diagnóstico claro, disponibilidad y garantía",
+    "heroImage": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/043-aigua-i-llum.png"
+  },
+  {
+    "number": 44,
+    "slug": "044-punt-tecnic",
+    "name": "Punt Tècnic",
+    "category": "Fontanería / electricidad en Menorca",
+    "title": "Punt Tècnic · Fontanería / electricidad en Menorca",
+    "description": "averías e instalaciones con diagnóstico claro, disponibilidad y garantía",
+    "heroImage": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/044-punt-tecnic.png"
+  },
+  {
+    "number": 45,
+    "slug": "045-electroport",
+    "name": "ElectroPort",
+    "category": "Fontanería / electricidad en Menorca",
+    "title": "ElectroPort · Fontanería / electricidad en Menorca",
+    "description": "averías e instalaciones con diagnóstico claro, disponibilidad y garantía",
+    "heroImage": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/045-electroport.png"
+  },
+  {
+    "number": 46,
+    "slug": "046-navega-nord",
+    "name": "Navega Nord",
+    "category": "Alquiler de barcos en Menorca",
+    "title": "Navega Nord · Alquiler de barcos en Menorca",
+    "description": "salidas privadas por Menorca con embarcaciones impecables y rutas según el viento",
+    "heroImage": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/046-navega-nord.png"
+  },
+  {
+    "number": 47,
+    "slug": "047-llaut-secret",
+    "name": "Llaüt Secret",
+    "category": "Alquiler de barcos en Menorca",
+    "title": "Llaüt Secret · Alquiler de barcos en Menorca",
+    "description": "salidas privadas por Menorca con embarcaciones impecables y rutas según el viento",
+    "heroImage": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/047-llaut-secret.png"
+  },
+  {
+    "number": 48,
+    "slug": "048-azul-38",
+    "name": "Azul 38",
+    "category": "Alquiler de barcos en Menorca",
+    "title": "Azul 38 · Alquiler de barcos en Menorca",
+    "description": "salidas privadas por Menorca con embarcaciones impecables y rutas según el viento",
+    "heroImage": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/048-azul-38.png"
+  },
+  {
+    "number": 49,
+    "slug": "049-cala-privada",
+    "name": "Cala Privada",
+    "category": "Alquiler de barcos en Menorca",
+    "title": "Cala Privada · Alquiler de barcos en Menorca",
+    "description": "salidas privadas por Menorca con embarcaciones impecables y rutas según el viento",
+    "heroImage": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/049-cala-privada.png"
+  },
+  {
+    "number": 50,
+    "slug": "050-vent-de-ponent",
+    "name": "Vent de Ponent",
+    "category": "Alquiler de barcos en Menorca",
+    "title": "Vent de Ponent · Alquiler de barcos en Menorca",
+    "description": "salidas privadas por Menorca con embarcaciones impecables y rutas según el viento",
+    "heroImage": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/050-vent-de-ponent.png"
+  },
+  {
+    "number": 51,
+    "slug": "051-cami-viu",
+    "name": "Camí Viu",
+    "category": "Excursiones turísticas en Menorca",
+    "title": "Camí Viu · Excursiones turísticas en Menorca",
+    "description": "experiencias guiadas con historia, paisaje y logística sencilla",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/051-cami-viu.png"
+  },
+  {
+    "number": 52,
+    "slug": "052-menorca-oculta",
+    "name": "Menorca Oculta",
+    "category": "Excursiones turísticas en Menorca",
+    "title": "Menorca Oculta · Excursiones turísticas en Menorca",
+    "description": "experiencias guiadas con historia, paisaje y logística sencilla",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/052-menorca-oculta.png"
+  },
+  {
+    "number": 53,
+    "slug": "053-far-tours",
+    "name": "Far Tours",
+    "category": "Excursiones turísticas en Menorca",
+    "title": "Far Tours · Excursiones turísticas en Menorca",
+    "description": "experiencias guiadas con historia, paisaje y logística sencilla",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/053-far-tours.png"
+  },
+  {
+    "number": 54,
+    "slug": "054-arrels-experience",
+    "name": "Arrels Experience",
+    "category": "Excursiones turísticas en Menorca",
+    "title": "Arrels Experience · Excursiones turísticas en Menorca",
+    "description": "experiencias guiadas con historia, paisaje y logística sencilla",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/054-arrels-experience.png"
+  },
+  {
+    "number": 55,
+    "slug": "055-ruta-salvatge",
+    "name": "Ruta Salvatge",
+    "category": "Excursiones turísticas en Menorca",
+    "title": "Ruta Salvatge · Excursiones turísticas en Menorca",
+    "description": "experiencias guiadas con historia, paisaje y logística sencilla",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/055-ruta-salvatge.png"
+  },
+  {
+    "number": 56,
+    "slug": "056-son-quiet",
+    "name": "Son Quiet",
+    "category": "Agroturismo / alojamiento en Menorca",
+    "title": "Son Quiet · Agroturismo / alojamiento en Menorca",
+    "description": "habitaciones, finca y experiencia local para bajar el ritmo sin renunciar al detalle",
+    "heroImage": "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/056-son-quiet.png"
+  },
+  {
+    "number": 57,
+    "slug": "057-finca-estrella",
+    "name": "Finca Estrella",
+    "category": "Agroturismo / alojamiento en Menorca",
+    "title": "Finca Estrella · Agroturismo / alojamiento en Menorca",
+    "description": "habitaciones, finca y experiencia local para bajar el ritmo sin renunciar al detalle",
+    "heroImage": "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/057-finca-estrella.png"
+  },
+  {
+    "number": 58,
+    "slug": "058-era-de-llum",
+    "name": "Era de Llum",
+    "category": "Agroturismo / alojamiento en Menorca",
+    "title": "Era de Llum · Agroturismo / alojamiento en Menorca",
+    "description": "habitaciones, finca y experiencia local para bajar el ritmo sin renunciar al detalle",
+    "heroImage": "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/058-era-de-llum.png"
+  },
+  {
+    "number": 59,
+    "slug": "059-cases-del-cami",
+    "name": "Cases del Camí",
+    "category": "Agroturismo / alojamiento en Menorca",
+    "title": "Cases del Camí · Agroturismo / alojamiento en Menorca",
+    "description": "habitaciones, finca y experiencia local para bajar el ritmo sin renunciar al detalle",
+    "heroImage": "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/059-cases-del-cami.png"
+  },
+  {
+    "number": 60,
+    "slug": "060-refugi-blau",
+    "name": "Refugi Blau",
+    "category": "Agroturismo / alojamiento en Menorca",
+    "title": "Refugi Blau · Agroturismo / alojamiento en Menorca",
+    "description": "habitaciones, finca y experiencia local para bajar el ritmo sin renunciar al detalle",
+    "heroImage": "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/060-refugi-blau.png"
+  },
+  {
+    "number": 61,
+    "slug": "061-botiga-sargantana",
+    "name": "Botiga Sargantana",
+    "category": "Tienda local en Menorca",
+    "title": "Botiga Sargantana · Tienda local en Menorca",
+    "description": "una selección local y contemporánea para comprar mejor, regalar bien y volver",
+    "heroImage": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/061-botiga-sargantana.png"
+  },
+  {
+    "number": 62,
+    "slug": "062-mercat-petit",
+    "name": "Mercat Petit",
+    "category": "Tienda local en Menorca",
+    "title": "Mercat Petit · Tienda local en Menorca",
+    "description": "una selección local y contemporánea para comprar mejor, regalar bien y volver",
+    "heroImage": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/062-mercat-petit.png"
+  },
+  {
+    "number": 63,
+    "slug": "063-fil-de-mar",
+    "name": "Fil de Mar",
+    "category": "Tienda local en Menorca",
+    "title": "Fil de Mar · Tienda local en Menorca",
+    "description": "una selección local y contemporánea para comprar mejor, regalar bien y volver",
+    "heroImage": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/063-fil-de-mar.png"
+  },
+  {
+    "number": 64,
+    "slug": "064-objectes-bons",
+    "name": "Objectes Bons",
+    "category": "Tienda local en Menorca",
+    "title": "Objectes Bons · Tienda local en Menorca",
+    "description": "una selección local y contemporánea para comprar mejor, regalar bien y volver",
+    "heroImage": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/064-objectes-bons.png"
+  },
+  {
+    "number": 65,
+    "slug": "065-xaloc-artesa",
+    "name": "Xaloc Artesà",
+    "category": "Tienda local en Menorca",
+    "title": "Xaloc Artesà · Tienda local en Menorca",
+    "description": "una selección local y contemporánea para comprar mejor, regalar bien y volver",
+    "heroImage": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/065-xaloc-artesa.png"
+  },
+  {
+    "number": 66,
+    "slug": "066-clinica-dens",
+    "name": "Clínica Dens",
+    "category": "Clínica dental en Menorca",
+    "title": "Clínica Dens · Clínica dental en Menorca",
+    "description": "salud dental, estética y prevención con tecnología y explicación clara",
+    "heroImage": "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/066-clinica-dens.png"
+  },
+  {
+    "number": 67,
+    "slug": "067-somriure-nord",
+    "name": "Somriure Nord",
+    "category": "Clínica dental en Menorca",
+    "title": "Somriure Nord · Clínica dental en Menorca",
+    "description": "salud dental, estética y prevención con tecnología y explicación clara",
+    "heroImage": "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/067-somriure-nord.png"
+  },
+  {
+    "number": 68,
+    "slug": "068-dental-calma",
+    "name": "Dental Calma",
+    "category": "Clínica dental en Menorca",
+    "title": "Dental Calma · Clínica dental en Menorca",
+    "description": "salud dental, estética y prevención con tecnología y explicación clara",
+    "heroImage": "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/068-dental-calma.png"
+  },
+  {
+    "number": 69,
+    "slug": "069-oral-360",
+    "name": "Oral 360",
+    "category": "Clínica dental en Menorca",
+    "title": "Oral 360 · Clínica dental en Menorca",
+    "description": "salud dental, estética y prevención con tecnología y explicación clara",
+    "heroImage": "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/069-oral-360.png"
+  },
+  {
+    "number": 70,
+    "slug": "070-blanc-menorca",
+    "name": "Blanc Menorca",
+    "category": "Clínica dental en Menorca",
+    "title": "Blanc Menorca · Clínica dental en Menorca",
+    "description": "salud dental, estética y prevención con tecnología y explicación clara",
+    "heroImage": "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/070-blanc-menorca.png"
+  },
+  {
+    "number": 71,
+    "slug": "071-aula-bruixola",
+    "name": "Aula Brúixola",
+    "category": "Academia en Menorca",
+    "title": "Aula Brúixola · Academia en Menorca",
+    "description": "clases con plan, ritmo y seguimiento para avanzar sin perder motivación",
+    "heroImage": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/071-aula-bruixola.png"
+  },
+  {
+    "number": 72,
+    "slug": "072-petit-progres",
+    "name": "Petit Progrés",
+    "category": "Academia en Menorca",
+    "title": "Petit Progrés · Academia en Menorca",
+    "description": "clases con plan, ritmo y seguimiento para avanzar sin perder motivación",
+    "heroImage": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/072-petit-progres.png"
+  },
+  {
+    "number": 73,
+    "slug": "073-nivell-nord",
+    "name": "Nivell Nord",
+    "category": "Academia en Menorca",
+    "title": "Nivell Nord · Academia en Menorca",
+    "description": "clases con plan, ritmo y seguimiento para avanzar sin perder motivación",
+    "heroImage": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/073-nivell-nord.png"
+  },
+  {
+    "number": 74,
+    "slug": "074-idiomes-xaloc",
+    "name": "Idiomes Xaloc",
+    "category": "Academia en Menorca",
+    "title": "Idiomes Xaloc · Academia en Menorca",
+    "description": "clases con plan, ritmo y seguimiento para avanzar sin perder motivación",
+    "heroImage": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/074-idiomes-xaloc.png"
+  },
+  {
+    "number": 75,
+    "slug": "075-academia-prisma",
+    "name": "Acadèmia Prisma",
+    "category": "Academia en Menorca",
+    "title": "Acadèmia Prisma · Academia en Menorca",
+    "description": "clases con plan, ritmo y seguimiento para avanzar sin perder motivación",
+    "heroImage": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/075-academia-prisma.png"
+  },
+  {
+    "number": 76,
+    "slug": "076-volant-nord",
+    "name": "Volant Nord",
+    "category": "Autoescuela en Menorca",
+    "title": "Volant Nord · Autoescuela en Menorca",
+    "description": "teórica y prácticas organizadas para que llegues al examen con confianza",
+    "heroImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/076-volant-nord.png"
+  },
+  {
+    "number": 77,
+    "slug": "077-autoescola-ronda",
+    "name": "Autoescola Ronda",
+    "category": "Autoescuela en Menorca",
+    "title": "Autoescola Ronda · Autoescuela en Menorca",
+    "description": "teórica y prácticas organizadas para que llegues al examen con confianza",
+    "heroImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/077-autoescola-ronda.png"
+  },
+  {
+    "number": 78,
+    "slug": "078-km-zero",
+    "name": "Km Zero",
+    "category": "Autoescuela en Menorca",
+    "title": "Km Zero · Autoescuela en Menorca",
+    "description": "teórica y prácticas organizadas para que llegues al examen con confianza",
+    "heroImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/078-km-zero.png"
+  },
+  {
+    "number": 79,
+    "slug": "079-ruta-segura",
+    "name": "Ruta Segura",
+    "category": "Autoescuela en Menorca",
+    "title": "Ruta Segura · Autoescuela en Menorca",
+    "description": "teórica y prácticas organizadas para que llegues al examen con confianza",
+    "heroImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/079-ruta-segura.png"
+  },
+  {
+    "number": 80,
+    "slug": "080-conduir-be",
+    "name": "Conduir Bé",
+    "category": "Autoescuela en Menorca",
+    "title": "Conduir Bé · Autoescuela en Menorca",
+    "description": "teórica y prácticas organizadas para que llegues al examen con confianza",
+    "heroImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/080-conduir-be.png"
+  },
+  {
+    "number": 81,
+    "slug": "081-llum-nomada",
+    "name": "Llum Nòmada",
+    "category": "Fotografía en Menorca",
+    "title": "Llum Nòmada · Fotografía en Menorca",
+    "description": "fotografía con sensibilidad editorial para momentos, marcas y celebraciones",
+    "heroImage": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/081-llum-nomada.png"
+  },
+  {
+    "number": 82,
+    "slug": "082-frame-salat",
+    "name": "Frame Salat",
+    "category": "Fotografía en Menorca",
+    "title": "Frame Salat · Fotografía en Menorca",
+    "description": "fotografía con sensibilidad editorial para momentos, marcas y celebraciones",
+    "heroImage": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/082-frame-salat.png"
+  },
+  {
+    "number": 83,
+    "slug": "083-boda-viva",
+    "name": "Boda Viva",
+    "category": "Fotografía en Menorca",
+    "title": "Boda Viva · Fotografía en Menorca",
+    "description": "fotografía con sensibilidad editorial para momentos, marcas y celebraciones",
+    "heroImage": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/083-boda-viva.png"
+  },
+  {
+    "number": 84,
+    "slug": "084-retrat-nord",
+    "name": "Retrat Nord",
+    "category": "Fotografía en Menorca",
+    "title": "Retrat Nord · Fotografía en Menorca",
+    "description": "fotografía con sensibilidad editorial para momentos, marcas y celebraciones",
+    "heroImage": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/084-retrat-nord.png"
+  },
+  {
+    "number": 85,
+    "slug": "085-studio-cala",
+    "name": "Studio Cala",
+    "category": "Fotografía en Menorca",
+    "title": "Studio Cala · Fotografía en Menorca",
+    "description": "fotografía con sensibilidad editorial para momentos, marcas y celebraciones",
+    "heroImage": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/085-studio-cala.png"
+  },
+  {
+    "number": 86,
+    "slug": "086-motor-clar",
+    "name": "Motor Clar",
+    "category": "Taller mecánico en Menorca",
+    "title": "Motor Clar · Taller mecánico en Menorca",
+    "description": "mantenimiento y reparación con presupuesto claro, piezas adecuadas y explicación",
+    "heroImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/086-motor-clar.png"
+  },
+  {
+    "number": 87,
+    "slug": "087-garaje-nord",
+    "name": "Garaje Nord",
+    "category": "Taller mecánico en Menorca",
+    "title": "Garaje Nord · Taller mecánico en Menorca",
+    "description": "mantenimiento y reparación con presupuesto claro, piezas adecuadas y explicación",
+    "heroImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/087-garaje-nord.png"
+  },
+  {
+    "number": 88,
+    "slug": "088-roda-fina",
+    "name": "Roda Fina",
+    "category": "Taller mecánico en Menorca",
+    "title": "Roda Fina · Taller mecánico en Menorca",
+    "description": "mantenimiento y reparación con presupuesto claro, piezas adecuadas y explicación",
+    "heroImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/088-roda-fina.png"
+  },
+  {
+    "number": 89,
+    "slug": "089-taller-360",
+    "name": "Taller 360",
+    "category": "Taller mecánico en Menorca",
+    "title": "Taller 360 · Taller mecánico en Menorca",
+    "description": "mantenimiento y reparación con presupuesto claro, piezas adecuadas y explicación",
+    "heroImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/089-taller-360.png"
+  },
+  {
+    "number": 90,
+    "slug": "090-classics-menorca",
+    "name": "Clàssics Menorca",
+    "category": "Taller mecánico en Menorca",
+    "title": "Clàssics Menorca · Taller mecánico en Menorca",
+    "description": "mantenimiento y reparación con presupuesto claro, piezas adecuadas y explicación",
+    "heroImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/090-classics-menorca.png"
+  },
+  {
+    "number": 91,
+    "slug": "091-net-i-punt",
+    "name": "Net i Punt",
+    "category": "Limpieza / mantenimiento en Menorca",
+    "title": "Net i Punt · Limpieza / mantenimiento en Menorca",
+    "description": "limpieza y mantenimiento con planificación, supervisión y comunicación clara",
+    "heroImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/091-net-i-punt.png"
+  },
+  {
+    "number": 92,
+    "slug": "092-brilla-nord",
+    "name": "Brilla Nord",
+    "category": "Limpieza / mantenimiento en Menorca",
+    "title": "Brilla Nord · Limpieza / mantenimiento en Menorca",
+    "description": "limpieza y mantenimiento con planificación, supervisión y comunicación clara",
+    "heroImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/092-brilla-nord.png"
+  },
+  {
+    "number": 93,
+    "slug": "093-manteniment-blau",
+    "name": "Manteniment Blau",
+    "category": "Limpieza / mantenimiento en Menorca",
+    "title": "Manteniment Blau · Limpieza / mantenimiento en Menorca",
+    "description": "limpieza y mantenimiento con planificación, supervisión y comunicación clara",
+    "heroImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/093-manteniment-blau.png"
+  },
+  {
+    "number": 94,
+    "slug": "094-equip-finca",
+    "name": "Equip Finca",
+    "category": "Limpieza / mantenimiento en Menorca",
+    "title": "Equip Finca · Limpieza / mantenimiento en Menorca",
+    "description": "limpieza y mantenimiento con planificación, supervisión y comunicación clara",
+    "heroImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/094-equip-finca.png"
+  },
+  {
+    "number": 95,
+    "slug": "095-cristall-971",
+    "name": "Cristall 971",
+    "category": "Limpieza / mantenimiento en Menorca",
+    "title": "Cristall 971 · Limpieza / mantenimiento en Menorca",
+    "description": "limpieza y mantenimiento con planificación, supervisión y comunicación clara",
+    "heroImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/095-cristall-971.png"
+  },
+  {
+    "number": 96,
+    "slug": "096-nits-de-llum",
+    "name": "Nits de Llum",
+    "category": "Eventos en Menorca",
+    "title": "Nits de Llum · Eventos en Menorca",
+    "description": "diseño y coordinación de eventos con estética, precisión y experiencia invitado",
+    "heroImage": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/096-nits-de-llum.png"
+  },
+  {
+    "number": 97,
+    "slug": "097-taula-festa",
+    "name": "Taula Festa",
+    "category": "Eventos en Menorca",
+    "title": "Taula Festa · Eventos en Menorca",
+    "description": "diseño y coordinación de eventos con estética, precisión y experiencia invitado",
+    "heroImage": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/097-taula-festa.png"
+  },
+  {
+    "number": 98,
+    "slug": "098-cerimonia-sal",
+    "name": "Cerimònia Sal",
+    "category": "Eventos en Menorca",
+    "title": "Cerimònia Sal · Eventos en Menorca",
+    "description": "diseño y coordinación de eventos con estética, precisión y experiencia invitado",
+    "heroImage": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/098-cerimonia-sal.png"
+  },
+  {
+    "number": 99,
+    "slug": "099-escena-menorca",
+    "name": "Escena Menorca",
+    "category": "Eventos en Menorca",
+    "title": "Escena Menorca · Eventos en Menorca",
+    "description": "diseño y coordinación de eventos con estética, precisión y experiencia invitado",
+    "heroImage": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/099-escena-menorca.png"
+  },
+  {
+    "number": 100,
+    "slug": "100-moments-971",
+    "name": "Moments 971",
+    "category": "Eventos en Menorca",
+    "title": "Moments 971 · Eventos en Menorca",
+    "description": "diseño y coordinación de eventos con estética, precisión y experiencia invitado",
+    "heroImage": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1800&h=1200&q=80",
+    "previewImage": "/prototype-previews/100-moments-971.png"
+  }
+]

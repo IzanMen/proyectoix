@@ -1,11 +1,17 @@
 # Regla global — aplica a cualquier user-agent no listado abajo
 User-agent: *
 Disallow: /api/
+Disallow: /plantillas
+Disallow: /plantillas/
+Disallow: /prototipos-static/
 Allow: /
 
 # Crawlers principales
 User-agent: Googlebot
 Disallow: /api/
+Disallow: /plantillas
+Disallow: /plantillas/
+Disallow: /prototipos-static/
 Allow: /
 
 User-agent: Googlebot-Image
@@ -13,6 +19,9 @@ Allow: /
 
 User-agent: Bingbot
 Disallow: /api/
+Disallow: /plantillas
+Disallow: /plantillas/
+Disallow: /prototipos-static/
 Allow: /
 
 User-agent: DuckDuckBot
