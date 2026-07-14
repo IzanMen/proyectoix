@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "XDG_CONFIG_HOME=../../.config sanity dev --port 3333",
-    "build": "XDG_CONFIG_HOME=../../.config sanity build",
-    "deploy": "XDG_CONFIG_HOME=../../.config sanity deploy",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "dev": "XDG_CONFIG_HOME=../../.config bash ../../scripts/with-node-version.sh sanity dev --port 3333",
+    "build": "XDG_CONFIG_HOME=../../.config bash ../../scripts/with-node-version.sh sanity build",
+    "deploy": "XDG_CONFIG_HOME=../../.config bash ../../scripts/with-node-version.sh sanity deploy",
+    "typecheck": "bash ../../scripts/with-node-version.sh tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "react": "^18.3.1",

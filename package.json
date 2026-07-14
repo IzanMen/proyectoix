@@ -4,14 +4,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "bash scripts/start-server.sh",
-    "dev:local": "node scripts/dev-local.mjs",
-    "dev:api": "pnpm --filter @workspace/api-server run dev",
-    "dev:web": "pnpm --filter @workspace/ix-landing run dev",
+    "dev:local": "bash scripts/with-node-version.sh node scripts/dev-local.mjs",
+    "dev:api": "bash scripts/with-node-version.sh pnpm --filter @workspace/api-server run dev",
+    "dev:web": "bash scripts/with-node-version.sh pnpm --filter @workspace/ix-landing run dev",
     "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
-    "build": "pnpm run typecheck && pnpm -r --if-present run build",
-    "postbuild": "node scripts/copy-vercel-output.mjs",
-    "typecheck:libs": "tsc --build --force",
-    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
+    "build": "bash scripts/with-node-version.sh pnpm run typecheck && bash scripts/with-node-version.sh pnpm -r --if-present run build",
+    "postbuild": "bash scripts/with-node-version.sh node scripts/copy-vercel-output.mjs",
+    "typecheck:libs": "bash scripts/with-node-version.sh tsc --build --force",
+    "typecheck": "bash scripts/with-node-version.sh pnpm run typecheck:libs && bash scripts/with-node-version.sh pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
   "private": true,
   "devDependencies": {

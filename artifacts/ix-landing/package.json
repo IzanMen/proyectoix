@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "vite build --config vite.config.ts && node scripts/precompress.mjs",
-    "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "dev": "bash ../../scripts/with-node-version.sh vite --config vite.config.ts --host 0.0.0.0",
+    "build": "bash ../../scripts/with-node-version.sh vite build --config vite.config.ts && bash ../../scripts/with-node-version.sh node scripts/precompress.mjs",
+    "serve": "bash ../../scripts/with-node-version.sh vite preview --config vite.config.ts --host 0.0.0.0",
+    "typecheck": "bash ../../scripts/with-node-version.sh tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {
     "@fontsource-variable/inter": "^5.1.1",

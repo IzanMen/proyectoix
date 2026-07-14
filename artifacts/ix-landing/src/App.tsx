@@ -51,7 +51,7 @@ function AppRoutes() {
           <Route path="/blog/:slug" component={BlogPost} />
           <Route path="/plantillas" component={Plantillas} />
           <Route path="/plantillas/:slug" component={PlantillaDemo} />
-          <Route path="/lp/:slug" component={Campaign} />
+          <Route path="/lp/negocios-menorca" component={Campaign} />
           <Route path="/brief/9k3a7q2x5m" component={Cuestionario} />
           <Route component={NotFound} />
         </Switch>

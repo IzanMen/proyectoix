@@ -31,10 +31,11 @@ if port_is_listening "$API_PORT" && port_is_listening "$WEB_PORT"; then
 fi
 
 if [[ -s "$ROOT_DIR/.nvmrc" && -s "$HOME/.nvm/nvm.sh" ]]; then
+  export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
   # shellcheck source=/dev/null
-  source "$HOME/.nvm/nvm.sh"
+  source "$NVM_DIR/nvm.sh" --no-use
   node_version="$(tr -d '[:space:]' < "$ROOT_DIR/.nvmrc")"
-  nvm use "$node_version"
+  nvm use --silent "$node_version"
 fi
 
 exec pnpm run dev:local

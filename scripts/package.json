@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "hello": "tsx ./src/hello.ts",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "hello": "bash ../scripts/with-node-version.sh tsx ./src/hello.ts",
+    "typecheck": "bash ../scripts/with-node-version.sh tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {
     "@types/node": "catalog:",

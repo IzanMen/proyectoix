@@ -4,10 +4,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "dev": "bash ../../scripts/with-node-version.sh vite dev",
+    "build": "bash ../../scripts/with-node-version.sh vite build",
+    "preview": "bash ../../scripts/with-node-version.sh vite preview",
+    "typecheck": "bash ../../scripts/with-node-version.sh tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
