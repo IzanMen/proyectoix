@@ -2,6 +2,9 @@
   "name": "workspace",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "bash scripts/start-server.sh",
     "dev:local": "bash scripts/with-node-version.sh node scripts/dev-local.mjs",

@@ -3,6 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 NODE_VERSION="$(tr -d '[:space:]' < "$ROOT_DIR/.nvmrc")"
+NODE_MAJOR="${NODE_VERSION%%.*}"
 
 if [[ $# -eq 0 ]]; then
   echo "Usage: $0 <command> [args...]" >&2
@@ -12,6 +13,10 @@ fi
 if command -v node >/dev/null 2>&1; then
   CURRENT_VERSION="$(node -v | sed 's/^v//')"
   if [[ "$CURRENT_VERSION" == "$NODE_VERSION" ]]; then
+    exec "$@"
+  fi
+  CURRENT_MAJOR="${CURRENT_VERSION%%.*}"
+  if [[ "${CI:-}" == "true" || "${VERCEL:-}" == "1" ]] && [[ "$CURRENT_MAJOR" == "$NODE_MAJOR" ]]; then
     exec "$@"
   fi
 fi
